@@ -466,11 +466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e9ccb6c91b5aa4891e8a0d9743582a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxSpeed: 250
-  playerSpeedPerFreame: 1
+  playerMaxSpeed: 25
+  speedPerFrame: 3
   playerAcel: 100
-  playerBrake: 0.9
-  playerFric: 0.5
+  playerBrake: 15
+  playerFric: 0.05
   playerTurn: 0.5
   currentSpeed: 0
 --- !u!114 &2018570814
@@ -499,7 +499,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!23 &2018570816
 MeshRenderer:
