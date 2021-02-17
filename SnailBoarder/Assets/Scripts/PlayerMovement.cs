@@ -30,47 +30,14 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed += speedPerFrame;
             currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             //subtract from player speed
             currentSpeed -= playerBrake;
             currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
         }
         playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
-        currentSpeed -= playerFric;
+        currentSpeed -= playerFric; //friction
         currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
-
-        //Friction();
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    Move();
-        //}
-        //else if (Input.GetKeyDown(KeyCode.LeftShift))
-        //{
-        //    Break();
-        //}
-        //currentSpeed = playerRigidbody.velocity.magnitude;
-    }
-
-    void Move()
-    {
-        if (currentSpeed < playerMaxSpeed)
-        {
-            Vector3 force = gameObject.transform.forward * playerAcel;
-            playerRigidbody.AddForce(force);
-        }
-    }
-
-    void Break()
-    {
-        if (currentSpeed > 0)
-        {
-            playerRigidbody.AddForce(gameObject.transform.forward * -playerBrake * Time.deltaTime);
-        }
-    }
-
-    void Friction()
-    {
-        playerRigidbody.AddForce(gameObject.transform.forward * -playerFric * Time.deltaTime);
     }
 }
