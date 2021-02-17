@@ -19,7 +19,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * currentSpeed * playerTurn, Space.World);
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * currentSpeed * playerTurn, Space.World);
+        }
     }
 
     private void FixedUpdate()
@@ -29,15 +36,22 @@ public class PlayerMovement : MonoBehaviour
             //add to player speed
             currentSpeed += speedPerFrame;
             currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+            //add acceleration force here?
+            //playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
             //subtract from player speed
             currentSpeed -= playerBrake;
             currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+            //Add decceleration force here?
+            //playerRigidbody.AddForce(-gameObject.transform.forward * playerBrake, ForceMode.VelocityChange);
         }
         playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
         currentSpeed -= playerFric; //friction
         currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+        //add friction force here?
     }
+
+    //rotation
 }
