@@ -6,7 +6,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f, playerFric = 0.1f, playerTurn = .5f, currentSpeed;
+    public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f, playerFric = 0.1f, playerTurn = .5f, jumpForce = 10f, currentSpeed;
+
+    // Rotation stuff
+    Quaternion targetRotation;
 
     private Rigidbody playerRigidbody;
     Vector3 moveX, moveZ;
@@ -41,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         //add friction force here?
 
         GroundCheck();
+        Rotate();
     }
 
     public void OnMoveForward()
@@ -49,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed += speedPerFrame;
         currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
         //add acceleration force here?
-        //playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
+        playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
     }
 
     public void OnBrake()
@@ -58,19 +62,30 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed -= playerBrake;
         currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
         //Add decceleration force here?
-        //playerRigidbody.AddForce(-gameObject.transform.forward * playerBrake, ForceMode.VelocityChange);
+        playerRigidbody.AddForce(-gameObject.transform.forward * playerBrake, ForceMode.VelocityChange);
     }
 
     public void OnTurn(InputValue value)
     {
         Vector2 val = value.Get<Vector2>();
+        targetRotation = Quaternion.LookRotation(new Vector3(val.x, 0, val.y));
 
-        transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * currentSpeed * playerTurn * val.y, Space.World);
+        //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
+        //Debug.Log("rotate");
+    }
+
+    void Rotate()
+    {
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, speedPerFrame * Time.deltaTime * playerTurn);
     }
 
     public void OnJump()
     {
-
+        if (isGrounded)
+        {
+            //jump
+            playerRigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Acceleration);
+        }
     }
 
 
