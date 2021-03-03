@@ -12,8 +12,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveX, moveZ;
 
     // Trick triggers stuff
-    public float distToGround = 1f;
+    public float distToGround = 3f;
     public Text debugText;
+    float slopeAngle;
+    // We can use normalised slope to multiply it by position change
+    // to make it harder to go up the hill/ramp and easier on the way down
+    //float normalisedSlope;
 
     // Start is called before the first frame update
     void Start()
@@ -75,9 +79,13 @@ public class PlayerMovement : MonoBehaviour
     void GroundCheck()
     {
         // Tricks triggers stuff
-        if (Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround + 0.1f))
         {
-            debugText.text = "Grounded";
+            slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
+            // normalisedSlope = (slopeAngle / 90f) * -1f;
+            debugText.text = "Grounded on " + hit.transform.name;
+            debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
             isGrounded = true;
         }
         else
