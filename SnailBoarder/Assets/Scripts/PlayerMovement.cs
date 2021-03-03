@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,10 +11,15 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRigidbody;
     Vector3 moveX, moveZ;
 
+    // Trick triggers stuff
+    public float distToGround = 1f;
+    public Text debugText;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
+        debugText = GameObject.Find("DebugText").GetComponent<Text>();  //Find Debug Text on Scene
         currentSpeed = 0.0f;
     }
 
@@ -29,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed -= playerFric; //friction
         currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
         //add friction force here?
+
+        GroundCheck();
     }
 
     public void OnMoveForward()
@@ -61,5 +69,22 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
+    public bool isGrounded = false;
+
+    void GroundCheck()
+    {
+        // Tricks triggers stuff
+        if (Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
+        {
+            debugText.text = "Grounded";
+            isGrounded = true;
+        }
+        else
+        {
+            debugText.text = "Not Grounded";
+            isGrounded = false;
+        }
+    }
     //rotation
 }
