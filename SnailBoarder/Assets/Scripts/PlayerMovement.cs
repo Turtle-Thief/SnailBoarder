@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,38 +20,45 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * currentSpeed * playerTurn, Space.World);
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * currentSpeed * playerTurn, Space.World);
-        }
+        
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //add to player speed
-            currentSpeed += speedPerFrame;
-            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
-            //add acceleration force here?
-            //playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
-        }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            //subtract from player speed
-            currentSpeed -= playerBrake;
-            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
-            //Add decceleration force here?
-            //playerRigidbody.AddForce(-gameObject.transform.forward * playerBrake, ForceMode.VelocityChange);
-        }
         playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
         currentSpeed -= playerFric; //friction
         currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
         //add friction force here?
+    }
+
+    public void OnMoveForward()
+    {
+        //add to player speed
+        currentSpeed += speedPerFrame;
+        currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+        //add acceleration force here?
+        //playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
+    }
+
+    public void OnBrake()
+    {
+        //subtract from player speed
+        currentSpeed -= playerBrake;
+        currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+        //Add decceleration force here?
+        //playerRigidbody.AddForce(-gameObject.transform.forward * playerBrake, ForceMode.VelocityChange);
+    }
+
+    public void OnTurn(InputValue value)
+    {
+        Vector2 val = value.Get<Vector2>();
+
+        transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * currentSpeed * playerTurn * val.y, Space.World);
+    }
+
+    public void OnJump()
+    {
+
     }
 
     //rotation
