@@ -19,7 +19,7 @@
                     "id": "bce77fda-c78b-4133-80df-74221c34155d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": ""
                 },
                 {
                     "name": "Turn",
@@ -73,7 +73,7 @@
                     "name": "",
                     "id": "4c8f9399-63cb-4cbf-89cb-87c3feb9794d",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Brake",
@@ -84,7 +84,7 @@
                     "name": "",
                     "id": "94384871-b072-45b4-8654-575daa661940",
                     "path": "<Keyboard>/leftShift",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Brake",
