@@ -30,12 +30,20 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Wheelie",
+                    "type": "Button",
+                    "id": "144682e9-ba59-4c7d-ba43-bea801178e09",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "50128a81-fdd2-459d-bdbe-7359bfb10866",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Hold(duration=0.1)"
                 },
                 {
                     "name": "Look",
@@ -264,6 +272,39 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "GamePadWheelie",
+                    "id": "b267e86f-33fb-4095-a1b6-ac03a0f16fb1",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Wheelie",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "ab0ff7f5-34b7-45ea-8fac-7d72641f29af",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Wheelie",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "ce7f269c-284a-447f-a8e5-7f00bcb3c891",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Wheelie",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
