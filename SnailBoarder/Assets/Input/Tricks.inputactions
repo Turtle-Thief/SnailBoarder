@@ -1,0 +1,185 @@
+{
+    "name": "Tricks",
+    "maps": [
+        {
+            "name": "Tricks",
+            "id": "affab436-aa54-417b-bdb8-392ed092ca71",
+            "actions": [
+                {
+                    "name": "Ollie",
+                    "type": "Button",
+                    "id": "83abeb3a-5a07-41cf-afc6-569ade1138e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Wheelie",
+                    "type": "Button",
+                    "id": "d397dbdc-5bbc-4eb7-adbc-8a14da39df69",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Kickflip",
+                    "type": "Button",
+                    "id": "1c518ef8-8c72-4dd9-a4eb-4c107b0b1d20",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PopShuvit",
+                    "type": "Button",
+                    "id": "709123df-93ce-4403-b7df-5182b01d378e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "HospitalFlip",
+                    "type": "Button",
+                    "id": "ea34c331-8134-42b1-bc5b-969db8f2297c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "StandardGrind",
+                    "type": "Button",
+                    "id": "98ea7f07-9528-4c51-898f-4fe9f1e4ad9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "180HeelFlip",
+                    "type": "Button",
+                    "id": "6457be5a-8b9d-4aed-8ec2-ac663564fd73",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "VarialMcTwist",
+                    "type": "Button",
+                    "id": "4eace6e5-0c3b-4bf4-adfe-163f78eb0123",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Kickflip720",
+                    "type": "Button",
+                    "id": "89a9f65e-eac1-4296-a5bd-cec72c606731",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c814b313-40e9-4c75-82e0-755b67ea13e6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Wheelie",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d753484f-1204-4d3e-b7ce-d556352de42f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ollie",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2bcbd256-02c8-42c9-b10c-0ce22448f1c5",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kickflip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7cdfd909-24fa-41c9-9496-d7f507d47c33",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PopShuvit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2f1b16a-8377-4b58-80e2-029f8e8621a0",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HospitalFlip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8383f9cd-7d92-454f-89d3-58a7efab48a2",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StandardGrind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e366abbd-b069-4c66-aa00-761a4ca5380b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "180HeelFlip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e3adeb0-75f5-4829-b1bf-77b1dfc54d9e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "VarialMcTwist",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92263ee2-9398-4c7f-9ff9-4b06f40adedc",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kickflip720",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -2,11 +2,11 @@
     "name": "CameraControls",
     "maps": [
         {
-            "name": "Mouse",
+            "name": "Camera",
             "id": "61324bd5-2260-4906-9c27-91fe6239cae2",
             "actions": [
                 {
-                    "name": "MouseLook",
+                    "name": "CameraLook",
                     "type": "PassThrough",
                     "id": "fcfb83d3-be34-4708-a844-b49bc01ca7b4",
                     "expectedControlType": "Vector2",
@@ -22,7 +22,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseLook",
+                    "action": "CameraLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "413719b7-6c1d-421a-8336-04149fc8ff2e",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraLook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
