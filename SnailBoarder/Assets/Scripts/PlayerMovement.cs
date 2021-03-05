@@ -6,17 +6,26 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f, playerFric = 0.1f, playerTurn = .5f, jumpForce = 10f, currentSpeed;
+    public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f, playerFric = 0.1f, playerRotSpeed = 300f, jumpForce = 10f, currentSpeed;
 
     // Rotation stuff
     Quaternion targetRotation;
+    [HideInInspector]
+    public float rotationY = 0f;
 
     private Rigidbody playerRigidbody;
     Vector3 moveX, moveZ;
 
     // Trick triggers stuff
-    public float distToGround = 3f;
     public Text debugText;
+
+    [HideInInspector]
+    public bool isGrounded = false;
+    [HideInInspector]
+    public bool isDoingTrick = false;
+
+    public float distToGround = 3f;
+
     float slopeAngle;
     // We can use normalised slope to multiply it by position change
     // to make it harder to go up the hill/ramp and easier on the way down
@@ -67,29 +76,31 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTurn(InputValue value)
     {
-        Vector2 val = value.Get<Vector2>();
-        targetRotation = Quaternion.LookRotation(new Vector3(val.x, 0, val.y));
-
-        //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
-        //Debug.Log("rotate");
+        if (isGrounded && !isDoingTrick)
+        {
+            Vector2 val = value.Get<Vector2>();
+            rotationY = val.x * Time.deltaTime * playerRotSpeed;
+            //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
+            //Debug.Log("rotate");
+        }
     }
 
     void Rotate()
     {
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, speedPerFrame * Time.deltaTime * playerTurn);
+        if (isGrounded && !isDoingTrick)
+        {
+            transform.Rotate(0.0f, rotationY, 0.0f);
+        }
     }
 
     public void OnJump()
     {
-        if (isGrounded)
+        if (isGrounded && !isDoingTrick)
         {
             //jump
             playerRigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Acceleration);
         }
     }
-
-
-    public bool isGrounded = false;
 
     void GroundCheck()
     {
