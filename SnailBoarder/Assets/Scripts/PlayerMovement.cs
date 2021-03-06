@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded = false;
     [HideInInspector]
     public bool isDoingTrick = false;
+    [HideInInspector]
+    public bool isBraking = false;
 
     public float distToGround = 3f;
 
@@ -47,31 +49,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
-        currentSpeed -= playerFric; //friction
-        currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
-        //add friction force here?
-
+        Brake();
+        Friction();
         GroundCheck();
         Rotate();
     }
 
+    // Input Event Functions
     public void OnMoveForward()
     {
-        //add to player speed
-        currentSpeed += speedPerFrame;
-        currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
-        //add acceleration force here?
-        playerRigidbody.AddForce(gameObject.transform.forward * currentSpeed, ForceMode.Acceleration);
+        if (isGrounded)
+        {
+            //add to player speed
+            currentSpeed += speedPerFrame;
+            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+            //add acceleration force here?
+            if (playerRigidbody.velocity.magnitude < playerMaxSpeed)
+            {
+                playerRigidbody.AddForce(gameObject.transform.forward * playerAcel, ForceMode.VelocityChange);
+            }
+        }
     }
 
     public void OnBrake()
     {
-        //subtract from player speed
-        currentSpeed -= playerBrake;
-        currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
-        //Add decceleration force here?
-        playerRigidbody.AddForce(-gameObject.transform.forward * playerBrake, ForceMode.VelocityChange);
+        isBraking = !isBraking;
     }
 
     public void OnTurn(InputValue value)
@@ -85,20 +87,35 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Rotate()
-    {
-        if (isGrounded && !isDoingTrick)
-        {
-            transform.Rotate(0.0f, rotationY, 0.0f);
-        }
-    }
-
     public void OnJump()
     {
         if (isGrounded && !isDoingTrick)
         {
             //jump
             playerRigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Acceleration);
+        }
+    }
+
+    // Physics functions
+    void Brake()
+    {
+        if (isGrounded && isBraking)
+        {
+            //subtract from player speed
+            currentSpeed -= playerBrake;
+            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+            //Add decceleration force here?
+            if (playerRigidbody.velocity.magnitude > playerBrake)
+            {
+                playerRigidbody.AddForce(gameObject.transform.forward * -playerBrake, ForceMode.VelocityChange);
+            }
+        }
+    }
+    void Rotate()
+    {
+        if (isGrounded && !isDoingTrick)
+        {
+            transform.Rotate(0.0f, rotationY, 0.0f);
         }
     }
 
@@ -120,5 +137,18 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
-    //rotation
+    
+    void Friction()
+    {
+        if (isGrounded)
+        {
+            currentSpeed -= playerFric; //friction
+            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+            //add friction force here?
+            if (playerRigidbody.velocity.magnitude > playerFric)
+            {
+                playerRigidbody.AddForce(gameObject.transform.forward * -playerFric, ForceMode.Acceleration);
+            }
+        }
+    }
 }

@@ -11,7 +11,7 @@
                     "id": "1f760a5e-a4a7-469b-95ad-5f0755064f2c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "Brake",
@@ -19,7 +19,7 @@
                     "id": "bce77fda-c78b-4133-80df-74221c34155d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Turn",
@@ -43,7 +43,7 @@
                     "id": "50128a81-fdd2-459d-bdbe-7359bfb10866",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold(duration=0.1)"
+                    "interactions": "Press"
                 },
                 {
                     "name": "Look",
@@ -81,7 +81,7 @@
                     "name": "",
                     "id": "4c8f9399-63cb-4cbf-89cb-87c3feb9794d",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Brake",
@@ -92,7 +92,7 @@
                     "name": "",
                     "id": "94384871-b072-45b4-8654-575daa661940",
                     "path": "<Keyboard>/leftShift",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Brake",
@@ -116,7 +116,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
