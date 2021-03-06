@@ -796,11 +796,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e9ccb6c91b5aa4891e8a0d9743582a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxSpeed: 50
+  playerMaxSpeed: 150
   speedPerFrame: 10
-  playerAcel: 100
+  playerAcel: 50
   playerBrake: 20
-  playerFric: 0.1
+  playerFric: 0.05
   playerRotSpeed: 200
   jumpForce: 350
   currentSpeed: 0
@@ -1003,12 +1003,12 @@ PrefabInstance:
     - target: {fileID: 3573379380641758570, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008477829
+      value: 0.000000008477832
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380641758570, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000014633121
+      value: -0.0000000014633124
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259034, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
@@ -1088,17 +1088,17 @@ PrefabInstance:
     - target: {fileID: 3573379381444666530, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.20577289
+      value: 0.2057729
       objectReference: {fileID: 0}
     - target: {fileID: 3573379381444666530, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000014978276
+      value: -0.000000020904341
       objectReference: {fileID: 0}
     - target: {fileID: 3573379381444666530, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000031495233
+      value: 0.0000000043956145
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f666cefaa8c8884babf9be74e09479e, type: 3}
