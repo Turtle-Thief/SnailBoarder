@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationY = 0f;
 
     private Rigidbody playerRigidbody;
+    public Transform centerOfMass;
     Vector3 moveX, moveZ;
 
     // Trick triggers stuff
@@ -39,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
         debugText = GameObject.Find("DebugText").GetComponent<Text>();  //Find Debug Text on Scene
         currentSpeed = 0.0f;
+        if (centerOfMass != null)
+            playerRigidbody.centerOfMass =  centerOfMass.position - transform.position;
     }
 
     // Update is called once per frame
@@ -49,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Brake();
+        //Brake();
         Friction();
         GroundCheck();
         Rotate();
@@ -66,14 +69,25 @@ public class PlayerMovement : MonoBehaviour
             //add acceleration force here?
             if (playerRigidbody.velocity.magnitude < playerMaxSpeed)
             {
-                playerRigidbody.AddForce(gameObject.transform.forward * playerAcel, ForceMode.VelocityChange);
+                playerRigidbody.AddForce(gameObject.transform.forward.normalized * playerAcel, ForceMode.VelocityChange);
             }
         }
     }
 
     public void OnBrake()
     {
-        isBraking = !isBraking;
+        //isBraking = !isBraking;
+        if (isGrounded)
+        {
+            //subtract from player speed
+            currentSpeed -= playerBrake;
+            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+            //Add decceleration force here?
+            if (playerRigidbody.velocity.sqrMagnitude > 0.2)
+            {
+                playerRigidbody.AddForce(gameObject.transform.forward.normalized * -playerBrake, ForceMode.VelocityChange);
+            }
+        }
     }
 
     public void OnTurn(InputValue value)
@@ -107,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             //Add decceleration force here?
             if (playerRigidbody.velocity.magnitude > playerBrake)
             {
-                playerRigidbody.AddForce(gameObject.transform.forward * -playerBrake, ForceMode.VelocityChange);
+                playerRigidbody.AddForce(gameObject.transform.forward.normalized * -playerBrake, ForceMode.VelocityChange);
             }
         }
     }
@@ -147,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             //add friction force here?
             if (playerRigidbody.velocity.magnitude > playerFric)
             {
-                playerRigidbody.AddForce(gameObject.transform.forward * -playerFric, ForceMode.Acceleration);
+                playerRigidbody.AddForce(gameObject.transform.forward.normalized * -playerFric, ForceMode.Acceleration);
             }
         }
     }
