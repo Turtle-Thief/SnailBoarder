@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class GameManager : MonoBehaviour
     private Canvas currentScreen;
     private GameObject debugPanel;
     private Text scoreText;
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     public void AddToScore(int value)
     {
@@ -46,7 +52,7 @@ public class GameManager : MonoBehaviour
             scoreText = debugPanel.transform.GetChild(1).gameObject.GetComponent<Text>(); // this is terrible please don't replicate this
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {

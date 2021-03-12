@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    public void OnReset()
+    {
+        GameManager.instance.ResetScene();
+    }
+
+
+
     // Start is called before the first frame update
     void Start()
     {
