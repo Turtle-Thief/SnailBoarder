@@ -22,6 +22,7 @@ public class TricksController : MonoBehaviour
             StartCoroutine(PauseForTrick(2f));
             StartCoroutine(WheelieAnim());  //tmp while no animations
             Debug.Log("Wheelie!!!!");
+            GameManager.instance.AddToScore(15);
         }
     }
 
