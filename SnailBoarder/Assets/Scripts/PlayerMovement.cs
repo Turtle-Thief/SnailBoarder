@@ -106,8 +106,13 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && !isDoingTrick)
         {
             //jump
-            playerRigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Acceleration);
+            Jump(1.0f);
         }
+    }
+
+    public void Jump(float forceMultiplier)
+    {
+        playerRigidbody.AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
     }
 
     // Physics functions
