@@ -35,6 +35,30 @@
                     "id": "144682e9-ba59-4c7d-ba43-bea801178e09",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Kickflip",
+                    "type": "Button",
+                    "id": "e7b7eff1-0632-4696-a200-b8d8bb1cb1d4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "PopShuvit",
+                    "type": "Button",
+                    "id": "cd02c7c2-6f81-45be-9261-6bd55bce4ecf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "HospitalFlip",
+                    "type": "Button",
+                    "id": "7c5a7f93-13b5-4238-add0-ca6a89cdfda0",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": ""
                 },
                 {
@@ -43,7 +67,7 @@
                     "id": "50128a81-fdd2-459d-bdbe-7359bfb10866",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=1)"
                 },
                 {
                     "name": "Look",
@@ -284,39 +308,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "GamePadWheelie",
-                    "id": "b267e86f-33fb-4095-a1b6-ac03a0f16fb1",
-                    "path": "ButtonWithOneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Wheelie",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "ab0ff7f5-34b7-45ea-8fac-7d72641f29af",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Wheelie",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "button",
-                    "id": "ce7f269c-284a-447f-a8e5-7f00bcb3c891",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Wheelie",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "7f67cc39-27fd-4e1b-92fd-3617838b9cd0",
                     "path": "<Keyboard>/r",
@@ -335,6 +326,127 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePadKickflip",
+                    "id": "b1082235-10ed-414f-b531-a90687fce977",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kickflip",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "59a88c79-900c-443f-bf47-dca08c2a5727",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Kickflip",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "9076903e-3d98-47c8-9de2-2633d1567330",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Kickflip",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "GamePadPopShuvit",
+                    "id": "74e716ae-261a-408f-9d0a-87650ce5fd60",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PopShuvit",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "bf6cde34-7a1c-4db2-895f-c5d25d1b7b09",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PopShuvit",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "b8a56621-f7d8-4d9e-a71d-c6fa9d2d28ce",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PopShuvit",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button With Two Modifiers",
+                    "id": "35e8ec83-6d38-41ad-a834-5f8b1cbad8be",
+                    "path": "ButtonWithTwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HospitalFlip",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "27c4cab7-1833-4dd8-8c7a-2e5f550e2755",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HospitalFlip",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "e4c2fdf9-accd-4df1-9691-49fb2535be21",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HospitalFlip",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "9df68670-2993-49fc-a6f4-6815293df6d5",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HospitalFlip",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "53cd3a6b-791c-4a3d-8c3f-d0819e71b2d0",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Wheelie",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
