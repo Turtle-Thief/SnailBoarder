@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     public void OnReset()
     {
-        GameManager.instance.ResetScene();
+        SceneLoader.instance.ResetScene();
     }
 
 

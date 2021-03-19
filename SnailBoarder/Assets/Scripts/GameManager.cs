@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
+    public GameObject sceneLoader;
     public int score;
 
     private Canvas currentScreen;
     private GameObject debugPanel;
     private Text scoreText;
 
-    public void ResetScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 
     public void AddToScore(int value)
     {
@@ -30,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // Old way to setup singletons
+        // Older way to setup singletons
         if(instance)
         {
             Destroy(gameObject);
@@ -39,6 +35,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+        }
+
+        if(!sceneLoader)
+        {
+            sceneLoader = SceneLoader.instance.gameObject;
         }
     }
 
