@@ -47,7 +47,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // If the game is NOT paused...
+        if(!GameManager.instance.gameIsPaused)
+        {
+            // Put everything in here!!!
+
+        }
     }
 
     private void FixedUpdate()

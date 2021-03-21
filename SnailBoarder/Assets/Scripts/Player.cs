@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    public void OnReset()
-    {
-        SceneLoader.instance.ResetScene();
-    }
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +13,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // If the game is NOT paused...
+        if (!GameManager.instance.gameIsPaused)
+        {
+            // Put everything in here!!!
+
+        }
     }
 }

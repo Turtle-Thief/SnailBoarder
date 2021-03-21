@@ -12,17 +12,25 @@ public class SceneLoader : MonoBehaviour
 
     private int currentScene = 0;
 
-    public void LoadNextScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
         if (sceneName == "nextLevel")
         {
+            // Load the next scene
             SceneManager.LoadScene(nextLevel);
             currentScene = nextLevel;
+            
+            // Signal that we're starting the next level (may need to add loading test here)
+            GameManager.instance.OnNextLevel();
         }
         else if (sceneName == "judge")
         {
+            // Load the judge scene
             SceneManager.LoadScene(judge);
             currentScene = judge;
+
+            // Signal that we've finished the previous level (may need to add loading test here)
+            GameManager.instance.OnFinishedLevel();
         }
         else if (sceneName == "dialog")
         {
@@ -32,6 +40,8 @@ public class SceneLoader : MonoBehaviour
         else if (sceneName == "title")
         {
             SceneManager.LoadScene(title);
+            GameManager.instance.onPausableScene = false;
+            GameManager.instance.ResumeGame();
             currentScene = title;
         }
         else
@@ -62,5 +72,13 @@ public class SceneLoader : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
+    private void Update()
+    {
+        // If the game is NOT paused...
+        if (!GameManager.instance.gameIsPaused)
+        {
+            // Put everything in here!!!
 
+        }
+    }
 }

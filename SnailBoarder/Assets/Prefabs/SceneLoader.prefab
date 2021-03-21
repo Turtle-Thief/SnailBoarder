@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: 0
-  game: 0
-  judge: 0
-  dialog: 0
+  nextLevel: 1
+  judge: 2
+  dialog: 3

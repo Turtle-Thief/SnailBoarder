@@ -6,15 +6,18 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    // ***** Still debating whether to make a singleton or not
+
     public GameObject 
         HUDPanel,
         pausePanel,
         helpPanel,
         settingsPanel,
-        confirmPanel;
+        confirmPanel,
+        currentPanel;
 
-    #region UI methods
-
+    public bool previousExists = false;
+    private GameObject previousPanel; // Reference object
 
     #region Video Attributes
 
@@ -27,9 +30,15 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-    #region Panel Functions
+    #region General UI Methods
 
-    public void OpenPanel(GameObject thePanel)
+    #region Panel Logic Functions
+
+    /// <summary>
+    /// Opens the UI Panel 'nextPanel'
+    /// </summary>
+    /// <param name="nextPanel"></param>
+    public void OpenPanel(GameObject nextPanel)
     {
         // Disable all other panels first
         pausePanel.SetActive(false);
@@ -38,7 +47,58 @@ public class UIManager : MonoBehaviour
         confirmPanel.SetActive(false);
 
         // Enable our panel we want to activate
-        thePanel.SetActive(true);
+        nextPanel.SetActive(true);
+        currentPanel = nextPanel;
+        previousExists = false;
+    }
+
+    /// <summary>
+    /// Opens givenPanel in the GUI and sets previousPanel as the panel to return to
+    /// </summary>
+    /// <param name="nextPanel"></param>
+    /// <param name="previousPanel"></param>
+    public void OpenPanel(GameObject givenPanel, GameObject previousPanel)
+    {
+        // Disable all other panels first
+        pausePanel.SetActive(false);
+        helpPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        confirmPanel.SetActive(false);
+
+        // Enable our panel we want to activate
+        givenPanel.SetActive(true);
+        currentPanel = givenPanel;
+        // Record our previous panel
+        this.previousPanel = previousPanel;
+        previousExists = true;
+    }
+
+    /// <summary>
+    /// Closes the current panel with the option of opening the previous panel
+    /// </summary>
+    /// <param name="nextPanel"></param>
+    /// <param name="returnToPreviousPanel"></param>
+    public void ClosePanel(GameObject givenPanel, bool returnToPreviousPanel)
+    {
+        givenPanel.SetActive(false);
+
+        // If we should return to the previous panel, AND we have a previous panel defined, then return to it
+        //  *note: this works now, but if we end up needing multiple nested menus, this should be turned into an array/list
+        if (returnToPreviousPanel && previousPanel)
+            previousPanel.SetActive(true);
+
+        // Reset our reference panel
+        previousPanel = null;
+        previousExists = false;
+    }
+
+    public void CloseAllPanels()
+    {
+        // Disable all panels
+        pausePanel.SetActive(false);
+        helpPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        confirmPanel.SetActive(false);
     }
 
     private void ConfirmChoice()
@@ -52,9 +112,7 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
-
-    #region Save/Load (Not setup)
-    #endregion
+    // I will map these to settings menu later
     #region Video Settings Functions
 
     public void SetNextResolution()
@@ -100,14 +158,14 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt(WINDOWED_PREF_KEY, (isWindowed ? 1 : 0));
     }
 
-    #endregion
+    #endregion 
     #region Sound Settings Functions (not setup)
     #endregion
     #region Quit Functions
 
     public void QuitToTitle()
     {
-        SceneLoader.instance.LoadNextScene("title");
+        SceneLoader.instance.LoadScene("title");
     }
 
     public void CancelQuit()
@@ -115,13 +173,54 @@ public class UIManager : MonoBehaviour
         CancelConfirm();
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }
 
     #endregion
 
+    #endregion
+    #region Menu UI Methods
+
+    #region Pause Menu
+
+    // Pause menu buttons and logic listed in order
+
+    // Resume;
+    //  Resume the game - should only be called while in a game scene
+    public void PauseToResume()
+    {
+        // Resume the game
+        GameManager.instance.ResumeGame(); // May need to edit this to make CloseAllPanels private
+    }
+
+    // Controls;
+    public void PauseToControls()
+    {
+        // Open our help panel and reference our pause panel
+        OpenPanel(helpPanel, pausePanel);
+    }
+
+    // Settings;
+    public void PauseToSettings()
+    {
+        // Open our settings panel and reference our pause panel
+        OpenPanel(settingsPanel, pausePanel);
+    }
+
+    // Quit to Title;
+    public void PauseToTitle()
+    {
+        // Close our panels
+        CloseAllPanels();
+        // Load our title scene
+        SceneLoader.instance.LoadScene("title");
+    }
+
+    #endregion
+
+    #endregion
     #region Tools
 
     // Using modulos to "wrap" the array
@@ -144,31 +243,13 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-
-    #endregion
-
-    #region Button Methods
-    public void OnStart()
+    private void Awake()
     {
-        SceneLoader.instance.LoadNextScene("game");
+        if(GameManager.instance.UM)
+        {
+            Destroy(this.gameObject);
+        }
     }
-
-    public void OnHelp()
-    {
-        OpenPanel(helpPanel);
-    }
-
-    public void OnSettings()
-    {
-        OpenPanel(settingsPanel);
-    }
-
-    public void OnQuit()
-    {
-        QuitGame();
-    }
-    #endregion
-
 
     // Start is called before the first frame update
     void Start()
@@ -191,6 +272,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // If the game is NOT paused...
+        if (!GameManager.instance.gameIsPaused)
+        {
+            // Put everything in here!!!
+
+        }
     }
 }
