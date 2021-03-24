@@ -8,13 +8,18 @@ public class SceneLoader : MonoBehaviour
     public static SceneLoader instance = null;
 
     // public int values to change scenes
-    public int title, nextLevel, judge, dialog;
+    public int title, prelevel, nextLevel, judge, dialog;
 
     private int currentScene = 0;
 
     public void LoadScene(string sceneName)
     {
-        if (sceneName == "nextLevel")
+        if(sceneName == "prelevel")
+        {
+            SceneManager.LoadScene(prelevel);
+            currentScene = prelevel;
+        }
+        else if (sceneName == "nextLevel")
         {
             // Load the next scene
             SceneManager.LoadScene(nextLevel);

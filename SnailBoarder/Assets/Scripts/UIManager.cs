@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     // ***** Still debating whether to make a singleton or not
 
+    // Panel attributes
     public GameObject 
         HUDPanel,
         pausePanel,
@@ -18,6 +20,19 @@ public class UIManager : MonoBehaviour
 
     public bool previousExists = false;
     private GameObject previousPanel; // Reference object
+
+    // HUD attributes
+    public TextMeshProUGUI 
+        trickNameText,
+        scoreText;
+    public Image scoreImage; // This might be deleted, depends on final layout of HUD
+    public List<Image> buttonInputImages;
+    public List<TextMeshProUGUI> trickLog;
+
+    private bool 
+        comboinit = false, 
+        trickFinished = false, 
+        fading = false;
 
     #region Video Attributes
 
@@ -30,6 +45,9 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    // We can separate these out to other scripts if need be,
+    //  a "HUD" script might be especially useful, but for now
+    //  I hope separating everything into regions is clean enough
     #region General UI Methods
 
     #region Panel Logic Functions
@@ -221,6 +239,100 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #endregion
+    #region HUD Methods
+
+    // Given a trick and score, we change the HUD text
+
+    // It doesn't make a lot of sense that we have to input the scoreValue like this,
+    //   we should use a ScriptableObject, a Dictionary, or an Enum to be able to pass
+    //   in a Trick reference and obtain name and score all from the same object
+    public void ChangeTrickAndScoreHUD(string trickName, int scoreValue) 
+    {
+        trickNameText.text = trickName;
+        trickNameText.CrossFadeAlpha(1, 0, false); // reset our alpha value to normal
+        scoreText.text = scoreValue.ToString();
+    }
+    
+    public void ChangeTrick(string trickName)
+    {
+        trickNameText.text = trickName;
+        trickNameText.CrossFadeAlpha(1, 0, false);
+    }
+
+    IEnumerator FadeOutTrickHUD()
+    {
+        yield return new WaitForSeconds(2f); // wait 2 seconds
+        //if(!comboSuccess)
+        {
+            fading = true;
+
+            // fade out trick text alpha over 2 seconds
+            trickNameText.CrossFadeAlpha(0, 2, false);
+            
+            // fade out buttons image alpha over 2 seconds; this might not work
+            foreach(Image button in buttonInputImages)
+            {
+                button.CrossFadeAlpha(0, 2, false);
+            }
+        }
+    }
+
+    public void AddButtonHUD(string input)
+    {
+        // If our last input had us finish a trick
+        if(trickFinished)
+        {
+            // clean up
+            ClearAfterTrickHUD();
+        }
+
+        // if we're currently fading our GUI, speed it up
+        if (fading)
+        {
+
+        }
+
+        // if list has space, add image at current button index
+        // else if list is out of bounds / full, reset button list, then add button image to beginning
+
+            // else if combo success bool, reset list
+    }
+
+    public void ResetButtonListHUD()
+    {
+        // for each button, remove image and set alpha to 0
+    }
+
+    public void TrickStartedHUD()
+    {
+        // combo success bool to true
+
+
+        //if(success)
+        {
+        }
+        //else
+        {
+            // change trick func
+        }
+        // start coroutine for fade
+    }
+
+    public void TrickFinishedHUD()
+    {
+            // change trick and score func
+            // add to log
+        trickFinished = true;
+    }
+
+    // Clear our button images and our score image and text
+    public void ClearAfterTrickHUD()
+    {
+        // clear buttons
+        // clear score
+        // immediate-fade trick name
+    }
+    #endregion
     #region Tools
 
     // Using modulos to "wrap" the array
@@ -258,12 +370,16 @@ public class UIManager : MonoBehaviour
 
         #region Video Initializations
 
-        resText.text = "Auto";
-        resolutions = new List<Resolution>();
-        resolutions.AddRange(Screen.resolutions);
-        resolutions = resolutions.Distinct().ToList();
-        currentResIndex = PlayerPrefs.GetInt(RESOLUTION_PREF_KEY, 0);
-        isWindowed = PlayerPrefs.GetInt(WINDOWED_PREF_KEY) != 0;
+        if (resText)
+        {
+            resText.text = "Auto";
+            resolutions = new List<Resolution>();
+            resolutions.AddRange(Screen.resolutions);
+            resolutions = resolutions.Distinct().ToList();
+            currentResIndex = PlayerPrefs.GetInt(RESOLUTION_PREF_KEY, 0);
+            isWindowed = PlayerPrefs.GetInt(WINDOWED_PREF_KEY) != 0;
+        }
+
 
         #endregion
 

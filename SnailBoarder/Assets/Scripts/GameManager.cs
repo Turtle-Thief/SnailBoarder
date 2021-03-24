@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,16 +17,44 @@ public class GameManager : MonoBehaviour
     public UIManager UM;
     
     private GameObject debugPanel, UICanvas;
-    private Text scoreText;
+    private TextMeshProUGUI scoreText;
 
-    #region Secondary Input Methods
+    private PlayerInput IC; // Input component
+    private InputActionAsset secondaryInputs;
+    private InputActionMap cheats;
+
+    #region Cheats
     /*** TESTING PURPOSES ONLY, SHOULD BE DELETED FOR ALPHA/BETA ***/
     private void OnResetLevel()
     {
         SceneLoader.instance.ResetScene();
     }
 
+    // This is a test function for testing anything you need with input.
+    //  Not sure if some logic will pan out? Want to see if button presses are
+    //  working? Need something to Debug? You can put it here
+    //
+    //  Press 'J' to activate this function during runtime
+    private void OnTest()
+    {
+        //Debug.Log("pre coroutine");
 
+        scoreText.CrossFadeAlpha(0, 2f, false);
+        //StartCoroutine(TestCoroutine());
+        //Debug.Log("past coroutine");
+    }
+
+    // For use with OnTest
+    IEnumerator TestCoroutine()
+    {
+        //Debug.Log("Made it");
+        // Testing alpha values
+        scoreText.CrossFadeAlpha(0, 2f, false);
+        yield return new WaitForSeconds(2f);
+        //scoreText.CrossFadeAlpha(1, 5f, false);
+    }
+    #endregion
+    #region Secondary Input Methods
     private void OnPause()
     {
         if(onPausableScene)
@@ -113,6 +143,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
     }
+    private void FindAndSetInputs()
+    {
+        IC = GetComponent<PlayerInput>();
+        secondaryInputs = IC.actions;
+
+        // Enable cheats
+        cheats = secondaryInputs.FindActionMap("Cheats");
+        cheats.Enable();
+    }
 
     private void Awake()
     {
@@ -133,16 +172,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     // Start is called before the first frame update
     void Start()
     {
+        FindAndSetInputs(); // This just enables cheats right now
+
         UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
         UM = UICanvas.GetComponent<UIManager>();
 
         if(UICanvas)
         {
             debugPanel = UICanvas.transform.GetChild(0).gameObject; // Gets the debug panel
-            scoreText = debugPanel.transform.GetChild(1).gameObject.GetComponent<Text>(); // this is terrible please don't replicate this
+            scoreText = debugPanel.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>(); // this is terrible please don't replicate this
         }
     }
     

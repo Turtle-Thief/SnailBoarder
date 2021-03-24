@@ -14,14 +14,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ResetLevel",
-                    "type": "Button",
-                    "id": "549683df-511e-4639-855f-d7a6261fc5a8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Previous",
                     "type": "Button",
                     "id": "f3934deb-e6c7-4b28-b592-9ca6aa162bed",
@@ -50,28 +42,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3cfbf35c-7198-41f4-97b3-9db8446fff30",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ResetLevel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ee1912d6-3f72-40c9-b7ce-531725fb86bd",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ResetLevel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -121,6 +91,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Test",
+                    "type": "Button",
+                    "id": "e403efaa-145f-425a-b310-7dbc67910141",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -143,6 +121,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ResetLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "809ab667-ad4e-4421-90ad-9b8260a30173",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Test",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
