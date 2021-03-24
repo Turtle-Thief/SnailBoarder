@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody playerRigidbody;
     public Transform centerOfMass;
+    public Collider selfRighting;
     Vector3 moveX, moveZ;
 
     // Trick triggers stuff
