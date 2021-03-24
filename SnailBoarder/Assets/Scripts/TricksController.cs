@@ -15,6 +15,16 @@ public class TricksController : MonoBehaviour
         playerMovement = this.GetComponent<PlayerMovement>();
     }
 
+    private void Update()
+    {
+        // If the game is NOT paused...
+        if (!GameManager.instance.gameIsPaused)
+        {
+            // Put everything in here!!!
+
+        }
+    }
+
     public void OnWheelie()
     {
         if (playerMovement.isGrounded && !playerMovement.isDoingTrick)
