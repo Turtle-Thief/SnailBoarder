@@ -33,9 +33,10 @@ public class SkateTimer : MonoBehaviour
 
     private void DisplayTime()
     {
-
-        timeDisplay.text = "" + (Time.time - skateStart);
+        if (activeState)
+        {
+            timeDisplay.text = "" + (Time.time - skateStart);
+        }
     }
-
 
 }
