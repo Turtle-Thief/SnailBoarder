@@ -79,7 +79,7 @@ public class TricksController : MonoBehaviour
     {
         if(currentTrick.mName == TrickName.NullTrick)  // If no trick are in progress
         {
-            Debug.Log("Here1");
+            //Debug.Log("Here1");
 
             if((trickType.mIsGroundTrick && playerMovement.isGrounded) ||
                 (!trickType.mIsGroundTrick && !playerMovement.isGrounded))
@@ -87,7 +87,7 @@ public class TricksController : MonoBehaviour
         }
         else if (timeSinceLastTrickStart < buttonComboDelayMax && currentTrick.mTier < trickType.mTier && currentTrick.mIsGroundTrick == trickType.mIsGroundTrick) // If another trick is already in progress
         {
-            Debug.Log("Here2");
+            //Debug.Log("Here2");
             StopAllCoroutines();
             playerRigidbody.constraints = RigidbodyConstraints.None;
 
@@ -103,23 +103,23 @@ public class TricksController : MonoBehaviour
         {
             case TrickName.Ollie:
                 OllieAnim();
-                Debug.Log("!Ollie!");
+                //Debug.Log("!Ollie!");
                 break;
             case TrickName.Wheelie:
                 StartCoroutine(WheelieAnim()); //tmp
-                Debug.Log("!Wheelie!");
+                //Debug.Log("!Wheelie!");
                 break;
             case TrickName.KickFlip:
                 StartCoroutine(KickflipAnim()); //tmp
-                Debug.Log("!OnKickflip!");
+                //Debug.Log("!OnKickflip!");
                 break;
             case TrickName.PopShuvit:
                 StartCoroutine(PopShuvitAnim()); //tmp
-                Debug.Log("!OnPopShuvit!");
+                //Debug.Log("!OnPopShuvit!");
                 break;
             case TrickName.HospitalFlip:
                 StartCoroutine(HospitalFlipAnim()); //tmp
-                Debug.Log("!OnHospitalFlip!");
+                //Debug.Log("!OnHospitalFlip!");
                 break;
         }
 
@@ -129,31 +129,31 @@ public class TricksController : MonoBehaviour
 
     public void OnOllie()
     {
-        Debug.Log("Input Ollie");
+        //Debug.Log("Input Ollie");
         TrickInputCall(Tricks[(int)TrickName.Ollie]);
     }
 
     public void OnWheelie()
     {
-        Debug.Log("Input Wheelie");
+        //Debug.Log("Input Wheelie");
         TrickInputCall(Tricks[(int)TrickName.Wheelie]);
     }
 
     public void OnKickflip()
     {
-        Debug.Log("Input Kickflip");
+        //Debug.Log("Input Kickflip");
         TrickInputCall(Tricks[(int)TrickName.KickFlip]);
     }
     
     public void OnPopShuvit()
     {
-        Debug.Log("Input PopShuvit");
+        //Debug.Log("Input PopShuvit");
         TrickInputCall(Tricks[(int)TrickName.PopShuvit]);
     }
 
     public void OnHospitalFlip()
     {
-        Debug.Log("Input HospitalFlip");
+        //Debug.Log("Input HospitalFlip");
         TrickInputCall(Tricks[(int)TrickName.HospitalFlip]);
     }
 
