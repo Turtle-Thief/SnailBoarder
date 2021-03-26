@@ -144,13 +144,17 @@ public class PlayerMovement : MonoBehaviour
         {
             slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
             // normalisedSlope = (slopeAngle / 90f) * -1f;
-            debugText.text = "Grounded on " + hit.transform.name;
-            debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
+            if (debugText)
+            {
+                debugText.text = "Grounded on " + hit.transform.name;
+                debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
+            }
             isGrounded = true;
         }
         else
         {
-            debugText.text = "Not Grounded";
+            if(debugText)
+                debugText.text = "Not Grounded";
             isGrounded = false;
         }
     }
