@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snailName: Carl
   dialogueLines:
-  - This is the Fifth Test
+  - A knockout win!
   textSpeed: 0.05
   emotion: {fileID: 0}
   cameraSlot: 2

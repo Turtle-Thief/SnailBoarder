@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class DialogueStructure : MonoBehaviour
 {
 
@@ -67,6 +67,12 @@ public class DialogueStructure : MonoBehaviour
 
         if(lineNum + 1 == block[blockNum].dialogueLines.Length)
         {
+
+            if(blockNum + 1 == block.Length)
+            {
+                SceneManager.LoadScene("TitleScene");
+            }
+
             IdentifySpeaker().SetActive(false);
             blockNum++;
             lineNum = 0;

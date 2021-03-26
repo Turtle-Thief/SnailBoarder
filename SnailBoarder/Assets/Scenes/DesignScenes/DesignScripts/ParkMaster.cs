@@ -41,6 +41,15 @@ public class ParkMaster : MonoBehaviour
     void Update()
     {
         CheckTimer();
+        ForceTransition();
+    }
+
+
+    private void ForceTransition()
+    {
+
+
+
     }
 
 

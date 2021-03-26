@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snailName: Bob
   dialogueLines:
-  - This is the First Test
-  - This is the Second Test
-  textSpeed: 0.2
+  - What exciting skating!
+  - A thrilling tournament!
+  textSpeed: 0.05
   emotion: {fileID: 0}
   cameraSlot: 0

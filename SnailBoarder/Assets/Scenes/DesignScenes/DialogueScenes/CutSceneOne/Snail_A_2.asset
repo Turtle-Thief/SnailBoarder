@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snailName: Bob
   dialogueLines:
-  - This is the Third Test
+  - Can't beleive it!
   textSpeed: 0.05
   emotion: {fileID: 0}
   cameraSlot: 0
