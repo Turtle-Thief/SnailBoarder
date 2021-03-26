@@ -30479,6 +30479,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramp (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8616504480697359961, guid: 8240985deb42c244ab13fe8b2ab83c59,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8240985deb42c244ab13fe8b2ab83c59, type: 3}
 --- !u!4 &1586231921 stripped
