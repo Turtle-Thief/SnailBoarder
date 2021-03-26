@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    TricksController tricksController;
+
     public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f, playerFric = 0.1f, playerRotSpeed = 300f, jumpForce = 10f, currentSpeed;
 
     // Rotation stuff
@@ -24,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool isGrounded = false;
     [HideInInspector]
-    public bool isDoingTrick = false;
-    [HideInInspector]
     public bool isBraking = false;
 
     public float distToGround = 3f;
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
+        tricksController = this.GetComponent<TricksController>();
         debugText = GameObject.Find("DebugText").GetComponent<Text>();  //Find Debug Text on Scene
         currentSpeed = 0.0f;
         if (centerOfMass != null)
@@ -98,21 +99,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTurn(InputValue value)
     {
-        if (isGrounded && !isDoingTrick)
+        if (isGrounded && tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
             Vector2 val = value.Get<Vector2>();
             rotationY = val.x * Time.deltaTime * playerRotSpeed;
             //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
             //Debug.Log("rotate");
-        }
-    }
-
-    public void OnJump()
-    {
-        if (isGrounded && !isDoingTrick)
-        {
-            //jump
-            Jump(1.0f);
         }
     }
 
@@ -138,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Rotate()
     {
-        if (isGrounded && !isDoingTrick)
+        if (isGrounded && tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
             transform.Rotate(0.0f, rotationY, 0.0f);
         }
