@@ -111,12 +111,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Collision Event functions
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("self righting from " + collision.gameObject.name);   
+    }
+
+    // Physics functions
     public void Jump(float forceMultiplier)
     {
         playerRigidbody.AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
     }
-
-    // Physics functions
+        
     void Brake()
     {
         if (isGrounded && isBraking)
@@ -170,5 +176,10 @@ public class PlayerMovement : MonoBehaviour
                 playerRigidbody.AddForce(gameObject.transform.forward.normalized * -playerFric, ForceMode.Acceleration);
             }
         }
+    }
+
+    void SelfRight()
+    {
+
     }
 }
