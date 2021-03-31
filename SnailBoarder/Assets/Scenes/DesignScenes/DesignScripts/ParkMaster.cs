@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using SuperiorArrays;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 public class ParkMaster : MonoBehaviour
 {
     public static GameObject seedInfo;
     public GameObject highway;
     private GameObject[][] parkLayoutHighway;
+
+    public GameObject[] publicTest;
+
 
 
     private GameObject timerObject;
@@ -15,10 +19,14 @@ public class ParkMaster : MonoBehaviour
 
     public string nextScene;
 
-
+    public PlayerInput maps;
 
     public float levelLength;
 
+    public GameObject snail;
+
+  //  public GameObject hatPoint;
+  //  public GameManager[] hats;
 
     private void Awake()
     {
@@ -30,19 +38,50 @@ public class ParkMaster : MonoBehaviour
     void Start()
     {
 
-        SetLevelParameter(0);
+        EnterCosmetics();
 
-        timerObject = GameObject.Find("UI_Main");
-        timerObject.GetComponent<SkateTimer>().ActivateTime();
+        SetLevelParameter(0);
+        try
+        {
+            timerObject = GameObject.Find("UI_Main");
+            timerObject.GetComponent<SkateTimer>().ActivateTime();
+
+        }
+        catch
+        {
+        }
+
         AssignSlots(highway);
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckTimer();
+        try
+        {
+            CheckTimer();
+        }
+        catch
+        {
+
+        }
         ForceTransition();
     }
+
+
+
+
+    private void EnterCosmetics()
+    {
+        maps.actions.FindActionMap("Player").Disable();
+        maps.actions.FindActionMap("CosmeticSelect").Enable();
+        snail.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+    }
+
+
+
+
+
 
 
     private void ForceTransition()
@@ -80,16 +119,18 @@ public class ParkMaster : MonoBehaviour
 
           //  for (int j = 0; j < length; j++)
           //  {
-            //    Sray.AppendGameObjectArray(tempArray, section.transform.GetChild(i).gameObject);
+                tempArray = Sray.AppendGameObjectArray(tempArray, section.transform.GetChild(i).gameObject);
             //}
+            print(tempArray[i]);
 
-            
 
-            
+
 
 
         }
-
+        
+     //   parkLayoutHighway[0][] = tempArray;
+        publicTest = tempArray;
     }
 
 

@@ -11,6 +11,8 @@ public class DialogueBlock : ScriptableObject
 
     public string[] dialogueLines;
 
+    public string[] japaneseDialogueLines;
+
     public float textSpeed;
 
     public Animation emotion;

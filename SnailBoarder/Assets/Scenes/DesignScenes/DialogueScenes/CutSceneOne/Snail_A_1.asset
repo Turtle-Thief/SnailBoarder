@@ -16,6 +16,9 @@ MonoBehaviour:
   dialogueLines:
   - What exciting skating!
   - A thrilling tournament!
+  japaneseDialogueLines:
+  - 
+  - 
   textSpeed: 0.05
   emotion: {fileID: 0}
   cameraSlot: 0
