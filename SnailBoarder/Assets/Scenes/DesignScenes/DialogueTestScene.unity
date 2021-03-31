@@ -397,10 +397,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shownCharacters: 0
   block:
-  - {fileID: 11400000, guid: 5a296e63e85b42e438a84b9de2f4fdd5, type: 2}
-  - {fileID: 11400000, guid: 3239a94129dd05f418a43a3ba1a2f96d, type: 2}
-  - {fileID: 11400000, guid: cdbd396c4df8a6e418ee68e31acea7a7, type: 2}
-  - {fileID: 11400000, guid: 8771a67315881724ca20bd80289311d3, type: 2}
+  - {fileID: 11400000, guid: f7efa6aeac99e874a9ab50522ddb3c5b, type: 2}
+  - {fileID: 11400000, guid: 966583b5b4c95fa40a4a30fca1de66ba, type: 2}
+  - {fileID: 11400000, guid: 696d90d18fb69364d8943a3966a2a182, type: 2}
   blockNum: 0
   lineNum: 0
   parsedDialogue: 
