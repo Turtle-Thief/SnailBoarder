@@ -33,7 +33,8 @@ public class ParkMaster : MonoBehaviour
         SetLevelParameter(0);
 
         timerObject = GameObject.Find("UI_Main");
-        timerObject.GetComponent<SkateTimer>().ActivateTime();
+        if(timerObject)
+            timerObject.GetComponent<SkateTimer>().ActivateTime();
         AssignSlots(highway);
     }
 
@@ -55,14 +56,18 @@ public class ParkMaster : MonoBehaviour
 
     private void CheckTimer()
     {
-
-        if (Time.time - timerObject.GetComponent<SkateTimer>().skateStart > levelLength)
+        if (timerObject)
         {
 
-            CallScene();
+            if (Time.time - timerObject.GetComponent<SkateTimer>().skateStart > levelLength)
+            {
+
+                CallScene();
 
 
+            }
         }
+
     }
 
     private void CallScene()

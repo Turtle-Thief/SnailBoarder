@@ -72,11 +72,11 @@ GameObject:
   - component: {fileID: 3064420549551635688}
   - component: {fileID: 3064420549551635691}
   - component: {fileID: 3064420549551635690}
-  - component: {fileID: 3064420549551635604}
-  - component: {fileID: 3064420549551635607}
   - component: {fileID: 3064420549551635606}
   - component: {fileID: 3064420549551635605}
   - component: {fileID: 3662488752686526301}
+  - component: {fileID: 3064420549551635604}
+  - component: {fileID: 3064420549551635607}
   - component: {fileID: 3064420549551635689}
   - component: {fileID: 3064420549551635694}
   m_Layer: 0
@@ -149,46 +149,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3064420549551635604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3064420549551635601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e292f759c79d0fb42955636ade3fa8df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3064420549551635607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3064420549551635601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55e9ccb6c91b5aa4891e8a0d9743582a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMaxSpeed: 150
-  speedPerFrame: 10
-  playerAcel: 50
-  playerBrake: 20
-  playerFric: 0.05
-  playerRotSpeed: 200
-  jumpForce: 350
-  currentSpeed: 0
-  rotationY: 0
-  centerOfMass: {fileID: 3064420549121987255}
-  selfRighting: {fileID: 3662488752686526301}
-  debugText: {fileID: 0}
-  isGrounded: 0
-  isDoingTrick: 0
-  isBraking: 0
-  distToGround: 3
 --- !u!64 &3064420549551635606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -233,6 +193,45 @@ CapsuleCollider:
   m_Height: 7.9135714
   m_Direction: 2
   m_Center: {x: -0.07444286, y: 1.1309774, z: 0.08008814}
+--- !u!114 &3064420549551635604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3064420549551635601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e292f759c79d0fb42955636ade3fa8df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3064420549551635607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3064420549551635601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e9ccb6c91b5aa4891e8a0d9743582a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMaxSpeed: 150
+  speedPerFrame: 10
+  playerAcel: 50
+  playerBrake: 20
+  playerFric: 0.05
+  playerRotSpeed: 200
+  jumpForce: 350
+  currentSpeed: 0
+  rotationY: 0
+  centerOfMass: {fileID: 3064420549121987255}
+  selfRighting: {fileID: 3662488752686526301}
+  debugText: {fileID: 0}
+  isGrounded: 0
+  isBraking: 0
+  distToGround: 3
 --- !u!114 &3064420549551635689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7417d84481cf546bec039945721cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonComboDelayMax: 0.3
 --- !u!1001 &7055677466066568480
 PrefabInstance:
   m_ObjectHideFlags: 0

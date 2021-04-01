@@ -97,11 +97,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnTurn(InputValue value)
+    public void OnTurn(Vector2 val)
     {
         if (isGrounded && tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
-            Vector2 val = value.Get<Vector2>();
+            //Vector2 val = value.Get<Vector2>();
             rotationY = val.x * Time.deltaTime * playerRotSpeed;
             //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
             //Debug.Log("rotate");

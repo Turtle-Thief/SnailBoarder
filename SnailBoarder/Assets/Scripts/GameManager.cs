@@ -146,11 +146,14 @@ public class GameManager : MonoBehaviour
     private void FindAndSetInputs()
     {
         IC = GetComponent<PlayerInput>();
-        secondaryInputs = IC.actions;
+        if(IC)
+        {
+            secondaryInputs = IC.actions;
 
-        // Enable cheats
-        cheats = secondaryInputs.FindActionMap("Cheats");
-        cheats.Enable();
+            // Enable cheats
+            cheats = secondaryInputs.FindActionMap("Cheats");
+            cheats.Enable();
+        }
     }
 
     private void Awake()
@@ -166,7 +169,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
-        if(!sceneLoader)
+        if(!sceneLoader && SceneLoader.instance)
         {
             sceneLoader = SceneLoader.instance.gameObject;
         }
@@ -179,10 +182,10 @@ public class GameManager : MonoBehaviour
         FindAndSetInputs(); // This just enables cheats right now
 
         UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
-        UM = UICanvas.GetComponent<UIManager>();
 
         if(UICanvas)
         {
+            UM = UICanvas.GetComponent<UIManager>();
             debugPanel = UICanvas.transform.GetChild(0).gameObject; // Gets the debug panel
             scoreText = debugPanel.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>(); // this is terrible please don't replicate this
         }
