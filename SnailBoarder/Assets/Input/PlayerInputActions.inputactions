@@ -979,6 +979,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "CosmeticSelect",
+            "id": "fea58f1d-1c9b-4e90-b34f-167afcefe2b2",
+            "actions": [
+                {
+                    "name": "Cycle",
+                    "type": "Button",
+                    "id": "4ca64f8d-a592-4262-9488-45f9e460c908",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Accept",
+                    "type": "Button",
+                    "id": "28bb2744-945c-4c67-bc0f-cf5d99ab1289",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "65587652-01b9-45f5-95a4-680257085f46",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cycle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1acdebc-1718-4b9d-99d7-e2bdbd001d46",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cycle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52b40115-ad73-47ed-9b8f-392469d7f926",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accept",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6150876d-602c-4da8-8071-55965c87414e",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accept",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
