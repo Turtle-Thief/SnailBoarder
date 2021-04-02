@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    TricksController tricksController;
+
     public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f, playerFric = 0.1f, playerRotSpeed = 300f, jumpForce = 10f, currentSpeed;
 
     // Rotation stuff
@@ -24,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool isGrounded = false;
     [HideInInspector]
-    public bool isDoingTrick = false;
-    [HideInInspector]
     public bool isBraking = false;
 
     public float distToGround = 3f;
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
+        tricksController = this.GetComponent<TricksController>();
         debugText = GameObject.Find("DebugText").GetComponent<Text>();  //Find Debug Text on Scene
         currentSpeed = 0.0f;
         if (centerOfMass != null)
@@ -48,7 +49,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // If the game is NOT paused...
+        if(!GameManager.instance.gameIsPaused)
+        {
+            // Put everything in here!!!
+
+        }
     }
 
     private void FixedUpdate()
@@ -93,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTurn(InputValue value)
     {
-        if (isGrounded && !isDoingTrick)
+        if (isGrounded && tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
             Vector2 val = value.Get<Vector2>();
             rotationY = val.x * Time.deltaTime * playerRotSpeed;
@@ -102,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     public void OnJump()
     {
         if (isGrounded && !isDoingTrick)
@@ -113,6 +120,9 @@ public class PlayerMovement : MonoBehaviour
 
     //Collision Event functions
     private void OnCollisionEnter(Collision collision)
+=======
+    public void Jump(float forceMultiplier)
+>>>>>>> f9ef15f70a310fc4cbc5accbaf019c83179ed406
     {
         Debug.Log("self righting from " + collision.gameObject.name);   
     }
@@ -139,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Rotate()
     {
-        if (isGrounded && !isDoingTrick)
+        if (isGrounded && tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
             transform.Rotate(0.0f, rotationY, 0.0f);
         }
@@ -153,13 +163,17 @@ public class PlayerMovement : MonoBehaviour
         {
             slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
             // normalisedSlope = (slopeAngle / 90f) * -1f;
-            debugText.text = "Grounded on " + hit.transform.name;
-            debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
+            if (debugText)
+            {
+                debugText.text = "Grounded on " + hit.transform.name;
+                debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
+            }
             isGrounded = true;
         }
         else
         {
-            debugText.text = "Not Grounded";
+            if(debugText)
+                debugText.text = "Not Grounded";
             isGrounded = false;
         }
     }

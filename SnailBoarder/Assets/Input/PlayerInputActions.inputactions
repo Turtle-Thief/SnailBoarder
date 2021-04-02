@@ -35,7 +35,7 @@
                     "id": "144682e9-ba59-4c7d-ba43-bea801178e09",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=1)"
+                    "interactions": "Press"
                 },
                 {
                     "name": "Kickflip",
@@ -43,7 +43,7 @@
                     "id": "e7b7eff1-0632-4696-a200-b8d8bb1cb1d4",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=1)"
+                    "interactions": "Press"
                 },
                 {
                     "name": "PopShuvit",
@@ -62,12 +62,12 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Jump",
+                    "name": "Ollie",
                     "type": "Button",
                     "id": "50128a81-fdd2-459d-bdbe-7359bfb10866",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=1)"
+                    "interactions": "Press"
                 },
                 {
                     "name": "Look",
@@ -138,7 +138,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Jump",
+                    "action": "Ollie",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -149,7 +149,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Jump",
+                    "action": "Ollie",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -440,15 +440,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "53cd3a6b-791c-4a3d-8c3f-d0819e71b2d0",
+                    "name": "GamePadWheelie",
+                    "id": "ffba4002-b7ca-4867-85b2-0058f6437a68",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Wheelie",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "08905c1d-99db-4ded-92ee-67478802d4bf",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Wheelie",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "9c2029ca-5bff-4e0d-b38d-d86d4648784c",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Wheelie",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 }
             ]
         },

@@ -1,0 +1,44 @@
+{
+    "name": "CutsceneControls",
+    "maps": [
+        {
+            "name": "ToggleOptions",
+            "id": "4d607711-d2a1-4634-b91a-882dec2642da",
+            "actions": [
+                {
+                    "name": "NextDialogue",
+                    "type": "Button",
+                    "id": "fd7c9224-171c-4ab9-9ad8-bd34f6897cc4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f26e4100-5911-4657-afc2-5b5cfad80ccd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b90c923-06c2-4720-9743-d6744d9692c6",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
