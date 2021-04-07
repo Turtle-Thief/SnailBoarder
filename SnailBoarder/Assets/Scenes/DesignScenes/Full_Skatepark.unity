@@ -4481,12 +4481,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highway: {fileID: 1451223314}
+  publicTest: []
   nextScene: DialogueTestScene
   maps: {fileID: 2106006963}
   levelLength: 15
   snail: {fileID: 46795308}
-  hatPoint: {fileID: 1073123502}
-  hats: []
 --- !u!4 &195376183
 Transform:
   m_ObjectHideFlags: 0
@@ -22113,12 +22112,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1071664639}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1073123502 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3910493436042427023, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1745988371}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1073780316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33663,11 +33656,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snail
       objectReference: {fileID: 0}
+    - target: {fileID: 3064420549551635605, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3064420549551635607, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
         type: 3}
       propertyPath: debugText
       value: 
       objectReference: {fileID: 1443719534}
+    - target: {fileID: 3064420549551635607, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: playerAcel
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064420549551635607, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: playerFric
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064420549551635607, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: playerBrake
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064420549551635607, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: playerMaxSpeed
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 3064420549551635688, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
         type: 3}
       propertyPath: m_RootOrder
@@ -33727,6 +33745,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662488752686526301, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.0098577
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662488752686526301, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662488752686526301, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.07444287
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662488752686526301, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.2286024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 399360ff5276b4843a2b0a1b41b3e2b1, type: 3}

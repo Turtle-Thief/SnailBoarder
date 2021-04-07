@@ -108,10 +108,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     public void OnJump()
     {
-        if (isGrounded && !isDoingTrick)
+        if (isGrounded)
         {
             //jump
             Jump(1.0f);
@@ -119,12 +118,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Collision Event functions
-    private void OnCollisionEnter(Collision collision)
-=======
-    public void Jump(float forceMultiplier)
->>>>>>> f9ef15f70a310fc4cbc5accbaf019c83179ed406
+    /*private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("self righting from " + collision.gameObject.name);   
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("self righting from " + other.gameObject.name);
     }
 
     // Physics functions
