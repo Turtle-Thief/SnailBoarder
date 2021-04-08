@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     TricksController tricksController;
 
-    public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f, playerFric = 0.1f, playerRotSpeed = 300f, jumpForce = 10f, currentSpeed;
+    public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f,
+                   playerFric = 0.1f, playerRotSpeed = 300f, playerAirRotSpeed = 600f, jumpForce = 10f, currentSpeed;
 
     // Rotation stuff
     Quaternion targetRotation;
@@ -103,7 +104,10 @@ public class PlayerMovement : MonoBehaviour
         if (tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
             Vector2 val = value.Get<Vector2>();
-            rotationY = val.x * Time.deltaTime * playerRotSpeed;
+            if (isGrounded)
+                rotationY = val.x * Time.deltaTime * playerRotSpeed;
+            else
+                rotationY = val.x * Time.deltaTime * playerAirRotSpeed;
             //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
             //Debug.Log("rotate");
         }

@@ -253,6 +253,7 @@ MonoBehaviour:
   playerBrake: 20
   playerFric: 0.05
   playerRotSpeed: 200
+  playerAirRotSpeed: 600
   jumpForce: 350
   currentSpeed: 0
   rotationY: 0

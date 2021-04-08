@@ -16,6 +16,9 @@ public class TricksController : MonoBehaviour
         KickFlip,
         PopShuvit,
         HospitalFlip,
+        Heelflip,
+        McTwist,
+        AirKickflip,
         NumOfTricks
     };
 
@@ -63,6 +66,9 @@ public class TricksController : MonoBehaviour
         Tricks[(int)TrickName.KickFlip] = new Trick(TrickName.KickFlip, 2, 25, 2f, true);
         Tricks[(int)TrickName.PopShuvit] = new Trick(TrickName.PopShuvit, 2, 30, 2f, true);
         Tricks[(int)TrickName.HospitalFlip] = new Trick(TrickName.HospitalFlip, 3, 50, 2f, true);
+        Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 4, 75, 2f, false);
+        Tricks[(int)TrickName.McTwist] = new Trick(TrickName.McTwist, 4, 75, 2f, false);
+        Tricks[(int)TrickName.AirKickflip] = new Trick(TrickName.AirKickflip, 4, 75, 2f, false);
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
@@ -126,6 +132,18 @@ public class TricksController : MonoBehaviour
                 StartCoroutine(HospitalFlipAnim()); //tmp
                 //Debug.Log("!OnHospitalFlip!");
                 break;
+            case TrickName.Heelflip:
+                StartCoroutine(AirTrickAnim()); //tmp
+                //Debug.Log("!OnHeelflipFlip!");
+                break;
+            case TrickName.McTwist:
+                StartCoroutine(AirTrickAnim()); //tmp
+                //Debug.Log("!OnMcTwistFlip!");
+                break;
+            case TrickName.AirKickflip:
+                StartCoroutine(AirTrickAnim()); //tmp
+                //Debug.Log("!OnAirKickflip!");
+                break;
         }
 
         timeSinceLastTrickStart = 0;
@@ -162,6 +180,24 @@ public class TricksController : MonoBehaviour
         TrickInputCall(Tricks[(int)TrickName.HospitalFlip]);
     }
 
+    public void OnHeelflip()
+    {
+        Debug.Log("Input Heelflip");
+        TrickInputCall(Tricks[(int)TrickName.Heelflip]);
+    }
+
+    public void OnMcTwist()
+    {
+        Debug.Log("Input McTwist");
+        TrickInputCall(Tricks[(int)TrickName.McTwist]);
+    }
+
+    public void OnAirKickflip()
+    {
+        Debug.Log("Input AirKickflip");
+        TrickInputCall(Tricks[(int)TrickName.AirKickflip]);
+    }
+
     IEnumerator PauseForTrick(float pauseTime)
     {
         yield return new WaitForSeconds(pauseTime);
@@ -180,9 +216,9 @@ public class TricksController : MonoBehaviour
             readyForAir = true;
             playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
                                           RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            StartCoroutine(RemoveConstraintsInTime(1f));
+            StartCoroutine(RemoveConstraintsInTime(2f));
 
-            Debug.Log("Air Trigger Enter ");
+            //Debug.Log("Air Trigger Enter ");
             playerMovement.Jump(0.5f);
         }
         else
@@ -196,6 +232,7 @@ public class TricksController : MonoBehaviour
         playerRigidbody.constraints = RigidbodyConstraints.None;
         readyForAir = false;
 
+        playerMovement.Jump(-0.5f);
         //Debug.Log("Air Trigger Exit");
     }
 
@@ -280,5 +317,24 @@ public class TricksController : MonoBehaviour
             yield return null;
         }
         playerRigidbody.constraints = RigidbodyConstraints.None;
+    }
+
+    IEnumerator AirTrickAnim()  //tmp
+    {
+        float jumpTime = 0.3f; // can change
+        float rotationTime = 2.0f - jumpTime;
+        float kickflipRotationAnimSpeed = 360f / rotationTime;
+
+        //playerMovement.Jump(0.7f);
+        yield return new WaitForSeconds(jumpTime);
+
+        //playerRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+        while (rotationTime > 0)
+        {
+            transform.Rotate(Vector3.forward, Time.deltaTime * kickflipRotationAnimSpeed);
+            rotationTime -= Time.deltaTime;
+            yield return null;
+        }
+        //playerRigidbody.constraints = RigidbodyConstraints.None;
     }
 }
