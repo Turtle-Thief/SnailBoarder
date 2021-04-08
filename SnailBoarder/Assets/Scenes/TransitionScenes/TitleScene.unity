@@ -2291,6 +2291,7 @@ RectTransform:
   m_Children:
   - {fileID: 832015707}
   - {fileID: 1966140431}
+  - {fileID: 1823852219}
   m_Father: {fileID: 1528359519}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4963,64 +4964,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 142693966}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &988270816 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 58687319035228720, guid: 618513df1e791484d96af73a306e60b3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1964877982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &988270818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 58687319035228722, guid: 618513df1e791484d96af73a306e60b3,
     type: 3}
   m_PrefabInstance: {fileID: 1964877982}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &988270819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988270816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ae11310b-af2d-49c7-8c56-eae7605b7ea5
-    m_ActionName: Menu/Pause[/Keyboard/escape]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Menu
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &1017296913
 GameObject:
   m_ObjectHideFlags: 0
@@ -8016,7 +7965,6 @@ RectTransform:
   - {fileID: 305923576}
   - {fileID: 1040368620}
   - {fileID: 954092192}
-  - {fileID: 1823852219}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9312,12 +9260,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823852216}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1528359519}
-  m_RootOrder: 6
+  m_Father: {fileID: 454822086}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9943,6 +9891,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 58687319035228721, guid: 618513df1e791484d96af73a306e60b3,
+        type: 3}
+      propertyPath: secondaryInputs
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
+        type: 3}
     - target: {fileID: 58687319035228722, guid: 618513df1e791484d96af73a306e60b3,
         type: 3}
       propertyPath: m_RootOrder

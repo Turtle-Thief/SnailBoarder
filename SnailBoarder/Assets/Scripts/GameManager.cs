@@ -19,8 +19,7 @@ public class GameManager : MonoBehaviour
     private GameObject debugPanel, UICanvas;
     private TextMeshProUGUI scoreText;
 
-    private PlayerInput IC; // Input component
-    private InputActionAsset secondaryInputs;
+    public InputActionAsset secondaryInputs;
     private InputActionMap cheats;
 
     #region Cheats
@@ -145,12 +144,20 @@ public class GameManager : MonoBehaviour
     }
     private void FindAndSetInputs()
     {
-        IC = GetComponent<PlayerInput>();
-        secondaryInputs = IC.actions;
+        // Enables all of our maps, included our cheats
+        foreach(InputActionMap map in secondaryInputs.actionMaps)
+        {
+            map.Enable();
+        }
 
-        // Enable cheats
+        // Enable cheats -- use this to disable them later
         cheats = secondaryInputs.FindActionMap("Cheats");
         cheats.Enable();
+
+        secondaryInputs.FindAction("Pause").performed += ctx => OnPause();
+        secondaryInputs.FindAction("Previous").performed += ctx => OnPrevious();
+        secondaryInputs.FindAction("Test").performed += ctx => OnTest();
+        secondaryInputs.FindAction("ResetLevel").performed += ctx => OnResetLevel();
     }
 
     private void Awake()
