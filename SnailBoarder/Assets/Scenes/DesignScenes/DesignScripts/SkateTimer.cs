@@ -8,7 +8,9 @@ public class SkateTimer : MonoBehaviour
     public float skateStart;
     public TMP_Text timeDisplay;
     public bool activeState;
-    
+
+    public bool shown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,14 @@ public class SkateTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayTime();
-
+        if (shown)
+        {
+            DisplayTime();
+        }
+        else
+        {
+            HideTime();
+        }
     }
 
 
@@ -38,5 +46,11 @@ public class SkateTimer : MonoBehaviour
             timeDisplay.text = "" + (Time.time - skateStart);
         }
     }
+    
+    private void HideTime()
+    {
 
+
+        timeDisplay.text = "";
+    }
 }

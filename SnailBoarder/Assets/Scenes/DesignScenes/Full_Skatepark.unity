@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4481,12 +4481,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highway: {fileID: 1451223314}
+  publicTest: []
   nextScene: DialogueTestScene
   maps: {fileID: 2106006963}
-  levelLength: 15
+  levelLength: 120
   snail: {fileID: 46795308}
-  hatPoint: {fileID: 1073123502}
-  hats: []
 --- !u!4 &195376183
 Transform:
   m_ObjectHideFlags: 0
@@ -22112,12 +22111,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3861688166566857287, guid: 82480b769bc1a4e4bb198e823efbcb98,
     type: 3}
   m_PrefabInstance: {fileID: 1071664639}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1073123502 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3910493436042427023, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1745988371}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1073780316
 PrefabInstance:
