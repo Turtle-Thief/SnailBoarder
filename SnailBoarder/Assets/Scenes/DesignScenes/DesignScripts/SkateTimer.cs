@@ -49,8 +49,6 @@ public class SkateTimer : MonoBehaviour
     
     private void HideTime()
     {
-
-
         timeDisplay.text = "";
     }
 }

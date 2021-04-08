@@ -21,9 +21,26 @@ public class ParkMaster : MonoBehaviour
 
     public PlayerInput maps;
 
+
+
+    //Determines the Amount of Time per Level
     public float levelLength;
 
+
+    //Determines the Score Needed for Victory
+    public float scoreNeeded;
+
+
+
+    // This the Snail
     public GameObject snail;
+
+
+
+
+
+
+
 
   //  public GameObject hatPoint;
   //  public GameManager[] hats;
@@ -43,6 +60,9 @@ public class ParkMaster : MonoBehaviour
         SetLevelParameter(0);
         try
         {
+
+            
+
             timerObject = GameObject.Find("UI_Main");
             timerObject.GetComponent<SkateTimer>().ActivateTime();
             timerObject.GetComponent<SkateTimer>().shown = true;
@@ -66,7 +86,7 @@ public class ParkMaster : MonoBehaviour
         {
 
         }
-        ForceTransition();
+        
     }
 
 
@@ -85,12 +105,6 @@ public class ParkMaster : MonoBehaviour
 
 
 
-    private void ForceTransition()
-    {
-
-
-
-    }
 
 
     private void CheckTimer()
@@ -109,6 +123,9 @@ public class ParkMaster : MonoBehaviour
 
     private void CallScene()
     {
+
+        //if statement to check score
+
         SceneManager.LoadScene(nextScene);
 
     }
