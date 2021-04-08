@@ -37,8 +37,12 @@ public class TricksController : MonoBehaviour
         }
     }
 
+
     [HideInInspector]
     public Trick[] Tricks = new Trick[(int)TrickName.NumOfTricks];
+
+    bool readyForAir;
+    public LayerMask airTrickTriggerLayer;
 
     [HideInInspector]
     public Trick currentTrick;
@@ -62,6 +66,7 @@ public class TricksController : MonoBehaviour
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
+        readyForAir = false;
     }
 
     private void Update()
@@ -167,7 +172,39 @@ public class TricksController : MonoBehaviour
     {
         playerMovement.Jump(1.0f);
     }
-    
+
+    public void AirTriggerEnter()
+    {
+        if (!readyForAir)
+        {
+            readyForAir = true;
+            playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
+                                          RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            StartCoroutine(RemoveConstraintsInTime(1f));
+
+            Debug.Log("Air Trigger Enter ");
+            playerMovement.Jump(0.5f);
+        }
+        else
+        {
+            LeavingAir();
+        }
+    }
+
+    public void LeavingAir()
+    {
+        playerRigidbody.constraints = RigidbodyConstraints.None;
+        readyForAir = false;
+
+        //Debug.Log("Air Trigger Exit");
+    }
+
+    IEnumerator RemoveConstraintsInTime(float time)  //tmp
+    {
+        yield return new WaitForSeconds(time);
+        playerRigidbody.constraints = RigidbodyConstraints.None;
+    }
+
     IEnumerator WheelieAnim()  //tmp
     {
         float jumpTime = 0.2f; // can change

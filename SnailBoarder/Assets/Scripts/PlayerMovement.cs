@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool isBraking = false;
 
+    public LayerMask IgnoreGroundCheckLayer;
     public float distToGround = 3f;
 
     float slopeAngle;
@@ -99,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTurn(InputValue value)
     {
-        if (isGrounded && tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
+        if (tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
             Vector2 val = value.Get<Vector2>();
             rotationY = val.x * Time.deltaTime * playerRotSpeed;
@@ -130,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Rotate()
     {
-        if (isGrounded && tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
+        if (tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
             transform.Rotate(0.0f, rotationY, 0.0f);
         }
@@ -138,9 +139,11 @@ public class PlayerMovement : MonoBehaviour
 
     void GroundCheck()
     {
+        Debug.DrawRay(transform.position, (Vector3.down * 1.5f - transform.up).normalized * distToGround, Color.blue);
+
         // Tricks triggers stuff
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround + 0.1f))
+        if (Physics.Raycast(transform.position, (Vector3.down * 2 - transform.up).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
         {
             slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
             // normalisedSlope = (slopeAngle / 90f) * -1f;
@@ -153,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if(debugText)
+            if (debugText)
                 debugText.text = "Not Grounded";
             isGrounded = false;
         }

@@ -56,13 +56,13 @@ public class ParkMaster : MonoBehaviour
     private void CheckTimer()
     {
 
-        if (Time.time - timerObject.GetComponent<SkateTimer>().skateStart > levelLength)
-        {
+        //if (Time.time - timerObject.GetComponent<SkateTimer>().skateStart > levelLength)
+        //{
 
-            //CallScene();
+        //    //CallScene();
 
 
-        }
+        //}
     }
 
     private void CallScene()
