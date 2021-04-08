@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3064420549121987255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,10 +361,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMaxSpeed: 150
   speedPerFrame: 10
-  playerAcel: 50
+  playerAcel: 20
   playerBrake: 20
   playerFric: 0.05
   playerRotSpeed: 200
+  playerAirRotSpeed: 600
   jumpForce: 350
   currentSpeed: 0
   rotationY: 0
@@ -373,7 +374,10 @@ MonoBehaviour:
   debugText: {fileID: 0}
   isGrounded: 0
   isBraking: 0
-  distToGround: 3
+  IgnoreGroundCheckLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  distToGround: 4.5
 --- !u!64 &3064420549551635606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -383,7 +387,7 @@ MeshCollider:
   m_GameObject: {fileID: 3064420549551635601}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -412,7 +416,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3064420549551635601}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 2.1074827
   m_Height: 7.9135714

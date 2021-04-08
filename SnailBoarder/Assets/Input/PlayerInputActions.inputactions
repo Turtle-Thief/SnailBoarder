@@ -84,6 +84,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Heelflip",
+                    "type": "Button",
+                    "id": "6d25a5b6-86a5-49be-889d-e8f61cffc5aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "McTwist",
+                    "type": "Button",
+                    "id": "cecc38da-5da6-4c69-91e7-2ecb699cde6a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AirKickflip",
+                    "type": "Button",
+                    "id": "df3d881a-2c43-47fe-bea4-3337377f895b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -471,6 +495,39 @@
                     "action": "Wheelie",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b84f778d-2b4e-4b6d-9fc9-7029afd9ca79",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Heelflip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7bf36e46-b211-451f-ad3b-1743eff4a95f",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "McTwist",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ecbc2cff-17b3-4f08-b835-5fa5da770f25",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AirKickflip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

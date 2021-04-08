@@ -104,7 +104,7 @@ public class ParkMaster : MonoBehaviour
             CallScene();
 
 
-        }
+        //}
     }
 
     private void CallScene()
