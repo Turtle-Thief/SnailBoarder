@@ -59,7 +59,7 @@ public class ParkMaster : MonoBehaviour
         if (Time.time - timerObject.GetComponent<SkateTimer>().skateStart > levelLength)
         {
 
-            CallScene();
+            //CallScene();
 
 
         }
