@@ -176,6 +176,10 @@ public class PlayerMovement : MonoBehaviour
                 debugText.text = "Grounded on " + hit.transform.name;
                 debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
             }
+            if (hit.transform.gameObject.layer == 10) // Is ramp??
+            {
+                Debug.Log("ramppppp?");
+            } 
             isGrounded = true;
         }
         else

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class SkateTimer : MonoBehaviour
 {
-
+    /*
     public float skateStart;
     public TMP_Text timeDisplay;
     public bool activeState;
@@ -51,4 +51,5 @@ public class SkateTimer : MonoBehaviour
     {
         timeDisplay.text = "";
     }
+    */
 }

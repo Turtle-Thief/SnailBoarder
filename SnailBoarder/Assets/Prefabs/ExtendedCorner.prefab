@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5416164829310741099}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ExtendedCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_rampEndLeftMod
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e54c5f26003d14c429400fe88ca7cb65,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e54c5f26003d14c429400fe88ca7cb65, type: 3}
 --- !u!4 &2405908918142458233 stripped
@@ -121,6 +126,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5416164829310741099}
     m_Modifications:
+    - target: {fileID: 35808756419974570, guid: 8240985deb42c244ab13fe8b2ab83c59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1513565984807646558, guid: 8240985deb42c244ab13fe8b2ab83c59,
         type: 3}
       propertyPath: m_RootOrder
@@ -180,6 +190,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ramp (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4846157038332155737, guid: 8240985deb42c244ab13fe8b2ab83c59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445608101551830835, guid: 8240985deb42c244ab13fe8b2ab83c59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8240985deb42c244ab13fe8b2ab83c59, type: 3}
@@ -335,6 +355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_rampEndRightMod
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7168934e3a12c1a4ea2a2eedfc628683,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7168934e3a12c1a4ea2a2eedfc628683, type: 3}

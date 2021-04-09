@@ -5,9 +5,12 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     private int currentScore = 0;
-    public int parkScore;
+    private int trickScore = 0;
+    public int parkScore = 20;
 
-    private void ResetScore()
+    public bool shouldMultiply = false;
+
+    public void ResetScore()
     {
         currentScore = 0;
     }
@@ -19,17 +22,30 @@ public class ScoreManager : MonoBehaviour
         return (currentScore >= parkScore);
     }
 
+    public int ScoreDifference()
+    {
+        return parkScore - currentScore;
+    }
+
+    public void SendDisplayScore(int totalScore)
+    {
+        // This is kinda cheating, but I don't care at the moment
+        //  Takes the value we give it and reassigns the value to our score
+        totalScore = currentScore;
+    }
+
     public int SendDisplayScore()
     {
         return currentScore;
     }
 
-    void AddToScore(int value)
+    public void AddToScore(int value)
     {
+        trickScore = value;
         currentScore += value;
     }
 
-    void AddToScore(int value, int multiplier)
+    public void AddToScore(int value, int multiplier)
     {
         currentScore += (value * multiplier);
     }

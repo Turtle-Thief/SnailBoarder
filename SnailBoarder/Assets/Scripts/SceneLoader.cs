@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
     public static SceneLoader instance = null;
 
     // public int values to change scenes
-    public int title, prelevel, nextLevel, judge, dialog;
+    public int title, prelevel, nextLevel, judge, dialog, victory, defeat;
 
     private int currentScene = 0;
 
@@ -34,11 +34,11 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene(judge);
             currentScene = judge;
 
-            // Signal that we've finished the previous level (may need to add loading test here)
-            GameManager.instance.OnFinishedLevel();
         }
         else if (sceneName == "dialog")
         {
+            // Signal that we've finished the previous level (may need to add loading test here)
+            GameManager.instance.OnFinishedLevel();
             SceneManager.LoadScene(dialog);
             currentScene = dialog;
         }
@@ -49,6 +49,16 @@ public class SceneLoader : MonoBehaviour
             GameManager.instance.ResumeGame();
             currentScene = title;
         }
+        else if (sceneName == "victory")
+        {
+            SceneManager.LoadScene(victory);
+            currentScene = victory;
+        }
+        else if (sceneName == "defeat")
+        {
+            SceneManager.LoadScene(defeat);
+            currentScene = defeat;
+        }
         else
         {
             Debug.Log("Error: sceneName does not exist");
@@ -57,7 +67,19 @@ public class SceneLoader : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(currentScene);
+    }
+
+    public void DetermineResultsScreen()
+    {
+        if(GameManager.instance.completedLastLevel)
+        {
+            LoadScene("victory");
+        }
+        else
+        {
+            LoadScene("defeat");
+        }
     }
 
     public void QuitGame()

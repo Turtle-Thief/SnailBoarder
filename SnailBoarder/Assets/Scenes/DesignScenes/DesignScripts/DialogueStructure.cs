@@ -70,7 +70,7 @@ public class DialogueStructure : MonoBehaviour
 
             if(blockNum + 1 == block.Length)
             {
-                SceneManager.LoadScene("TitleScene");
+                SceneLoader.instance.DetermineResultsScreen();
             }
 
             IdentifySpeaker().SetActive(false);

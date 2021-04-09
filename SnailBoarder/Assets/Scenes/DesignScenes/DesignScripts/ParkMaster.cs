@@ -63,9 +63,6 @@ public class ParkMaster : MonoBehaviour
 
             
 
-            timerObject = GameObject.Find("UI_Main");
-            timerObject.GetComponent<SkateTimer>().ActivateTime();
-            timerObject.GetComponent<SkateTimer>().shown = true;
 
         }
         catch
@@ -80,7 +77,6 @@ public class ParkMaster : MonoBehaviour
     {
         try
         {
-            CheckTimer();
         }
         catch
         {
@@ -107,19 +103,6 @@ public class ParkMaster : MonoBehaviour
 
 
 
-    private void CheckTimer()
-    {
-
-        if (Time.time - timerObject.GetComponent<SkateTimer>().skateStart > levelLength)
-        {
-            timerObject = GameObject.Find("UI_Main");
-            timerObject.GetComponent<SkateTimer>().activeState=false;
-            timerObject.GetComponent<SkateTimer>().shown = false;
-            CallScene();
-
-
-        }
-    }
 
     private void CallScene()
     {

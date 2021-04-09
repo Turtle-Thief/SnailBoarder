@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 90848497000919740}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SkatePyramid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_skatePyramidSolo
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d9306f53248babf4dbbf97cac911ae83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9306f53248babf4dbbf97cac911ae83, type: 3}

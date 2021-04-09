@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513565984807646558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_lilRampMod
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44dd96dd9ce6ec24ba7e963fda1f8645,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dd96dd9ce6ec24ba7e963fda1f8645, type: 3}
 --- !u!1 &35808756419974570 stripped
@@ -217,6 +222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_bigRampMod
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 50b5eb771fa448547a1d142b0b07c7e2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b5eb771fa448547a1d142b0b07c7e2, type: 3}

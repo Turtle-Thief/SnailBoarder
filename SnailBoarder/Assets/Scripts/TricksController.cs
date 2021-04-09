@@ -200,7 +200,11 @@ public class TricksController : MonoBehaviour
 
     IEnumerator PauseForTrick(float pauseTime)
     {
+        // Waits until trick is finished
         yield return new WaitForSeconds(pauseTime);
+
+        UIManager.instance.TrickFinishedHUD(currentTrick);
+
         currentTrick = Tricks[(int)TrickName.NullTrick];
     }
 

@@ -46,5 +46,7 @@ MonoBehaviour:
   title: 0
   prelevel: 1
   nextLevel: 2
-  judge: 3
-  dialog: 4
+  judge: -1
+  dialog: 3
+  victory: 4
+  defeat: 5

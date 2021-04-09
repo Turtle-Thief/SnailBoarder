@@ -9,16 +9,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     // should be accessible to any class, using a static instance is also a potential way to implement this
-    public bool gameIsPaused = false, onPausableScene = false;
+    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false;
 
-    public int score;
+    public int score, neededPoints;
+    public InputActionAsset secondaryInputs;
 
-    public UIManager UM;
+    private UIManager UM;
 
     private GameObject debugPanel, UICanvas;
     private TextMeshProUGUI scoreText;
 
-    public InputActionAsset secondaryInputs;
     private InputActionMap cheats;
 
     #region Cheats
@@ -89,20 +89,19 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void AddToScore(int value)
+    public void GetScoreDifference()
     {
-        score += value;
-        if (debugPanel)
-        {
-            scoreText.text = "Score: " + score;
-        }
+        neededPoints = UIManager.instance.SM.ScoreDifference();
     }
 
     public void OnNextLevel()
     {
+        UIManager.instance.ClearAfterTrickHUD(); // reset
+        score = neededPoints = 0; // reset
+
         onPausableScene = true;
         // reset score
-
+        UIManager.instance.OpenPanel(UIManager.instance.HUDPanel);
         // Move this line to Park Manager, call Park Manager function here
         UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(30);
     }
@@ -111,7 +110,9 @@ public class GameManager : MonoBehaviour
     {
         onPausableScene = false;
         gameIsPaused = false; // this may be redundant
+        GetScoreDifference();
 
+        UIManager.instance.ClosePanel(UM.HUDPanel, false);
         UIManager.instance.timer.GetComponent<Timer>().timerIsRunning = false;
     }
 

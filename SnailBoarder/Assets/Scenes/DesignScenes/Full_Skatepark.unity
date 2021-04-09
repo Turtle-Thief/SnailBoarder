@@ -4485,6 +4485,7 @@ MonoBehaviour:
   nextScene: DialogueTestScene
   maps: {fileID: 2106006963}
   levelLength: 15
+  scoreNeeded: 0
   snail: {fileID: 46795308}
 --- !u!4 &195376183
 Transform:
@@ -39355,7 +39356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2073861473
 MonoBehaviour:
   m_ObjectHideFlags: 0

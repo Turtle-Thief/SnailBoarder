@@ -44,6 +44,7 @@ public class Timer : MonoBehaviour
                 }
                 else // If so, ...
                 {
+                    GameManager.instance.completedLastLevel = UIManager.instance.SM.CheckScoreWin(); // Did the player win?
                     SceneLoader.instance.LoadScene("dialog"); // Load the next scene
                     StopAndResetTimer();
                 }

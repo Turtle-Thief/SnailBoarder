@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6588986670922617836}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HalfPipe_CurvedExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,6 +162,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_bigRampMod (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 50b5eb771fa448547a1d142b0b07c7e2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b5eb771fa448547a1d142b0b07c7e2, type: 3}
 --- !u!1 &2124526434914677706 stripped
@@ -247,6 +252,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_bigRampMod
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 50b5eb771fa448547a1d142b0b07c7e2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b5eb771fa448547a1d142b0b07c7e2, type: 3}
@@ -334,6 +344,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_rampEndLeftMod
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e54c5f26003d14c429400fe88ca7cb65,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e54c5f26003d14c429400fe88ca7cb65, type: 3}
 --- !u!1 &5889416339020822689 stripped
@@ -419,6 +434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_rampEndRightMod
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7168934e3a12c1a4ea2a2eedfc628683,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7168934e3a12c1a4ea2a2eedfc628683, type: 3}

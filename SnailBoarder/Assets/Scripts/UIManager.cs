@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
         currentPanel;
     [Space]
     public GameObject timer;
-    public bool previousExists = false;
+    public bool previousExists = false, multiplied = false;
     private GameObject previousPanel; // Reference object
 
     // HUD attributes
@@ -35,6 +35,8 @@ public class UIManager : MonoBehaviour
         comboinit = false, 
         trickFinished = false, 
         fading = false;
+
+    public ScoreManager SM;
 
     #region Video Attributes
 
@@ -320,16 +322,43 @@ public class UIManager : MonoBehaviour
         // start coroutine for fade
     }
 
-    public void TrickFinishedHUD()
+    public void TrickFinishedHUD(TricksController.Trick trick)
     {
-            // change trick and score func
-            // add to log
-        trickFinished = true;
+        if(!multiplied)
+        {
+            SM.AddToScore(trick.mPoints);
+            int totalScore;
+            totalScore = SM.SendDisplayScore();
+            GameManager.instance.score = totalScore;
+
+            scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
+            trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString(); // This is bad formatting lol
+        }
+        else if(multiplied)
+        {
+            SM.AddToScore(trick.mPoints, 2);
+            int totalScore;
+            totalScore = SM.SendDisplayScore();
+            GameManager.instance.score = totalScore;
+
+            scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
+            trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString();
+        }
+        
+        
+        // change trick and score func
+        
+        // Old HUD:
+
+        // add to log
+        //trickFinished = true;
     }
 
     // Clear our button images and our score image and text
     public void ClearAfterTrickHUD()
     {
+        scoreText.text = trickNameText.text = "";
+        SM.ResetScore();
         // clear buttons
         // clear score
         // immediate-fade trick name
@@ -375,7 +404,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject); // Don't destroy our main UI Menu
-
+        SM = HUDPanel.GetComponent<ScoreManager>();
         #region Video Initializations
 
         if (resText)
