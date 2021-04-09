@@ -7,8 +7,9 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [Space]
     // ***** Still debating whether to make a singleton or not
-
+    public static UIManager instance = null;
     // Panel attributes
     public GameObject 
         HUDPanel,
@@ -17,7 +18,8 @@ public class UIManager : MonoBehaviour
         settingsPanel,
         confirmPanel,
         currentPanel;
-
+    [Space]
+    public GameObject timer;
     public bool previousExists = false;
     private GameObject previousPanel; // Reference object
 
@@ -357,9 +359,15 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if(GameManager.instance.UM)
+        // Older way to setup singletons
+        if (instance)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 

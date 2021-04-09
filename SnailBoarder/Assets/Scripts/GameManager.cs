@@ -9,18 +9,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     // should be accessible to any class, using a static instance is also a potential way to implement this
-    public bool gameIsPaused = false, onPausableScene = false; 
+    public bool gameIsPaused = false, onPausableScene = false;
 
-    public GameObject sceneLoader;
     public int score;
 
     public UIManager UM;
-    
+
     private GameObject debugPanel, UICanvas;
     private TextMeshProUGUI scoreText;
 
-    private PlayerInput IC; // Input component
-    private InputActionAsset secondaryInputs;
+    public InputActionAsset secondaryInputs;
     private InputActionMap cheats;
 
     #region Cheats
@@ -57,7 +55,7 @@ public class GameManager : MonoBehaviour
     #region Secondary Input Methods
     private void OnPause()
     {
-        if(onPausableScene)
+        if (onPausableScene)
         {
             // This function is called everytime we press the pause button,
             //  so we reverse the bool value each time 
@@ -77,13 +75,13 @@ public class GameManager : MonoBehaviour
     {
         // Go to previous UI menus / close menus
         //  may be used for other functionality later
-        if(UM.previousExists)
+        if (UM.previousExists)
         {
             UM.ClosePanel(UM.currentPanel, true);
         }
         else
         {
-            if(!onPausableScene)
+            if (!onPausableScene)
             {
                 UM.CloseAllPanels(); // Can be changed to ClosePanel()
             }
@@ -94,7 +92,7 @@ public class GameManager : MonoBehaviour
     public void AddToScore(int value)
     {
         score += value;
-        if(debugPanel)
+        if (debugPanel)
         {
             scoreText.text = "Score: " + score;
         }
@@ -103,12 +101,18 @@ public class GameManager : MonoBehaviour
     public void OnNextLevel()
     {
         onPausableScene = true;
+        // reset score
+
+        // Move this line to Park Manager, call Park Manager function here
+        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(30);
     }
 
     public void OnFinishedLevel()
     {
         onPausableScene = false;
         gameIsPaused = false; // this may be redundant
+
+        UIManager.instance.timer.GetComponent<Timer>().timerIsRunning = false;
     }
 
     public void PauseGame()
@@ -139,24 +143,32 @@ public class GameManager : MonoBehaviour
 
         // Then just reverse what we do in PauseGame!
         UM.CloseAllPanels();
-        
+
         Time.timeScale = 1;
         AudioListener.pause = false;
     }
     private void FindAndSetInputs()
     {
-        IC = GetComponent<PlayerInput>();
-        secondaryInputs = IC.actions;
+        // Enables all of our maps, included our cheats
+        foreach (InputActionMap map in secondaryInputs.actionMaps)
+        {
+            map.Enable();
+        }
 
-        // Enable cheats
+        // Enable cheats -- use this to disable them later
         cheats = secondaryInputs.FindActionMap("Cheats");
         cheats.Enable();
+
+        secondaryInputs.FindAction("Pause").performed += ctx => OnPause();
+        secondaryInputs.FindAction("Previous").performed += ctx => OnPrevious();
+        secondaryInputs.FindAction("Test").performed += ctx => OnTest();
+        secondaryInputs.FindAction("ResetLevel").performed += ctx => OnResetLevel();
     }
 
     private void Awake()
     {
         // Older way to setup singletons
-        if(instance)
+        if (instance)
         {
             Destroy(gameObject);
         }
@@ -166,10 +178,10 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
-        if(!sceneLoader)
-        {
-            sceneLoader = SceneLoader.instance.gameObject;
-        }
+        //if (!SceneLoader.instance.gameObject || !UIManager.instance.gameObject)
+        //{
+        //    Debug.Log("SceneLoader or UIManager is missing!!!");
+        //}
     }
 
 
@@ -179,7 +191,7 @@ public class GameManager : MonoBehaviour
         FindAndSetInputs(); // This just enables cheats right now
 
         UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
-        UM = UICanvas.GetComponent<UIManager>();
+        UM = UIManager.instance;
 
         if(UICanvas)
         {
