@@ -113,12 +113,32 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnJump()
+    {
+        if (isGrounded)
+        {
+            //jump
+            Jump(1.0f);
+        }
+    }
+
+    //Collision Event functions
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("self righting from " + collision.gameObject.name);   
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("self righting from " + other.gameObject.name);
+    }
+
+    // Physics functions
     public void Jump(float forceMultiplier)
     {
         playerRigidbody.AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
     }
-
-    // Physics functions
+        
     void Brake()
     {
         if (isGrounded && isBraking)
@@ -178,5 +198,10 @@ public class PlayerMovement : MonoBehaviour
                 playerRigidbody.AddForce(gameObject.transform.forward.normalized * -playerFric, ForceMode.Acceleration);
             }
         }
+    }
+
+    void SelfRight()
+    {
+
     }
 }
