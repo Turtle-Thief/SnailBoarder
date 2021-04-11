@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveX, moveZ;
 
     // Trick triggers stuff
-    public Text debugText;
+    //public Text debugText;
 
     [HideInInspector]
     public bool isGrounded = false;
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
         tricksController = this.GetComponent<TricksController>();
-        debugText = GameObject.Find("DebugText").GetComponent<Text>();  //Find Debug Text on Scene
+        //debugText = GameObject.Find("DebugText").GetComponent<Text>();  //Find Debug Text on Scene
         currentSpeed = 0.0f;
         if (centerOfMass != null)
             playerRigidbody.centerOfMass =  centerOfMass.position - transform.position;
@@ -171,11 +171,11 @@ public class PlayerMovement : MonoBehaviour
         {
             slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
             // normalisedSlope = (slopeAngle / 90f) * -1f;
-            if (debugText)
-            {
-                debugText.text = "Grounded on " + hit.transform.name;
-                debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
-            }
+            //if (debugText)
+            //{
+            //    debugText.text = "Grounded on " + hit.transform.name;
+            //    debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
+            //}
             if (hit.transform.gameObject.layer == 10) // Is ramp??
             {
                 Debug.Log("ramppppp?");
@@ -184,8 +184,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (debugText)
-                debugText.text = "Not Grounded";
+            //if (debugText)
+            //    debugText.text = "Not Grounded";
             isGrounded = false;
         }
     }
