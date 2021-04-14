@@ -11,9 +11,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -6515396625872210451, guid: 44dd96dd9ce6ec24ba7e963fda1f8645, type: 3}
+  m_Mesh: {fileID: 7965209157090116841, guid: 44dd96dd9ce6ec24ba7e963fda1f8645, type: 3}
 --- !u!1 &4846157038332155737
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8418049126329058714, guid: 50b5eb771fa448547a1d142b0b07c7e2, type: 3}
+  m_Mesh: {fileID: -4682045768591600833, guid: 50b5eb771fa448547a1d142b0b07c7e2, type: 3}
 --- !u!1001 &918274788962593019
 PrefabInstance:
   m_ObjectHideFlags: 0
