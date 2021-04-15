@@ -322,21 +322,9 @@ public class UIManager : MonoBehaviour
         // start coroutine for fade
     }
 
-    public void TrickFinishedHUD(TricksController.Trick trick)
+    public void TrickFinishedHUD(TricksController.Trick trick, bool shouldMultiply)
     {
-        bool multiplied = GameManager.instance.IsMultipliedByJudjes();
-
-        if (!multiplied)
-        {
-            SM.AddToScore(trick.mPoints);
-            int totalScore;
-            totalScore = SM.SendDisplayScore();
-            GameManager.instance.score = totalScore;
-
-            scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
-            trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString(); // This is bad formatting lol
-        }
-        else if(multiplied)
+        if (shouldMultiply)
         {
             SM.AddToScore(trick.mPoints, 2);
             int totalScore;
@@ -346,6 +334,17 @@ public class UIManager : MonoBehaviour
             scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
             trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString() + " * 2";
         }
+        else
+        {
+            SM.AddToScore(trick.mPoints);
+            int totalScore;
+            totalScore = SM.SendDisplayScore();
+            GameManager.instance.score = totalScore;
+
+            scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
+            trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString(); // This is bad formatting lol
+        }
+
         
         
         // change trick and score func

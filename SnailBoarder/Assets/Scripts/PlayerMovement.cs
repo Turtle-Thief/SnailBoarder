@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool isGrounded = false;
     [HideInInspector]
+    public bool isOnRamp = false;
+    [HideInInspector]
     public bool isBraking = false;
 
     public LayerMask IgnoreGroundCheckLayer;
@@ -261,7 +263,13 @@ public class PlayerMovement : MonoBehaviour
             }
             if (hit.transform.gameObject.layer == 10) // Is ramp??
             {
-                //Debug.Log("ramppppp?");
+                isOnRamp = true;
+                //Debug.Log("ramp");
+            }
+            else
+            {
+                //Debug.Log("Grounded on " + hit.transform.name);
+                isOnRamp = false;
             }
             isGrounded = true;
         }

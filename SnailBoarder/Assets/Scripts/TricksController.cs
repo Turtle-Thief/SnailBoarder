@@ -48,6 +48,8 @@ public class TricksController : MonoBehaviour
     public bool readyToGetIntoAir;
     public LayerMask airTrickTriggerLayer;
 
+    bool wasOnRamp = false;
+
     public Trick currentTrick;
     float timeSinceLastTrickStart = 0;
     public float buttonComboDelayMax = 0.3f;
@@ -108,6 +110,7 @@ public class TricksController : MonoBehaviour
 
     void StartTrick(Trick trickType)
     {
+        wasOnRamp = playerMovement.isOnRamp;
         StartCoroutine(PauseForTrick(trickType.mDuration));
 
         switch (trickType.mName)
@@ -133,14 +136,17 @@ public class TricksController : MonoBehaviour
                 //Debug.Log("!OnHospitalFlip!");
                 break;
             case TrickName.Heelflip:
+                wasOnRamp = true;
                 StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnHeelflipFlip!");
                 break;
             case TrickName.McTwist:
+                wasOnRamp = true;
                 StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnMcTwistFlip!");
                 break;
             case TrickName.AirKickflip:
+                wasOnRamp = true;
                 StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnAirKickflip!");
                 break;
@@ -206,7 +212,10 @@ public class TricksController : MonoBehaviour
         Trick tmpTrick = Tricks[(int)currentTrick.mName];
         currentTrick = Tricks[(int)TrickName.NullTrick];
 
-        UIManager.instance.TrickFinishedHUD(tmpTrick);
+        bool shouldMultiply = (GameManager.instance.IsMultipliedByJudjes() && wasOnRamp);
+        //Debug.Log(wasOnRamp);
+        //Debug.Log(GameManager.instance.IsMultipliedByJudjes());
+        UIManager.instance.TrickFinishedHUD(tmpTrick, shouldMultiply);
     }
 
     void OllieAnim()
@@ -226,15 +235,12 @@ public class TricksController : MonoBehaviour
 
             //Debug.Log("Air Trigger Enter ");
             playerMovement.Jump(1.5f);
-
-            Debug.Log("1111111111111");
         }
         else
         {
             if (playerRigidbody.constraints != RigidbodyConstraints.None)
                 playerRigidbody.constraints = RigidbodyConstraints.None;
             readyToGetIntoAir = true;
-            Debug.Log("2222222222222");
             StopCoroutine(StopAirInTime(4f));
             StopCoroutine(RemoveConstraintsInTime(0.8f));
         }
@@ -252,7 +258,6 @@ public class TricksController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         readyToGetIntoAir = true;
-        Debug.Log("333333333");
     }
 
 

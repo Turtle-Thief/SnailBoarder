@@ -42851,6 +42851,11 @@ PrefabInstance:
       propertyPath: playerMaxSpeed
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 3064420549551635607, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
+        type: 3}
+      propertyPath: IgnoreGroundCheckLayer.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
     - target: {fileID: 3064420549551635688, guid: 399360ff5276b4843a2b0a1b41b3e2b1,
         type: 3}
       propertyPath: m_RootOrder

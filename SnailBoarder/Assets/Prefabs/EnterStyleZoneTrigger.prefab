@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6368829360535411312}
   - component: {fileID: 6368829360535411314}
   - component: {fileID: 6368829360535411315}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnterStyleZoneTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

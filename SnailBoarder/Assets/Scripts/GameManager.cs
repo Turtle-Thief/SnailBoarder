@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentStyle == judgesPreferences[0] || currentStyle == judgesPreferences[1] || currentStyle == judgesPreferences[2])
         {
-            Debug.Log("Multiplied");
+            //Debug.Log("Multiplied");
             return true;
         }
 
