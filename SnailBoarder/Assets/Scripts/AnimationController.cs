@@ -16,32 +16,47 @@ public class AnimationController : MonoBehaviour
         
     }
 
-    public void StartOllieAnim()
+    /*---------------SKATEBOARD-ANIMATIONS---------------*/
+
+    public void StartOllieSkateAnim()
     {
-        animator.Play("A_Ollie");
+        animator.Play("A_OllieBoard");
     }
 
-    public void StartKickflipAnim()
+    public void StartKickflipSkateAnim()
     {
         animator.Play("A_Kickflip");
     }
 
-    public void StartWheelieAnim()
+    public void StartWheelieSkateAnim()
     {
         animator.Play("A_Wheelie");
     }
 
-    public void StartPopShoveitAnim()
+    public void StartPopShoveitSkateAnim()
     {
         animator.Play("A_PopShoveit");
     }
-    public void StartHospitalFlipAnim()
+    public void StartHospitalFlipSkateAnim()
     {
         animator.Play("A_HospitalFlip");
     }
 
-    public void StartRailgringAnim()
+    public void StartRailGrindSkateAnim()
     {
         animator.Play("A_Railgrind");
     }
+
+    /*---------------SNAIL-ANIMATIONS---------------*/
+
+    public void StartOllieSnailAnim()
+    {
+        animator.Play("A_OllieBaked");
+    }
+
+    public void StartRailGrindSnailAnim()
+    {
+        animator.Play("A_RailGrindBaked");
+    }
+
 }

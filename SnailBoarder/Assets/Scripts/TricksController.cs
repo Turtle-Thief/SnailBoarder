@@ -116,31 +116,34 @@ public class TricksController : MonoBehaviour
         {
             case TrickName.Ollie:
                 //OllieAnim();
-                playerMovement.Jump(1.0f);
-                snailAnimation.StartOllieAnim();
+                //playerMovement.Jump(1.0f);
+                snailAnimation.StartOllieSkateAnim();
+                snailAnimation.StartOllieSnailAnim();
                 //Debug.Log("!Ollie!");
                 break;
             case TrickName.Wheelie:
                 //StartCoroutine(WheelieAnim()); //tmp
-                snailAnimation.StartWheelieAnim();
+                snailAnimation.StartWheelieSkateAnim();
+                //snailAnimation.StartRailgringAnim(); //tmp
+                //snailAnimation.StartRailGrindBakedAnim(); //tmp
                 //Debug.Log("!Wheelie!");
                 break;
             case TrickName.KickFlip:
                 //StartCoroutine(KickflipAnim()); //tmp
                 playerMovement.Jump(1.0f);
-                snailAnimation.StartKickflipAnim();
+                snailAnimation.StartKickflipSkateAnim();
                 //Debug.Log("!OnKickflip!");
                 break;
             case TrickName.PopShuvit:
                 //StartCoroutine(PopShuvitAnim()); //tmp
                 playerMovement.Jump(1.0f);
-                snailAnimation.StartPopShoveitAnim();
+                snailAnimation.StartPopShoveitSkateAnim();
                 //Debug.Log("!OnPopShuvit!");
                 break;
             case TrickName.HospitalFlip:
                 //StartCoroutine(HospitalFlipAnim()); //tmp
                 playerMovement.Jump(1.0f);
-                snailAnimation.StartHospitalFlipAnim();
+                snailAnimation.StartHospitalFlipSkateAnim();
                 //Debug.Log("!OnHospitalFlip!");
                 break;
             case TrickName.Heelflip:
