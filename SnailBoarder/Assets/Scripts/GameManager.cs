@@ -12,6 +12,22 @@ public class GameManager : MonoBehaviour
     public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false;
 
     public int score, neededPoints;
+
+    public enum ZoneStyle // your custom enumeration
+    {
+        Metal,
+        Punk,
+        Cute,
+        Cool,
+        Snail,
+        Classic,
+        None
+    };
+    
+    public ZoneStyle[] judgesPreferences = new ZoneStyle[3];
+
+    public ZoneStyle currentStyle;
+
     public InputActionAsset secondaryInputs;
 
     private UIManager UM;
@@ -88,6 +104,18 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
+    public bool IsMultipliedByJudjes()
+    {
+        if (currentStyle == judgesPreferences[0] || currentStyle == judgesPreferences[1] || currentStyle == judgesPreferences[2])
+        {
+            //Debug.Log("Multiplied");
+            return true;
+        }
+
+        
+        return false;
+    }
 
     public void GetScoreDifference()
     {
