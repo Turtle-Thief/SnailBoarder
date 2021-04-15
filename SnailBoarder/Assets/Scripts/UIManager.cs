@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
         currentPanel;
     [Space]
     public GameObject timer;
-    public bool previousExists = false, multiplied = false;
+    public bool previousExists = false;
     private GameObject previousPanel; // Reference object
 
     // HUD attributes
@@ -324,7 +324,9 @@ public class UIManager : MonoBehaviour
 
     public void TrickFinishedHUD(TricksController.Trick trick)
     {
-        if(!multiplied)
+        bool multiplied = GameManager.instance.IsMultipliedByJudjes();
+
+        if (!multiplied)
         {
             SM.AddToScore(trick.mPoints);
             int totalScore;
@@ -342,7 +344,7 @@ public class UIManager : MonoBehaviour
             GameManager.instance.score = totalScore;
 
             scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
-            trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString();
+            trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString() + " * 2";
         }
         
         

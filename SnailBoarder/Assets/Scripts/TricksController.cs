@@ -22,6 +22,7 @@ public class TricksController : MonoBehaviour
         NumOfTricks
     };
 
+    [System.Serializable]
     public struct Trick
     {
         public TrickName mName;
@@ -44,10 +45,9 @@ public class TricksController : MonoBehaviour
     [HideInInspector]
     public Trick[] Tricks = new Trick[(int)TrickName.NumOfTricks];
 
-    bool readyForAir;
+    public bool readyToGetIntoAir;
     public LayerMask airTrickTriggerLayer;
 
-    [HideInInspector]
     public Trick currentTrick;
     float timeSinceLastTrickStart = 0;
     public float buttonComboDelayMax = 0.3f;
@@ -72,7 +72,7 @@ public class TricksController : MonoBehaviour
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
-        readyForAir = false;
+        readyToGetIntoAir = true;
     }
 
     private void Update()
@@ -182,19 +182,19 @@ public class TricksController : MonoBehaviour
 
     public void OnHeelflip()
     {
-        Debug.Log("Input Heelflip");
+        //Debug.Log("Input Heelflip");
         TrickInputCall(Tricks[(int)TrickName.Heelflip]);
     }
 
     public void OnMcTwist()
     {
-        Debug.Log("Input McTwist");
+        //Debug.Log("Input McTwist");
         TrickInputCall(Tricks[(int)TrickName.McTwist]);
     }
 
     public void OnAirKickflip()
     {
-        Debug.Log("Input AirKickflip");
+        //Debug.Log("Input AirKickflip");
         TrickInputCall(Tricks[(int)TrickName.AirKickflip]);
     }
 
@@ -203,9 +203,10 @@ public class TricksController : MonoBehaviour
         // Waits until trick is finished
         yield return new WaitForSeconds(pauseTime);
 
-        UIManager.instance.TrickFinishedHUD(currentTrick);
-
+        Trick tmpTrick = Tricks[(int)currentTrick.mName];
         currentTrick = Tricks[(int)TrickName.NullTrick];
+
+        UIManager.instance.TrickFinishedHUD(tmpTrick);
     }
 
     void OllieAnim()
@@ -215,36 +216,46 @@ public class TricksController : MonoBehaviour
 
     public void AirTriggerEnter()
     {
-        if (!readyForAir)
+        if (readyToGetIntoAir)
         {
-            readyForAir = true;
+            readyToGetIntoAir = false;
             playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
                                           RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            StartCoroutine(RemoveConstraintsInTime(2f));
+            StartCoroutine(StopAirInTime(4f));
+            StartCoroutine(RemoveConstraintsInTime(0.8f));
 
             //Debug.Log("Air Trigger Enter ");
-            playerMovement.Jump(0.5f);
+            playerMovement.Jump(1.5f);
+
+            Debug.Log("1111111111111");
         }
         else
         {
-            LeavingAir();
+            if (playerRigidbody.constraints != RigidbodyConstraints.None)
+                playerRigidbody.constraints = RigidbodyConstraints.None;
+            readyToGetIntoAir = true;
+            Debug.Log("2222222222222");
+            StopCoroutine(StopAirInTime(4f));
+            StopCoroutine(RemoveConstraintsInTime(0.8f));
         }
+        //Debug.Log("Trigger");
     }
 
-    public void LeavingAir()
-    {
-        playerRigidbody.constraints = RigidbodyConstraints.None;
-        readyForAir = false;
-
-        playerMovement.Jump(-0.5f);
-        //Debug.Log("Air Trigger Exit");
-    }
-
-    IEnumerator RemoveConstraintsInTime(float time)  //tmp
+    IEnumerator RemoveConstraintsInTime(float time)
     {
         yield return new WaitForSeconds(time);
-        playerRigidbody.constraints = RigidbodyConstraints.None;
+        if (playerRigidbody.constraints != RigidbodyConstraints.None)
+            playerRigidbody.constraints = RigidbodyConstraints.None;
     }
+
+    IEnumerator StopAirInTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        readyToGetIntoAir = true;
+        Debug.Log("333333333");
+    }
+
+
 
     IEnumerator WheelieAnim()  //tmp
     {

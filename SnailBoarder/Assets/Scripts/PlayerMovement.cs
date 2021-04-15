@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnTurn(InputValue value)
     {
         Vector2 val = value.Get<Vector2>();
-        Debug.Log("TURN" + val);
+        //Debug.Log("TURN" + val);
         //rotationVec = val;
         if (isGrounded)
             rotationVal = val.x * Time.deltaTime * playerRotSpeed;
@@ -238,8 +238,8 @@ public class PlayerMovement : MonoBehaviour
                 rotationSpeed = playerAirRotSpeed;
 
             computedRotation = physicsRotation  * transform.rotation;
-            Debug.Log("Physics: " + physicsRotation.eulerAngles);
-            Debug.Log("Velocity: " + velocityRotation.eulerAngles);
+            //Debug.Log("Physics: " + physicsRotation.eulerAngles);
+            //Debug.Log("Velocity: " + velocityRotation.eulerAngles);
             transform.rotation = Quaternion.Lerp(transform.rotation, computedRotation,  rotationSpeed * 0.01f *Time.deltaTime);
         }
     }
