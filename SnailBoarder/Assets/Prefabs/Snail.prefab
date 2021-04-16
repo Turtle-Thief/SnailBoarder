@@ -588,6 +588,7 @@ MonoBehaviour:
   - {fileID: 3310807520078097409, guid: c85d5dddcee1da5428dc68523a57673e, type: 3}
   - {fileID: 703137675365391887, guid: a5b9da279a541e940aa876c954586627, type: 3}
   hatPoint: {fileID: 3910493436042427023}
+  hatNum: 0
   maps: {fileID: 3064420549551635689}
   CamPoint: {fileID: 4228352867012685029}
 --- !u!114 &140696032723589438
@@ -762,7 +763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3910493436042427023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07999998, y: 3.35, z: -0.20000727}
+  m_LocalPosition: {x: 0.07999998, y: 3.01, z: -0.20000727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3064420549551635688}
