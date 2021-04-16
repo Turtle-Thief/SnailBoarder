@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     // should be accessible to any class, using a static instance is also a potential way to implement this
-    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false;
+    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false;
 
-    public int score, neededPoints;
+    public int score, neededPoints, hatIndex;
 
     public enum ZoneStyle // your custom enumeration
     {
@@ -126,6 +126,12 @@ public class GameManager : MonoBehaviour
     {
         UIManager.instance.ClearAfterTrickHUD(); // reset
         score = neededPoints = 0; // reset
+
+        //if(hatted)
+        //{
+        //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //    player.GetComponent<Player>().GiveHat(hatIndex);
+        //}
 
         onPausableScene = true;
         // reset score
