@@ -14,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
     // Rotation stuff
     Quaternion targetRotation;
     [HideInInspector]
-    public float rotationY = 0f;
+    public float rotationVal = 0f;
+    public Vector2 rotationVec = Vector2.zero;
 
     private Rigidbody playerRigidbody;
     public Transform centerOfMass;
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector]
     public bool isGrounded = false;
+    [HideInInspector]
+    public bool isOnRamp = false;
     [HideInInspector]
     public bool isBraking = false;
 
@@ -45,14 +48,14 @@ public class PlayerMovement : MonoBehaviour
         //debugText = GameObject.Find("DebugText").GetComponent<Text>();  //Find Debug Text on Scene
         currentSpeed = 0.0f;
         if (centerOfMass != null)
-            playerRigidbody.centerOfMass =  centerOfMass.position - transform.position;
+            playerRigidbody.centerOfMass = centerOfMass.position - transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         // If the game is NOT paused...
-        if(!GameManager.instance.gameIsPaused)
+        if (!GameManager.instance.gameIsPaused)
         {
             // Put everything in here!!!
 
@@ -61,10 +64,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Brake();
-        Friction();
-        GroundCheck();
-        Rotate();
+        // If the game is NOT paused...
+        if (!GameManager.instance.gameIsPaused)
+        {
+            //Brake();
+            Friction();
+            GroundCheck();
+            Rotate();
+            SnailRotate(rotationVec);
+            Debug.DrawRay(transform.position, (transform.forward + new Vector3(rotationVec.x, 0.0f, rotationVec.y)) * 4.0f, Color.magenta);
+        }
+
     }
 
     // Input Event Functions
@@ -72,13 +82,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded)
         {
-            //add to player speed
-            currentSpeed += speedPerFrame;
-            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
-            //add acceleration force here?
-            if (playerRigidbody.velocity.magnitude < playerMaxSpeed)
+            // how fast is the player currently
+            currentSpeed = playerRigidbody.velocity.magnitude;
+
+            if (currentSpeed < playerMaxSpeed)
             {
-                playerRigidbody.AddForce(gameObject.transform.forward.normalized * playerAcel, ForceMode.VelocityChange);
+                // add to player speed
+                currentSpeed += playerAcel;
+                currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+                playerRigidbody.AddForce(gameObject.transform.forward.normalized * currentSpeed, ForceMode.VelocityChange);
             }
         }
     }
@@ -101,16 +113,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTurn(InputValue value)
     {
-        if (tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
-        {
-            Vector2 val = value.Get<Vector2>();
-            if (isGrounded)
-                rotationY = val.x * Time.deltaTime * playerRotSpeed;
-            else
-                rotationY = val.x * Time.deltaTime * playerAirRotSpeed;
-            //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
-            //Debug.Log("rotate");
-        }
+        Vector2 val = value.Get<Vector2>();
+        //Debug.Log("TURN" + val);
+        //rotationVec = val;
+        if (isGrounded)
+            rotationVal = val.x * Time.deltaTime * playerRotSpeed;
+        else
+            rotationVal = val.x * Time.deltaTime * playerAirRotSpeed;
+
+        rotationVec = val;
+        //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
+        //Debug.Log("rotate");
+
     }
 
     public void OnJump()
@@ -128,27 +142,28 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("self righting from " + collision.gameObject.name);   
     }*/
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("self righting from " + other.gameObject.name);
-    }
+       // Debug.Log("self righting from " + other.gameObject.name);
+    }*/
 
     // Physics functions
     public void Jump(float forceMultiplier)
     {
         playerRigidbody.AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
     }
-        
+
     void Brake()
     {
         if (isGrounded && isBraking)
         {
-            //subtract from player speed
-            currentSpeed -= playerBrake;
-            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
+
             //Add decceleration force here?
             if (playerRigidbody.velocity.magnitude > playerBrake)
             {
+                //subtract from player speed
+                currentSpeed -= playerBrake;
+                currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
                 playerRigidbody.AddForce(gameObject.transform.forward.normalized * -playerBrake, ForceMode.VelocityChange);
             }
         }
@@ -157,7 +172,77 @@ public class PlayerMovement : MonoBehaviour
     {
         if (tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
-            transform.Rotate(0.0f, rotationY, 0.0f);
+            transform.Rotate(0.0f, rotationVal, 0.0f);
+
+        }
+    }
+
+    // Trying some other rotation stuff
+
+    // A function that should return a quaternion with the rotation difference between the normal of the ground and the snails current up vector
+    Quaternion GetPhysicsRotation()
+    {
+        Vector3 targetVec = Vector3.up;
+        Ray ray = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, (Vector3.down * 2 - transform.up).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
+        {
+            targetVec = hit.normal;
+        }
+
+        return Quaternion.FromToRotation(transform.up, targetVec);
+    }
+
+    // A function to help the player go the direction theyre facing, constrained to a plane
+    Quaternion GetVelocityRot()
+    {
+        Vector3 vel = playerRigidbody.velocity;
+        //if (vel.sqrMagnitude > 0.2f)
+        {
+            vel.y = 0;
+            Vector3 dir = transform.forward;
+            dir.y = 0;
+            Quaternion velRot = Quaternion.FromToRotation(dir.normalized, vel.normalized);
+            return velRot;
+        }
+        //else
+          //  return Quaternion.identity;
+    }
+
+    // Function that moves the snail and rotates if needed!
+    void SnailRotate(Vector2 input)
+    {
+        //if (tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
+        {
+            Quaternion physicsRotation = !isGrounded ? Quaternion.identity : GetPhysicsRotation();
+            Quaternion velocityRotation = GetVelocityRot();
+            Quaternion inputRotation = Quaternion.identity;
+            Quaternion computedRotation = Quaternion.identity;
+
+            if (input.magnitude > 0.1f)
+            {
+                Vector3 adaptedDirection = new Vector3(input.x, 0, input.y);
+                Vector3 planarDirection = transform.forward.normalized;
+                planarDirection.y = 0;
+                inputRotation = Quaternion.FromToRotation(planarDirection, adaptedDirection);
+
+                if (isGrounded)
+                {
+                    Vector3 direction = inputRotation * transform.forward * (currentSpeed + 0.1f);
+                    playerRigidbody.AddForce(direction);
+                }
+            }
+            float rotationSpeed;
+            if (isGrounded)
+                rotationSpeed = playerRotSpeed;
+            else
+                rotationSpeed = playerAirRotSpeed;
+
+            computedRotation = physicsRotation  * transform.rotation;
+            //Debug.Log("Physics: " + physicsRotation.eulerAngles);
+            //Debug.Log("Velocity: " + velocityRotation.eulerAngles);
+            transform.rotation = Quaternion.Lerp(transform.rotation, computedRotation,  rotationSpeed * 0.01f *Time.deltaTime);
         }
     }
 
@@ -180,8 +265,14 @@ public class PlayerMovement : MonoBehaviour
             //}
             if (hit.transform.gameObject.layer == 10) // Is ramp??
             {
-                //Debug.Log("ramppppp?");
-            } 
+                isOnRamp = true;
+                //Debug.Log("ramp");
+            }
+            else
+            {
+                //Debug.Log("Grounded on " + hit.transform.name);
+                isOnRamp = false;
+            }
             isGrounded = true;
         }
         else
@@ -191,16 +282,15 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
-    
+
     void Friction()
     {
         if (isGrounded)
         {
-            currentSpeed -= playerFric; //friction
-            currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
-            //add friction force here?
             if (playerRigidbody.velocity.magnitude > playerFric)
             {
+                currentSpeed -= playerFric; //friction
+                currentSpeed = Mathf.Clamp(currentSpeed, 0, playerMaxSpeed);
                 playerRigidbody.AddForce(gameObject.transform.forward.normalized * -playerFric, ForceMode.Acceleration);
             }
         }

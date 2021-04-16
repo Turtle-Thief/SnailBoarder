@@ -30,19 +30,18 @@ public class SceneLoader : MonoBehaviour
         }
         else if (sceneName == "judge")
         {
-            // Load the judge scene
+            //Load the judge scene
             SceneManager.LoadScene(judge);
             currentScene = judge;
 
         }
-        // !!!!!!------------UNCOMMENT--------------!!!!!!!
-        //else if (sceneName == "dialog")
-        //{
-        //    // Signal that we've finished the previous level (may need to add loading test here)
-        //    GameManager.instance.OnFinishedLevel();
-        //    SceneManager.LoadScene(dialog);
-        //    currentScene = dialog;
-        //}
+        else if (sceneName == "dialog")
+        {
+            //Signal that we've finished the previous level (may need to add loading test here)
+            GameManager.instance.OnFinishedLevel();
+            SceneManager.LoadScene(dialog);
+            currentScene = dialog;
+        }
         else if (sceneName == "title")
         {
             SceneManager.LoadScene(title);

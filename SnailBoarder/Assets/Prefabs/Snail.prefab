@@ -329,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3064420549121987254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.26, z: -0.88}
+  m_LocalPosition: {x: 0, y: -1.51, z: -0.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3064420549551635688}
@@ -458,16 +458,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e9ccb6c91b5aa4891e8a0d9743582a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxSpeed: 150
+  playerMaxSpeed: 5000
   speedPerFrame: 10
-  playerAcel: 20
-  playerBrake: 20
-  playerFric: 0.05
-  playerRotSpeed: 200
-  playerAirRotSpeed: 600
+  playerAcel: 60
+  playerBrake: 50
+  playerFric: 1.2
+  playerRotSpeed: 150
+  playerAirRotSpeed: 400
   jumpForce: 350
   currentSpeed: 0
-  rotationY: 0
+  rotationVal: 0
+  rotationVec: {x: 0, y: 0}
   centerOfMass: {fileID: 3064420549121987255}
   selfRighting: {fileID: 3662488752686526301}
   isGrounded: 0
@@ -475,7 +476,7 @@ MonoBehaviour:
   IgnoreGroundCheckLayer:
     serializedVersion: 2
     m_Bits: 256
-  distToGround: 4.5
+  distToGround: 5
 --- !u!64 &3064420549551635606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -498,7 +499,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3064420549551635601}
   serializedVersion: 2
-  m_Mass: 2.65
+  m_Mass: 10
   m_Drag: 0.2
   m_AngularDrag: 0.5
   m_UseGravity: 1
@@ -516,10 +517,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.0098577
-  m_Height: 7.9135714
+  m_Radius: 1.8640444
+  m_Height: 5.2998996
   m_Direction: 2
-  m_Center: {x: -0.07444287, y: 3.9, z: 0.08008814}
+  m_Center: {x: -0.10269213, y: 1.0319693, z: 0.22479486}
 --- !u!114 &3064420549551635689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,7 +790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3753386161241733510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.32, z: 3.49}
+  m_LocalPosition: {x: -0, y: -0.32, z: 0.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3064420549551635688}
@@ -806,7 +807,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 4.71, y: 1, z: 10.71}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2761026763549497652
 MonoBehaviour:

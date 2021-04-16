@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
         currentPanel;
     [Space]
     public GameObject timer;
-    public bool previousExists = false, multiplied = false;
+    public bool previousExists = false;
     private GameObject previousPanel; // Reference object
 
     // HUD attributes
@@ -322,9 +322,19 @@ public class UIManager : MonoBehaviour
         // start coroutine for fade
     }
 
-    public void TrickFinishedHUD(TricksController.Trick trick)
+    public void TrickFinishedHUD(TricksController.Trick trick, bool shouldMultiply)
     {
-        if(!multiplied)
+        if (shouldMultiply)
+        {
+            SM.AddToScore(trick.mPoints, 2);
+            int totalScore;
+            totalScore = SM.SendDisplayScore();
+            GameManager.instance.score = totalScore;
+
+            scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
+            trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString() + " * 2";
+        }
+        else
         {
             SM.AddToScore(trick.mPoints);
             int totalScore;
@@ -334,16 +344,7 @@ public class UIManager : MonoBehaviour
             scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
             trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString(); // This is bad formatting lol
         }
-        else if(multiplied)
-        {
-            SM.AddToScore(trick.mPoints, 2);
-            int totalScore;
-            totalScore = SM.SendDisplayScore();
-            GameManager.instance.score = totalScore;
 
-            scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
-            trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString();
-        }
         
         
         // change trick and score func
