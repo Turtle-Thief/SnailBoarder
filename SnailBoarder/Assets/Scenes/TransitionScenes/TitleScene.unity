@@ -2477,7 +2477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a69367e96ab1af48b3a7bb30c5a2d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parkScore: 30
+  parkScore: 300
   shouldMultiply: 0
 --- !u!1001 &457807622
 PrefabInstance:
@@ -9883,7 +9883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21687d7ee3da82947b5ba78815dd7c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForLevel: 30
+  timeForLevel: 120
   timerIsRunning: 0
 --- !u!1 &1840394588
 GameObject:
