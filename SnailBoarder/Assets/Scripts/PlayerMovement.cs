@@ -23,10 +23,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveX, moveZ;
 
     // Trick triggers stuff
-    public Text debugText;
+    //public Text debugText;
 
     [HideInInspector]
     public bool isGrounded = false;
+    [HideInInspector]
+    public bool isOnRamp = false;
     [HideInInspector]
     public bool isBraking = false;
 
@@ -112,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnTurn(InputValue value)
     {
         Vector2 val = value.Get<Vector2>();
-        Debug.Log("TURN" + val);
+        //Debug.Log("TURN" + val);
         //rotationVec = val;
         if (isGrounded)
             rotationVal = val.x * Time.deltaTime * playerRotSpeed;
@@ -238,37 +240,45 @@ public class PlayerMovement : MonoBehaviour
                 rotationSpeed = playerAirRotSpeed;
 
             computedRotation = physicsRotation  * transform.rotation;
-            Debug.Log("Physics: " + physicsRotation.eulerAngles);
-            Debug.Log("Velocity: " + velocityRotation.eulerAngles);
+            //Debug.Log("Physics: " + physicsRotation.eulerAngles);
+            //Debug.Log("Velocity: " + velocityRotation.eulerAngles);
             transform.rotation = Quaternion.Lerp(transform.rotation, computedRotation,  rotationSpeed * 0.01f *Time.deltaTime);
         }
     }
 
     void GroundCheck()
     {
-        Debug.DrawRay(transform.position, (Vector3.down * 1.5f - transform.up).normalized * distToGround, Color.blue);
-
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1.4f, 0.0f), (Vector3.down * 1.5f - transform.up).normalized * distToGround, Color.blue);
+        
         // Tricks triggers stuff
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, (Vector3.down * 2 - transform.up).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
+        if (Physics.Raycast(this.transform.position + new Vector3(0.0f, 1.4f, 0.0f), (Vector3.down.normalized * 2 - transform.up.normalized).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
         {
+            //Debug.Log("Grounded on " + hit.transform.name);
+
             slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
             // normalisedSlope = (slopeAngle / 90f) * -1f;
-            if (debugText)
-            {
-                debugText.text = "Grounded on " + hit.transform.name;
-                debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
-            }
+            //if (debugText)
+            //{
+            //    debugText.text = "Grounded on " + hit.transform.name;
+            //    debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
+            //}
             if (hit.transform.gameObject.layer == 10) // Is ramp??
             {
-                //Debug.Log("ramppppp?");
+                isOnRamp = true;
+                //Debug.Log("ramp");
+            }
+            else
+            {
+                //Debug.Log("Grounded on " + hit.transform.name);
+                isOnRamp = false;
             }
             isGrounded = true;
         }
         else
         {
-            if (debugText)
-                debugText.text = "Not Grounded";
+            //if (debugText)
+            //    debugText.text = "Not Grounded";
             isGrounded = false;
         }
     }

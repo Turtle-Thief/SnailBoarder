@@ -93,7 +93,7 @@ public class ParkMaster : MonoBehaviour
         //maps.actions.FindActionMap("Player").Disable();
         //GameManager.instance.PauseGame(false);
         maps.actions.FindActionMap("CosmeticSelect").Enable();
-        snail.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+        //snail.gameObject.transform.GetChild(2).gameObject.SetActive(true);   // FIX PLS
     }
 
 
