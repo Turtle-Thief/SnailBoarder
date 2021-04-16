@@ -119,7 +119,7 @@ public class TricksController : MonoBehaviour
         {
             case TrickName.Ollie:
                 //OllieAnim();
-                //playerMovement.Jump(1.0f);
+                StartCoroutine(OllieJump(1f));
                 snailAnimation.StartOllieSkateAnim();
                 snailAnimation.StartOllieSnailAnim();
                 //Debug.Log("!Ollie!");
@@ -172,7 +172,7 @@ public class TricksController : MonoBehaviour
 
     public void OnOllie()
     {
-        //Debug.Log("Input Ollie");
+        Debug.Log("Input Ollie");
         TrickInputCall(Tricks[(int)TrickName.Ollie]);
     }
 
@@ -232,8 +232,9 @@ public class TricksController : MonoBehaviour
         UIManager.instance.TrickFinishedHUD(tmpTrick, shouldMultiply);
     }
 
-    void OllieAnim()
+    IEnumerator OllieJump(float time)
     {
+        yield return new WaitForSeconds(time);
         playerMovement.Jump(1.0f);
     }
 

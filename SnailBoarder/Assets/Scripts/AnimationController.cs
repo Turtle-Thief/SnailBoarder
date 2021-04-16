@@ -9,8 +9,8 @@ public class AnimationController : MonoBehaviour
 
     void Start()
     {
-        skateAnimator = transform.GetComponent<Animator>();
-        skateAnimator = transform.Find("Root_ctrl").Find("SnaiByIItself").GetComponent<Animator>();
+        skateAnimator = transform.Find("Separator").GetComponent<Animator>();
+        snailAnimator = transform.Find("Separator").Find("Root_ctrl").Find("SnaiByIItself").GetComponent<Animator>();
     }
 
     void Update()
