@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool isGrounded = false;
     [HideInInspector]
+    public bool isOnRamp = false;
+    [HideInInspector]
     public bool isBraking = false;
 
     public LayerMask IgnoreGroundCheckLayer;
@@ -112,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnTurn(InputValue value)
     {
         Vector2 val = value.Get<Vector2>();
-        Debug.Log("TURN" + val);
+        //Debug.Log("TURN" + val);
         //rotationVec = val;
         if (isGrounded)
             rotationVal = val.x * Time.deltaTime * playerRotSpeed;
@@ -238,8 +240,8 @@ public class PlayerMovement : MonoBehaviour
                 rotationSpeed = playerAirRotSpeed;
 
             computedRotation = physicsRotation  * transform.rotation;
-            Debug.Log("Physics: " + physicsRotation.eulerAngles);
-            Debug.Log("Velocity: " + velocityRotation.eulerAngles);
+            //Debug.Log("Physics: " + physicsRotation.eulerAngles);
+            //Debug.Log("Velocity: " + velocityRotation.eulerAngles);
             transform.rotation = Quaternion.Lerp(transform.rotation, computedRotation,  rotationSpeed * 0.01f *Time.deltaTime);
         }
     }
@@ -261,7 +263,13 @@ public class PlayerMovement : MonoBehaviour
             }
             if (hit.transform.gameObject.layer == 10) // Is ramp??
             {
-                //Debug.Log("ramppppp?");
+                isOnRamp = true;
+                //Debug.Log("ramp");
+            }
+            else
+            {
+                //Debug.Log("Grounded on " + hit.transform.name);
+                isOnRamp = false;
             }
             isGrounded = true;
         }

@@ -470,7 +470,7 @@ MonoBehaviour:
   IgnoreGroundCheckLayer:
     serializedVersion: 2
     m_Bits: 256
-  distToGround: 4.5
+  distToGround: 5
 --- !u!64 &3064420549551635606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -753,7 +753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3753386161241733510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.32, z: 3.49}
+  m_LocalPosition: {x: -0, y: -0.32, z: 0.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3064420549551635688}
@@ -770,7 +770,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 4.71, y: 1, z: 10.71}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2761026763549497652
 MonoBehaviour:
