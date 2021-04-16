@@ -384,6 +384,7 @@ Transform:
   - {fileID: 4742557683194781389}
   - {fileID: 2276039674950301502}
   - {fileID: 6125176083816501413}
+  - {fileID: 5561323811246663878}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 1.39, z: 0}
@@ -472,6 +473,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 3064420549121987255}
   selfRighting: {fileID: 3662488752686526301}
   isGrounded: 0
+  isOnRamp: 0
   isBraking: 0
   IgnoreGroundCheckLayer:
     serializedVersion: 2
@@ -616,9 +618,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7417d84481cf546bec039945721cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tricks:
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
+  readyToGetIntoAir: 0
   airTrickTriggerLayer:
     serializedVersion: 2
     m_Bits: 512
+  currentTrick:
+    mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
   buttonComboDelayMax: 0.3
 --- !u!114 &6919938999450129878
 MonoBehaviour:
@@ -1733,6 +1788,56 @@ Transform:
   m_Father: {fileID: 2922880396968531256}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9065128506317845981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5561323811246663878}
+  - component: {fileID: 4392873377565457517}
+  m_Layer: 8
+  m_Name: Separator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5561323811246663878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9065128506317845981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3064420549551635688}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4392873377565457517
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9065128506317845981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26dffc3a60aa61f40b34447e0239f1f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6435544685755727697
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -248,13 +248,13 @@ public class PlayerMovement : MonoBehaviour
 
     void GroundCheck()
     {
-        Debug.DrawRay(transform.position, (Vector3.down * 1.5f - transform.up).normalized * distToGround, Color.blue);
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1.4f, 0.0f), (Vector3.down * 1.5f - transform.up).normalized * distToGround, Color.blue);
         
         // Tricks triggers stuff
         RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, (Vector3.down * 2 - transform.up).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
+        if (Physics.Raycast(this.transform.position + new Vector3(0.0f, 1.4f, 0.0f), (Vector3.down.normalized * 2 - transform.up.normalized).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
         {
-            Debug.Log("Grounded on " + hit.transform.name);
+            //Debug.Log("Grounded on " + hit.transform.name);
 
             slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
             // normalisedSlope = (slopeAngle / 90f) * -1f;
