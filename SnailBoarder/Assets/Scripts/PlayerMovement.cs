@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     TricksController tricksController;
@@ -144,6 +145,10 @@ public class PlayerMovement : MonoBehaviour
     public void Jump(float forceMultiplier)
     {
         playerRigidbody.AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
+        if (gameObject.GetComponent<PathCreation.Examples.SnailPathFollower>().pathCreator != null)
+        {
+            gameObject.GetComponent<PathCreation.Examples.SnailPathFollower>().StartRailGrind();
+        }
     }
 
     void Brake()
@@ -168,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(0.0f, rotationVal, 0.0f);
             //playerRigidbody.AddForce(transform.forward.normalized * playerRigidbody.velocity.magnitude - playerRigidbody.velocity, ForceMode.VelocityChange);
             //playerRigidbody.rotation = transform.rotation;
-            
+
         }
     }
 
@@ -183,9 +188,9 @@ public class PlayerMovement : MonoBehaviour
                 currentRotSpeed = playerRotSpeed - currentSpeed;
                 if (Mathf.Abs(Vector3.Dot(transform.forward.normalized, playerRigidbody.velocity.normalized)) <= 0.85f)
                 {
-                    playerRigidbody.velocity = new Vector3 (transform.forward.normalized.x * playerRigidbody.velocity.magnitude
-                                                           ,playerRigidbody.velocity.y
-                                                           ,transform.forward.normalized.z * playerRigidbody.velocity.magnitude);
+                    playerRigidbody.velocity = new Vector3(transform.forward.normalized.x * playerRigidbody.velocity.magnitude
+                                                           , playerRigidbody.velocity.y
+                                                           , transform.forward.normalized.z * playerRigidbody.velocity.magnitude);
                 }
             }
             else
@@ -251,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
                     //Vector3 direction = planarDirection  * currentSpeed;
                     //Debug.DrawRay(transform.position, direction, Color.yellow);
                     playerRigidbody.AddForce(direction, ForceMode.VelocityChange);
-                    
+
                 }
             }
             float rotationSpeed;
@@ -264,14 +269,14 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Physics: " + physicsRotation.eulerAngles);
             //Debug.Log("Velocity: " + velocityRotation.eulerAngles);
             Quaternion rotation = Quaternion.Lerp(transform.rotation, computedRotation, rotationSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, computedRotation,  rotationSpeed * 0.01f *Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, computedRotation, rotationSpeed * 0.01f * Time.deltaTime);
             //playerRigidbody.MoveRotation(rotation);
         }
     }
 
     Vector3 RotateToPlayer(Vector2 direction)
     {
-        Vector3 forward = Vector3.ProjectOnPlane(transform.position - (-2.0f * transform.forward) , Vector3.up);
+        Vector3 forward = Vector3.ProjectOnPlane(transform.position - (-2.0f * transform.forward), Vector3.up);
         forward.y = 0;
         Vector3 right = Quaternion.AngleAxis(90, Vector3.up) * forward;
 

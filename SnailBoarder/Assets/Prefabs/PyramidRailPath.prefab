@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1907551442905318181}
   - component: {fileID: 1907551442905318180}
-  - component: {fileID: 7914942359282004985}
-  m_Layer: 0
+  - component: {fileID: 310463429}
+  - component: {fileID: 5882415815403816655}
+  m_Layer: 12
   m_Name: PyramidRailPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,22 +48,28 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: 0.0017433167, y: -2.3069482, z: 22.211063}
-      - {x: 0.00459671, y: -2.3115869, z: 20.766033}
-      - {x: -0.05107498, y: -2.3439429, z: 19.119684}
-      - {x: -0.14377975, y: -2.298446, z: 17.608252}
-      - {x: 0.011554718, y: -1.6808162, z: 15.852566}
-      - {x: -0.02073288, y: 0.5565562, z: 11.57943}
-      - {x: 0.010070801, y: 2.276791, z: 7.397497}
-      - {x: -0.025238037, y: 2.1842008, z: 6.0711784}
-      - {x: -0.15389252, y: 2.3605685, z: -5.1565323}
-      - {x: -0.017814636, y: 2.4451404, z: -7.3008575}
-      - {x: 0.026042938, y: 1.9373627, z: -8.645939}
-      - {x: -0.016155243, y: -1.1543808, z: -15.183125}
-      - {x: -0.05121231, y: -2.2143989, z: -17.670498}
-      - {x: -0.026287079, y: -2.1914878, z: -19.667587}
-      - {x: -0.17438173, y: -2.464768, z: -21.76392}
-      - {x: -0.007671356, y: -2.3814127, z: -21.76392}
+      - {x: 0, y: -0.70825243, z: 23.701231}
+      - {x: 0, y: -1.1432304, z: 23.584667}
+      - {x: -0.014864225, y: -1.5788364, z: 22.895782}
+      - {x: 0, y: -1.6072321, z: 22.088062}
+      - {x: 0.0068783574, y: -1.6256235, z: 20.709375}
+      - {x: 0.021604571, y: -1.6449263, z: 18.682793}
+      - {x: 0, y: -1.6378176, z: 17.659576}
+      - {x: 0.06967616, y: -0.9410229, z: 15.988491}
+      - {x: -0.03080368, y: 0.747632, z: 11.659903}
+      - {x: 0, y: 2.467867, z: 7.477969}
+      - {x: -0.010432005, y: 2.4403677, z: 6.198453}
+      - {x: 0, y: 2.4130564, z: -5.341743}
+      - {x: 0, y: 2.4976282, z: -7.4860682}
+      - {x: 0, y: 1.9898505, z: -8.831151}
+      - {x: 0.035057068, y: -0.55499625, z: -15.075573}
+      - {x: 0, y: -1.6150143, z: -17.562946}
+      - {x: 0.014840762, y: -1.6339555, z: -18.752035}
+      - {x: 0.005109354, y: -1.6330612, z: -20.333996}
+      - {x: 0, y: -1.6252632, z: -22.466162}
+      - {x: -0.008268356, y: -2.0725775, z: -23.457256}
+      - {x: -0.04940033, y: -1.1706712, z: -23.441645}
+      - {x: 0, y: -1.1673732, z: -23.564993}
       isClosed: 0
       space: 0
       controlMode: 2
@@ -72,6 +79,8 @@ MonoBehaviour:
         m_Center: {x: 0, y: 0, z: 0}
         m_Extent: {x: 0, y: 0, z: 0}
       perAnchorNormalsAngle:
+      - 0
+      - 0
       - 0
       - 0
       - 0
@@ -101,17 +110,28 @@ MonoBehaviour:
     showNormalsHelpInfo: 0
     tabIndex: 0
   initialized: 1
---- !u!136 &7914942359282004985
-CapsuleCollider:
+--- !u!65 &310463429
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907551442905318183}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 4.2
-  m_Height: 48.06
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 25.7, y: 13.9, z: 61.08}
+  m_Center: {x: 0, y: 0.16, z: 2.1070366}
+--- !u!114 &5882415815403816655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907551442905318183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d3d937bd301c74d8883262cc08c2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

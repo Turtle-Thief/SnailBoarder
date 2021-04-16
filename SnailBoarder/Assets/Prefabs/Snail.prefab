@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 3064420549551635690}
   - component: {fileID: 3064420549551635604}
   - component: {fileID: 3064420549551635607}
+  - component: {fileID: 3890362146963971608}
   - component: {fileID: 3064420549551635606}
   - component: {fileID: 3064420549551635605}
   - component: {fileID: 3662488752686526301}
@@ -473,6 +474,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2304
   distToGround: 5
+--- !u!114 &3890362146963971608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3064420549551635601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4634b9bf5c78be743ae379bcbf96884f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 2
+  playerMovement: {fileID: 3064420549551635607}
+  speed: 5
+  snailSpeed: 0
+  doRailGrind: 0
 --- !u!64 &3064420549551635606
 MeshCollider:
   m_ObjectHideFlags: 0
