@@ -9,7 +9,7 @@ public class TitleScreen : MonoBehaviour
     #region Button Functions
     public void OnStart()
     {
-        SceneLoader.instance.LoadScene("nextLevel");
+        SceneLoader.instance.LoadScene("prelevel");
     }
 
     public void OnHelp()

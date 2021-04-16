@@ -12,7 +12,23 @@ public class GameManager : MonoBehaviour
     public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false;
 
     public int score, neededPoints;
-    public InputActionAsset secondaryInputs;
+
+    public enum ZoneStyle // your custom enumeration
+    {
+        Metal,
+        Punk,
+        Cute,
+        Cool,
+        Snail,
+        Classic,
+        None
+    };
+    
+    public ZoneStyle[] judgesPreferences = new ZoneStyle[3];
+
+    public ZoneStyle currentStyle;
+
+    public InputActionAsset playerInputs, secondaryInputs;
 
     private UIManager UM;
 
@@ -64,7 +80,7 @@ public class GameManager : MonoBehaviour
 
             // Only pause the game if isPaused is true
             if (gameIsPaused)
-                PauseGame();
+                PauseGame(true);
             else
                 ResumeGame();
 
@@ -88,6 +104,18 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
+    public bool IsMultipliedByJudjes()
+    {
+        if (currentStyle == judgesPreferences[0] || currentStyle == judgesPreferences[1] || currentStyle == judgesPreferences[2])
+        {
+            //Debug.Log("Multiplied");
+            return true;
+        }
+
+        
+        return false;
+    }
 
     public void GetScoreDifference()
     {
@@ -116,7 +144,7 @@ public class GameManager : MonoBehaviour
         UIManager.instance.timer.GetComponent<Timer>().timerIsRunning = false;
     }
 
-    public void PauseGame()
+    public void PauseGame(bool openPauseMenu)
     {
         // We want the Pause Screen to appear
         //  but we also want:
@@ -129,11 +157,14 @@ public class GameManager : MonoBehaviour
         //  (Time.time is stopped so needed functions for time should use Time.realtimeSinceStartup or any "unscaled" Time function)
         //  (For Coroutines use:  WaitForSecondsRealTime)
         //  (For Audio, use AudioSource.ignoreListenerPause = true;)
+        gameIsPaused = true;
+        playerInputs.FindActionMap("Player").Disable(); // Pause the player's MOVEMENT Inputs
 
         Time.timeScale = 0;
         AudioListener.pause = true;
 
-        UM.OpenPanel(UM.pausePanel);
+        if(openPauseMenu)
+            UM.OpenPanel(UM.pausePanel);
     }
 
     public void ResumeGame()
@@ -147,6 +178,8 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1;
         AudioListener.pause = false;
+
+        playerInputs.FindActionMap("Player").Enable();
     }
     private void FindAndSetInputs()
     {

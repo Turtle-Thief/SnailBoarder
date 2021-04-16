@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
     public List<TextMeshProUGUI> trickLog;
 
     private bool 
-        comboinit = false, 
+        //comboinit = false, 
         trickFinished = false, 
         fading = false;
 
