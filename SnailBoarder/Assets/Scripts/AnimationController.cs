@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    Animator animator;
+    Animator skateAnimator;
+    Animator snailAnimator;
 
     void Start()
     {
-        animator = transform.Find("riggedsnailv_01").GetComponent<Animator>();
+        skateAnimator = transform.GetComponent<Animator>();
+        skateAnimator = transform.Find("Root_ctrl").Find("SnaiByIItself").GetComponent<Animator>();
     }
 
     void Update()
@@ -20,43 +22,43 @@ public class AnimationController : MonoBehaviour
 
     public void StartOllieSkateAnim()
     {
-        animator.Play("A_OllieBoard");
+        skateAnimator.Play("A_Ollie");
     }
 
     public void StartKickflipSkateAnim()
     {
-        animator.Play("A_Kickflip");
+        skateAnimator.Play("A_Kickflip");
     }
 
     public void StartWheelieSkateAnim()
     {
-        animator.Play("A_Wheelie");
+        skateAnimator.Play("A_Wheelie");
     }
 
     public void StartPopShoveitSkateAnim()
     {
-        animator.Play("A_PopShoveit");
+        skateAnimator.Play("A_PopShoveit");
     }
     public void StartHospitalFlipSkateAnim()
     {
-        animator.Play("A_HospitalFlip");
+        skateAnimator.Play("A_HospitalFlip");
     }
 
     public void StartRailGrindSkateAnim()
     {
-        animator.Play("A_Railgrind");
+        skateAnimator.Play("A_Railgrind");
     }
 
     /*---------------SNAIL-ANIMATIONS---------------*/
 
     public void StartOllieSnailAnim()
     {
-        animator.Play("A_OllieBaked");
+        snailAnimator.Play("A_OllieBaked");
     }
 
     public void StartRailGrindSnailAnim()
     {
-        animator.Play("A_RailGrindBaked");
+        snailAnimator.Play("A_RailGrindBaked");
     }
 
 }

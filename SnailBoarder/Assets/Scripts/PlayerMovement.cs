@@ -164,11 +164,13 @@ public class PlayerMovement : MonoBehaviour
     void GroundCheck()
     {
         Debug.DrawRay(transform.position, (Vector3.down * 1.5f - transform.up).normalized * distToGround, Color.blue);
-
+        
         // Tricks triggers stuff
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, (Vector3.down * 2 - transform.up).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
+        if (Physics.Raycast(this.transform.position, (Vector3.down * 2 - transform.up).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
         {
+            Debug.Log("Grounded on " + hit.transform.name);
+
             slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
             // normalisedSlope = (slopeAngle / 90f) * -1f;
             //if (debugText)
@@ -178,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
             //}
             if (hit.transform.gameObject.layer == 10) // Is ramp??
             {
-                Debug.Log("ramppppp?");
+                //Debug.Log("ramppppp?");
             } 
             isGrounded = true;
         }
