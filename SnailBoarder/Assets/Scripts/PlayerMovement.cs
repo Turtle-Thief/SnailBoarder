@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
         //Debug.Log("rotate");
 
-    }
+    }*/
 
     public void OnJump()
     {
@@ -151,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Brake()
+    /*void Brake()
     {
         if (isGrounded && isBraking)
         {

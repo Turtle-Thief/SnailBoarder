@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    public float slopeAngle;
-    public bool isOnRamp;
-    public bool isGrounded;
+    [HideInInspector]
+    public bool isGrounded = false;
+    [HideInInspector]
+    public bool isOnRamp = false;
+
+    public LayerMask IgnoreGroundCheckLayer;
+    public float distToGround = 3f;
+    float slopeAngle;
 
     // Start is called before the first frame update
     void Start()
