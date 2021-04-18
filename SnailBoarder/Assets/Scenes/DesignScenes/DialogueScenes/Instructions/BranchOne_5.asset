@@ -15,7 +15,8 @@ MonoBehaviour:
   snailName: Snoogie
   dialogueLines:
   - Speaking about judges, have you heard about our first one?
-  - 
+  - 'Apperently they are an old time skater who really prefers "classic" skatepark
+    styles. '
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

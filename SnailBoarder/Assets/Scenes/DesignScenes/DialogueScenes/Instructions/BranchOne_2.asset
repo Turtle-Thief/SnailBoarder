@@ -15,7 +15,8 @@ MonoBehaviour:
   snailName: Snoogie
   dialogueLines:
   - Speaking about judges, have you heard about our first one?
-  - 
+  - Apprently they are a famous baker who makes deserts! They love all kinds of "cute"
+    things!
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

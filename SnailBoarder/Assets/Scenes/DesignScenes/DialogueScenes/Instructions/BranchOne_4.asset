@@ -15,7 +15,7 @@ MonoBehaviour:
   snailName: Snoogie
   dialogueLines:
   - Speaking about judges, have you heard about our first one?
-  - 
+  - Apparently this ones a real rebel. A big fan of anything "punk" related.
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eaef5d9264f7848a4f4cef4df5acf9, type: 3}
   m_Name: PreText_2
   m_EditorClassIdentifier: 
-  snailName: 
+  snailName: Squish
   dialogueLines:
   - To the annual Snailboarding competition!
   - Were snails from all over the world come to try and earn fame by perfoming wild

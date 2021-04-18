@@ -15,7 +15,8 @@ MonoBehaviour:
   snailName: Squish
   dialogueLines:
   - Thats not as amazing as our next judge.
-  - 
+  - They are a huge pyrotechnic fan and love anything with flames on it. They think
+    it's super "cool".
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

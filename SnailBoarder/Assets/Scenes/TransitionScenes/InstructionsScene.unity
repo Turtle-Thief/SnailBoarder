@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1407,6 +1407,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 048c1a5bd1459ae4aa0650d8d8360fbc, type: 2}
   - {fileID: 11400000, guid: c2866649e2517ea47bb1184f96e725fa, type: 2}
   - {fileID: 11400000, guid: f985d568f3400da41a9d14bcfaeb2056, type: 2}
+  branchThree:
+  - {fileID: 11400000, guid: b604c9d21ca667c4cabf9d24bdfaef5c, type: 2}
+  - {fileID: 11400000, guid: 8eb68874d3a9e2d4a95eef325d2d40f2, type: 2}
+  - {fileID: 11400000, guid: 6f85ee1ce30c4b7418772e0a5668280c, type: 2}
+  - {fileID: 11400000, guid: 39da676c2bdd71d43ac774c687399748, type: 2}
+  - {fileID: 11400000, guid: bb451e9c39d138c4da26e568b5a7af45, type: 2}
+  - {fileID: 11400000, guid: 93b94c0f8c3f107499e5dc8123c9a3fb, type: 2}
   postText:
   - {fileID: 11400000, guid: 987fee8045d4c67459387afb35867d14, type: 2}
   - {fileID: 11400000, guid: 9d5eb30818fb12640b397e552e9251a7, type: 2}

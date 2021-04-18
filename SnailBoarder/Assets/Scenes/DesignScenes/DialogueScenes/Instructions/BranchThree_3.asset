@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eaef5d9264f7848a4f4cef4df5acf9, type: 3}
   m_Name: BranchThree_3
   m_EditorClassIdentifier: 
-  snailName: 
+  snailName: Snoogie
   dialogueLines:
   - Our next judge however is a real showstopper!
-  - 
+  - A crazy snail fan who is enthusiastic about anything "snail" themed.
+  - If there is even a picture of a snail on it, they love it!
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

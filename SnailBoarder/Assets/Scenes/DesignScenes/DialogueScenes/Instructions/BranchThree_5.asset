@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eaef5d9264f7848a4f4cef4df5acf9, type: 3}
   m_Name: BranchThree_5
   m_EditorClassIdentifier: 
-  snailName: 
+  snailName: Snoogie
   dialogueLines:
   - Our next judge however is a real showstopper!
-  - 
+  - An old time skater who has been around for years.
+  - 'They really only like "classic" skatepark styles. '
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eaef5d9264f7848a4f4cef4df5acf9, type: 3}
   m_Name: PostText_3
   m_EditorClassIdentifier: 
-  snailName: 
+  snailName: Squish
   dialogueLines:
   - With that being said, let the games begin!
   japaneseDialogueLines: []

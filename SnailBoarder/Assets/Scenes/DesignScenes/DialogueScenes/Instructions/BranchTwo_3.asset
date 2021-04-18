@@ -15,7 +15,8 @@ MonoBehaviour:
   snailName: Squish
   dialogueLines:
   - Thats not as amazing as our next judge.
-  - 
+  - A crazy snail fan who is enthusiastic about anything "snail" themed.
+  - If there is even a picture of a snail on it, they love it!
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

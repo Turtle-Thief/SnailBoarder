@@ -15,7 +15,7 @@ MonoBehaviour:
   snailName: Squish
   dialogueLines:
   - Thats not as amazing as our next judge.
-  - 
+  - A famous desert baker! They love all kinds of "cute" things!
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

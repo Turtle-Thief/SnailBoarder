@@ -15,7 +15,8 @@ MonoBehaviour:
   snailName: Snoogie
   dialogueLines:
   - Speaking about judges, have you heard about our first one?
-  - 
+  - Apparently they are a big pyrotechnic fan and love anything with flames on it.
+    They think it's super "cool".
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

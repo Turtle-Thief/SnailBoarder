@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eaef5d9264f7848a4f4cef4df5acf9, type: 3}
   m_Name: BranchThree_6
   m_EditorClassIdentifier: 
-  snailName: 
+  snailName: Snoogie
   dialogueLines:
   - Our next judge however is a real showstopper!
-  - 
+  - They are a huge pyrotechnic fan and love anything with flames on it. They think
+    it's super "cool".
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

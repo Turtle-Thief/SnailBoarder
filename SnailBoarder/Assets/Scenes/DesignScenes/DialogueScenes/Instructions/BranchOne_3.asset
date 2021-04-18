@@ -15,7 +15,8 @@ MonoBehaviour:
   snailName: Snoogie
   dialogueLines:
   - Speaking about judges, have you heard about our first one?
-  - 
+  - Apparently they're crazy about anything "snail" themed.
+  - If there is even a picture of a snail on it, they love it!
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

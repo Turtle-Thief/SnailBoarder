@@ -15,7 +15,8 @@ MonoBehaviour:
   snailName: Squish
   dialogueLines:
   - Thats not as amazing as our next judge.
-  - 
+  - An old time skater who has been around for years.
+  - 'They really only like "classic" skatepark styles. '
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}
