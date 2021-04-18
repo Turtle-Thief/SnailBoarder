@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     // should be accessible to any class, using a static instance is also a potential way to implement this
-    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false;
+    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false, sanic = false;
 
     public int score, neededPoints, hatIndex;
 
@@ -40,10 +40,20 @@ public class GameManager : MonoBehaviour
     private InputActionMap cheats;
 
     #region Cheats
-    /*** TESTING PURPOSES ONLY, SHOULD BE DELETED FOR ALPHA/BETA ***/
-    private void OnResetLevel()
+    /*** TESTING PURPOSES ONLY, SHOULD BE DELETED / DISABLED PERMANENTLY FOR ALPHA/BETA ***/
+
+    private void OnEnableCheats()
     {
-        SceneLoader.instance.ResetScene();
+        // Enable cheats
+        cheats.Enable();
+
+        secondaryInputs.FindAction("Test").performed += ctx => OnTest();
+        secondaryInputs.FindAction("SpeedUpTime").performed += ctx => OnSpeedUpTime();
+    }
+
+    private void OnSpeedUpTime()
+    {
+        sanic = true;
     }
 
     // This is a test function for testing anything you need with input.
@@ -106,6 +116,30 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+    
+    private void FindAndSetInputs()
+    {
+        // Enables all of our maps, included our cheats
+        foreach (InputActionMap map in secondaryInputs.actionMaps)
+        {
+            map.Enable();
+        }
+
+        cheats = secondaryInputs.FindActionMap("Cheats");
+        cheats.Disable();
+
+
+        secondaryInputs.FindAction("Pause").performed += ctx => OnPause();
+        secondaryInputs.FindAction("Previous").performed += ctx => OnPrevious();
+        secondaryInputs.FindAction("ResetLevel").performed += ctx => OnResetLevel();
+
+        secondaryInputs.FindAction("EnableCheats").performed += ctx => OnEnableCheats();
+    }
+    
+    private void OnResetLevel()
+    {
+        SceneLoader.instance.ResetScene();
+    }
 
     public bool IsMultipliedByJudjes()
     {
@@ -154,14 +188,23 @@ public class GameManager : MonoBehaviour
         // reset score
         UIManager.instance.OpenPanel(UIManager.instance.HUDPanel);
         // Move this line to Park Manager, call Park Manager function here
-        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(30);
+        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(300);
     }
 
     public void OnFinishedLevel()
     {
+        if (sanic)
+        {
+            sanic = false;
+            Time.timeScale = 1;
+        }
+
+
         onPausableScene = false;
         gameIsPaused = false; // this may be redundant
         GetScoreDifference();
+
+        completedLastLevel = UIManager.instance.SM.CheckScoreWin(); // Did the player win?
 
         UIManager.instance.ClosePanel(UM.HUDPanel, false);
         UIManager.instance.timer.GetComponent<Timer>().timerIsRunning = false;
@@ -204,24 +247,6 @@ public class GameManager : MonoBehaviour
 
         playerInputs.FindActionMap("Player").Enable();
     }
-    private void FindAndSetInputs()
-    {
-        // Enables all of our maps, included our cheats
-        foreach (InputActionMap map in secondaryInputs.actionMaps)
-        {
-            map.Enable();
-        }
-
-        // Enable cheats -- use this to disable them later
-        cheats = secondaryInputs.FindActionMap("Cheats");
-        cheats.Enable();
-
-        secondaryInputs.FindAction("Pause").performed += ctx => OnPause();
-        secondaryInputs.FindAction("Previous").performed += ctx => OnPrevious();
-        secondaryInputs.FindAction("Test").performed += ctx => OnTest();
-        secondaryInputs.FindAction("ResetLevel").performed += ctx => OnResetLevel();
-    }
-
     private void Awake()
     {
         // Older way to setup singletons
@@ -248,6 +273,8 @@ public class GameManager : MonoBehaviour
         FindAndSetInputs(); // This just enables cheats right now
         RandomizePreferences();
 
+        onPausableScene = false; // starts on title
+
         UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
         UM = UIManager.instance;
 
@@ -265,7 +292,10 @@ public class GameManager : MonoBehaviour
         if (!GameManager.instance.gameIsPaused)
         {
             // Put everything in here!!!
-
+            if(sanic)
+            {
+                Time.timeScale = 100;
+            }
         }
     }
 }

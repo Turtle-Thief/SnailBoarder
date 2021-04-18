@@ -115,6 +115,7 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+    // Should be used SPARINGLY
     public void LoadNextSceneInBuild()
     {
         currentScene++;
