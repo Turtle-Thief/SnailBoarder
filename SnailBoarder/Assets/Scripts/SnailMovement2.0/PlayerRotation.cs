@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
+
+
+    public GameObject pointRayFront;
+    public GameObject pointRayBack;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +21,15 @@ public class PlayerRotation : MonoBehaviour
     {
         
     }
+
+
+
+
+
+
+
+
+
+
+
 }
