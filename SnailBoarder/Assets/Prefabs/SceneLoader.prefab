@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: 0
-  prelevel: 1
-  nextLevel: 2
+  hat: 1
+  announce: 2
+  nextLevel: 3
   judge: -1
-  dialog: 3
-  victory: 4
-  defeat: 5
+  dialog: 4
+  victory: 5
+  defeat: 6

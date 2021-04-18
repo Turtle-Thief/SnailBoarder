@@ -70,7 +70,10 @@ public class DialogueStructure : MonoBehaviour
 
             if(blockNum + 1 == block.Length)
             {
-                SceneLoader.instance.DetermineResultsScreen();
+                if (SceneManager.GetActiveScene().buildIndex == 4) // dialog scene; this is bad
+                    SceneLoader.instance.DetermineResultsScreen();
+                else
+                    SceneLoader.instance.LoadNextSceneInBuild();
             }
 
             IdentifySpeaker().SetActive(false);

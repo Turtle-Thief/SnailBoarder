@@ -10525,26 +10525,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
         type: 3}
-    - target: {fileID: 58687319035228721, guid: 618513df1e791484d96af73a306e60b3,
-        type: 3}
-      propertyPath: judgesPreferences.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 58687319035228721, guid: 618513df1e791484d96af73a306e60b3,
-        type: 3}
-      propertyPath: judgesPreferences.Array.data[0]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 58687319035228721, guid: 618513df1e791484d96af73a306e60b3,
-        type: 3}
-      propertyPath: judgesPreferences.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 58687319035228721, guid: 618513df1e791484d96af73a306e60b3,
-        type: 3}
-      propertyPath: judgesPreferences.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 58687319035228722, guid: 618513df1e791484d96af73a306e60b3,
         type: 3}
       propertyPath: m_RootOrder

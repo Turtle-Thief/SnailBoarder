@@ -55,7 +55,7 @@ public class CosmeticMenu : MonoBehaviour
         maps.actions.FindActionMap("Player").Enable();
         CamPoint.SetActive(false);
 
-        SceneLoader.instance.LoadScene("nextLevel");
+        SceneLoader.instance.LoadNextSceneInBuild();
     }
 
 }

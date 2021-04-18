@@ -7,62 +7,118 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader instance = null;
 
-    // public int values to change scenes
-    public int title, prelevel, nextLevel, judge, dialog, victory, defeat;
+    // Serialzied int values to change scenes in title editor
+    [SerializeField]
+    private int title = 0, hat = 1, instruct = 2, nextLevel = 3, judge = 4, dialog = 5, victory = 6, defeat = 7;
 
-    private int currentScene = 0;
+    public int currentScene = 0;
 
     public void LoadScene(string sceneName)
     {
-        if(sceneName == "prelevel")
+        switch (sceneName)
         {
-            SceneManager.LoadScene(prelevel);
-            currentScene = prelevel;
-        }
-        else if (sceneName == "nextLevel")
-        {
-            // Load the next scene
-            SceneManager.LoadScene(nextLevel);
-            currentScene = nextLevel;
-            
-            // Signal that we're starting the next level (may need to add loading test here)
-            GameManager.instance.OnNextLevel();
-        }
-        else if (sceneName == "judge")
-        {
-            //Load the judge scene
-            SceneManager.LoadScene(judge);
-            currentScene = judge;
+            case "title":
+                SceneManager.LoadScene(title);
+                GameManager.instance.onPausableScene = false;
+                GameManager.instance.ResumeGame();
+                currentScene = title;
+                break;
+            case "hat":
+                SceneManager.LoadScene(hat);
+                currentScene = hat;
+                break;
+            case "instruct":
+                SceneManager.LoadScene(instruct);
+                currentScene = instruct;
+                break;
+            case "nextLevel":
+                // Load the next scene
+                SceneManager.LoadScene(nextLevel);
+                currentScene = nextLevel;
 
+                // Signal that we're starting the next level (may need to add loading test here)
+                GameManager.instance.OnNextLevel();
+                break;
+            case "judge":
+                //Load the judge scene
+                SceneManager.LoadScene(judge);
+                currentScene = judge;
+                break;
+            case "dialog":
+                //Signal that we've finished the previous level (may need to add loading test here)
+                GameManager.instance.OnFinishedLevel();
+                SceneManager.LoadScene(dialog);
+                currentScene = dialog;
+                break;
+            case "victory":
+                SceneManager.LoadScene(victory);
+                currentScene = victory;
+                break;
+            case "defeat":
+                SceneManager.LoadScene(defeat);
+                currentScene = defeat;
+                break;
+            default:
+                Debug.Log("Error: sceneName does not exist");
+                break;
         }
-        else if (sceneName == "dialog")
+
+    }
+    public void LoadScene(int sceneName)
+    {
+        switch (sceneName)
         {
-            //Signal that we've finished the previous level (may need to add loading test here)
-            GameManager.instance.OnFinishedLevel();
-            SceneManager.LoadScene(dialog);
-            currentScene = dialog;
+            case 0:
+                SceneManager.LoadScene(title);
+                GameManager.instance.onPausableScene = false;
+                GameManager.instance.ResumeGame();
+                currentScene = title;
+                break;
+            case 1:
+                SceneManager.LoadScene(hat);
+                currentScene = hat;
+                break;
+            case 2:
+                SceneManager.LoadScene(instruct);
+                currentScene = instruct;
+                break;
+            case 3:
+                // Load the next scene
+                SceneManager.LoadScene(nextLevel);
+                currentScene = nextLevel;
+
+                // Signal that we're starting the next level (may need to add loading test here)
+                GameManager.instance.OnNextLevel();
+                break;
+            case 4:
+                //Load the judge scene
+                SceneManager.LoadScene(judge);
+                currentScene = judge;
+                break;
+            case 5:
+                //Signal that we've finished the previous level (may need to add loading test here)
+                GameManager.instance.OnFinishedLevel();
+                SceneManager.LoadScene(dialog);
+                currentScene = dialog;
+                break;
+            case 6:
+                SceneManager.LoadScene(victory);
+                currentScene = victory;
+                break;
+            case 7:
+                SceneManager.LoadScene(defeat);
+                currentScene = defeat;
+                break;
+            default:
+                Debug.Log("Error: sceneName does not exist");
+                break;
         }
-        else if (sceneName == "title")
-        {
-            SceneManager.LoadScene(title);
-            GameManager.instance.onPausableScene = false;
-            GameManager.instance.ResumeGame();
-            currentScene = title;
-        }
-        else if (sceneName == "victory")
-        {
-            SceneManager.LoadScene(victory);
-            currentScene = victory;
-        }
-        else if (sceneName == "defeat")
-        {
-            SceneManager.LoadScene(defeat);
-            currentScene = defeat;
-        }
-        else
-        {
-            Debug.Log("Error: sceneName does not exist");
-        }
+    }
+
+    public void LoadNextSceneInBuild()
+    {
+        currentScene++;
+        SceneManager.LoadScene(currentScene);
     }
 
     public void ResetScene()
@@ -74,11 +130,11 @@ public class SceneLoader : MonoBehaviour
     {
         if(GameManager.instance.completedLastLevel)
         {
-            LoadScene("victory");
+            LoadScene(victory);
         }
         else
         {
-            LoadScene("defeat");
+            LoadScene(defeat);
         }
     }
 

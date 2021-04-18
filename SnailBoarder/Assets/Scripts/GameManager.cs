@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -115,6 +117,21 @@ public class GameManager : MonoBehaviour
 
         
         return false;
+    }
+
+    private void RandomizePreferences()
+    {
+        List<ZoneStyle> chooseList = Enum.GetValues(typeof(ZoneStyle)).Cast<ZoneStyle>().ToList();
+        chooseList.RemoveAt(chooseList.Count-1); // Remove "none", judges will always have a preference
+
+        for (int i = 0; i < judgesPreferences.Length; i++)
+        {
+            int index = UnityEngine.Random.Range(0, chooseList.Count);
+            ZoneStyle choice = chooseList[index];
+            judgesPreferences[i] = choice;
+            chooseList.RemoveAt(index);
+        }
+        chooseList.Clear();
     }
 
     public void GetScoreDifference()
@@ -229,6 +246,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         FindAndSetInputs(); // This just enables cheats right now
+        RandomizePreferences();
 
         UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
         UM = UIManager.instance;
