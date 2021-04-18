@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
         //newHat.transform.position = cm.hatPoint.transform.position;
         //newHat.transform.parent = cm.hatPoint.transform.parent.parent.parent;
 
-        Debug.Log(newHat);
-        Debug.Log(newHat.transform.parent);
+        //Debug.Log(newHat);
+        //Debug.Log(newHat.transform.parent);
     }
 
     // Start is called before the first frame update
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         if (!GameManager.instance.gameIsPaused)
         {
             // Put everything in here!!!
-            Debug.Log("Words that are identifiable: " + sadHat);
+            //Debug.Log("Words that are identifiable: " + sadHat);
         }
     }
 }

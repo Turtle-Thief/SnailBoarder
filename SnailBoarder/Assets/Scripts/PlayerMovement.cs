@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     TricksController tricksController;
 
     public float playerMaxSpeed = 50.0f, speedPerFrame = 1.0f, playerAcel = 100f, playerBrake = 1.9f,
-                   playerFric = 0.1f, playerRotSpeed = 300f, playerAirRotSpeed = 600f, jumpForce = 10f, currentSpeed;
+                   playerFric = 0.1f, playerRotSpeed = 300f, playerAirRotSpeed = 600f, jumpForce = 10f, currentSpeed, currentRotSpeed;
 
     // Rotation stuff
     Quaternion targetRotation;
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         tricksController = this.GetComponent<TricksController>();
         //debugText = GameObject.Find("DebugText").GetComponent<Text>();  //Find Debug Text on Scene
         currentSpeed = 0.0f;
+        currentRotSpeed = playerRotSpeed;
         if (centerOfMass != null)
             playerRigidbody.centerOfMass = centerOfMass.position - transform.position;
     }
@@ -72,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
             GroundCheck();
             Rotate();
             SnailRotate(rotationVec);
-            Debug.DrawRay(transform.position, (transform.forward + new Vector3(rotationVec.x, 0.0f, rotationVec.y)) * 4.0f, Color.magenta);
+            VelocityDirectionUpdate();
         }
 
     }
@@ -117,11 +119,14 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("TURN" + val);
         //rotationVec = val;
         if (isGrounded)
+        {
             rotationVal = val.x * Time.deltaTime * playerRotSpeed;
+        }
         else
             rotationVal = val.x * Time.deltaTime * playerAirRotSpeed;
 
         rotationVec = val;
+
         //transform.Rotate(new Vector3(0, val.x, 0) * Time.deltaTime * playerTurn, Space.Self);
         //Debug.Log("rotate");
 
@@ -136,21 +141,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Collision Event functions
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("self righting from " + collision.gameObject.name);   
-    }*/
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-       // Debug.Log("self righting from " + other.gameObject.name);
-    }*/
-
     // Physics functions
     public void Jump(float forceMultiplier)
     {
         playerRigidbody.AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
+        if (gameObject.GetComponent<PathCreation.Examples.SnailPathFollower>().pathCreator != null)
+        {
+            gameObject.GetComponent<PathCreation.Examples.SnailPathFollower>().StartRailGrind();
+        }
     }
 
     void Brake()
@@ -173,7 +171,32 @@ public class PlayerMovement : MonoBehaviour
         if (tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName)
         {
             transform.Rotate(0.0f, rotationVal, 0.0f);
+            //playerRigidbody.AddForce(transform.forward.normalized * playerRigidbody.velocity.magnitude - playerRigidbody.velocity, ForceMode.VelocityChange);
+            //playerRigidbody.rotation = transform.rotation;
 
+        }
+    }
+
+    public void VelocityDirectionUpdate()
+    {
+        if (tricksController.currentTrick.mName == tricksController.Tricks[(int)TricksController.TrickName.NullTrick].mName
+            && playerRigidbody.velocity.magnitude > 0.5f)
+        {
+            if (isGrounded)
+            {
+                //currentSpeed = playerRigidbody.velocity.magnitude;
+                currentRotSpeed = playerRotSpeed - currentSpeed;
+                if (Mathf.Abs(Vector3.Dot(transform.forward.normalized, playerRigidbody.velocity.normalized)) <= 0.85f)
+                {
+                    playerRigidbody.velocity = new Vector3(transform.forward.normalized.x * playerRigidbody.velocity.magnitude
+                                                           , playerRigidbody.velocity.y
+                                                           , transform.forward.normalized.z * playerRigidbody.velocity.magnitude);
+                }
+            }
+            else
+            {
+                currentRotSpeed = playerAirRotSpeed - currentSpeed;
+            }
         }
     }
 
@@ -198,7 +221,7 @@ public class PlayerMovement : MonoBehaviour
     Quaternion GetVelocityRot()
     {
         Vector3 vel = playerRigidbody.velocity;
-        //if (vel.sqrMagnitude > 0.2f)
+        if (vel.magnitude > 0.2f)
         {
             vel.y = 0;
             Vector3 dir = transform.forward;
@@ -206,8 +229,8 @@ public class PlayerMovement : MonoBehaviour
             Quaternion velRot = Quaternion.FromToRotation(dir.normalized, vel.normalized);
             return velRot;
         }
-        //else
-          //  return Quaternion.identity;
+        else
+            return Quaternion.identity;
     }
 
     // Function that moves the snail and rotates if needed!
@@ -222,15 +245,18 @@ public class PlayerMovement : MonoBehaviour
 
             if (input.magnitude > 0.1f)
             {
-                Vector3 adaptedDirection = new Vector3(input.x, 0, input.y);
+                Vector3 adaptedDirection = RotateToPlayer(input);
                 Vector3 planarDirection = transform.forward.normalized;
                 planarDirection.y = 0;
                 inputRotation = Quaternion.FromToRotation(planarDirection, adaptedDirection);
 
                 if (isGrounded)
                 {
-                    Vector3 direction = inputRotation * transform.forward * (currentSpeed + 0.1f);
-                    playerRigidbody.AddForce(direction);
+                    Vector3 direction = inputRotation * transform.forward.normalized * currentSpeed * Time.deltaTime;
+                    //Vector3 direction = planarDirection  * currentSpeed;
+                    //Debug.DrawRay(transform.position, direction, Color.yellow);
+                    playerRigidbody.AddForce(direction, ForceMode.VelocityChange);
+
                 }
             }
             float rotationSpeed;
@@ -239,11 +265,22 @@ public class PlayerMovement : MonoBehaviour
             else
                 rotationSpeed = playerAirRotSpeed;
 
-            computedRotation = physicsRotation  * transform.rotation;
+            computedRotation = physicsRotation * transform.rotation;
             //Debug.Log("Physics: " + physicsRotation.eulerAngles);
             //Debug.Log("Velocity: " + velocityRotation.eulerAngles);
-            transform.rotation = Quaternion.Lerp(transform.rotation, computedRotation,  rotationSpeed * 0.01f *Time.deltaTime);
+            Quaternion rotation = Quaternion.Lerp(transform.rotation, computedRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, computedRotation, rotationSpeed * 0.01f * Time.deltaTime);
+            //playerRigidbody.MoveRotation(rotation);
         }
+    }
+
+    Vector3 RotateToPlayer(Vector2 direction)
+    {
+        Vector3 forward = Vector3.ProjectOnPlane(transform.position - (-2.0f * transform.forward), Vector3.up);
+        forward.y = 0;
+        Vector3 right = Quaternion.AngleAxis(90, Vector3.up) * forward;
+
+        return (forward * direction.y + right * direction.x).normalized;
     }
 
     void GroundCheck()

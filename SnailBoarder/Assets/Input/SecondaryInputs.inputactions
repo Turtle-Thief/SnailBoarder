@@ -20,6 +20,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ResetLevel",
+                    "type": "Button",
+                    "id": "d3dd8210-9f01-475a-b0d2-048b2594633a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "EnableCheats",
+                    "type": "Button",
+                    "id": "d8f3b05f-9cb4-4063-801c-0a0e56bb4c33",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -77,34 +93,10 @@
                     "action": "Previous",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Cheats",
-            "id": "70124c59-3957-4ddc-bbed-61a390751d0d",
-            "actions": [
-                {
-                    "name": "ResetLevel",
-                    "type": "Button",
-                    "id": "2357c57f-50e9-4cc9-a12f-ffc67ee8def5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 },
                 {
-                    "name": "Test",
-                    "type": "Button",
-                    "id": "e403efaa-145f-425a-b310-7dbc67910141",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
                     "name": "",
-                    "id": "3da43dc3-529b-40a3-bf9b-8424c8099a43",
+                    "id": "c32e9145-c0e0-4042-9e97-f83f23bde996",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
@@ -115,7 +107,7 @@
                 },
                 {
                     "name": "",
-                    "id": "57371832-3bd4-45a9-9565-9a9762e996ec",
+                    "id": "de47aa7a-dfc3-4aa0-9e4a-041ab9dfc613",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
@@ -126,12 +118,77 @@
                 },
                 {
                     "name": "",
+                    "id": "d2ebfc32-4949-4d3b-8b68-494c2df45302",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnableCheats",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Cheats",
+            "id": "70124c59-3957-4ddc-bbed-61a390751d0d",
+            "actions": [
+                {
+                    "name": "Test",
+                    "type": "Button",
+                    "id": "e403efaa-145f-425a-b310-7dbc67910141",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SpeedUpTime",
+                    "type": "Button",
+                    "id": "d4a2c6d9-8632-4865-9a0a-99168fa65bb5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Sanic",
+                    "type": "Button",
+                    "id": "4c87197a-7002-4840-a87e-1252327d2334",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
                     "id": "809ab667-ad4e-4421-90ad-9b8260a30173",
                     "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Test",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50aaaef4-910a-4fd3-9050-4e8f39065eb7",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpeedUpTime",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24279c67-1f38-4e9b-b264-46132a20ab58",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sanic",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -500,8 +557,30 @@
                 },
                 {
                     "name": "",
+                    "id": "7ed12a6a-3a13-4fb6-a9ac-4bf4a33c77d6",
+                    "path": "<SwitchProControllerHID>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "25260d70-4b32-40c0-a89b-8be4ae40ec6a",
                     "path": "*/{Cancel}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b2be4c6-78c7-4ec5-9654-bc4c6b1857bd",
+                    "path": "<SwitchProControllerHID>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

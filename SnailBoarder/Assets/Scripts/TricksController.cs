@@ -60,7 +60,7 @@ public class TricksController : MonoBehaviour
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
         playerMovement = this.GetComponent<PlayerMovement>();
-        snailAnimation = this.GetComponent<AnimationController>();
+        //snailAnimation = this.GetComponent<AnimationController>();
 
         // Adding all tricks
         // IDEA: ?Make them editable in Unity inspector?

@@ -9,12 +9,12 @@ public class ResultsScene : MonoBehaviour
 
     public void OnRetry()
     {
-        SceneLoader.instance.LoadScene("title");
+        SceneLoader.instance.LoadScene("nextLevel");
     }
 
     public void OnContinue()
     {
-        SceneLoader.instance.LoadScene("nextLevel");
+        SceneLoader.instance.LoadScene("title");
     }
 
     // Start is called before the first frame update
