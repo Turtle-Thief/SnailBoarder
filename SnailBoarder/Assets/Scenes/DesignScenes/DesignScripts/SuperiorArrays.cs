@@ -10,7 +10,20 @@ namespace SuperiorArrays {
     class Sray
     {
 
+        public static GameObject[] CleanGameObjectArray(GameObject[] gArray)
+        {
+            GameObject[] tempArray = new GameObject[0];
+            for (int i = 0; i < gArray.Length; i++)
+            {
+                if (gArray[i] != null)
+                {
+                    tempArray = AppendGameObjectArray(tempArray, gArray[i]);
+                }
+            }
+            return tempArray;
 
+
+        }
 
         public static string[] AppendStringArray(string[] sArray, string addition)
         {
@@ -46,8 +59,30 @@ namespace SuperiorArrays {
             return tempArray;
         }
 
+        public static ScriptableObject[] AppendScriptableObjectArray(ScriptableObject[] sOArray, ScriptableObject addition)
+        {
+            ScriptableObject[] tempArray = new ScriptableObject[sOArray.Length + 1];
+            for (int i = 0; i < sOArray.Length; i++)
+            {
+                tempArray[i] = sOArray[i];
+            }
+            tempArray[tempArray.Length - 1] = addition;
+            return tempArray;
+        }
 
-        
+
+        public static GameObject[] RemoveGameObjectArray(GameObject[] gArray, GameObject deletion)
+        {
+            GameObject[] tempArray = new GameObject[0];
+            for (int i = 0; i < gArray.Length; i++)
+            {
+                if (gArray[i] != deletion)
+                {
+                    tempArray = AppendGameObjectArray(tempArray, gArray[i]);
+                }
+            }
+            return tempArray;
+        }
 
 
     }

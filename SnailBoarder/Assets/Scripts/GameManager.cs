@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     // should be accessible to any class, using a static instance is also a potential way to implement this
-    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false;
+    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false, sanic = false;
 
-    public int score, neededPoints;
+    public int score, neededPoints, hatIndex;
 
     public enum ZoneStyle // your custom enumeration
     {
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     public ZoneStyle currentStyle;
 
-    public InputActionAsset secondaryInputs;
+    public InputActionAsset playerInputs, secondaryInputs;
 
     private UIManager UM;
 
@@ -38,10 +40,20 @@ public class GameManager : MonoBehaviour
     private InputActionMap cheats;
 
     #region Cheats
-    /*** TESTING PURPOSES ONLY, SHOULD BE DELETED FOR ALPHA/BETA ***/
-    private void OnResetLevel()
+    /*** TESTING PURPOSES ONLY, SHOULD BE DELETED / DISABLED PERMANENTLY FOR ALPHA/BETA ***/
+
+    private void OnEnableCheats()
     {
-        SceneLoader.instance.ResetScene();
+        // Enable cheats
+        cheats.Enable();
+
+        secondaryInputs.FindAction("Test").performed += ctx => OnTest();
+        secondaryInputs.FindAction("SpeedUpTime").performed += ctx => OnSpeedUpTime();
+    }
+
+    private void OnSpeedUpTime()
+    {
+        sanic = true;
     }
 
     // This is a test function for testing anything you need with input.
@@ -80,7 +92,7 @@ public class GameManager : MonoBehaviour
 
             // Only pause the game if isPaused is true
             if (gameIsPaused)
-                PauseGame();
+                PauseGame(true);
             else
                 ResumeGame();
 
@@ -104,6 +116,30 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+    
+    private void FindAndSetInputs()
+    {
+        // Enables all of our maps, included our cheats
+        foreach (InputActionMap map in secondaryInputs.actionMaps)
+        {
+            map.Enable();
+        }
+
+        cheats = secondaryInputs.FindActionMap("Cheats");
+        cheats.Disable();
+
+
+        secondaryInputs.FindAction("Pause").performed += ctx => OnPause();
+        secondaryInputs.FindAction("Previous").performed += ctx => OnPrevious();
+        secondaryInputs.FindAction("ResetLevel").performed += ctx => OnResetLevel();
+
+        secondaryInputs.FindAction("EnableCheats").performed += ctx => OnEnableCheats();
+    }
+    
+    private void OnResetLevel()
+    {
+        SceneLoader.instance.ResetScene();
+    }
 
     public bool IsMultipliedByJudjes()
     {
@@ -117,6 +153,21 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    private void RandomizePreferences()
+    {
+        List<ZoneStyle> chooseList = Enum.GetValues(typeof(ZoneStyle)).Cast<ZoneStyle>().ToList();
+        chooseList.RemoveAt(chooseList.Count-1); // Remove "none", judges will always have a preference
+
+        for (int i = 0; i < judgesPreferences.Length; i++)
+        {
+            int index = UnityEngine.Random.Range(0, chooseList.Count);
+            ZoneStyle choice = chooseList[index];
+            judgesPreferences[i] = choice;
+            chooseList.RemoveAt(index);
+        }
+        chooseList.Clear();
+    }
+
     public void GetScoreDifference()
     {
         neededPoints = UIManager.instance.SM.ScoreDifference();
@@ -127,24 +178,39 @@ public class GameManager : MonoBehaviour
         UIManager.instance.ClearAfterTrickHUD(); // reset
         score = neededPoints = 0; // reset
 
+        //if(hatted)
+        //{
+        //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //    player.GetComponent<Player>().GiveHat(hatIndex);
+        //}
+
         onPausableScene = true;
         // reset score
         UIManager.instance.OpenPanel(UIManager.instance.HUDPanel);
         // Move this line to Park Manager, call Park Manager function here
-        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(30);
+        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(300);
     }
 
     public void OnFinishedLevel()
     {
+        if (sanic)
+        {
+            sanic = false;
+            Time.timeScale = 1;
+        }
+
+
         onPausableScene = false;
         gameIsPaused = false; // this may be redundant
         GetScoreDifference();
+
+        completedLastLevel = UIManager.instance.SM.CheckScoreWin(); // Did the player win?
 
         UIManager.instance.ClosePanel(UM.HUDPanel, false);
         UIManager.instance.timer.GetComponent<Timer>().timerIsRunning = false;
     }
 
-    public void PauseGame()
+    public void PauseGame(bool openPauseMenu)
     {
         // We want the Pause Screen to appear
         //  but we also want:
@@ -157,11 +223,14 @@ public class GameManager : MonoBehaviour
         //  (Time.time is stopped so needed functions for time should use Time.realtimeSinceStartup or any "unscaled" Time function)
         //  (For Coroutines use:  WaitForSecondsRealTime)
         //  (For Audio, use AudioSource.ignoreListenerPause = true;)
+        gameIsPaused = true;
+        playerInputs.FindActionMap("Player").Disable(); // Pause the player's MOVEMENT Inputs
 
         Time.timeScale = 0;
         AudioListener.pause = true;
 
-        UM.OpenPanel(UM.pausePanel);
+        if(openPauseMenu)
+            UM.OpenPanel(UM.pausePanel);
     }
 
     public void ResumeGame()
@@ -175,25 +244,9 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1;
         AudioListener.pause = false;
+
+        playerInputs.FindActionMap("Player").Enable();
     }
-    private void FindAndSetInputs()
-    {
-        // Enables all of our maps, included our cheats
-        foreach (InputActionMap map in secondaryInputs.actionMaps)
-        {
-            map.Enable();
-        }
-
-        // Enable cheats -- use this to disable them later
-        cheats = secondaryInputs.FindActionMap("Cheats");
-        cheats.Enable();
-
-        secondaryInputs.FindAction("Pause").performed += ctx => OnPause();
-        secondaryInputs.FindAction("Previous").performed += ctx => OnPrevious();
-        secondaryInputs.FindAction("Test").performed += ctx => OnTest();
-        secondaryInputs.FindAction("ResetLevel").performed += ctx => OnResetLevel();
-    }
-
     private void Awake()
     {
         // Older way to setup singletons
@@ -218,6 +271,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         FindAndSetInputs(); // This just enables cheats right now
+        RandomizePreferences();
+
+        onPausableScene = false; // starts on title
 
         UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
         UM = UIManager.instance;
@@ -236,7 +292,10 @@ public class GameManager : MonoBehaviour
         if (!GameManager.instance.gameIsPaused)
         {
             // Put everything in here!!!
-
+            if(sanic)
+            {
+                Time.timeScale = 100;
+            }
         }
     }
 }

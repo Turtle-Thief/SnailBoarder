@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveX, moveZ;
 
     // Trick triggers stuff
-    public Text debugText;
+    //public Text debugText;
 
     [HideInInspector]
     public bool isGrounded = false;
@@ -285,19 +285,21 @@ public class PlayerMovement : MonoBehaviour
 
     void GroundCheck()
     {
-        Debug.DrawRay(transform.position, (Vector3.down * 1.5f - transform.up).normalized * distToGround, Color.blue);
-
+        Debug.DrawRay(transform.position + new Vector3(0.0f, 1.4f, 0.0f), (Vector3.down * 1.5f - transform.up).normalized * distToGround, Color.blue);
+        
         // Tricks triggers stuff
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, (Vector3.down * 2 - transform.up).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
+        if (Physics.Raycast(this.transform.position + new Vector3(0.0f, 1.4f, 0.0f), (Vector3.down.normalized * 2 - transform.up.normalized).normalized, out hit, distToGround, ~IgnoreGroundCheckLayer))
         {
+            //Debug.Log("Grounded on " + hit.transform.name);
+
             slopeAngle = Vector3.Angle(hit.normal, transform.forward) - 90;
             // normalisedSlope = (slopeAngle / 90f) * -1f;
-            if (debugText)
-            {
-                debugText.text = "Grounded on " + hit.transform.name;
-                debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
-            }
+            //if (debugText)
+            //{
+            //    debugText.text = "Grounded on " + hit.transform.name;
+            //    debugText.text += "\nSlope Angle: " + slopeAngle.ToString("N0") + "°";
+            //}
             if (hit.transform.gameObject.layer == 10) // Is ramp??
             {
                 isOnRamp = true;
@@ -312,8 +314,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (debugText)
-                debugText.text = "Not Grounded";
+            //if (debugText)
+            //    debugText.text = "Not Grounded";
             isGrounded = false;
         }
     }

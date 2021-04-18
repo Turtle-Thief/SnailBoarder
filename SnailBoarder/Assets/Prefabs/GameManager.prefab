@@ -131,8 +131,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsPaused: 0
   onPausableScene: 0
-  sceneLoader: {fileID: 0}
+  completedLastLevel: 0
   score: 0
-  UM: {fileID: 0}
+  neededPoints: 0
+  judgesPreferences: 000000000000000000000000
+  currentStyle: 0
+  playerInputs: {fileID: -944628639613478452, guid: db8ee52492b77dc458d8c720d4993c1a,
+    type: 3}
   secondaryInputs: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}

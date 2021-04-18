@@ -7,6 +7,7 @@ public class TricksController : MonoBehaviour
 {
     Rigidbody playerRigidbody;
     PlayerMovement playerMovement;
+    AnimationController snailAnimation;
 
     public enum TrickName
     {
@@ -59,6 +60,7 @@ public class TricksController : MonoBehaviour
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
         playerMovement = this.GetComponent<PlayerMovement>();
+        //snailAnimation = this.GetComponent<AnimationController>();
 
         // Adding all tricks
         // IDEA: ?Make them editable in Unity inspector?
@@ -116,23 +118,35 @@ public class TricksController : MonoBehaviour
         switch (trickType.mName)
         {
             case TrickName.Ollie:
-                OllieAnim();
+                //OllieAnim();
+                StartCoroutine(OllieJump(1f));
+                snailAnimation.StartOllieSkateAnim();
+                snailAnimation.StartOllieSnailAnim();
                 //Debug.Log("!Ollie!");
                 break;
             case TrickName.Wheelie:
-                StartCoroutine(WheelieAnim()); //tmp
+                //StartCoroutine(WheelieAnim()); //tmp
+                snailAnimation.StartWheelieSkateAnim();
+                //snailAnimation.StartRailgringAnim(); //tmp
+                //snailAnimation.StartRailGrindBakedAnim(); //tmp
                 //Debug.Log("!Wheelie!");
                 break;
             case TrickName.KickFlip:
-                StartCoroutine(KickflipAnim()); //tmp
+                //StartCoroutine(KickflipAnim()); //tmp
+                playerMovement.Jump(1.0f);
+                snailAnimation.StartKickflipSkateAnim();
                 //Debug.Log("!OnKickflip!");
                 break;
             case TrickName.PopShuvit:
-                StartCoroutine(PopShuvitAnim()); //tmp
+                //StartCoroutine(PopShuvitAnim()); //tmp
+                playerMovement.Jump(1.0f);
+                snailAnimation.StartPopShoveitSkateAnim();
                 //Debug.Log("!OnPopShuvit!");
                 break;
             case TrickName.HospitalFlip:
-                StartCoroutine(HospitalFlipAnim()); //tmp
+                //StartCoroutine(HospitalFlipAnim()); //tmp
+                playerMovement.Jump(1.0f);
+                snailAnimation.StartHospitalFlipSkateAnim();
                 //Debug.Log("!OnHospitalFlip!");
                 break;
             case TrickName.Heelflip:
@@ -158,7 +172,7 @@ public class TricksController : MonoBehaviour
 
     public void OnOllie()
     {
-        //Debug.Log("Input Ollie");
+        Debug.Log("Input Ollie");
         TrickInputCall(Tricks[(int)TrickName.Ollie]);
     }
 
@@ -218,8 +232,9 @@ public class TricksController : MonoBehaviour
         UIManager.instance.TrickFinishedHUD(tmpTrick, shouldMultiply);
     }
 
-    void OllieAnim()
+    IEnumerator OllieJump(float time)
     {
+        yield return new WaitForSeconds(time);
         playerMovement.Jump(1.0f);
     }
 

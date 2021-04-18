@@ -55,7 +55,7 @@ public class ParkMaster : MonoBehaviour
     void Start()
     {
 
-        EnterCosmetics();
+        //EnterCosmetics();
 
         SetLevelParameter(0);
         try
@@ -90,9 +90,10 @@ public class ParkMaster : MonoBehaviour
 
     private void EnterCosmetics()
     {
-        maps.actions.FindActionMap("Player").Disable();
+        //maps.actions.FindActionMap("Player").Disable();
+        //GameManager.instance.PauseGame(false);
         maps.actions.FindActionMap("CosmeticSelect").Enable();
-        snail.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+        //snail.gameObject.transform.GetChild(2).gameObject.SetActive(true);   // FIX PLS
     }
 
 

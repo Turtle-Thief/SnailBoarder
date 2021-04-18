@@ -9,7 +9,7 @@ public class CosmeticMenu : MonoBehaviour
     public GameObject hatPoint;
     private GameObject newHat;
 
-    private int hatNum = 0;
+    public int hatNum = 0;
 
     public PlayerInput maps;
 
@@ -17,7 +17,7 @@ public class CosmeticMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,6 +30,9 @@ public class CosmeticMenu : MonoBehaviour
 
     private void OnCycle()
     {
+
+        maps.actions.FindActionMap("Player").Disable();
+        maps.actions.FindActionMap("CosmeticSelect").Enable();
         Destroy(newHat);
         hatNum++;
         if(hatNum == hats.Length)
@@ -40,6 +43,8 @@ public class CosmeticMenu : MonoBehaviour
         newHat.transform.position = hatPoint.transform.position;
         newHat.transform.parent = hatPoint.transform.parent;
 
+        GameManager.instance.hatted = true;
+        GameManager.instance.hatIndex = hatNum;
     }
 
 
@@ -49,7 +54,8 @@ public class CosmeticMenu : MonoBehaviour
         maps.actions.FindActionMap("CosmeticSelect").Disable();
         maps.actions.FindActionMap("Player").Enable();
         CamPoint.SetActive(false);
-        
+
+        SceneLoader.instance.LoadNextSceneInBuild();
     }
 
 }

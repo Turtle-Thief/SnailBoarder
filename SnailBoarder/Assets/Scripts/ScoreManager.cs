@@ -47,6 +47,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddToScore(int value, int multiplier)
     {
+        trickScore = value;
         currentScore += (value * multiplier);
     }
 }
