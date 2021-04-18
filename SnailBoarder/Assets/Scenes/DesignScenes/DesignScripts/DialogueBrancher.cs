@@ -13,6 +13,8 @@ public class DialogueBrancher : MonoBehaviour
 
     public DialogueBlock[] branchTwo;
 
+    public DialogueBlock[] branchThree;
+
     public DialogueBlock[] postText;
   //  public enum styles;
 
@@ -75,6 +77,18 @@ public class DialogueBrancher : MonoBehaviour
         dialogueMaster.GetComponent<DialogueStructure>().block = tempArray;
 
 
+        //Branch Three
+
+        tempArray = new DialogueBlock[dialogueMaster.GetComponent<DialogueStructure>().block.Length + 1];
+        for (int i = 0; i < dialogueMaster.GetComponent<DialogueStructure>().block.Length; i++)
+        {
+            tempArray[i] = dialogueMaster.GetComponent<DialogueStructure>().block[i];
+        }
+        tempArray[tempArray.Length - 1] = GrabStyles(2);
+
+        dialogueMaster.GetComponent<DialogueStructure>().block = tempArray;
+
+
         for (int j = 0; j < postText.Length; j++)
         {
             //Add per line
@@ -105,7 +119,7 @@ public class DialogueBrancher : MonoBehaviour
 
         DialogueBlock newBlock = null;
 
-        int style = (int)GameManager.instance.judgesPreferences[0];
+        int style = (int)GameManager.instance.judgesPreferences[branchNum];
 
         switch (branchNum)
         {
@@ -116,6 +130,10 @@ public class DialogueBrancher : MonoBehaviour
 
             case 1:
                 newBlock = branchTwo[style];
+                break;
+
+            case 2:
+                newBlock = branchThree[style];
                 break;
         }
         

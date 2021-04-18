@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: PostText_2
   m_EditorClassIdentifier: 
   snailName: 
-  dialogueLines: []
+  dialogueLines:
+  - If you ever get stuck or lost in the park don't forget you have a reset button!
+  - Simply press "START" at any time and you will return to the beginning of the
+    park.
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}
-  cameraSlot: 0
+  cameraSlot: 2

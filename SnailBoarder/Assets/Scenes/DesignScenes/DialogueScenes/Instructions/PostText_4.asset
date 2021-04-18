@@ -17,4 +17,4 @@ MonoBehaviour:
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}
-  cameraSlot: 0
+  cameraSlot: 2

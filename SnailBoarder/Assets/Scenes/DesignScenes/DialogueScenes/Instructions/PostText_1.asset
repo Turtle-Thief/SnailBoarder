@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: PostText_1
   m_EditorClassIdentifier: 
   snailName: 
-  dialogueLines: []
+  dialogueLines:
+  - Now lets not drag on about the judges shall we.
+  - Remember contestants, you earn more points by performing tricks in the styles
+    that the judges like.
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}
-  cameraSlot: 0
+  cameraSlot: 2

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eaef5d9264f7848a4f4cef4df5acf9, type: 3}
   m_Name: BranchOne_4
   m_EditorClassIdentifier: 
-  snailName: 
-  dialogueLines: []
+  snailName: Snoogie
+  dialogueLines:
+  - Speaking about judges, have you heard about our first one?
+  - 
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}
