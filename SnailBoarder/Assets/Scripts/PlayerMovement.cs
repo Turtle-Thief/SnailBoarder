@@ -70,16 +70,16 @@ public class PlayerMovement : MonoBehaviour
         if (!GameManager.instance.gameIsPaused)
         {
             //Brake();
-            Friction();
+            //Friction();
             GroundCheck();
-            Rotate();
-            SnailRotate(rotationVec);
-            VelocityDirectionUpdate();
+            //Rotate();
+            //SnailRotate(rotationVec);
+            //VelocityDirectionUpdate();
         }
 
     }
 
-    // Input Event Functions
+    /*// Input Event Functions
     public void OnMoveForward()
     {
         if (isGrounded)
@@ -281,7 +281,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 right = Quaternion.AngleAxis(90, Vector3.up) * forward;
 
         return (forward * direction.y + right * direction.x).normalized;
-    }
+    }*/
 
     void GroundCheck()
     {
@@ -320,7 +320,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Friction()
+    /*void Friction()
     {
         if (isGrounded)
         {
@@ -336,5 +336,5 @@ public class PlayerMovement : MonoBehaviour
     void SelfRight()
     {
 
-    }
+    }*/
 }
