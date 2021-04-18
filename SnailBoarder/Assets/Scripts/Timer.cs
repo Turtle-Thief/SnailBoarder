@@ -7,7 +7,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public float timeForLevel = 0;
-    private float timeRemaining = 30;
+    private float timeRemaining = 300;
     public bool timerIsRunning = false;
     private TextMeshProUGUI timerText;
 
@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
                 }
                 else // If so, ...
                 {
-                    GameManager.instance.completedLastLevel = UIManager.instance.SM.CheckScoreWin(); // Did the player win?
+                    GameManager.instance.OnFinishedLevel();
                     SceneLoader.instance.LoadNextSceneInBuild(); // Load the next scene
                     StopAndResetTimer();
                 }
