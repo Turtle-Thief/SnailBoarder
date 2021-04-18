@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PostText_3
   m_EditorClassIdentifier: 
   snailName: 
-  dialogueLines: []
+  dialogueLines:
+  - With that being said, let the games begin!
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

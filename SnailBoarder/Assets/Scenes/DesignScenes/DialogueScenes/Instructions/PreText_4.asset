@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: PreText_4
   m_EditorClassIdentifier: 
   snailName: 
-  dialogueLines: []
+  dialogueLines:
+  - In order to win the competition, you need to score enough points by the end of
+    the game.
+  - Points are earned whenever the player performs a skate trick.
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

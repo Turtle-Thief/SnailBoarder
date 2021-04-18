@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: PreText_2
   m_EditorClassIdentifier: 
   snailName: 
-  dialogueLines: []
+  dialogueLines:
+  - To the annual Snailboarding competition!
+  - Were snails from all over the world come to try and earn fame by perfoming wild
+    skateboarding tricks!
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}
-  cameraSlot: 0
+  cameraSlot: 1

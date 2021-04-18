@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: PreText_3
   m_EditorClassIdentifier: 
   snailName: 
-  dialogueLines: []
+  dialogueLines:
+  - Snails will navigate using the thumbsticks and can perform tricks using "A,X,B,Y".
+  - If you ever want to find out what button combinations make what tricks,
+  - simply press esc and navigate to "How to Play"
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

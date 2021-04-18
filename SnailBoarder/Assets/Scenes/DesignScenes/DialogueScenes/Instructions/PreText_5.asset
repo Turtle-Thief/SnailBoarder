@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: PreText_5
   m_EditorClassIdentifier: 
   snailName: 
-  dialogueLines: []
+  dialogueLines:
+  - I hear that some judges give you *bonus* points for performing certain styles.
+  - You can perform different styles depending on where in the park you are performing
+    a trick.
+  - If you perform a trick in a "cool" section of the park, then a judge who likes
+    cool styles will award you more points!
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}
