@@ -7,7 +7,7 @@ public class TricksController : MonoBehaviour
 {
     Rigidbody playerRigidbody;
     PlayerMovement playerMovement;
-    AnimationController snailAnimation;
+    AnimationController animator;
 
     public enum TrickName
     {
@@ -20,6 +20,7 @@ public class TricksController : MonoBehaviour
         Heelflip,
         McTwist,
         AirKickflip,
+        Railgrind,
         NumOfTricks
     };
 
@@ -60,7 +61,7 @@ public class TricksController : MonoBehaviour
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
         playerMovement = this.GetComponent<PlayerMovement>();
-        //snailAnimation = this.GetComponent<AnimationController>();
+        animator = this.GetComponent<AnimationController>();
 
         // Adding all tricks
         // IDEA: ?Make them editable in Unity inspector?
@@ -73,6 +74,7 @@ public class TricksController : MonoBehaviour
         Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 4, 75, 2f, false);
         Tricks[(int)TrickName.McTwist] = new Trick(TrickName.McTwist, 4, 75, 2f, false);
         Tricks[(int)TrickName.AirKickflip] = new Trick(TrickName.AirKickflip, 4, 75, 2f, false);
+        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 4, 35, 3f, true);
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
@@ -110,58 +112,75 @@ public class TricksController : MonoBehaviour
         }
     }
 
-    void StartTrick(Trick trickType)
+    public void StartTrick(Trick trickType)
     {
         wasOnRamp = playerMovement.isOnRamp;
         StartCoroutine(PauseForTrick(trickType.mDuration));
 
         switch (trickType.mName)
         {
-            case TrickName.Ollie:
+            case TrickName.Ollie:  // A(X)
                 //OllieAnim();
-                StartCoroutine(OllieJump(1f));
-                snailAnimation.StartOllieSkateAnim();
-                snailAnimation.StartOllieSnailAnim();
+                //StartCoroutine(OllieJump(1f));
+                animator.StartOllieSkateAnim();
+                animator.StartOllieSnailAnim();
                 //Debug.Log("!Ollie!");
                 break;
-            case TrickName.Wheelie:
+            case TrickName.Wheelie:  // A+X (X+Square)
                 //StartCoroutine(WheelieAnim()); //tmp
-                snailAnimation.StartWheelieSkateAnim();
+                animator.StartWheelieSkateAnim();
+                animator.StartWheelieSnailAnim();
                 //snailAnimation.StartRailgringAnim(); //tmp
                 //snailAnimation.StartRailGrindBakedAnim(); //tmp
                 //Debug.Log("!Wheelie!");
                 break;
-            case TrickName.KickFlip:
+            case TrickName.KickFlip:  // A+B (X+O)
                 //StartCoroutine(KickflipAnim()); //tmp
-                playerMovement.Jump(1.0f);
-                snailAnimation.StartKickflipSkateAnim();
+                //playerMovement.Jump(1.0f);
+                animator.StartKickflipSkateAnim();
+                animator.StartKickflipSnailAnim();
                 //Debug.Log("!OnKickflip!");
                 break;
-            case TrickName.PopShuvit:
+            case TrickName.PopShuvit:  // A+Y (A+Triangle)
                 //StartCoroutine(PopShuvitAnim()); //tmp
-                playerMovement.Jump(1.0f);
-                snailAnimation.StartPopShoveitSkateAnim();
+                //playerMovement.Jump(1.0f);
+                animator.StartPopShoveitSkateAnim();
+                animator.StartPopShoveitSnailAnim();
                 //Debug.Log("!OnPopShuvit!");
                 break;
-            case TrickName.HospitalFlip:
+            case TrickName.HospitalFlip:  // A+X+B (A+Square+O)
                 //StartCoroutine(HospitalFlipAnim()); //tmp
-                playerMovement.Jump(1.0f);
-                snailAnimation.StartHospitalFlipSkateAnim();
+                //playerMovement.Jump(1.0f);
+                animator.StartHospitalFlipSkateAnim();
+                animator.StartHospitalFlipSnailAnim();
                 //Debug.Log("!OnHospitalFlip!");
                 break;
-            case TrickName.Heelflip:
+            case TrickName.Heelflip:  // A(X) in the air
                 wasOnRamp = true;
-                StartCoroutine(AirTrickAnim()); //tmp
+                animator.StartHeelflipSkateAnim();
+                animator.StartHeelflipSnailAnim();
+                //StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnHeelflipFlip!");
                 break;
-            case TrickName.McTwist:
+            case TrickName.McTwist:  // A+Y (A+Triangle) in the air
                 wasOnRamp = true;
-                StartCoroutine(AirTrickAnim()); //tmp
+                animator.StartVarialMcTwistSkateAnim();
+                animator.StartVarialMcTwistSnailAnim();
+                //StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnMcTwistFlip!");
                 break;
-            case TrickName.AirKickflip:
+            case TrickName.AirKickflip:  // A+B (X+O) in the air
                 wasOnRamp = true;
-                StartCoroutine(AirTrickAnim()); //tmp
+                animator.StartAirKickflipSkateAnim();
+                animator.StartAirKickflipSnailAnim();
+                //StartCoroutine(AirTrickAnim()); //tmp
+                //Debug.Log("!OnAirKickflip!");
+                break;
+            case TrickName.Railgrind:
+                wasOnRamp = true;
+                animator.StartRailGrindSkateAnim();
+                animator.StartRailGrindSnailAnim();
+                //StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnAirKickflip!");
                 break;
         }
