@@ -53072,6 +53072,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snail
       objectReference: {fileID: 0}
+    - target: {fileID: 5376368812724045545, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368812724045551, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5376368812921028384, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: m_NotificationBehavior
@@ -53332,7 +53342,52 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[24].m_ActionName
       value: CosmeticSelect/Accept[/XInputControllerWindows/buttonSouth,/Keyboard/k]
       objectReference: {fileID: 0}
+    - target: {fileID: 5376368812921028387, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368813650708745, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368813650708747, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368813764576093, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368813764576095, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368813785185164, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368813785185166, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5376368813852570298, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368813942084485, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376368813942084491, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -53400,7 +53455,17 @@ PrefabInstance:
     - target: {fileID: 8063871135341833097, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: friction
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
@@ -53420,7 +53485,7 @@ PrefabInstance:
     - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: acceleration
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
