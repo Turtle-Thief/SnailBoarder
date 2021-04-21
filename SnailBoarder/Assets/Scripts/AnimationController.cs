@@ -59,7 +59,7 @@ public class AnimationController : MonoBehaviour
     }
     public void StartVarialMcTwistSkateAnim()
     {
-        skateAnimator.Play("A_VarialMcTwistBoard");
+        skateAnimator.Play("AT_VarialMcTwistBoard");
     }
     public void StartAirKickflipSkateAnim()
     {
@@ -107,7 +107,7 @@ public class AnimationController : MonoBehaviour
     }
     public void StartVarialMcTwistSnailAnim()
     {
-        snailAnimator.Play("A_VarialMcTwist_Snail");
+        snailAnimator.Play("AT_VarialMcTwist_Snail");
     }
     public void StartAirKickflipSnailAnim()
     {

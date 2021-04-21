@@ -162,14 +162,14 @@ public class TricksController : MonoBehaviour
                 //StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnHeelflipFlip!");
                 break;
-            case TrickName.McTwist:  // A+Y (A+Triangle) in the air
+            case TrickName.McTwist:  // Y(Triangle) in the air
                 wasOnRamp = true;
                 animator.StartVarialMcTwistSkateAnim();
                 animator.StartVarialMcTwistSnailAnim();
                 //StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnMcTwistFlip!");
                 break;
-            case TrickName.AirKickflip:  // A+B (X+O) in the air
+            case TrickName.AirKickflip:  // B(O) in the air
                 wasOnRamp = true;
                 animator.StartAirKickflipSkateAnim();
                 animator.StartAirKickflipSnailAnim();
@@ -221,19 +221,19 @@ public class TricksController : MonoBehaviour
 
     public void OnHeelflip()
     {
-        //Debug.Log("Input Heelflip");
+        Debug.Log("Input Heelflip");
         TrickInputCall(Tricks[(int)TrickName.Heelflip]);
     }
 
     public void OnMcTwist()
     {
-        //Debug.Log("Input McTwist");
+        Debug.Log("Input McTwist");
         TrickInputCall(Tricks[(int)TrickName.McTwist]);
     }
 
     public void OnAirKickflip()
     {
-        //Debug.Log("Input AirKickflip");
+        Debug.Log("Input AirKickflip");
         TrickInputCall(Tricks[(int)TrickName.AirKickflip]);
     }
 
@@ -259,6 +259,8 @@ public class TricksController : MonoBehaviour
 
     public void AirTriggerEnter()
     {
+        Debug.Log("Air Trigger Enter " + readyToGetIntoAir);
+
         if (readyToGetIntoAir)
         {
             readyToGetIntoAir = false;
@@ -267,7 +269,7 @@ public class TricksController : MonoBehaviour
             StartCoroutine(StopAirInTime(4f));
             StartCoroutine(RemoveConstraintsInTime(0.8f));
 
-            //Debug.Log("Air Trigger Enter ");
+            
             playerMovement.Jump(1.5f);
         }
         else

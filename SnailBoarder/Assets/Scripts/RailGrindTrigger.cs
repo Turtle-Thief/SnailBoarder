@@ -21,7 +21,7 @@ namespace PathCreation.Examples
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Rail Trigger");
+            //Debug.Log("Rail Trigger");
             if (other.gameObject.tag.Equals("Player"))
             {
                 other.gameObject.GetComponent<SnailPathFollower>().pathCreator = gameObject.GetComponent<PathCreator>();
@@ -30,7 +30,7 @@ namespace PathCreation.Examples
 
         private void OnTriggerExit(Collider other)
         {
-            Debug.Log("Rail Un-Trigger");
+            //Debug.Log("Rail Un-Trigger");
             if (other.gameObject.tag.Equals("Player"))
             {
                 if (other.gameObject.GetComponent<SnailPathFollower>().pathCreator != null)
