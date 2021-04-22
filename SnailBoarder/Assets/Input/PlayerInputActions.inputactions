@@ -25,7 +25,7 @@
                     "name": "Turn",
                     "type": "Value",
                     "id": "b32ff686-be6a-45f0-812d-77d2263d64ce",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },

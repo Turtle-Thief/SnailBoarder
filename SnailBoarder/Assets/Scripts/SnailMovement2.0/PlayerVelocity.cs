@@ -19,7 +19,7 @@ public class PlayerVelocity : MonoBehaviour
     [HideInInspector]
     public Rigidbody rigidbody;
 
-    public Vector2 inputRotation;
+    public Vector2 rotation;
 
     [HideInInspector] public Quaternion PhysicsRotation;
     [HideInInspector] public Quaternion VelocityRotation;
@@ -33,6 +33,7 @@ public class PlayerVelocity : MonoBehaviour
     {
         groundCheck = gameObject.GetComponent<GroundCheck>();
         rigidbody = gameObject.GetComponent<Rigidbody>();
+        currentSpeed = 0;
     }
 
     private void Update()
@@ -47,141 +48,55 @@ public class PlayerVelocity : MonoBehaviour
     {
         if (!GameManager.instance.gameIsPaused)
         {
-            CheckPhysics();
-            SkaterMove(inputRotation);
-            Debug.DrawRay(transform.position, transform.up, Color.cyan);
+            //CheckPhysics();
+            //rigidbody.velocity = transform.forward.normalized * currentSpeed;
+            //SkaterMove(rotation);
+            //Debug.DrawRay(transform.position, transform.up, Color.cyan);
+
+
+            rigidbody.velocity += transform.forward * currentSpeed * Time.deltaTime;
+            rigidbody.velocity = UpdateVelocityDirection();
+            Friction();
         }
+    }
+    
+    // calculate velocity
+    Vector3 UpdateVelocityDirection()
+    {
+        Vector3 updatedVel = rigidbody.velocity;
+        if (currentSpeed >= 0)
+        {
+            updatedVel = transform.forward.normalized * rigidbody.velocity.magnitude;
+            updatedVel = Vector3.ClampMagnitude(updatedVel, maxForwardSpeed);
+        }
+        else
+        {
+            updatedVel = transform.forward.normalized * -1 * rigidbody.velocity.magnitude;
+            updatedVel = Vector3.ClampMagnitude(updatedVel, maxReverseSpeed);
+        }
+
+        return new Vector3(updatedVel.x, rigidbody.velocity.y, updatedVel.z);
     }
 
     // player is accelerating
     void OnMoveForward()
     {
         currentSpeed += acceleration;
+        currentSpeed = Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
         //needs to add force
-        Vector3 Direction = transform.forward.normalized * currentSpeed;
-        rigidbody.AddForce(Direction, ForceMode.VelocityChange);
+        //Vector3 Direction = transform.forward.normalized * currentSpeed;
+        //rigidbody.AddForce(Direction, ForceMode.VelocityChange);
     }
 
     // player is braking
     void OnBrake()
     {
         currentSpeed -= braking;
+        currentSpeed = Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
         //needs to add force
-        Vector3 Direction = InputRotation * transform.forward.normalized * currentSpeed;
-        rigidbody.AddForce(-Direction, ForceMode.VelocityChange);
-    }
-
-    void OnTurn(InputValue rot)
-    {
-        inputRotation = rot.Get<Vector2>();
-    }
-
-    void CheckPhysics()
-    {
-        if (!groundCheck.isGrounded)
-        {
-            rigidbody.velocity += Vector3.down * gravity;
-        }
-    }
-
-    void SkaterMove(Vector2 inputs)
-    {
-
-        PhysicsRotation = !groundCheck.isGrounded ? Quaternion.identity : GetPhysicsRotation(); // Rotation according to ground normal 
-        VelocityRotation = GetVelocityRot();
-        InputRotation = Quaternion.identity;
-        ComputedRotation = Quaternion.identity;
-
-
-        if (inputs.magnitude > 0.1f)
-        {
-            Vector3 adapted_direction = ProcessInput(inputs);
-            Vector3 planar_direction = transform.forward;
-            planar_direction.y = 0;
-            InputRotation = Quaternion.FromToRotation(planar_direction, adapted_direction);
-
-            if (groundCheck.isGrounded)
-            {
-                Vector3 Direction = InputRotation * transform.forward.normalized * currentSpeed;
-                //rigidbody.AddForce(Direction, ForceMode.VelocityChange);
-                /* NEXT STEPS:
-                    - Make this rotate the snail
-                    - Add a buffer to get velocity rot
-                    - profit and/or cry             */
-            }
-        }
-
-        ComputedRotation = PhysicsRotation * VelocityRotation * transform.rotation;
-        transform.rotation = Quaternion.Lerp(transform.rotation, ComputedRotation, rotationSpeed * Time.deltaTime);
-    }
-
-    Quaternion GetVelocityRot()
-    {
-        Vector3 vel = rigidbody.velocity;
-        if (vel.magnitude > 0.2f)
-        {
-            vel.y = 0;
-            Vector3 dir = transform.forward;
-            dir.y = 0;
-            Quaternion vel_rot = Quaternion.FromToRotation(dir.normalized, vel.normalized);
-            return vel_rot;
-        }
-        else
-            return Quaternion.identity;
-    }
-
-    Vector3 ProcessInput(Vector2 d)
-    {
-        inputRotation = Vector2.zero;
-        Vector3 player = transform.position;
-        player.y = 0;
-
-        Vector3 player_right = Quaternion.AngleAxis(90, Vector3.up) * player;
-
-        Vector3 direction = player * d.y + player_right * d.x;
-        return direction.normalized;
-    }
-
-    Quaternion GetPhysicsRotation()
-    {
-        Vector3 target_vec = Vector3.up;
-        Ray ray = new Ray(transform.position, Vector3.down);
-        Ray rayFront = new Ray(frontWheels.transform.position, Vector3.down);
-        Ray rayBack = new Ray(backWheels.transform.position, Vector3.down);
-        RaycastHit hit, hitFront, hitBack;
-
-        if (Physics.Raycast(rayFront, out hitFront, 1.05f) && Physics.Raycast(rayBack, out hitBack, 1.05f))
-        {
-            target_vec = hitFront.normal + hitBack.normal;
-            //target_vec.y = 0;
-            // instead I need to get the normals at each wheel
-
-            if ((hitFront.normal - hitBack.normal).magnitude <= 0.5f)
-            {
-                if (Physics.Raycast(ray, out hit, 1.05f))
-                    target_vec = hit.normal;
-                else
-                    target_vec = Vector3.up;
-            }
-        }
-
-        return Quaternion.FromToRotation(transform.up, target_vec);
-    }
-
-
-
-    // calculate velocity
-    void VelocityUpdate()
-    {
-        //Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
-        Friction();
-        //Debug.Log("speed: " + currentSpeed + ", velocity: " + rigidbody.velocity);
-        Vector3 changeInSpeed;
-        changeInSpeed = (gameObject.transform.forward * currentSpeed) - rigidbody.velocity;
-        changeInSpeed.y = 0;
-        if (changeInSpeed.magnitude >= 0.2f)
-            rigidbody.velocity += changeInSpeed;
-        Mathf.Clamp(rigidbody.velocity.magnitude, -maxReverseSpeed, maxForwardSpeed);
+        //Vector3 Direction = InputRotation * transform.forward.normalized * currentSpeed;
+        //rigidbody.AddForce(-Direction, ForceMode.VelocityChange);
+        //rigidbody.velocity += Direction * Time.deltaTime;
     }
 
     // player friction
