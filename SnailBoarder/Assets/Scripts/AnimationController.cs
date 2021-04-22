@@ -7,15 +7,31 @@ public class AnimationController : MonoBehaviour
     Animator skateAnimator;
     Animator snailAnimator;
 
+    GameObject snailByItself;
+    GameObject rootSkate;
+    bool isNotRelativeRotation = false;
+
+    Vector3 initialGravity;
+
     void Start()
     {
         skateAnimator = transform.Find("Separator").GetComponent<Animator>();
         snailAnimator = transform.Find("Separator").Find("Root_ctrl").Find("SnaiByIItself").GetComponent<Animator>();
+        snailByItself = transform.Find("Separator").Find("Root_ctrl").Find("SnaiByIItself").gameObject;
+        rootSkate = transform.Find("Separator").Find("Root_ctrl").gameObject;
+        initialGravity = Physics.gravity;
     }
 
     void Update()
     {
-        
+        if(isNotRelativeRotation)
+        {
+            snailByItself.transform.parent = transform;
+        }
+        else
+        {
+            snailByItself.transform.parent = rootSkate.transform;
+        }
     }
 
     /*---------------SKATEBOARD-ANIMATIONS---------------*/
@@ -27,7 +43,9 @@ public class AnimationController : MonoBehaviour
 
     public void StartWheelieSkateAnim()
     {
+        Physics.gravity = new Vector3(0, -0.1f, 0);
         skateAnimator.Play("A_WheelieBoard");
+        StartCoroutine(ReturnGravity(1.2f + 0.1f));
     }
 
     public void StartKickflipSkateAnim()
@@ -41,6 +59,7 @@ public class AnimationController : MonoBehaviour
     }
     public void StartHospitalFlipSkateAnim()
     {
+        Physics.gravity = initialGravity;
         skateAnimator.Play("A_HospitalFlip");
     }
 
@@ -89,7 +108,10 @@ public class AnimationController : MonoBehaviour
     }
     public void StartHospitalFlipSnailAnim()
     {
+        StopAllCoroutines();
         snailAnimator.Play("A_HospitalFlip_Snail");
+        isNotRelativeRotation = true;
+        StartCoroutine(ReturnRotaion(2.083f + 0.1f));
     }
 
     public void StartRailGrindSnailAnim()
@@ -104,6 +126,8 @@ public class AnimationController : MonoBehaviour
     public void StartHeelflipSnailAnim()
     {
         snailAnimator.Play("A_180HeelFlip_Snail");
+        isNotRelativeRotation = true;
+        StartCoroutine(ReturnRotaion(1.625f + 0.1f));
     }
     public void StartVarialMcTwistSnailAnim()
     {
@@ -114,4 +138,18 @@ public class AnimationController : MonoBehaviour
         snailAnimator.Play("A_Kickflip720_Snail");
     }
 
+    IEnumerator ReturnRotaion(float pauseTime)
+    {
+        // Waits until trick is finished
+        yield return new WaitForSeconds(pauseTime);
+        isNotRelativeRotation = false;
+    }
+
+    IEnumerator ReturnGravity(float pauseTime)
+    {
+        // Waits until trick is finished
+        yield return new WaitForSeconds(pauseTime);
+        Physics.gravity = initialGravity;
+
+    }
 }
