@@ -31,6 +31,9 @@ public class PlayerRotation : MonoBehaviour
 
     public float yRot;
 
+    public LayerMask mask;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,14 +65,17 @@ public class PlayerRotation : MonoBehaviour
         visualPointLeft.transform.position = CastRayDown(pointRayLeft.transform);
         visualPointRight.transform.position = CastRayDown(pointRayRight.transform);
 
-     //   print("Left " + leftPoint);
-      //  print("Right " + rightPoint);
-      //  print("Front " + frontPoint);
-    //    print("Back " + backPoint);
-     //   print(GetAngle(leftPoint, rightPoint));
+        //   print("Left " + leftPoint);
+        //   print("Right " + rightPoint);
+        //   print("Front " + frontPoint);
+        //  print("Back " + backPoint);
+        //    print("Normalized Angle " + GetAngle(leftPoint, rightPoint));
+        //     print("Normalized Angle * 90 " + GetAngle(leftPoint, rightPoint)*90f);
 
         //Applying Angles to snail model
-        ApplyAngle(GetAngle(frontPoint, backPoint), 0, GetAngle(leftPoint, rightPoint));
+       // ApplyAngle(GetAngle(frontPoint, backPoint), 0, GetAngle(leftPoint, rightPoint));
+      //  ApplyAngle(0, 0, GetAngle(leftPoint, rightPoint));
+        ApplyAngle(GetAngle(CastRayDown(pointRayFront.transform), CastRayDown(pointRayBack.transform)), snailBody.transform.position.y ,GetAngle(CastRayDown(pointRayLeft.transform), CastRayDown(pointRayRight.transform)));
 
         //Applying Y rotation to overall snail
         ApplyTurn(yRot);
@@ -106,27 +112,39 @@ public class PlayerRotation : MonoBehaviour
     //Applys all gathered angle data
     public void ApplyAngle(float xAngle,float yAngle, float zAngle)
     {
-        snailBody.transform.localRotation = Quaternion.Euler(xAngle *-90f , yAngle, zAngle *90f);
+        snailBody.transform.localEulerAngles = new Vector3(xAngle *45f, yAngle, zAngle * 45f);
     }
 
 
     //Math to get slope of 2 points, if theres already a function dont tell me
-    public float GetAngle(Vector2 pointA, Vector2 pointB)
+    public float GetAngle(Vector3 pointA, Vector3 pointB)
     {
+
+      //  Vector3 pointC = new Vector3(pointB.x, pointA.y, pointB.z);
+
 
         float rise = pointB.y - pointA.y;
         float run = pointB.x - pointA.x;
+        float rose = pointB.z - pointA.z;
         if (rise == run)
         {
             print(rise);
             print(run);
             return 0;
         }
+
+
+
+        float lineC = Mathf.Sqrt(rise * rise + run * run + rose * rose);
         float slope = rise / run;
-
+        //   slope = Mathf.Abs(slope);
+        
+       // print(slope);
+        float theta = Mathf.Asin(rise / lineC);
+       // Mathf.sin
         slope = (Mathf.Atan(slope)) / (Mathf.PI / 2);
-
-        return slope;
+        print("Rise(" + rise + ") Run(" + run + ") Theta(" + theta + ")");
+        return theta;
     }
 
 
@@ -134,7 +152,7 @@ public class PlayerRotation : MonoBehaviour
     public Vector3 CastRayDown(Transform point)
     {
         RaycastHit hit;
-        Physics.Raycast(point.position, Vector3.down, out hit, 200f);
+        Physics.Raycast(point.position, Vector3.down, out hit, 200f,mask);
         return hit.point;
     }
 
