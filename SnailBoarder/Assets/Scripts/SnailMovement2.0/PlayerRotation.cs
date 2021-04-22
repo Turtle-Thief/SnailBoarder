@@ -44,18 +44,6 @@ public class PlayerRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      //  print("Front " + CastRayDown(pointRayFront.transform));
-      //  print("Back " + CastRayDown(pointRayBack.transform));
-
-        //Converts Positions into usable Vector 2s
-        //X Axis
-        Vector2 frontPoint = new Vector2(CastRayDown(pointRayFront.transform).z, CastRayDown(pointRayFront.transform).y);
-        Vector2 backPoint = new Vector2(CastRayDown(pointRayBack.transform).z, CastRayDown(pointRayBack.transform).y);
-
-        //Y Axis
-        Vector2 leftPoint = new Vector2(CastRayDown(pointRayLeft.transform).x, CastRayDown(pointRayLeft.transform).y);
-        Vector2 rightPoint = new Vector2(CastRayDown(pointRayRight.transform).x, CastRayDown(pointRayRight.transform).y);
-
 
 
 
@@ -65,17 +53,11 @@ public class PlayerRotation : MonoBehaviour
         visualPointLeft.transform.position = CastRayDown(pointRayLeft.transform);
         visualPointRight.transform.position = CastRayDown(pointRayRight.transform);
 
-        //   print("Left " + leftPoint);
-        //   print("Right " + rightPoint);
-        //   print("Front " + frontPoint);
-        //  print("Back " + backPoint);
-        //    print("Normalized Angle " + GetAngle(leftPoint, rightPoint));
-        //     print("Normalized Angle * 90 " + GetAngle(leftPoint, rightPoint)*90f);
 
-        //Applying Angles to snail model
-       // ApplyAngle(GetAngle(frontPoint, backPoint), 0, GetAngle(leftPoint, rightPoint));
-      //  ApplyAngle(0, 0, GetAngle(leftPoint, rightPoint));
+
+        //Apply XZ angles to snail
         ApplyAngle(GetAngle(CastRayDown(pointRayFront.transform), CastRayDown(pointRayBack.transform)), snailBody.transform.position.y ,GetAngle(CastRayDown(pointRayLeft.transform), CastRayDown(pointRayRight.transform)));
+
 
         //Applying Y rotation to overall snail
         ApplyTurn(yRot);
@@ -98,6 +80,15 @@ public class PlayerRotation : MonoBehaviour
     }
 
 
+    public void ApplyAirRotation()
+    {
+
+
+    }
+
+
+
+
     public void ApplyTurn(float rotation)
     {
         Vector3 originRot = transform.eulerAngles;
@@ -116,34 +107,21 @@ public class PlayerRotation : MonoBehaviour
     }
 
 
-    //Math to get slope of 2 points, if theres already a function dont tell me
+    //3D pythagoras calculation
     public float GetAngle(Vector3 pointA, Vector3 pointB)
     {
 
-      //  Vector3 pointC = new Vector3(pointB.x, pointA.y, pointB.z);
 
 
+        //Getting Line lengths
         float rise = pointB.y - pointA.y;
         float run = pointB.x - pointA.x;
         float rose = pointB.z - pointA.z;
-        if (rise == run)
-        {
-            print(rise);
-            print(run);
-            return 0;
-        }
 
-
-
+        // c^2 = a^2 * b^2 * d^2
         float lineC = Mathf.Sqrt(rise * rise + run * run + rose * rose);
-        float slope = rise / run;
-        //   slope = Mathf.Abs(slope);
-        
-       // print(slope);
         float theta = Mathf.Asin(rise / lineC);
-       // Mathf.sin
-        slope = (Mathf.Atan(slope)) / (Mathf.PI / 2);
-        print("Rise(" + rise + ") Run(" + run + ") Theta(" + theta + ")");
+  //      print("Rise(" + rise + ") Run(" + run + ") Theta(" + theta + ")");
         return theta;
     }
 

@@ -243,8 +243,8 @@ public class TricksController : MonoBehaviour
         if (readyToGetIntoAir)
         {
             readyToGetIntoAir = false;
-            playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
-                                          RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+       //     playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
+       //                                   RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             StartCoroutine(StopAirInTime(4f));
             StartCoroutine(RemoveConstraintsInTime(0.8f));
 
@@ -253,8 +253,8 @@ public class TricksController : MonoBehaviour
         }
         else
         {
-            if (playerRigidbody.constraints != RigidbodyConstraints.None)
-                playerRigidbody.constraints = RigidbodyConstraints.None;
+        //    if (playerRigidbody.constraints != RigidbodyConstraints.None)
+        //        playerRigidbody.constraints = RigidbodyConstraints.None;
             readyToGetIntoAir = true;
             StopCoroutine(StopAirInTime(4f));
             StopCoroutine(RemoveConstraintsInTime(0.8f));
@@ -265,8 +265,8 @@ public class TricksController : MonoBehaviour
     IEnumerator RemoveConstraintsInTime(float time)
     {
         yield return new WaitForSeconds(time);
-        if (playerRigidbody.constraints != RigidbodyConstraints.None)
-            playerRigidbody.constraints = RigidbodyConstraints.None;
+   //     if (playerRigidbody.constraints != RigidbodyConstraints.None)
+  //          playerRigidbody.constraints = RigidbodyConstraints.None;
     }
 
     IEnumerator StopAirInTime(float time)
