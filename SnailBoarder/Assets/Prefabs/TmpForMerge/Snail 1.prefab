@@ -642,25 +642,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4eea5f9e06c70d4b99054881838a769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 50
+  acceleration: 40
   braking: 10
-  friction: 5
-  maxForwardSpeed: 100
+  friction: 0.5
+  maxForwardSpeed: 80
   maxReverseSpeed: -30
   maxAirSpeed: 0
-  gravity: 0.5
-  rotationSpeed: 100
+  gravity: 1
+  rotationSpeed: 2
   jumpForce: 0
   currentSpeed: 0
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 6153311556629707763}
   rigidbody: {fileID: 0}
   rotation: {x: 0, y: 0}
   PhysicsRotation: {x: 0, y: 0, z: 0, w: 0}
   VelocityRotation: {x: 0, y: 0, z: 0, w: 0}
   InputRotation: {x: 0, y: 0, z: 0, w: 0}
   ComputedRotation: {x: 0, y: 0, z: 0, w: 0}
-  frontWheels: {fileID: 0}
-  backWheels: {fileID: 0}
+  frontWheels: {fileID: 2145168599}
+  backWheels: {fileID: 160970743}
 --- !u!114 &8063871135341833097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,11 +682,11 @@ MonoBehaviour:
   visualPointLeft: {fileID: 570293647176405307}
   visualPointRight: {fileID: 6625244813571771906}
   snailBody: {fileID: 6836485063227696702}
-  rotSpeed: 100
-  yRot: 0
+  rotSpeed: 250
+  yRot: 180
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   timeStart: 0
   airCheck: 0
   airRecovered: 0
@@ -778,7 +778,7 @@ MonoBehaviour:
     mPoints: 0
     mDuration: 0
     mIsGroundTrick: 0
-  readyToGetIntoAir: 0
+  readyToGetIntoAir: 1
   airTrickTriggerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 0}
   endOfPathInstruction: 2
-  playerMovement: {fileID: 0}
+  playerVelocity: {fileID: 0}
   speed: 5
   snailSpeed: 0
   doRailGrind: 0
@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 5376368814065291570}
   - component: {fileID: 5376368814065291568}
   - component: {fileID: 5376368814065291569}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AirEnterTriggerChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1742,7 +1742,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9063141432824643417}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 26dffc3a60aa61f40b34447e0239f1f9, type: 2}
   m_CullingMode: 0
