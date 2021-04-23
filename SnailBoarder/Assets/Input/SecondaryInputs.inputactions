@@ -63,17 +63,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1232518f-d540-4f8a-8a58-ee89f287c409",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Previous",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "41856cbe-4b6e-4696-ac04-aee48bdc9390",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -87,6 +76,17 @@
                     "name": "",
                     "id": "0bd3eb20-4eeb-4c61-a70f-f30b0ca2b1ec",
                     "path": "<SwitchProControllerHID>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Previous",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "918c74b2-c4b7-4062-902e-65e1985cd530",
+                    "path": "*/{Cancel}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -557,7 +557,7 @@
                 },
                 {
                     "name": "",
-                    "id": "7ed12a6a-3a13-4fb6-a9ac-4bf4a33c77d6",
+                    "id": "01c891c7-6d1c-489d-b929-bd6dfbab6ca6",
                     "path": "<SwitchProControllerHID>/buttonEast",
                     "interactions": "",
                     "processors": "",
@@ -579,7 +579,7 @@
                 },
                 {
                     "name": "",
-                    "id": "0b2be4c6-78c7-4ec5-9654-bc4c6b1857bd",
+                    "id": "19aa7750-27d8-447f-9879-22a6e61208aa",
                     "path": "<SwitchProControllerHID>/buttonSouth",
                     "interactions": "",
                     "processors": "",

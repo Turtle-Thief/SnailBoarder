@@ -61,29 +61,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_PointAction: {fileID: 2709431679815986475, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MoveAction: {fileID: 2777809688677309193, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_SubmitAction: {fileID: 7732243533792346219, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_CancelAction: {fileID: 4136452789398778545, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_LeftClickAction: {fileID: 1483169925638231072, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MiddleClickAction: {fileID: -556472630578836413, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_RightClickAction: {fileID: -8733339777882388513, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ScrollWheelAction: {fileID: 8165288293193443248, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDevicePositionAction: {fileID: 3134634131176351981, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDeviceOrientationAction: {fileID: 4078557782012986363, guid: d3d9e9a068294a344b4a662fdbd68e40,
     type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
 --- !u!1 &58687319035228720
 GameObject:
@@ -132,8 +132,11 @@ MonoBehaviour:
   gameIsPaused: 0
   onPausableScene: 0
   completedLastLevel: 0
+  hatted: 0
+  sanic: 0
   score: 0
   neededPoints: 0
+  hatIndex: 0
   judgesPreferences: 000000000000000000000000
   currentStyle: 0
   playerInputs: {fileID: -944628639613478452, guid: db8ee52492b77dc458d8c720d4993c1a,

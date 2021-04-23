@@ -40,10 +40,15 @@ public class UIManager : MonoBehaviour
 
     #region Video Attributes
 
-    public TextMeshProUGUI resText;
     private const string RESOLUTION_PREF_KEY = "Resolution";
     private const string WINDOWED_PREF_KEY = "Windowed";
-    private List<Resolution> resolutions;
+
+    [SerializeField]
+    public TMP_Dropdown resOptions;
+
+    public List<string> resTexts;
+
+    public List<Resolution> resolutions;
     private int currentResIndex = 0;
     private bool isWindowed = false;
 
@@ -137,16 +142,9 @@ public class UIManager : MonoBehaviour
     // I will map these to settings menu later
     #region Video Settings Functions
 
-    public void SetNextResolution()
+    public void SetResolution()
     {
-        currentResIndex = GetNextWrappedIndex(resolutions, currentResIndex);
-        SetResolutionText(resolutions[currentResIndex]);
-    }
-
-    public void SetPreviousResolution()
-    {
-        currentResIndex = GetPreviousWrappedIndex(resolutions, currentResIndex);
-        SetResolutionText(resolutions[currentResIndex]);
+        AdjustScreenResolution(resOptions.value);
     }
 
     void AdjustScreenResolution(int newResIndex)
@@ -157,20 +155,19 @@ public class UIManager : MonoBehaviour
 
     void ApplyResolution(Resolution resolution)
     {
-        Screen.SetResolution(resolution.width, resolution.height, true);
+        Screen.SetResolution(resolution.width, resolution.height, !isWindowed);
         PlayerPrefs.SetInt(RESOLUTION_PREF_KEY, currentResIndex);
     }
 
     // Changes the text to the given resolution
-    void SetResolutionText(Resolution resolution)
+    void SetResolutionText(TextMeshProUGUI resText, Resolution resolution)
     {
         resText.text = resolution.width + "x" + resolution.height;
     }
 
-    // Apply resolution changes
-    public void ApplyChanges()
+    string SetResolutionText(Resolution resolution)
     {
-        AdjustScreenResolution(currentResIndex);
+        return resolution.width + "x" + resolution.height;
     }
 
     // *********** May want to make a reference to this in ApplyChanges() instead of button
@@ -408,12 +405,21 @@ public class UIManager : MonoBehaviour
         SM = HUDPanel.GetComponent<ScoreManager>();
         #region Video Initializations
 
-        if (resText)
+        if (resOptions)
         {
-            resText.text = "Auto";
             resolutions = new List<Resolution>();
             resolutions.AddRange(Screen.resolutions);
             resolutions = resolutions.Distinct().ToList();
+
+            resTexts = new List<string>();
+            
+            foreach(Resolution res in resolutions)
+            {
+                resTexts.Add(res.ToString());
+            }
+
+            resOptions.AddOptions(resTexts);
+
             currentResIndex = PlayerPrefs.GetInt(RESOLUTION_PREF_KEY, 0);
             isWindowed = PlayerPrefs.GetInt(WINDOWED_PREF_KEY) != 0;
         }
