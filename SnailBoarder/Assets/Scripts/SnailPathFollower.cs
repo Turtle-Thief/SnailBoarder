@@ -11,7 +11,7 @@ namespace PathCreation.Examples
     {
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
-        public PlayerMovement playerMovement;
+        public PlayerVelocity playerVelocity;
         public float speed = 5;
         public float snailSpeed = 0.0f;
         float distanceTravelled;
@@ -19,7 +19,7 @@ namespace PathCreation.Examples
 
         void Start()
         {
-            playerMovement = gameObject.GetComponent<PlayerMovement>();
+            playerVelocity = gameObject.GetComponent<PlayerVelocity>();
             doRailGrind = false;
             if (pathCreator != null)
             {
@@ -39,8 +39,8 @@ namespace PathCreation.Examples
                 {
                     pathCreator = null;
                     doRailGrind = false;
-                    playerMovement.currentSpeed = snailSpeed + 5.0f;
-                    playerMovement.Jump(1.5f);
+                    playerVelocity.currentSpeed = snailSpeed + 5.0f;
+                    playerVelocity.Jump(1.5f);
                 }
             }
         }
@@ -50,7 +50,7 @@ namespace PathCreation.Examples
         {
             if (pathCreator != null)
             {
-                speed = playerMovement.currentSpeed;
+                speed = playerVelocity.currentSpeed;
                 snailSpeed = speed;
                 speed = Mathf.Clamp(speed, 10.0f, 25.0f);
                 doRailGrind = true;

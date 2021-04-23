@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 6153311556629707763}
   - component: {fileID: 5376368812921026780}
   - component: {fileID: 5376368812921028385}
+  - component: {fileID: 4336600884509641106}
   - component: {fileID: 5376368812921028384}
   - component: {fileID: 5376368812921028390}
   - component: {fileID: 5376368812921028389}
@@ -646,8 +647,10 @@ MonoBehaviour:
   friction: 5
   maxForwardSpeed: 100
   maxReverseSpeed: -30
+  maxAirSpeed: 0
   gravity: 0.5
   rotationSpeed: 100
+  jumpForce: 0
   currentSpeed: 0
   groundCheck: {fileID: 0}
   rigidbody: {fileID: 0}
@@ -686,6 +689,7 @@ MonoBehaviour:
     m_Bits: 0
   timeStart: 0
   airCheck: 0
+  airRecovered: 0
 --- !u!114 &6153311556629707763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +789,24 @@ MonoBehaviour:
     mDuration: 0
     mIsGroundTrick: 0
   buttonComboDelayMax: 0.3
+--- !u!114 &4336600884509641106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070449698316764554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4634b9bf5c78be743ae379bcbf96884f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 0}
+  endOfPathInstruction: 2
+  playerMovement: {fileID: 0}
+  speed: 5
+  snailSpeed: 0
+  doRailGrind: 0
 --- !u!114 &5376368812921028384
 MonoBehaviour:
   m_ObjectHideFlags: 0
