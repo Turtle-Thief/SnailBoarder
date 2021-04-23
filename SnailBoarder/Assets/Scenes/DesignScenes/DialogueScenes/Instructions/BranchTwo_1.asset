@@ -17,6 +17,6 @@ MonoBehaviour:
   - Thats not as amazing as our next judge.
   - They were apparently in a "metal" band and was even famous for their guitar riffs!
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 1

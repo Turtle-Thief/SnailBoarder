@@ -18,6 +18,6 @@ MonoBehaviour:
   - They are a huge pyrotechnic fan and love anything with flames on it. They think
     it's super "cool".
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 1

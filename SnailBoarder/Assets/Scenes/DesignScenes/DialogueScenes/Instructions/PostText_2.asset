@@ -18,6 +18,6 @@ MonoBehaviour:
   - Simply press "START" at any time and you will return to the beginning of the
     park.
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 2

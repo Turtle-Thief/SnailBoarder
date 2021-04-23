@@ -18,6 +18,6 @@ MonoBehaviour:
   - They apparently were originally in a "metal" band and were famous for their guitar
     riffs!
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 0

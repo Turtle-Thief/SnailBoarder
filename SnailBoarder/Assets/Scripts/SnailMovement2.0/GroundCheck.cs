@@ -13,6 +13,9 @@ public class GroundCheck : MonoBehaviour
     public float distToGround = 3f;
     float slopeAngle;
 
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,5 +68,12 @@ public class GroundCheck : MonoBehaviour
             //    debugText.text = "Not Grounded";
             isGrounded = false;
         }
+
+        if (GetComponent<PlayerRotation>().airCheck)
+        {
+            isGrounded = false;
+        }
+
+
     }
 }

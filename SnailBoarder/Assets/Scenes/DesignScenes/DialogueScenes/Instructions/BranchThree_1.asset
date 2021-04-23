@@ -17,6 +17,6 @@ MonoBehaviour:
   - Our next judge however is a real showstopper!
   - Apparently they were the lead guitarist in a famous "metal" band!
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 0

@@ -20,6 +20,6 @@ MonoBehaviour:
   - If you perform a trick in a "cool" section of the park, then a judge who likes
     cool styles will award you more points!
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 0

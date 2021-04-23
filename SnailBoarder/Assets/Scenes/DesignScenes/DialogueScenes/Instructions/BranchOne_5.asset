@@ -18,6 +18,6 @@ MonoBehaviour:
   - 'Apparently they are an old time skater who really prefers "classic" skatepark
     styles. '
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 0
