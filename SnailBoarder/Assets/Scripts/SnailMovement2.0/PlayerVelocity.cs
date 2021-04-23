@@ -11,7 +11,7 @@ public class PlayerVelocity : MonoBehaviour
                      maxForwardSpeed = 100.0f,
                      maxReverseSpeed = -30.0f,
                     maxAirSpeed,
-                     gravity = 0.5f,
+                     gravity = 0.25f,
                      rotationSpeed = 100.0f,
                      jumpForce,
                      currentSpeed;
@@ -58,6 +58,7 @@ public class PlayerVelocity : MonoBehaviour
 
             rigidbody.velocity += transform.forward * currentSpeed * Time.deltaTime;
             rigidbody.velocity = UpdateVelocityDirection();
+            rigidbody.velocity += Vector3.down * gravity;
             Friction();
         }
     }
