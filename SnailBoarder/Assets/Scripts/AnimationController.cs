@@ -16,9 +16,9 @@ public class AnimationController : MonoBehaviour
     void Start()
     {
         skateAnimator = transform.Find("Separator").GetComponent<Animator>();
-        snailAnimator = transform.Find("Separator").Find("Root_ctrl").Find("SnaiByIItself").GetComponent<Animator>();
-        snailByItself = transform.Find("Separator").Find("Root_ctrl").Find("SnaiByIItself").gameObject;
-        rootSkate = transform.Find("Separator").Find("Root_ctrl").gameObject;
+        snailAnimator = transform.Find("Separator").Find("Model").Find("Root_ctrl").Find("SnaiByIItself").GetComponent<Animator>();
+        snailByItself = transform.Find("Separator").Find("Model").Find("Root_ctrl").Find("SnaiByIItself").gameObject;
+        rootSkate = transform.Find("Separator").Find("Model").Find("Root_ctrl").gameObject;
         initialGravity = Physics.gravity;
     }
 
