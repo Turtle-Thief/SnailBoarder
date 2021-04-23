@@ -84,6 +84,7 @@ public class PlayerRotation : MonoBehaviour
     }
 
 
+    //Determining if ground rotation or air rotation is used and applying it
     public void ApplyAirRotation(bool airCheck, bool groundCheck, Vector3 groundRotation, Vector3 airRotation)
     {
         Vector3 destination;
@@ -120,7 +121,7 @@ public class PlayerRotation : MonoBehaviour
 
 
 
-
+    //Creating Ground Angle Rotation
     public void ApplyTurn(float rotation)
     {
         Vector3 originRot = transform.eulerAngles;
