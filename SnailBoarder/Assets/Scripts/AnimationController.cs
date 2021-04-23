@@ -39,13 +39,19 @@ public class AnimationController : MonoBehaviour
     public void StartOllieSkateAnim()
     {
         skateAnimator.Play("A_Ollie");
+
+        // Next two lines may be unnecessary after merge
+        //Physics.gravity = new Vector3(0, -0.01f, 0);
+        //StartCoroutine(ReturnGravity(1.4f));
     }
 
     public void StartWheelieSkateAnim()
     {
-        Physics.gravity = new Vector3(0, -0.1f, 0);
         skateAnimator.Play("A_WheelieBoard");
-        StartCoroutine(ReturnGravity(1.2f + 0.1f));
+
+        // Next two lines may be unnecessary after merge
+        //Physics.gravity = new Vector3(0, -0.01f, 0);
+        //StartCoroutine(ReturnGravity(1.9f));
     }
 
     public void StartKickflipSkateAnim()
@@ -100,6 +106,8 @@ public class AnimationController : MonoBehaviour
     public void StartKickflipSnailAnim()
     {
         snailAnimator.Play("A_Kickflip_Snail");
+        isNotRelativeRotation = true;
+        StartCoroutine(ReturnRotaion(2.083f + 0.1f));
     }
 
     public void StartPopShoveitSnailAnim()
@@ -136,6 +144,8 @@ public class AnimationController : MonoBehaviour
     public void StartAirKickflipSnailAnim()
     {
         snailAnimator.Play("A_Kickflip720_Snail");
+        isNotRelativeRotation = true;
+        StartCoroutine(ReturnRotaion(2f + 0.1f));
     }
 
     IEnumerator ReturnRotaion(float pauseTime)

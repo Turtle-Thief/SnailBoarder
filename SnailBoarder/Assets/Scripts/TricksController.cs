@@ -266,7 +266,7 @@ public class TricksController : MonoBehaviour
             readyToGetIntoAir = false;
             playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
                                           RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            StartCoroutine(StopAirInTime(4f));
+            StartCoroutine(StopAirInTime(3f));
             StartCoroutine(RemoveConstraintsInTime(0.8f));
 
             
@@ -277,7 +277,7 @@ public class TricksController : MonoBehaviour
             if (playerRigidbody.constraints != RigidbodyConstraints.None)
                 playerRigidbody.constraints = RigidbodyConstraints.None;
             readyToGetIntoAir = true;
-            StopCoroutine(StopAirInTime(4f));
+            StopCoroutine(StopAirInTime(3f));
             StopCoroutine(RemoveConstraintsInTime(0.8f));
         }
         //Debug.Log("Trigger");
