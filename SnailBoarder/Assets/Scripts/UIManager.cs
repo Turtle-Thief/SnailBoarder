@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class UIManager : MonoBehaviour
         confirmPanel,
         currentPanel;
     [Space]
-    public GameObject timer;
+    public GameObject timer, lastSelected, firstSelected;
     public bool previousExists = false;
     private GameObject previousPanel; // Reference object
 
@@ -40,15 +41,10 @@ public class UIManager : MonoBehaviour
 
     #region Video Attributes
 
+    public TextMeshProUGUI resText;
     private const string RESOLUTION_PREF_KEY = "Resolution";
     private const string WINDOWED_PREF_KEY = "Windowed";
-
-    [SerializeField]
-    public TMP_Dropdown resOptions;
-
-    public List<string> resTexts;
-
-    public List<Resolution> resolutions;
+    private List<Resolution> resolutions;
     private int currentResIndex = 0;
     private bool isWindowed = false;
 
@@ -98,6 +94,9 @@ public class UIManager : MonoBehaviour
         // Record our previous panel
         this.previousPanel = previousPanel;
         previousExists = true;
+
+        firstSelected = currentPanel.GetComponentInChildren<Selectable>().gameObject;
+        firstSelected.GetComponent<Selectable>().Select();
     }
 
     /// <summary>
@@ -117,6 +116,8 @@ public class UIManager : MonoBehaviour
         // Reset our reference panel
         previousPanel = null;
         previousExists = false;
+
+        lastSelected.GetComponent<Selectable>().Select();
     }
 
     public void CloseAllPanels()
@@ -126,6 +127,8 @@ public class UIManager : MonoBehaviour
         helpPanel.SetActive(false);
         settingsPanel.SetActive(false);
         confirmPanel.SetActive(false);
+
+        lastSelected.GetComponent<Selectable>().Select();
     }
 
     private void ConfirmChoice()
@@ -142,9 +145,16 @@ public class UIManager : MonoBehaviour
     // I will map these to settings menu later
     #region Video Settings Functions
 
-    public void SetResolution()
+    public void SetNextResolution()
     {
-        AdjustScreenResolution(resOptions.value);
+        currentResIndex = GetNextWrappedIndex(resolutions, currentResIndex);
+        SetResolutionText(resolutions[currentResIndex]);
+    }
+
+    public void SetPreviousResolution()
+    {
+        currentResIndex = GetPreviousWrappedIndex(resolutions, currentResIndex);
+        SetResolutionText(resolutions[currentResIndex]);
     }
 
     void AdjustScreenResolution(int newResIndex)
@@ -155,19 +165,20 @@ public class UIManager : MonoBehaviour
 
     void ApplyResolution(Resolution resolution)
     {
-        Screen.SetResolution(resolution.width, resolution.height, !isWindowed);
+        Screen.SetResolution(resolution.width, resolution.height, true);
         PlayerPrefs.SetInt(RESOLUTION_PREF_KEY, currentResIndex);
     }
 
     // Changes the text to the given resolution
-    void SetResolutionText(TextMeshProUGUI resText, Resolution resolution)
+    void SetResolutionText(Resolution resolution)
     {
         resText.text = resolution.width + "x" + resolution.height;
     }
 
-    string SetResolutionText(Resolution resolution)
+    // Apply resolution changes
+    public void ApplyChanges()
     {
-        return resolution.width + "x" + resolution.height;
+        AdjustScreenResolution(currentResIndex);
     }
 
     // *********** May want to make a reference to this in ApplyChanges() instead of button
@@ -217,6 +228,7 @@ public class UIManager : MonoBehaviour
     // Controls;
     public void PauseToControls()
     {
+        lastSelected = EventSystem.current.currentSelectedGameObject;
         // Open our help panel and reference our pause panel
         OpenPanel(helpPanel, pausePanel);
     }
@@ -224,6 +236,7 @@ public class UIManager : MonoBehaviour
     // Settings;
     public void PauseToSettings()
     {
+        lastSelected = EventSystem.current.currentSelectedGameObject;
         // Open our settings panel and reference our pause panel
         OpenPanel(settingsPanel, pausePanel);
     }
@@ -405,21 +418,12 @@ public class UIManager : MonoBehaviour
         SM = HUDPanel.GetComponent<ScoreManager>();
         #region Video Initializations
 
-        if (resOptions)
+        if (resText)
         {
+            resText.text = "Auto";
             resolutions = new List<Resolution>();
             resolutions.AddRange(Screen.resolutions);
             resolutions = resolutions.Distinct().ToList();
-
-            resTexts = new List<string>();
-            
-            foreach(Resolution res in resolutions)
-            {
-                resTexts.Add(res.ToString());
-            }
-
-            resOptions.AddOptions(resTexts);
-
             currentResIndex = PlayerPrefs.GetInt(RESOLUTION_PREF_KEY, 0);
             isWindowed = PlayerPrefs.GetInt(WINDOWED_PREF_KEY) != 0;
         }
