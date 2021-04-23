@@ -30,7 +30,7 @@ public class AnimationController : MonoBehaviour
         }
         else
         {
-        //    snailByItself.transform.parent = rootSkate.transform;
+            snailByItself.transform.parent = rootSkate.transform;
         }
     }
 
@@ -113,6 +113,8 @@ public class AnimationController : MonoBehaviour
     public void StartPopShoveitSnailAnim()
     {
         snailAnimator.Play("A_PopShoveIt_Snail");
+        isNotRelativeRotation = true;
+        StartCoroutine(ReturnRotaion(2.042f + 0.1f));
     }
     public void StartHospitalFlipSnailAnim()
     {

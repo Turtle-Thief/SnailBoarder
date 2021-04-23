@@ -193,7 +193,7 @@ public class TricksController : MonoBehaviour
 
     public void OnOllie()
     {
-        Debug.Log("Input Ollie");
+        //Debug.Log("Input Ollie");
         TrickInputCall(Tricks[(int)TrickName.Ollie]);
     }
 
@@ -223,19 +223,19 @@ public class TricksController : MonoBehaviour
 
     public void OnHeelflip()
     {
-        Debug.Log("Input Heelflip");
+        //Debug.Log("Input Heelflip");
         TrickInputCall(Tricks[(int)TrickName.Heelflip]);
     }
 
     public void OnMcTwist()
     {
-        Debug.Log("Input McTwist");
+        //Debug.Log("Input McTwist");
         TrickInputCall(Tricks[(int)TrickName.McTwist]);
     }
 
     public void OnAirKickflip()
     {
-        Debug.Log("Input AirKickflip");
+        //Debug.Log("Input AirKickflip");
         TrickInputCall(Tricks[(int)TrickName.AirKickflip]);
     }
 
