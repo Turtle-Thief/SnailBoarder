@@ -33,12 +33,16 @@ public class PlayerRotation : MonoBehaviour
 
     public LayerMask mask;
 
+    public float timeStart;
+
+
+    public bool airCheck;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        timeStart = Time.time;
     }
 
     // Update is called once per frame
@@ -56,9 +60,9 @@ public class PlayerRotation : MonoBehaviour
 
 
         //Apply XZ angles to snail
-        ApplyAngle(GetAngle(CastRayDown(pointRayFront.transform), CastRayDown(pointRayBack.transform)), snailBody.transform.position.y ,GetAngle(CastRayDown(pointRayLeft.transform), CastRayDown(pointRayRight.transform)));
-
-
+        Vector3 groundAngle = ApplyAngle(GetAngle(CastRayDown(pointRayFront.transform), CastRayDown(pointRayBack.transform)), snailBody.transform.position.y ,GetAngle(CastRayDown(pointRayLeft.transform), CastRayDown(pointRayRight.transform)));
+        Vector3 airAngle = new Vector3(0,snailBody.transform.rotation.y,snailBody.transform.rotation.z);
+        ApplyAirRotation(airCheck,GetComponent<GroundCheck>().isGrounded, groundAngle, airAngle);
         //Applying Y rotation to overall snail
         ApplyTurn(yRot);
 
@@ -80,9 +84,31 @@ public class PlayerRotation : MonoBehaviour
     }
 
 
-    public void ApplyAirRotation()
+    public void ApplyAirRotation(bool airCheck, bool groundCheck, Vector3 groundRotation, Vector3 airRotation)
     {
+        Vector3 destination;
+        if (airCheck)
+        {
+            destination = airRotation;
+            transform.localEulerAngles = new Vector3(-90f, yRot, 0);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(0, yRot, 0);
+            if (groundCheck)
+            {
+                destination = groundRotation;
+            }
+            else
+            {
+                destination = snailBody.transform.localEulerAngles;
 
+            }
+        }
+        
+
+
+        snailBody.transform.localEulerAngles = Vector3.Lerp(snailBody.transform.localEulerAngles,destination,(Time.time - timeStart));
 
     }
 
@@ -101,9 +127,12 @@ public class PlayerRotation : MonoBehaviour
 
 
     //Applys all gathered angle data
-    public void ApplyAngle(float xAngle,float yAngle, float zAngle)
+    public Vector3 ApplyAngle(float xAngle,float yAngle, float zAngle)
     {
-        snailBody.transform.localEulerAngles = new Vector3(xAngle *45f, yAngle, zAngle * 45f);
+
+        Vector3 angle = new Vector3(xAngle * 45f, yAngle, zAngle * 45f);
+
+        return angle;
     }
 
 
