@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3861688166566857287}
   - component: {fileID: -421362541422277598}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LevelTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5689134116457169290}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,6 +155,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh_groundMod 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5dec99fba4f978b4a9d409ad99a8dfee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dec99fba4f978b4a9d409ad99a8dfee, type: 3}
 --- !u!4 &2218991427931756087 stripped
@@ -240,6 +245,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh_groundMod 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5dec99fba4f978b4a9d409ad99a8dfee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dec99fba4f978b4a9d409ad99a8dfee, type: 3}
 --- !u!4 &1884681776587565092 stripped
@@ -319,6 +329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mesh_groundMod 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5dec99fba4f978b4a9d409ad99a8dfee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dec99fba4f978b4a9d409ad99a8dfee, type: 3}
@@ -404,6 +419,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mesh_groundMod 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5dec99fba4f978b4a9d409ad99a8dfee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dec99fba4f978b4a9d409ad99a8dfee, type: 3}

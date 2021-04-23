@@ -19,7 +19,7 @@
                     "id": "bce77fda-c78b-4133-80df-74221c34155d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press"
                 },
                 {
                     "name": "Turn",

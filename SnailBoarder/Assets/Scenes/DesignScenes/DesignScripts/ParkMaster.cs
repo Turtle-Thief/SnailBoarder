@@ -125,7 +125,7 @@ public class ParkMaster : MonoBehaviour
           //  {
                 tempArray = Sray.AppendGameObjectArray(tempArray, section.transform.GetChild(i).gameObject);
             //}
-            print(tempArray[i]);
+          //  print(tempArray[i]);
 
 
 
