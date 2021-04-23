@@ -25,6 +25,7 @@ public class SceneLoader : MonoBehaviour
                 break;
             case "hat":
                 SceneManager.LoadScene(hat);
+                UIManager.instance.CloseAllPanels();
                 currentScene = hat;
                 break;
             case "instruct":
@@ -70,8 +71,8 @@ public class SceneLoader : MonoBehaviour
                 currentScene = title;
                 break;
             case 1:
-                UIManager.instance.CloseAllPanels();
                 SceneManager.LoadScene(hat);
+                UIManager.instance.CloseAllPanels();
                 currentScene = hat;
                 break;
             case 2:
@@ -110,7 +111,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadNextSceneInBuild()
     {
         currentScene++;
-        SceneManager.LoadScene(currentScene);
+        LoadScene(currentScene);
     }
 
     public void ResetScene()
