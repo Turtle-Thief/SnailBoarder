@@ -141,7 +141,7 @@ public class AnimationController : MonoBehaviour
     }
     public void StartVarialMcTwistSnailAnim()
     {
-        snailAnimator.Play("AT_VarialMcTwist_Snail");
+    //    snailAnimator.Play("AT_VarialMcTwist_Snail");
     }
     public void StartAirKickflipSnailAnim()
     {

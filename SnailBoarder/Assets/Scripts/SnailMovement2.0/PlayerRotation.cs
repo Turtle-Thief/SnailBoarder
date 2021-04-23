@@ -38,6 +38,11 @@ public class PlayerRotation : MonoBehaviour
 
     public bool airCheck;
     public bool airRecovered;
+    public Vector3 preAirPosition;
+
+    public float refreshTime;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +70,7 @@ public class PlayerRotation : MonoBehaviour
         ApplyAirRotation(airCheck,GetComponent<GroundCheck>().isGrounded, groundAngle, airAngle);
         //Applying Y rotation to overall snail
         ApplyTurn(yRot);
-
+        refreshTime -= Time.deltaTime;
     }
 
 
@@ -88,19 +93,37 @@ public class PlayerRotation : MonoBehaviour
     public void ApplyAirRotation(bool airCheck, bool groundCheck, Vector3 groundRotation, Vector3 airRotation)
     {
         Vector3 destination;
-        if (airCheck)
+        if (airCheck && refreshTime<0)
         {
+            
             airRecovered = true;
-            destination = airRotation;
-            destination = new Vector3(-90f, yRot, 0);
+            preAirPosition = transform.position;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            destination = groundRotation;
+            GetComponent<TricksController>().OnMcTwist();
+         //   destination = new Vector3(0, yRot, 0);
         }
         else
         {
             if (airRecovered)
             {
+                refreshTime = 2f;
                 airRecovered = false;
-                yRot = -yRot;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                transform.position = preAirPosition;
+
+                if (Mathf.Abs(yRot % 360) > 180)
+                {
+                    yRot -= 180f;
+                }
+                else
+                {
+                    yRot -= 90f;
+                }
+                snailBody.transform.localEulerAngles = new Vector3(-snailBody.transform.localEulerAngles.x, 0, -snailBody.transform.localEulerAngles.z);
             }
+
             transform.localEulerAngles = new Vector3(0, yRot, 0);
             if (groundCheck)
             {

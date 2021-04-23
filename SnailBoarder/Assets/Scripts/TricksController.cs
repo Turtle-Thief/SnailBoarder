@@ -261,7 +261,7 @@ public class TricksController : MonoBehaviour
 
     public void AirTriggerEnter()
     {
-        Debug.Log("Air Trigger Enter " + readyToGetIntoAir);
+    //    Debug.Log("Air Trigger Enter " + readyToGetIntoAir);
 
         if (readyToGetIntoAir)
         {
@@ -281,7 +281,7 @@ public class TricksController : MonoBehaviour
         {
             //    if (playerRigidbody.constraints != RigidbodyConstraints.None)
             //        playerRigidbody.constraints = RigidbodyConstraints.None;
-            GetComponent<PlayerRotation>().airCheck = false;
+       //     GetComponent<PlayerRotation>().airCheck = false;
             readyToGetIntoAir = true;
             StopCoroutine(StopAirInTime(3f));
             StopCoroutine(RemoveConstraintsInTime(0.8f));
