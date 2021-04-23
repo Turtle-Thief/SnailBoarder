@@ -12,6 +12,7 @@ public class PlayerVelocity : MonoBehaviour
                      maxReverseSpeed = -30.0f,
                      gravity = 0.5f,
                      rotationSpeed = 100.0f,
+                     jumpForce,
                      currentSpeed;
 
     [HideInInspector]
@@ -113,4 +114,18 @@ public class PlayerVelocity : MonoBehaviour
             Mathf.Clamp(currentSpeed, -maxReverseSpeed, 0);
         }
     }
+
+
+
+    public void Jump(float forceMultiplier)
+    {
+        GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
+        if (gameObject.GetComponent<PathCreation.Examples.SnailPathFollower>().pathCreator != null)
+        {
+            gameObject.GetComponent<PathCreation.Examples.SnailPathFollower>().StartRailGrind();
+        }
+    }
+
+
+
 }

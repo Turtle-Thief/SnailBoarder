@@ -30,7 +30,7 @@ public class AnimationController : MonoBehaviour
         }
         else
         {
-            snailByItself.transform.parent = rootSkate.transform;
+        //    snailByItself.transform.parent = rootSkate.transform;
         }
     }
 

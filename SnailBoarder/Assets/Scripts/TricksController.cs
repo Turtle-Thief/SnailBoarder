@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class TricksController : MonoBehaviour
 {
     Rigidbody playerRigidbody;
-    PlayerMovement playerMovement;
+    GroundCheck groundCheck;
+    PlayerVelocity playerMovement;
     AnimationController animator;
 
     public enum TrickName
@@ -60,7 +61,8 @@ public class TricksController : MonoBehaviour
     void Start()
     {
         playerRigidbody = gameObject.GetComponent<Rigidbody>();
-        playerMovement = this.GetComponent<PlayerMovement>();
+        playerMovement = this.GetComponent<PlayerVelocity>();
+        groundCheck = this.GetComponent<GroundCheck>();
         animator = this.GetComponent<AnimationController>();
 
         // Adding all tricks
@@ -74,7 +76,7 @@ public class TricksController : MonoBehaviour
         Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 4, 75, 2f, false);
         Tricks[(int)TrickName.McTwist] = new Trick(TrickName.McTwist, 4, 75, 2f, false);
         Tricks[(int)TrickName.AirKickflip] = new Trick(TrickName.AirKickflip, 4, 75, 2f, false);
-        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 4, 35, 3f, true);
+    //    Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 4, 35, 3f, true);
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
@@ -98,8 +100,8 @@ public class TricksController : MonoBehaviour
         {
             //Debug.Log("Here1");
 
-            if((trickType.mIsGroundTrick && playerMovement.isGrounded) ||
-                (!trickType.mIsGroundTrick && !playerMovement.isGrounded))
+            if((trickType.mIsGroundTrick && groundCheck.isGrounded) ||
+                (!trickType.mIsGroundTrick && !groundCheck.isGrounded))
                 StartTrick(trickType);
         }
         else if (timeSinceLastTrickStart < buttonComboDelayMax && currentTrick.mTier < trickType.mTier && currentTrick.mIsGroundTrick == trickType.mIsGroundTrick) // If another trick is already in progress
@@ -114,7 +116,7 @@ public class TricksController : MonoBehaviour
 
     public void StartTrick(Trick trickType)
     {
-        wasOnRamp = playerMovement.isOnRamp;
+        wasOnRamp = groundCheck.isOnRamp;
         StartCoroutine(PauseForTrick(trickType.mDuration));
 
         switch (trickType.mName)
@@ -264,9 +266,11 @@ public class TricksController : MonoBehaviour
         if (readyToGetIntoAir)
         {
             readyToGetIntoAir = false;
+
        //     playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
        //                                   RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             StartCoroutine(StopAirInTime(4f));
+
             StartCoroutine(RemoveConstraintsInTime(0.8f));
 
             

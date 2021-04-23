@@ -651,7 +651,7 @@ MonoBehaviour:
   currentSpeed: 0
   groundCheck: {fileID: 0}
   rigidbody: {fileID: 0}
-  inputRotation: {x: 0, y: 0}
+  rotation: {x: 0, y: 0}
   PhysicsRotation: {x: 0, y: 0, z: 0, w: 0}
   VelocityRotation: {x: 0, y: 0, z: 0, w: 0}
   InputRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -680,6 +680,12 @@ MonoBehaviour:
   visualPointRight: {fileID: 6625244813571771906}
   snailBody: {fileID: 6836485063227696702}
   rotSpeed: 100
+  yRot: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
+  timeStart: 0
+  airCheck: 0
 --- !u!114 &6153311556629707763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,7 +1029,7 @@ Transform:
   - {fileID: 5376368813650708746}
   - {fileID: 6169536895811427465}
   m_Father: {fileID: 2604418977351583340}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5376368812126948257
 GameObject:
@@ -1034,8 +1040,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5376368812126948256}
-  - component: {fileID: 5376368812126948262}
-  - component: {fileID: 5376368812126948263}
   m_Layer: 8
   m_Name: ScaleSnail__UV
   m_TagString: Untagged
@@ -1055,7 +1059,7 @@ Transform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 2604418977351583340}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5376368812299809297
 GameObject:
@@ -1223,11 +1227,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5376368812920656598}
   m_LocalRotation: {x: 0.028945733, y: 0.708744, z: 0.028763607, w: -0.7042846}
-  m_LocalPosition: {x: 0.3766065, y: 0.111172095, z: -0.018451571}
+  m_LocalPosition: {x: -0.0211, y: 0.0311, z: -0.0001}
   m_LocalScale: {x: 0.010000001, y: 0.01, z: 0.010000001}
   m_Children: []
   m_Father: {fileID: 3163577016099122187}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5376368813650708747
 GameObject:
@@ -1495,7 +1499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3459347968595063704}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8404602264315908848
 MeshFilter:
@@ -1576,7 +1580,7 @@ Transform:
   - {fileID: 3751171544103686668}
   - {fileID: 5554639895232339249}
   m_Father: {fileID: 3459347968595063704}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5946256012085040453
 GameObject:
@@ -1666,7 +1670,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5376368812920656597}
   - {fileID: 1172677830633394544}
   - {fileID: 7060700229456891839}
   m_Father: {fileID: 2604418977351583340}
@@ -1704,7 +1707,6 @@ Transform:
   - {fileID: 5376368812790530885}
   - {fileID: 5376368812299809296}
   - {fileID: 5376368814065291570}
-  - {fileID: 5376368813852570299}
   - {fileID: 5376368812126948256}
   - {fileID: 5376368811995054496}
   m_Father: {fileID: 5554639896080555824}
@@ -1796,10 +1798,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -5430475193110656655, guid: eb626501a2f95b547b8be85f7b08cd52,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -4864302980487426998, guid: eb626501a2f95b547b8be85f7b08cd52,
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3952992833186475186, guid: eb626501a2f95b547b8be85f7b08cd52,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3688034730928045390, guid: eb626501a2f95b547b8be85f7b08cd52,
         type: 3}
@@ -1855,6 +1867,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913588504910932954, guid: eb626501a2f95b547b8be85f7b08cd52,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5332809968238436118, guid: eb626501a2f95b547b8be85f7b08cd52,
         type: 3}
