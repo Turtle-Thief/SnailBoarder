@@ -18,6 +18,6 @@ MonoBehaviour:
   - A crazy snail fan who is enthusiastic about anything "snail" themed.
   - If there is even a picture of a snail on it, they love it!
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 0

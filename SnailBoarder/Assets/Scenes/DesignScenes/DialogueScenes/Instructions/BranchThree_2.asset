@@ -17,6 +17,6 @@ MonoBehaviour:
   - Our next judge however is a real showstopper!
   - A famous desert baker! They love all kinds of "cute" things!
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 0

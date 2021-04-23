@@ -18,6 +18,6 @@ MonoBehaviour:
   - Apprently they are a famous baker who makes deserts! They love all kinds of "cute"
     things!
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 0

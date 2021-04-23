@@ -18,6 +18,6 @@ MonoBehaviour:
   - If you ever want to find out what button combinations make what tricks,
   - simply press esc and navigate to "How to Play"
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 0

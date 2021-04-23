@@ -17,6 +17,6 @@ MonoBehaviour:
   - 3!! 2!! 1!!
   - SKATE!
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 2

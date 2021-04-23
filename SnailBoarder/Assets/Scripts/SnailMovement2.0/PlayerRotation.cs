@@ -55,6 +55,13 @@ public class PlayerRotation : MonoBehaviour
     {
 
 
+        refreshTime -= Time.deltaTime;
+    }
+
+
+    private void FixedUpdate()
+    {
+
 
         //Debug Visual of Where Rays hit
         visualPointFront.transform.position = CastRayDown(pointRayFront.transform);
@@ -65,13 +72,16 @@ public class PlayerRotation : MonoBehaviour
 
 
         //Apply XZ angles to snail
-        Vector3 groundAngle = ApplyAngle(GetAngle(CastRayDown(pointRayFront.transform), CastRayDown(pointRayBack.transform)), snailBody.transform.position.y ,GetAngle(CastRayDown(pointRayLeft.transform), CastRayDown(pointRayRight.transform)));
-        Vector3 airAngle = new Vector3(0,snailBody.transform.rotation.y,snailBody.transform.rotation.z);
-        ApplyAirRotation(airCheck,GetComponent<GroundCheck>().isGrounded, groundAngle, airAngle);
+        Vector3 groundAngle = ApplyAngle(GetAngle(CastRayDown(pointRayFront.transform), CastRayDown(pointRayBack.transform)), snailBody.transform.position.y, GetAngle(CastRayDown(pointRayLeft.transform), CastRayDown(pointRayRight.transform)));
+        Vector3 airAngle = new Vector3(0, snailBody.transform.rotation.y, snailBody.transform.rotation.z);
+        ApplyAirRotation(airCheck, GetComponent<GroundCheck>().isGrounded, groundAngle, airAngle);
         //Applying Y rotation to overall snail
+
         ApplyTurn(yRot);
-        refreshTime -= Time.deltaTime;
+
+
     }
+
 
 
     public void OnTurn(InputValue value)

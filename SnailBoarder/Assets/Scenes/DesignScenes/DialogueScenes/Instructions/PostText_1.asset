@@ -18,6 +18,6 @@ MonoBehaviour:
   - Remember contestants, you earn more points by performing tricks in the styles
     that the judges like.
   japaneseDialogueLines: []
-  textSpeed: 0.1
+  textSpeed: 0.01
   emotion: {fileID: 0}
   cameraSlot: 2
