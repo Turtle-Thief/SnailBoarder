@@ -135,10 +135,13 @@ public class GameManager : MonoBehaviour
 
         secondaryInputs.FindAction("EnableCheats").performed += ctx => OnEnableCheats();
     }
-    
+
     private void OnResetLevel()
     {
-        SceneLoader.instance.ResetScene();
+        if (onPausableScene)
+        {
+            SceneLoader.instance.ResetScene();
+        }
     }
 
     public bool IsMultipliedByJudjes()

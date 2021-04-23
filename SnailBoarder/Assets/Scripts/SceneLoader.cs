@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
 
     // Serialzied int values to change scenes in title editor
     [SerializeField]
-    private int title = 0, hat = 1, instruct = 2, nextLevel = 3, judge = 4, dialog = 5, victory = 6, defeat = 7;
+    private int title = 0, hat = 1, instruct = 2, nextLevel = 3, dialog = 4, victory = 5, defeat = 6;
 
     public int currentScene = 0;
 
@@ -38,11 +38,6 @@ public class SceneLoader : MonoBehaviour
 
                 // Signal that we're starting the next level (may need to add loading test here)
                 GameManager.instance.OnNextLevel();
-                break;
-            case "judge":
-                //Load the judge scene
-                SceneManager.LoadScene(judge);
-                currentScene = judge;
                 break;
             case "dialog":
                 //Signal that we've finished the previous level (may need to add loading test here)
@@ -75,6 +70,7 @@ public class SceneLoader : MonoBehaviour
                 currentScene = title;
                 break;
             case 1:
+                UIManager.instance.CloseAllPanels();
                 SceneManager.LoadScene(hat);
                 currentScene = hat;
                 break;
@@ -91,21 +87,16 @@ public class SceneLoader : MonoBehaviour
                 GameManager.instance.OnNextLevel();
                 break;
             case 4:
-                //Load the judge scene
-                SceneManager.LoadScene(judge);
-                currentScene = judge;
-                break;
-            case 5:
                 //Signal that we've finished the previous level (may need to add loading test here)
                 GameManager.instance.OnFinishedLevel();
                 SceneManager.LoadScene(dialog);
                 currentScene = dialog;
                 break;
-            case 6:
+            case 5:
                 SceneManager.LoadScene(victory);
                 currentScene = victory;
                 break;
-            case 7:
+            case 6:
                 SceneManager.LoadScene(defeat);
                 currentScene = defeat;
                 break;
