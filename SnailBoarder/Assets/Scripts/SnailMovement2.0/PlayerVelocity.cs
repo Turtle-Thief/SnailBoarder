@@ -10,6 +10,7 @@ public class PlayerVelocity : MonoBehaviour
                      friction = 5.0f,
                      maxForwardSpeed = 100.0f,
                      maxReverseSpeed = -30.0f,
+                    maxAirSpeed,
                      gravity = 0.5f,
                      rotationSpeed = 100.0f,
                      jumpForce,
@@ -65,17 +66,32 @@ public class PlayerVelocity : MonoBehaviour
     Vector3 UpdateVelocityDirection()
     {
         Vector3 updatedVel = rigidbody.velocity;
-        if (currentSpeed >= 0)
+        if (GetComponent<PlayerRotation>().airCheck)
         {
-            updatedVel = transform.forward.normalized * rigidbody.velocity.magnitude;
-            updatedVel = Vector3.ClampMagnitude(updatedVel, maxForwardSpeed);
+            if (currentSpeed >= 0)
+            {
+                updatedVel = transform.forward.normalized * rigidbody.velocity.magnitude;
+                updatedVel = Vector3.ClampMagnitude(updatedVel, maxAirSpeed);
+            }
+            else
+            {
+                updatedVel = transform.forward.normalized * -1 * rigidbody.velocity.magnitude;
+                updatedVel = Vector3.ClampMagnitude(updatedVel, maxAirSpeed);
+            }
         }
         else
         {
-            updatedVel = transform.forward.normalized * -1 * rigidbody.velocity.magnitude;
-            updatedVel = Vector3.ClampMagnitude(updatedVel, maxReverseSpeed);
+            if (currentSpeed >= 0)
+            {
+                updatedVel = transform.forward.normalized * rigidbody.velocity.magnitude;
+                updatedVel = Vector3.ClampMagnitude(updatedVel, maxForwardSpeed);
+            }
+            else
+            {
+                updatedVel = transform.forward.normalized * -1 * rigidbody.velocity.magnitude;
+                updatedVel = Vector3.ClampMagnitude(updatedVel, maxReverseSpeed);
+            }
         }
-
         return new Vector3(updatedVel.x, rigidbody.velocity.y, updatedVel.z);
     }
 
@@ -120,10 +136,7 @@ public class PlayerVelocity : MonoBehaviour
     public void Jump(float forceMultiplier)
     {
         GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
-        if (gameObject.GetComponent<PathCreation.Examples.SnailPathFollower>().pathCreator != null)
-        {
-            gameObject.GetComponent<PathCreation.Examples.SnailPathFollower>().StartRailGrind();
-        }
+
     }
 
 

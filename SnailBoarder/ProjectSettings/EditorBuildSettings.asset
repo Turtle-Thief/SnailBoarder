@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/TransitionScenes/CosmeticScene.unity
     guid: 23a1c351327a9ad4fb41b7431ee4b077
   - enabled: 1
+    path: Assets/Scenes/TransitionScenes/InstructionsScene.unity
+    guid: 798adc5c10ea94d43b9a55fdb32fa59f
+  - enabled: 1
     path: Assets/Scenes/DesignScenes/Full_Skatepark.unity
     guid: 2879f4b3edc2c7c45a10572bfb2843b2
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/DesignScenes/DialogueTestScene.unity
     guid: 1421db98539809a469f95eee97101c3b

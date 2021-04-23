@@ -37,7 +37,7 @@ public class PlayerRotation : MonoBehaviour
 
 
     public bool airCheck;
-
+    public bool airRecovered;
 
     // Start is called before the first frame update
     void Start()
@@ -89,11 +89,17 @@ public class PlayerRotation : MonoBehaviour
         Vector3 destination;
         if (airCheck)
         {
+            airRecovered = true;
             destination = airRotation;
-            transform.localEulerAngles = new Vector3(-90f, yRot, 0);
+            destination = new Vector3(-90f, yRot, 0);
         }
         else
         {
+            if (airRecovered)
+            {
+                airRecovered = false;
+                yRot = -yRot;
+            }
             transform.localEulerAngles = new Vector3(0, yRot, 0);
             if (groundCheck)
             {
