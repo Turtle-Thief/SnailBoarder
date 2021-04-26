@@ -84,10 +84,13 @@ public class AnimationController : MonoBehaviour
     }
     public void StartVarialMcTwistSkateAnim()
     {
+        isNotRelativeRotation = false;
+        skateAnimator.Play("A_SingleFrameBoard");
         skateAnimator.Play("AT_VarialMcTwistBoard");
     }
     public void StartAirKickflipSkateAnim()
     {
+        skateAnimator.Play("A_SingleFrameBoard");
         skateAnimator.Play("A_Kickflip720Board");
     }
 
@@ -137,17 +140,20 @@ public class AnimationController : MonoBehaviour
     {
         snailAnimator.Play("A_180HeelFlip_Snail");
         isNotRelativeRotation = true;
-        StartCoroutine(ReturnRotaion(1.625f + 0.1f));
+        StartCoroutine(ReturnRotaion(1.625f));
     }
     public void StartVarialMcTwistSnailAnim()
     {
-    //    snailAnimator.Play("AT_VarialMcTwist_Snail");
+        isNotRelativeRotation = false;
+        snailAnimator.Play("A_SingleFrameStill_Snail");
+        snailAnimator.Play("AT_VarialMcTwist_Snail");
     }
     public void StartAirKickflipSnailAnim()
     {
+        snailAnimator.Play("A_SingleFrameStill_Snail");
         snailAnimator.Play("A_Kickflip720_Snail");
         isNotRelativeRotation = true;
-        StartCoroutine(ReturnRotaion(2f + 0.1f));
+        StartCoroutine(ReturnRotaion(2f));
     }
 
     IEnumerator ReturnRotaion(float pauseTime)

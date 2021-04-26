@@ -103,21 +103,22 @@ public class PlayerRotation : MonoBehaviour
     public void ApplyAirRotation(bool airCheck, bool groundCheck, Vector3 groundRotation, Vector3 airRotation)
     {
         Vector3 destination;
-        if (airCheck && refreshTime<0)
+        if (airCheck && refreshTime < 0)
         {
-            
+
             airRecovered = true;
             preAirPosition = transform.position;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
             destination = groundRotation;
-            GetComponent<TricksController>().OnMcTwist();
-         //   destination = new Vector3(0, yRot, 0);
+            GetComponent<TricksController>().AskForHeelflip();
+            //GetComponent<TricksController>().OnHeelflip();
+            //   destination = new Vector3(0, yRot, 0);
         }
         else
         {
             if (airRecovered)
             {
-                refreshTime = 2f;
+                refreshTime = 4f;
                 airRecovered = false;
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;

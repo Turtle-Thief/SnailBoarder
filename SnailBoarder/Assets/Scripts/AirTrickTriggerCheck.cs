@@ -12,7 +12,7 @@ public class AirTrickTriggerCheck : MonoBehaviour
         if (other.gameObject.tag == "AirTrickTrigger")
         {
             //Debug.Log("HERE!!!");
-            gameObject.GetComponentInParent<TricksController>().AirTriggerEnter();
+            transform.parent.parent.parent.GetComponentInParent<TricksController>().AirTriggerEnter();
         }
     }
 }

@@ -73,7 +73,7 @@ public class TricksController : MonoBehaviour
         Tricks[(int)TrickName.KickFlip] = new Trick(TrickName.KickFlip, 2, 25, 2f, true);
         Tricks[(int)TrickName.PopShuvit] = new Trick(TrickName.PopShuvit, 2, 30, 2f, true);
         Tricks[(int)TrickName.HospitalFlip] = new Trick(TrickName.HospitalFlip, 3, 50, 2f, true);
-        Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 4, 75, 2f, false);
+        Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 3, 75, 2f, false);
         Tricks[(int)TrickName.McTwist] = new Trick(TrickName.McTwist, 4, 75, 2f, false);
         Tricks[(int)TrickName.AirKickflip] = new Trick(TrickName.AirKickflip, 4, 75, 2f, false);
     //    Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 4, 35, 3f, true);
@@ -98,7 +98,7 @@ public class TricksController : MonoBehaviour
     {
         if(currentTrick.mName == TrickName.NullTrick)  // If no trick are in progress
         {
-            //Debug.Log("Here1");
+            //Debug.Log("Here1 " + trickType.mName.ToString());
 
             if((trickType.mIsGroundTrick && groundCheck.isGrounded) ||
                 (!trickType.mIsGroundTrick && !groundCheck.isGrounded))
@@ -106,9 +106,9 @@ public class TricksController : MonoBehaviour
         }
         else if (timeSinceLastTrickStart < buttonComboDelayMax && currentTrick.mTier < trickType.mTier && currentTrick.mIsGroundTrick == trickType.mIsGroundTrick) // If another trick is already in progress
         {
-            //Debug.Log("Here2");
+            Debug.Log("Here2 " + trickType.mName.ToString());
             StopAllCoroutines();
-            playerRigidbody.constraints = RigidbodyConstraints.None;
+            //playerRigidbody.constraints = RigidbodyConstraints.None;
 
             StartTrick(trickType);
         }
@@ -159,6 +159,7 @@ public class TricksController : MonoBehaviour
                 break;
             case TrickName.Heelflip:  // A(X) in the air
                 wasOnRamp = true;
+                gameObject.GetComponent<PlayerRotation>().refreshTime = 4f;
                 animator.StartHeelflipSkateAnim();
                 animator.StartHeelflipSnailAnim();
                 //StartCoroutine(AirTrickAnim()); //tmp
@@ -166,6 +167,7 @@ public class TricksController : MonoBehaviour
                 break;
             case TrickName.McTwist:  // Y(Triangle) in the air
                 wasOnRamp = true;
+                gameObject.GetComponent<PlayerRotation>().refreshTime = 4f;
                 animator.StartVarialMcTwistSkateAnim();
                 animator.StartVarialMcTwistSnailAnim();
                 //StartCoroutine(AirTrickAnim()); //tmp
@@ -173,6 +175,7 @@ public class TricksController : MonoBehaviour
                 break;
             case TrickName.AirKickflip:  // B(O) in the air
                 wasOnRamp = true;
+                gameObject.GetComponent<PlayerRotation>().refreshTime = 4f;
                 animator.StartAirKickflipSkateAnim();
                 animator.StartAirKickflipSnailAnim();
                 //StartCoroutine(AirTrickAnim()); //tmp
@@ -187,7 +190,11 @@ public class TricksController : MonoBehaviour
                 break;
         }
 
-        timeSinceLastTrickStart = 0;
+        if (trickType.mName == TrickName.Heelflip)
+            timeSinceLastTrickStart = -0.5f;
+        else
+            timeSinceLastTrickStart = 0;
+
         currentTrick = trickType;
     }
 
@@ -223,19 +230,28 @@ public class TricksController : MonoBehaviour
 
     public void OnHeelflip()
     {
-        //Debug.Log("Input Heelflip");
+        Debug.Log("Input Heelflip");
         TrickInputCall(Tricks[(int)TrickName.Heelflip]);
+    }
+
+    public void AskForHeelflip()
+    {
+        if (currentTrick.mName == Tricks[(int)TrickName.NullTrick].mName)
+        {
+            //Debug.Log("Ask for Heelflip");
+            TrickInputCall(Tricks[(int)TrickName.Heelflip]);
+        }
     }
 
     public void OnMcTwist()
     {
-        //Debug.Log("Input McTwist");
+        Debug.Log("Input McTwist");
         TrickInputCall(Tricks[(int)TrickName.McTwist]);
     }
 
     public void OnAirKickflip()
     {
-        //Debug.Log("Input AirKickflip");
+        Debug.Log("Input AirKickflip");
         TrickInputCall(Tricks[(int)TrickName.AirKickflip]);
     }
 
