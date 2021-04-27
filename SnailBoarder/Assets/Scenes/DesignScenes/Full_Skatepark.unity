@@ -53722,6 +53722,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0415
       objectReference: {fileID: 0}
+    - target: {fileID: 4336600884509641106, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: doRailGrind
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5070449698316764554, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: m_Name

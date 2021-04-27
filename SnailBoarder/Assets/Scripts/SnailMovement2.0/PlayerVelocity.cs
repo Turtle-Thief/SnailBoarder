@@ -10,7 +10,7 @@ public class PlayerVelocity : MonoBehaviour
                      friction = 5.0f,
                      maxForwardSpeed = 100.0f,
                      maxReverseSpeed = -30.0f,
-                    maxAirSpeed,
+                     maxAirSpeed,
                      gravity = 0.25f,
                      rotationSpeed = 100.0f,
                      jumpForce,

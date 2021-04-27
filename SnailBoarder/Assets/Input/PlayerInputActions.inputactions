@@ -108,6 +108,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "RailGrind",
+                    "type": "Button",
+                    "id": "0dbc4bc8-2efa-445d-9507-0c394e1e4053",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -528,6 +536,39 @@
                     "action": "AirKickflip",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePadRailGrind",
+                    "id": "ce8fe35d-2068-4583-a859-be8bcb31fe4a",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RailGrind",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "447d3f1b-4338-4c1b-b4c3-29659fc8aa14",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "RailGrind",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "button",
+                    "id": "39de882f-e654-4c7d-94e0-10170e3d3e6c",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "RailGrind",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

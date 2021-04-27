@@ -76,7 +76,7 @@ public class TricksController : MonoBehaviour
         Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 3, 75, 2f, false);
         Tricks[(int)TrickName.McTwist] = new Trick(TrickName.McTwist, 4, 75, 2f, false);
         Tricks[(int)TrickName.AirKickflip] = new Trick(TrickName.AirKickflip, 4, 75, 2f, false);
-    //    Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 4, 35, 3f, true);
+        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 4, 35, 3f, true);
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
@@ -253,6 +253,12 @@ public class TricksController : MonoBehaviour
     {
         Debug.Log("Input AirKickflip");
         TrickInputCall(Tricks[(int)TrickName.AirKickflip]);
+    }
+
+    public void OnRailGrind()
+    {
+        Debug.Log("Input RailGrind");
+        TrickInputCall(Tricks[(int)TrickName.Railgrind]);
     }
 
     IEnumerator PauseForTrick(float pauseTime)
