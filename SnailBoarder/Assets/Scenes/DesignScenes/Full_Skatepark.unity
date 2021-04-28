@@ -3627,7 +3627,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -3669,7 +3669,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
@@ -54240,6 +54240,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1232996339, guid: 65c3519550e211f40a76ec6c399bf6a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0595
+      objectReference: {fileID: 0}
     - target: {fileID: 2145168600, guid: 65c3519550e211f40a76ec6c399bf6a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -54696,7 +54700,7 @@ PrefabInstance:
     - target: {fileID: 8063871135341833097, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: rotSpeed
-      value: 350
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8063871135341833097, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}

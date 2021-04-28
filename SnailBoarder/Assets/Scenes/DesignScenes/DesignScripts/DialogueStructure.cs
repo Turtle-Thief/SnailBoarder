@@ -60,7 +60,15 @@ public class DialogueStructure : MonoBehaviour
 
 
 
+    private void OnSkipAll()
+    {
 
+        if (SceneManager.GetActiveScene().buildIndex == 4) // dialog scene; this is bad
+            SceneLoader.instance.DetermineResultsScreen();
+        else
+            SceneLoader.instance.LoadScene("nextLevel");
+
+    }
 
     private void OnNextDialogue()
     {

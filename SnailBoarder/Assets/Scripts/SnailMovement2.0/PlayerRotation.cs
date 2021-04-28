@@ -84,14 +84,14 @@ public class PlayerRotation : MonoBehaviour
 
 
 
-    public void OnTurn(InputValue value)
+    private void OnTurn(InputValue value)
     {
 
         Vector2 val = value.Get<Vector2>();
 
 
-            yRot = yRot + (val.x * Time.deltaTime * rotSpeed);
-
+            yRot += (val.x * Time.deltaTime/Time.deltaTime * rotSpeed);
+        
        // yRot = val;
 
 
