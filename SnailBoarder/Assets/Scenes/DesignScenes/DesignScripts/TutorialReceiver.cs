@@ -47,7 +47,7 @@ public class TutorialReceiver : MonoBehaviour
 
         temp = (int)snail.GetComponent<TricksController>().currentTrick.mName;
 
-
+        print("Get trick int: " + temp);
 
 
         return temp;
