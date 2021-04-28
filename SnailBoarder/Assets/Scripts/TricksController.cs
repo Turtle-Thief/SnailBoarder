@@ -52,6 +52,7 @@ public class TricksController : MonoBehaviour
     public LayerMask airTrickTriggerLayer;
 
     bool wasOnRamp = false;
+    public bool doRailGrind = false;
 
     public Trick currentTrick;
     float timeSinceLastTrickStart = 0;
@@ -76,7 +77,7 @@ public class TricksController : MonoBehaviour
         Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 3, 75, 2f, false);
         Tricks[(int)TrickName.McTwist] = new Trick(TrickName.McTwist, 4, 75, 2f, false);
         Tricks[(int)TrickName.AirKickflip] = new Trick(TrickName.AirKickflip, 4, 75, 2f, false);
-        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 4, 35, 3f, true);
+        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 2, 35, 3f, true);
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
@@ -130,8 +131,11 @@ public class TricksController : MonoBehaviour
                 break;
             case TrickName.Wheelie:  // A+X (X+Square)
                 //StartCoroutine(WheelieAnim()); //tmp
-                animator.StartWheelieSkateAnim();
-                animator.StartWheelieSnailAnim();
+                if (!doRailGrind)
+                {
+                    animator.StartWheelieSkateAnim();
+                    animator.StartWheelieSnailAnim();
+                }
                 //snailAnimation.StartRailgringAnim(); //tmp
                 //snailAnimation.StartRailGrindBakedAnim(); //tmp
                 //Debug.Log("!Wheelie!");
@@ -182,9 +186,12 @@ public class TricksController : MonoBehaviour
                 //Debug.Log("!OnAirKickflip!");
                 break;
             case TrickName.Railgrind:
-                wasOnRamp = true;
-                animator.StartRailGrindSkateAnim();
-                animator.StartRailGrindSnailAnim();
+                if (doRailGrind)
+                {
+                    wasOnRamp = true;
+                    animator.StartRailGrindSkateAnim();
+                    animator.StartRailGrindSnailAnim();
+                }
                 //StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnAirKickflip!");
                 break;
@@ -207,7 +214,8 @@ public class TricksController : MonoBehaviour
     public void OnWheelie()
     {
         //Debug.Log("Input Wheelie");
-        TrickInputCall(Tricks[(int)TrickName.Wheelie]);
+        if (!doRailGrind)
+            TrickInputCall(Tricks[(int)TrickName.Wheelie]);
     }
 
     public void OnKickflip()
@@ -258,7 +266,8 @@ public class TricksController : MonoBehaviour
     public void OnRailGrind()
     {
         Debug.Log("Input RailGrind");
-        TrickInputCall(Tricks[(int)TrickName.Railgrind]);
+        if (doRailGrind)
+            TrickInputCall(Tricks[(int)TrickName.Railgrind]);
     }
 
     IEnumerator PauseForTrick(float pauseTime)

@@ -21498,7 +21498,7 @@ PrefabInstance:
     - target: {fileID: 90848497000919740, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 90848497000919740, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
@@ -35025,6 +35025,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cd00a24c6502ea458365a2c1d3b9dc4, type: 3}
+--- !u!114 &1400036116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5376368811934204707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4eea5f9e06c70d4b99054881838a769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1400422261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51883,6 +51895,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2075028035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2077101485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5376368814065291571, guid: 65c3519550e211f40a76ec6c399bf6a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5376368811934204707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2077101489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077101485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d3d937bd301c74d8883262cc08c2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2079820431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53726,6 +53756,16 @@ PrefabInstance:
         type: 3}
       propertyPath: doRailGrind
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4336600884509641106, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: playerVelocity
+      value: 
+      objectReference: {fileID: 1400036116}
+    - target: {fileID: 4336600884509641106, guid: 65c3519550e211f40a76ec6c399bf6a1,
+        type: 3}
+      propertyPath: endOfPathInstruction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5070449698316764554, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}

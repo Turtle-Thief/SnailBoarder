@@ -17,6 +17,17 @@ namespace PathCreation.Examples
         float distanceTravelled;
         public bool doRailGrind;
 
+
+
+        /* Rail Grind process:
+            -> Collision trigger makes it possible
+            -> Player gives input to start trick
+            -> Lerp their position to the closest point on the rail
+            -> Check the players direction vs the path direction, make sure theyre going in the right direction
+            -> Move snail to end of path
+            -> Release snail, add to score, reset momentum
+         */
+
         void Start()
         {
             playerVelocity = gameObject.GetComponent<PlayerVelocity>();

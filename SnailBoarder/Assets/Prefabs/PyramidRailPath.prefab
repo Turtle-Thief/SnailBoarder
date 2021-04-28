@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 1907551442905318181}
   - component: {fileID: 1907551442905318180}
   - component: {fileID: 310463429}
-  - component: {fileID: 5882415815403816655}
   m_Layer: 12
   m_Name: PyramidRailPath
-  m_TagString: Untagged
+  m_TagString: RailgrindTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,15 +122,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 25.7, y: 13.9, z: 61.08}
   m_Center: {x: 0, y: 0.16, z: 2.1070366}
---- !u!114 &5882415815403816655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907551442905318183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35d3d937bd301c74d8883262cc08c2fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
