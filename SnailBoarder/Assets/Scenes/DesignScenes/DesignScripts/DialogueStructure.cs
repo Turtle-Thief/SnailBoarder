@@ -107,6 +107,43 @@ public class DialogueStructure : MonoBehaviour
 
 
 
+    public void NextTutorialSegment()
+    {
+
+        if (lineNum + 1 == block[blockNum].dialogueLines.Length)
+        {
+
+            if (blockNum + 1 == block.Length)
+            {
+
+                //Confirm
+
+            }
+
+            IdentifySpeaker().SetActive(false);
+            blockNum++;
+            lineNum = 0;
+            shownCharacters = 0;
+            SetName();
+            triggerDialogue = true;
+
+
+
+        }
+        else
+        {
+            lineNum++;
+            shownCharacters = 0;
+            triggerDialogue = true;
+        }
+
+
+
+    }
+
+
+
+
     public GameObject IdentifySpeaker()
     {
         GameObject temp = null;
