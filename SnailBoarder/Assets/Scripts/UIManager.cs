@@ -116,8 +116,9 @@ public class UIManager : MonoBehaviour
         // Reset our reference panel
         previousPanel = null;
         previousExists = false;
-
-        lastSelected.GetComponent<Selectable>().Select();
+        
+        if(lastSelected)
+            lastSelected.GetComponent<Selectable>().Select();
     }
 
     public void CloseAllPanels()

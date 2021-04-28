@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
         // reset score
         UIManager.instance.OpenPanel(UIManager.instance.HUDPanel);
         // Move this line to Park Manager, call Park Manager function here
-        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(300);
+        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer();
     }
 
     public void OnFinishedLevel()
@@ -210,7 +210,16 @@ public class GameManager : MonoBehaviour
         completedLastLevel = UIManager.instance.SM.CheckScoreWin(); // Did the player win?
 
         UIManager.instance.ClosePanel(UM.HUDPanel, false);
-        UIManager.instance.timer.GetComponent<Timer>().timerIsRunning = false;
+        //UIManager.instance.timer.GetComponent<Timer>().timerIsRunning = false;
+
+        if(completedLastLevel)
+        {
+            SceneLoader.instance.LoadNextSceneInBuild(); // Progress linearly
+        }
+        else
+        {
+            SceneLoader.instance.LoadScene("defeat"); // Load the defeat scene instead
+        }
     }
 
     public void PauseGame(bool openPauseMenu)

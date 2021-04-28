@@ -111,6 +111,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadNextSceneInBuild()
     {
         currentScene++;
+        Debug.Log("I loaded this scene: " + currentScene);
         LoadScene(currentScene);
     }
 

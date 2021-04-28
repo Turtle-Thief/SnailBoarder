@@ -7,9 +7,15 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public float timeForLevel = 0;
-    private float timeRemaining = 300;
+    private float timeRemaining = 60;
     public bool timerIsRunning = false;
     private TextMeshProUGUI timerText;
+
+    public void SetAndStartTimer()
+    {
+        timerIsRunning = true;
+        timeRemaining = timeForLevel;
+    }
 
     // Start our timer to run for timerLength
     public void SetAndStartTimer(int timerLength)
@@ -44,8 +50,8 @@ public class Timer : MonoBehaviour
                 }
                 else // If so, ...
                 {
+                    Debug.Log("Timer is done");
                     GameManager.instance.OnFinishedLevel();
-                    SceneLoader.instance.LoadNextSceneInBuild(); // Load the next scene
                     StopAndResetTimer();
                 }
             }
