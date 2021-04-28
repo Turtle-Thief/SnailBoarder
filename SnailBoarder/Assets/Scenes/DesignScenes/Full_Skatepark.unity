@@ -199,6 +199,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &3948969 stripped
@@ -785,6 +790,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &32767232 stripped
@@ -979,6 +989,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -1304,6 +1319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &57575847
@@ -1388,6 +1408,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &58061575
@@ -1461,6 +1486,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -2136,6 +2166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -3293,6 +3328,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &117173191 stripped
@@ -4316,6 +4356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &166489774
@@ -4915,6 +4960,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &177233225
@@ -4998,6 +5048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -5342,6 +5397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -6344,6 +6404,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &232164079
@@ -6805,6 +6870,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &246245378 stripped
@@ -6839,7 +6909,7 @@ GameObject:
   - component: {fileID: 248155121}
   - component: {fileID: 248155120}
   - component: {fileID: 248155119}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: mesh_fenceBarrierMod (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7162,6 +7232,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -7564,6 +7639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -8016,6 +8096,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (81)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -8870,6 +8955,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &314299039
@@ -8948,6 +9038,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -9297,6 +9392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -9969,6 +10069,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &351679668
@@ -10047,6 +10152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -10536,6 +10646,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &359127697 stripped
@@ -10932,6 +11047,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &375349125 stripped
@@ -11145,6 +11265,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -11508,6 +11633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -11880,6 +12010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -12730,6 +12865,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -14382,6 +14522,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &493408212
@@ -14742,33 +14887,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
+        type: 3}
       propertyPath: m_Orbits.Array.data[0].m_Height
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_Orbits.Array.data[0].m_Radius
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_Orbits.Array.data[1].m_Height
-      value: 69
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_Orbits.Array.data[1].m_Radius
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_Orbits.Array.data[2].m_Height
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_Orbits.Array.data[2].m_Radius
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
@@ -16816,6 +16966,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &577196041
@@ -17549,6 +17704,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &603206880
@@ -18001,6 +18161,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &619844480
@@ -18074,6 +18239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -19064,6 +19234,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &658664524
@@ -19142,6 +19317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -21144,6 +21324,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &781620723
@@ -22055,6 +22240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -23857,6 +24047,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &894491102 stripped
@@ -24456,6 +24651,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &934858969
@@ -24788,6 +24988,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -25256,6 +25461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &964166722
@@ -25403,6 +25613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -26345,6 +26560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -28604,6 +28824,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1106149326
@@ -28824,6 +29049,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1116113234
@@ -28983,6 +29213,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &1131979428 stripped
@@ -28991,6 +29226,42 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5376368811934204707}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1132608426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3573379380665259034, guid: 4f666cefaa8c8884babf9be74e09479e,
+    type: 3}
+  m_PrefabInstance: {fileID: 503321301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1132608427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132608426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 13312
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0.5
+  m_DampingWhenOccluded: 0.5
+  m_OptimalTargetDistance: 0
 --- !u!1001 &1132656944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29694,6 +29965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -31599,6 +31875,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &1240909877 stripped
@@ -31697,6 +31978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -32147,6 +32433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -32918,6 +33209,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &1310825025 stripped
@@ -33214,6 +33510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -35751,6 +36052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1437615854
@@ -36636,6 +36942,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &1469274201 stripped
@@ -36986,6 +37297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -37661,6 +37977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -38591,6 +38912,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1579969252
@@ -38920,6 +39246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &1587107635 stripped
@@ -39125,6 +39456,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &1601465477 stripped
@@ -39229,6 +39565,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -39731,6 +40072,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1623283547
@@ -40189,6 +40535,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1634068973
@@ -40341,6 +40692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -40510,6 +40866,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -41325,6 +41686,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1681378731
@@ -41807,6 +42173,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &1691700089 stripped
@@ -42262,6 +42633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1 &1717556329 stripped
@@ -42461,6 +42837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &1724586832 stripped
@@ -42650,6 +43031,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -42981,6 +43367,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1741403081
@@ -43218,6 +43609,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1753007684
@@ -43296,6 +43692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -43455,6 +43856,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -43639,6 +44045,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -43972,6 +44383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -45050,6 +45466,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1815886861
@@ -45344,6 +45765,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1830815383
@@ -45518,6 +45944,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1835044165
@@ -45596,6 +46027,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -46067,6 +46503,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!114 &1853737355 stripped
@@ -46457,6 +46898,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &1861129038 stripped
@@ -46792,6 +47238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -47603,6 +48054,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &1896468885 stripped
@@ -47782,6 +48238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -47997,6 +48458,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -48282,6 +48748,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1927696975
@@ -48456,6 +48927,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (82)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1936003590
@@ -48540,6 +49016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &1938068102
@@ -48623,6 +49104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -48839,6 +49325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -49237,6 +49728,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &1961415107 stripped
@@ -49346,6 +49842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -51965,6 +52466,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!4 &2082077136 stripped
@@ -52481,6 +52987,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
 --- !u!1001 &2112831291
@@ -52639,6 +53150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -52872,6 +53388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
@@ -53125,6 +53646,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_fenceBarrierMod (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 39e4082e7507c6745bdce5c573756bbb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39e4082e7507c6745bdce5c573756bbb, type: 3}
