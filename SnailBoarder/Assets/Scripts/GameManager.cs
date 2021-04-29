@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    private void RandomizePreferences()
+    public void RandomizePreferences()
     {
         List<ZoneStyle> chooseList = Enum.GetValues(typeof(ZoneStyle)).Cast<ZoneStyle>().ToList();
         chooseList.RemoveAt(chooseList.Count-1); // Remove "none", judges will always have a preference
@@ -283,7 +283,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         FindAndSetInputs(); // This just enables cheats right now
-        RandomizePreferences();
+        //RandomizePreferences();
 
         onPausableScene = false; // starts on title
 
