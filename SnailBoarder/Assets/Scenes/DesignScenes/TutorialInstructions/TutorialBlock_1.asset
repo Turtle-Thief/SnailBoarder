@@ -22,6 +22,8 @@ MonoBehaviour:
   - Skate up a ramp to perform a 180 Heelflip
   - Skate up a ramp and press Y to perform a Varial McTwist
   - Skate up a ramp and press B to perform a Kickflip 720
+  - Press up on the D-pad to continue skating or down to exit to menu. You can always
+    return to menu by pressing SELECT and choosing exit to menu.
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

@@ -31,27 +31,28 @@ public class TutorialReceiver : MonoBehaviour
 
             gameObject.GetComponent<DialogueStructure>().NextTutorialSegment();
             UpdateTrick();
-            
-        }
 
-        if (snail.GetComponent<ReadTutorialButtons>().receivedInput == 1)
+        }
+        if (trickOrder[trickSlot-1] == 20)
         {
+            if (snail.GetComponent<ReadTutorialButtons>().receivedInput == 1)
+            {
 
 
 
-            SceneLoader.instance.LoadScene(0);
+                SceneLoader.instance.LoadScene(0);
 
+            }
+
+            if (snail.GetComponent<ReadTutorialButtons>().receivedInput == 2)
+            {
+
+                gameObject.SetActive(false);
+
+                // SceneLoader.instance.LoadScene(0);
+
+            }
         }
-
-        if (snail.GetComponent<ReadTutorialButtons>().receivedInput == 2)
-        {
-
-            gameObject.SetActive(false);
-
-           // SceneLoader.instance.LoadScene(0);
-
-        }
-
     }
 
     private void UpdateTrick()
