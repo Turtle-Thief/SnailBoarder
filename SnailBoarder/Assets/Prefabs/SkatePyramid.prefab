@@ -146,7 +146,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 310463429, guid: 11254827dda9c9e4f8fc9d710c403c94, type: 3}
       propertyPath: m_Size.x
-      value: 27.48573
+      value: 16.6
       objectReference: {fileID: 0}
     - target: {fileID: 310463429, guid: 11254827dda9c9e4f8fc9d710c403c94, type: 3}
       propertyPath: m_Size.y
@@ -178,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 1907551442905318180, guid: 11254827dda9c9e4f8fc9d710c403c94,
         type: 3}
       propertyPath: editorData.vertexPathUpToDate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1907551442905318180, guid: 11254827dda9c9e4f8fc9d710c403c94,
         type: 3}

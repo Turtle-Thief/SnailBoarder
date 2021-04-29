@@ -109,7 +109,7 @@ public class TricksController : MonoBehaviour
         }
         else if (timeSinceLastTrickStart < buttonComboDelayMax && currentTrick.mTier < trickType.mTier && currentTrick.mIsGroundTrick == trickType.mIsGroundTrick) // If another trick is already in progress
         {
-            Debug.Log("Here2 " + trickType.mName.ToString());
+            //Debug.Log("Here2 " + trickType.mName.ToString());
             StopAllCoroutines();
             //playerRigidbody.constraints = RigidbodyConstraints.None;
 
@@ -195,8 +195,8 @@ public class TricksController : MonoBehaviour
                 {
                     wasOnRamp = true;
                     pathFollower.StartRailGrind();
-                    //animator.StartRailGrindSkateAnim();
-                    //animator.StartRailGrindSnailAnim();
+                    animator.StartRailGrindSkateAnim();
+                    animator.StartRailGrindSnailAnim();
                 }
                 //StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnAirKickflip!");
