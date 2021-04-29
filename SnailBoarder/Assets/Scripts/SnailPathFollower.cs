@@ -14,10 +14,8 @@ namespace PathCreation.Examples
         public PlayerVelocity playerVelocity;
         public float speed = 5;
         public float snailSpeed = 0.0f;
-        float distanceTravelled;
+        float distanceTravelled, time;
         public bool doRailGrind;
-
-
 
         /* Rail Grind process:
             -> Collision trigger makes it possible
@@ -39,19 +37,17 @@ namespace PathCreation.Examples
             }
         }
 
-        void Update()
+        void FixedUpdate()
         {
             if (pathCreator != null && doRailGrind)
             {
                 distanceTravelled += speed * Time.deltaTime;
+                time = distanceTravelled / pathCreator.path.length;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
                 transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-                if (pathCreator.path.GetPointAtTime(1, endOfPathInstruction).Equals(transform.position))
+                if (time >= 1.0f)
                 {
-                    pathCreator = null;
-                    doRailGrind = false;
-                    playerVelocity.currentSpeed = snailSpeed + 5.0f;
-                    playerVelocity.Jump(1.5f);
+                    EndRailGrind();
                 }
             }
         }
@@ -63,9 +59,29 @@ namespace PathCreation.Examples
             {
                 speed = playerVelocity.currentSpeed;
                 snailSpeed = speed;
-                speed = Mathf.Clamp(speed, 10.0f, 25.0f);
+                speed = Mathf.Clamp(speed, 5.0f, 25.0f);
                 doRailGrind = true;
+
+                // check snails forward vector
+
+                // lerp snail to closest point on path
+                //gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, pathCreator.path.GetClosestPointOnPath(gameObject.transform.position), speed * Time.deltaTime);
+
+                // set distanceTravelled and time to the closest point distance
+                time = pathCreator.path.GetClosestTimeOnPath(gameObject.transform.position);
+                distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position);
             }
+        }
+
+
+        public void EndRailGrind()
+        {
+            pathCreator = null;
+            doRailGrind = false;
+            playerVelocity.currentSpeed = snailSpeed + 5.0f;
+            playerVelocity.Jump(1.0f);
+            distanceTravelled = 0.0f;
+            time = 0.0f;
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path

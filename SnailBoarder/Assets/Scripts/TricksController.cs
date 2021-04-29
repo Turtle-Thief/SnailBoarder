@@ -9,6 +9,7 @@ public class TricksController : MonoBehaviour
     GroundCheck groundCheck;
     PlayerVelocity playerMovement;
     AnimationController animator;
+    PathCreation.Examples.SnailPathFollower pathFollower;
 
     public enum TrickName
     {
@@ -65,6 +66,7 @@ public class TricksController : MonoBehaviour
         playerMovement = this.GetComponent<PlayerVelocity>();
         groundCheck = this.GetComponent<GroundCheck>();
         animator = this.GetComponent<AnimationController>();
+        pathFollower = this.GetComponent<PathCreation.Examples.SnailPathFollower>();
 
         // Adding all tricks
         // IDEA: ?Make them editable in Unity inspector?
@@ -77,7 +79,7 @@ public class TricksController : MonoBehaviour
         Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 3, 75, 2f, false);
         Tricks[(int)TrickName.McTwist] = new Trick(TrickName.McTwist, 4, 75, 2f, false);
         Tricks[(int)TrickName.AirKickflip] = new Trick(TrickName.AirKickflip, 4, 75, 2f, false);
-        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 2, 35, 3f, true);
+        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 2, 35, 5f, true);
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
@@ -125,8 +127,11 @@ public class TricksController : MonoBehaviour
             case TrickName.Ollie:  // A(X)
                 //OllieAnim();
                 //StartCoroutine(OllieJump(1f));
-                animator.StartOllieSkateAnim();
-                animator.StartOllieSnailAnim();
+                if (!doRailGrind)
+                {
+                    animator.StartOllieSkateAnim();
+                    animator.StartOllieSnailAnim();
+                }
                 //Debug.Log("!Ollie!");
                 break;
             case TrickName.Wheelie:  // A+X (X+Square)
@@ -189,8 +194,9 @@ public class TricksController : MonoBehaviour
                 if (doRailGrind)
                 {
                     wasOnRamp = true;
-                    animator.StartRailGrindSkateAnim();
-                    animator.StartRailGrindSnailAnim();
+                    pathFollower.StartRailGrind();
+                    //animator.StartRailGrindSkateAnim();
+                    //animator.StartRailGrindSnailAnim();
                 }
                 //StartCoroutine(AirTrickAnim()); //tmp
                 //Debug.Log("!OnAirKickflip!");
@@ -265,9 +271,11 @@ public class TricksController : MonoBehaviour
 
     public void OnRailGrind()
     {
-        Debug.Log("Input RailGrind");
         if (doRailGrind)
+        {
+            Debug.Log("Input RailGrind");
             TrickInputCall(Tricks[(int)TrickName.Railgrind]);
+        }
     }
 
     IEnumerator PauseForTrick(float pauseTime)
@@ -282,6 +290,8 @@ public class TricksController : MonoBehaviour
         //Debug.Log(wasOnRamp);
         //Debug.Log(GameManager.instance.IsMultipliedByJudjes());
         UIManager.instance.TrickFinishedHUD(tmpTrick, shouldMultiply);
+        if (tmpTrick.mName == TrickName.Railgrind)
+            pathFollower.EndRailGrind();
     }
 
     IEnumerator OllieJump(float time)

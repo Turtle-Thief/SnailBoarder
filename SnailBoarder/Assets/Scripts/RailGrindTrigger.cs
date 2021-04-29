@@ -24,7 +24,7 @@ namespace PathCreation.Examples
             //Debug.Log("Rail Trigger");
             if (other.gameObject.tag.Equals("RailgrindTrigger"))
             {
-                transform.parent.parent.parent.GetComponentInParent<SnailPathFollower>().pathCreator = gameObject.GetComponent<PathCreator>();
+                transform.parent.parent.parent.GetComponentInParent<SnailPathFollower>().pathCreator = other.gameObject.GetComponent<PathCreator>();
                 transform.parent.parent.parent.GetComponentInParent<TricksController>().doRailGrind = true;
             }
         }
@@ -34,11 +34,11 @@ namespace PathCreation.Examples
             //Debug.Log("Rail Un-Trigger");
             if (other.gameObject.tag.Equals("RailgrindTrigger"))
             {
-                if (other.gameObject.GetComponent<SnailPathFollower>().pathCreator != null)
+                if (transform.parent.parent.parent.GetComponentInParent<SnailPathFollower>().pathCreator != null)
                 {
                     transform.parent.parent.parent.GetComponentInParent<SnailPathFollower>().pathCreator = null;
                 }
-                transform.parent.parent.parent.GetComponentInParent<TricksController>().doRailGrind = true;
+                transform.parent.parent.parent.GetComponentInParent<TricksController>().doRailGrind = false;
             }
         }
     }
