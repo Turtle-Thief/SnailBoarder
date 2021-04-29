@@ -117,7 +117,7 @@ public class UIManager : MonoBehaviour
         previousPanel = null;
         previousExists = false;
         
-        if(lastSelected)
+        if(lastSelected && givenPanel != HUDPanel)
             lastSelected.GetComponent<Selectable>().Select();
     }
 

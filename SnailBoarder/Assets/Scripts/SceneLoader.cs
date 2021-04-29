@@ -123,7 +123,14 @@ public class SceneLoader : MonoBehaviour
     public void LoadNextSceneInBuild()
     {
         currentScene++;
-        Debug.Log("I loaded this scene: " + currentScene);
+
+        // skip beginning dialogue after we've seen it once
+        //if(currentScene == instruct && GameManager.instance.seenDialogue)
+        //{
+        //    currentScene++;
+        //} 
+
+        //Debug.Log("I loaded this scene: " + currentScene);
         LoadScene(currentScene);
     }
 

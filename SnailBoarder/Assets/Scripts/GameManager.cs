@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     // should be accessible to any class, using a static instance is also a potential way to implement this
-    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false, sanic = false;
+    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false, sanic = false, seenDialogue = false;
 
     public int score, neededPoints, hatIndex;
 
@@ -283,18 +283,18 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         FindAndSetInputs(); // This just enables cheats right now
-        //RandomizePreferences();
-
+        
         onPausableScene = false; // starts on title
 
-        UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
+        //UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
         UM = UIManager.instance;
+        UICanvas = UM.gameObject;
 
-        if(UICanvas)
-        {
-            debugPanel = UICanvas.transform.GetChild(0).gameObject; // Gets the debug panel
-            scoreText = debugPanel.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>(); // this is terrible please don't replicate this
-        }
+        //if(UICanvas)
+        //{
+        //    debugPanel = UICanvas.transform.GetChild(0).gameObject; // Gets the debug panel
+        //    scoreText = debugPanel.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>(); // this is terrible please don't replicate this
+        //}
     }
     
     // Update is called once per frame

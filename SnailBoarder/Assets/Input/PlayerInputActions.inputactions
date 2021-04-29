@@ -1110,17 +1110,6 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "65587652-01b9-45f5-95a4-680257085f46",
-                    "path": "<XInputController>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cycle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b1acdebc-1718-4b9d-99d7-e2bdbd001d46",
                     "path": "<Keyboard>/l",
                     "interactions": "",
@@ -1132,8 +1121,19 @@
                 },
                 {
                     "name": "",
-                    "id": "52b40115-ad73-47ed-9b8f-392469d7f926",
-                    "path": "<XInputController>/buttonSouth",
+                    "id": "210069bf-b0d7-4b8c-8318-bae7e879e832",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cycle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6150876d-602c-4da8-8071-55965c87414e",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1143,8 +1143,8 @@
                 },
                 {
                     "name": "",
-                    "id": "6150876d-602c-4da8-8071-55965c87414e",
-                    "path": "<Keyboard>/k",
+                    "id": "4ac6f09b-9b1b-4b2f-8ce3-7ab2db8aa1c6",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
