@@ -45,10 +45,10 @@ public class TricksController : MonoBehaviour
     }
 
 
-    [HideInInspector]
+    //[HideInInspector]
     public Trick[] Tricks = new Trick[(int)TrickName.NumOfTricks];
 
-    public bool readyToGetIntoAir;
+    public bool readyToGetIntoAir = true;
     public LayerMask airTrickTriggerLayer;
 
     bool wasOnRamp = false;
