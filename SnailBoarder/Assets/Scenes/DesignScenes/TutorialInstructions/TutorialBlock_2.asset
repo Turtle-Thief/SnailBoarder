@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snailName: 
   dialogueLines:
-  - 
+  - Press
   japaneseDialogueLines: []
   textSpeed: 0.1
   emotion: {fileID: 0}

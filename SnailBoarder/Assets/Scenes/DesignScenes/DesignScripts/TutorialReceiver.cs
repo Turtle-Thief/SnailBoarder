@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//using UnityEngine.SceneManagement;
 public class TutorialReceiver : MonoBehaviour
 {
 
 
     public GameObject snail;
+
+    public GameObject canvas;
 
     private int nextTrick;
 
@@ -32,6 +34,23 @@ public class TutorialReceiver : MonoBehaviour
             
         }
 
+        if (snail.GetComponent<ReadTutorialButtons>().receivedInput == 1)
+        {
+
+
+
+            SceneLoader.instance.LoadScene(0);
+
+        }
+
+        if (snail.GetComponent<ReadTutorialButtons>().receivedInput == 2)
+        {
+
+            gameObject.SetActive(false);
+
+           // SceneLoader.instance.LoadScene(0);
+
+        }
 
     }
 

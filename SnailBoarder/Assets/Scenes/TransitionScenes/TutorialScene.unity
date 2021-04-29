@@ -11399,6 +11399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snail: {fileID: 448575939}
+  canvas: {fileID: 0}
   trickOrder: 0100000002000000030000000400000005000000060000000700000008000000
 --- !u!1 &448045850
 GameObject:
@@ -11540,6 +11541,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08f922f9b379fc74aaa9b22b35618e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &448575942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448575939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53afd1f5c9a649a41b6bf170c1e4f962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &450942444

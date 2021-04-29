@@ -108,6 +108,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "TutorialExit",
+                    "type": "Button",
+                    "id": "9886491e-8f8b-4e42-81e0-8a7301ebbda2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "TutorialEnter",
+                    "type": "Button",
+                    "id": "31d636b4-7476-49db-b465-78a49e64d281",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -526,6 +542,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "AirKickflip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ef0aefa5-44c2-4759-bf02-53cfaf6b1f7e",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialExit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8637a854-67f6-4335-9ab5-fd9c6813d441",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialEnter",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
