@@ -28,9 +28,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI 
         trickNameText,
         scoreText;
-    public Image scoreImage; // This might be deleted, depends on final layout of HUD
-    public List<Image> buttonInputImages;
-    public List<TextMeshProUGUI> trickLog;
+    //public Image scoreImage; // This might be deleted, depends on final layout of HUD
+    //public List<Image> buttonInputImages;
+    public List<TextMeshProUGUI> styles;
 
     private bool 
         //comboinit = false, 
@@ -285,10 +285,10 @@ public class UIManager : MonoBehaviour
             trickNameText.CrossFadeAlpha(0, 2, false);
             
             // fade out buttons image alpha over 2 seconds; this might not work
-            foreach(Image button in buttonInputImages)
-            {
-                button.CrossFadeAlpha(0, 2, false);
-            }
+            //foreach(Image button in buttonInputImages)
+            //{
+            //    button.CrossFadeAlpha(0, 2, false);
+            //}
         }
     }
 
@@ -355,15 +355,6 @@ public class UIManager : MonoBehaviour
             scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
             trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString(); // This is bad formatting lol
         }
-
-        
-        
-        // change trick and score func
-        
-        // Old HUD:
-
-        // add to log
-        //trickFinished = true;
     }
 
     // Clear our button images and our score image and text
@@ -375,6 +366,18 @@ public class UIManager : MonoBehaviour
         // clear score
         // immediate-fade trick name
     }
+
+    public void DisplayNewStyles()
+    {
+        GameManager.instance.RandomizePreferences();
+
+        for(int i = 0; i < styles.Count; i++)
+        {
+            styles[i].text = GameManager.instance.judgesPreferences[i].ToString();
+        }
+    }
+
+
     #endregion
     #region Tools
 
@@ -415,6 +418,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DisplayNewStyles();
+
         DontDestroyOnLoad(this.gameObject); // Don't destroy our main UI Menu
         SM = HUDPanel.GetComponent<ScoreManager>();
         #region Video Initializations
