@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 8d88c256114e52445acca0ee4e3a969e,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5389,8 +5389,6 @@ MonoBehaviour:
   publicTest: []
   nextScene: DialogueTestScene
   maps: {fileID: 0}
-  levelLength: 15
-  scoreNeeded: 0
   snail: {fileID: 0}
 --- !u!4 &195376183
 Transform:
@@ -22492,6 +22490,7 @@ Transform:
   - {fileID: 671742589}
   - {fileID: 1012823414}
   - {fileID: 24808992}
+  - {fileID: 2022014494}
   - {fileID: 2095687577}
   - {fileID: 128041952}
   - {fileID: 1767215392}
@@ -22500,7 +22499,6 @@ Transform:
   - {fileID: 248161017}
   - {fileID: 334240609}
   - {fileID: 1463140193}
-  - {fileID: 2022014494}
   - {fileID: 81378227}
   - {fileID: 486441104}
   - {fileID: 267251746}
@@ -24705,12 +24703,12 @@ PrefabInstance:
     - target: {fileID: 90848497000919740, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -39.622597
+      value: -39.9
       objectReference: {fileID: 0}
     - target: {fileID: 90848497000919740, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.180983
+      value: -29.8
       objectReference: {fileID: 0}
     - target: {fileID: 90848497000919740, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
@@ -24755,17 +24753,17 @@ PrefabInstance:
     - target: {fileID: 4838374755646807619, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000061316405
+      value: 0.0000015326032
       objectReference: {fileID: 0}
     - target: {fileID: 4838374755646807619, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.170006
+      value: 5.170005
       objectReference: {fileID: 0}
     - target: {fileID: 4838374755646807619, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0000047683716
+      value: 0.0000014305115
       objectReference: {fileID: 0}
     - target: {fileID: 5931622383410197148, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
@@ -24871,9 +24869,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 230691451194642702, guid: 7168934e3a12c1a4ea2a2eedfc628683, type: 3}
+  m_Mesh: {fileID: 6597147499675980020, guid: 7168934e3a12c1a4ea2a2eedfc628683, type: 3}
 --- !u!1 &948449628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ccb632ae31927094ebe0086c2edffec1,
@@ -24985,9 +24983,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -1608528762241893312, guid: e54c5f26003d14c429400fe88ca7cb65, type: 3}
+  m_Mesh: {fileID: -4578573443211257462, guid: e54c5f26003d14c429400fe88ca7cb65, type: 3}
 --- !u!1001 &964045254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50473,7 +50471,7 @@ Transform:
   - {fileID: 1070168378}
   - {fileID: 1201351374}
   m_Father: {fileID: 840902817}
-  m_RootOrder: 63
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2023574896
 PrefabInstance:
@@ -54297,7 +54295,7 @@ PrefabInstance:
     - target: {fileID: 8063871135341833097, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: rotSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8063871135341833097, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
@@ -54342,7 +54340,7 @@ PrefabInstance:
     - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: acceleration
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
@@ -54352,7 +54350,7 @@ PrefabInstance:
     - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: maxForwardSpeed
-      value: 100
+      value: 85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c3519550e211f40a76ec6c399bf6a1, type: 3}

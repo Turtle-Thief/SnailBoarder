@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snailName: 
   dialogueLines:
-  - Press A to Ollie
+  - Hold Right Trigger to move. Left stick to turn. Right stick to turn camera. Press
+    A to Ollie
   - Press A + X to wheelie
   - Press A + B to Kickflip
   - Press A + Y to Pop Shuvit
