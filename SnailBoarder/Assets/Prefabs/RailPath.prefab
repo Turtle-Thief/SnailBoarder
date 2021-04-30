@@ -47,10 +47,10 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: 0.010070801, y: 2.276791, z: 17.464935}
-      - {x: 0.18856812, y: 2.2217665, z: 16.0999}
-      - {x: -0.077545166, y: 2.5098443, z: -18.010735}
-      - {x: -0.017822266, y: 2.4451404, z: -20.631653}
+      - {x: 0.010070799, y: 2.2767909, z: 18.117825}
+      - {x: 0.18859671, y: 2.2217662, z: 16.75279}
+      - {x: -0.077451706, y: 2.5072265, z: -18.854643}
+      - {x: -0.017698286, y: 2.4425228, z: -21.475536}
       isClosed: 0
       space: 0
       controlMode: 2
@@ -64,7 +64,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -72,7 +72,7 @@ MonoBehaviour:
     showPerSegmentBounds: 0
     displayAnchorPoints: 1
     displayControlPoints: 1
-    bezierHandleScale: 0.03
+    bezierHandleScale: 0.29
     globalDisplaySettingsFoldout: 0
     keepConstantHandleSize: 1
     showNormalsInVertexMode: 1
@@ -96,5 +96,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.421402, y: 9.463909, z: 51.856976}
-  m_Center: {x: 0.8011093, y: 4.2319546, z: -1.538969}
+  m_Size: {x: 8.194821, y: 10.47458, z: 49.967983}
+  m_Center: {x: 0.29476595, y: 2.5527349, z: -1.6190901}
