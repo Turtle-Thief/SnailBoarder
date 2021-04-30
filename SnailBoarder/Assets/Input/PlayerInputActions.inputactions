@@ -11,7 +11,7 @@
                     "id": "1f760a5e-a4a7-469b-95ad-5f0755064f2c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Brake",
@@ -19,7 +19,7 @@
                     "id": "bce77fda-c78b-4133-80df-74221c34155d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Turn",

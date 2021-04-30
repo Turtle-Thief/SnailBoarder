@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public int score, neededPoints, hatIndex;
 
+    private bool testBool;
+
     public enum ZoneStyle // your custom enumeration
     {
         Metal,
@@ -63,9 +65,11 @@ public class GameManager : MonoBehaviour
     //  Press 'J' to activate this function during runtime
     private void OnTest()
     {
+        testBool = !testBool;
+        Debug.Log("Testbool in function = " + testBool);
         //Debug.Log("pre coroutine");
 
-        scoreText.CrossFadeAlpha(0, 2f, false);
+        //scoreText.CrossFadeAlpha(0, 2f, false);
         //StartCoroutine(TestCoroutine());
         //Debug.Log("past coroutine");
     }
@@ -308,6 +312,11 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = 100;
             }
+        }
+
+        if(testBool)
+        {
+            Debug.Log("Testbool is active, calling function");
         }
     }
 }
