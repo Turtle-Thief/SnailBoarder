@@ -44,7 +44,7 @@ namespace PathCreation.Examples
                 distanceTravelled += speed * Time.deltaTime;
                 time = distanceTravelled / pathCreator.path.length;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+                //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
                 if (time >= 1.0f)
                 {
                     EndRailGrind();
@@ -59,10 +59,12 @@ namespace PathCreation.Examples
             {
                 speed = playerVelocity.currentSpeed;
                 snailSpeed = speed;
-                speed = Mathf.Clamp(speed, 5.0f, 25.0f);
+                speed = Mathf.Clamp(speed, 10.0f, 25.0f);
                 doRailGrind = true;
 
                 // check snails forward vector
+                //pathCreator.path.GetClosestPointOnPath(gameObject.transform.position);
+                
 
                 // lerp snail to closest point on path
                 //gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, pathCreator.path.GetClosestPointOnPath(gameObject.transform.position), speed * Time.deltaTime);
@@ -70,6 +72,11 @@ namespace PathCreation.Examples
                 // set distanceTravelled and time to the closest point distance
                 time = pathCreator.path.GetClosestTimeOnPath(gameObject.transform.position);
                 distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position);
+                
+                if (Vector3.Angle(gameObject.transform.forward, pathCreator.path.GetDirectionAtDistance(distanceTravelled, endOfPathInstruction)) >= 90.0f)
+                {
+                    distanceTravelled = pathCreator.path.length + (pathCreator.path.length - distanceTravelled);
+                }
             }
         }
 

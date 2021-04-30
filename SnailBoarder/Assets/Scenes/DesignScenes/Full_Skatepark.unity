@@ -24340,10 +24340,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4838374755646807619, guid: f0a1debb68194d34f8a88956162f258d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.11000061
+      objectReference: {fileID: 0}
     - target: {fileID: 5931622383410197148, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_Name
       value: SkatePyramid
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439487600363116195, guid: f0a1debb68194d34f8a88956162f258d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 61.887703
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439487600363116195, guid: f0a1debb68194d34f8a88956162f258d,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.23974705
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0a1debb68194d34f8a88956162f258d, type: 3}
@@ -37579,6 +37594,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5c71ceaef2a85d44199ed5cb9344cf01, type: 2}
+    - target: {fileID: 4838374755646807619, guid: f0a1debb68194d34f8a88956162f258d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.10998535
+      objectReference: {fileID: 0}
     - target: {fileID: 5931622383410197148, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_Name
