@@ -34,6 +34,9 @@ public class AnimationController : MonoBehaviour
         {
             snailByItself.transform.parent = rootSkate.transform;
         }
+
+        snailAnimator.SetBool("IsDoingRailgrind", gameObject.GetComponent<TricksController>().doRailGrind);
+        skateAnimator.SetBool("IsDoingRailgrind", gameObject.GetComponent<TricksController>().doRailGrind);
     }
 
     /*---------------SKATEBOARD-ANIMATIONS---------------*/
@@ -73,7 +76,8 @@ public class AnimationController : MonoBehaviour
 
     public void StartRailGrindSkateAnim()
     {
-        skateAnimator.Play("A_Railgrind");
+        skateAnimator.CrossFadeInFixedTime("A_Railgrind", 0.4f);
+        //skateAnimator.Play("A_Railgrind");
     }
 
     public void StartAerialSkateAnim()
@@ -138,7 +142,8 @@ public class AnimationController : MonoBehaviour
 
     public void StartRailGrindSnailAnim()
     {
-        snailAnimator.Play("A_RailGrind_Snail");
+        snailAnimator.CrossFadeInFixedTime("A_RailGrind_Snail", 0.4f);
+        //snailAnimator.Play("A_RailGrind_Snail");
     }
 
     public void StartAerialSnailAnim()

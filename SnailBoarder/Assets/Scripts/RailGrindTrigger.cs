@@ -22,21 +22,23 @@ namespace PathCreation.Examples
         private void OnTriggerEnter(Collider other)
         {
             //Debug.Log("Rail Trigger");
-            if (other.gameObject.tag.Equals("Player"))
+            if (other.gameObject.tag.Equals("RailgrindTrigger"))
             {
-                other.gameObject.GetComponent<SnailPathFollower>().pathCreator = gameObject.GetComponent<PathCreator>();
+                transform.parent.parent.parent.GetComponentInParent<SnailPathFollower>().pathCreator = other.gameObject.GetComponent<PathCreator>();
+                transform.parent.parent.parent.GetComponentInParent<TricksController>().doRailGrind = true;
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
             //Debug.Log("Rail Un-Trigger");
-            if (other.gameObject.tag.Equals("Player"))
+            if (other.gameObject.tag.Equals("RailgrindTrigger"))
             {
-                if (other.gameObject.GetComponent<SnailPathFollower>().pathCreator != null)
+                if (transform.parent.parent.parent.GetComponentInParent<SnailPathFollower>().pathCreator != null)
                 {
-                    other.gameObject.GetComponent<SnailPathFollower>().pathCreator = null;
+                    transform.parent.parent.parent.GetComponentInParent<SnailPathFollower>().pathCreator = null;
                 }
+                transform.parent.parent.parent.GetComponentInParent<TricksController>().doRailGrind = false;
             }
         }
     }

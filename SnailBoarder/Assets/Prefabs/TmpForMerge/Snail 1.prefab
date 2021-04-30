@@ -780,10 +780,16 @@ MonoBehaviour:
     mPoints: 0
     mDuration: 0
     mIsGroundTrick: 0
+  - mName: 0
+    mTier: 0
+    mPoints: 0
+    mDuration: 0
+    mIsGroundTrick: 0
   readyToGetIntoAir: 1
   airTrickTriggerLayer:
     serializedVersion: 2
     m_Bits: 512
+  doRailGrind: 0
   currentTrick:
     mName: 0
     mTier: 0

@@ -14,8 +14,17 @@ namespace PathCreation.Examples
         public PlayerVelocity playerVelocity;
         public float speed = 5;
         public float snailSpeed = 0.0f;
-        float distanceTravelled;
+        float distanceTravelled, time;
         public bool doRailGrind;
+
+        /* Rail Grind process:
+            -> Collision trigger makes it possible
+            -> Player gives input to start trick
+            -> Lerp their position to the closest point on the rail
+            -> Check the players direction vs the path direction, make sure theyre going in the right direction
+            -> Move snail to end of path
+            -> Release snail, add to score, reset momentum
+         */
 
         void Start()
         {
@@ -28,19 +37,17 @@ namespace PathCreation.Examples
             }
         }
 
-        void Update()
+        void FixedUpdate()
         {
             if (pathCreator != null && doRailGrind)
             {
                 distanceTravelled += speed * Time.deltaTime;
+                time = distanceTravelled / pathCreator.path.length;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-                if (pathCreator.path.GetPointAtTime(1, endOfPathInstruction).Equals(transform.position))
+                //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+                if (time >= 1.0f)
                 {
-                    pathCreator = null;
-                    doRailGrind = false;
-                    playerVelocity.currentSpeed = snailSpeed + 5.0f;
-                    playerVelocity.Jump(1.5f);
+                    EndRailGrind();
                 }
             }
         }
@@ -54,7 +61,34 @@ namespace PathCreation.Examples
                 snailSpeed = speed;
                 speed = Mathf.Clamp(speed, 10.0f, 25.0f);
                 doRailGrind = true;
+
+                // check snails forward vector
+                //pathCreator.path.GetClosestPointOnPath(gameObject.transform.position);
+                
+
+                // lerp snail to closest point on path
+                //gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, pathCreator.path.GetClosestPointOnPath(gameObject.transform.position), speed * Time.deltaTime);
+
+                // set distanceTravelled and time to the closest point distance
+                time = pathCreator.path.GetClosestTimeOnPath(gameObject.transform.position);
+                distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position);
+                
+                if (Vector3.Angle(gameObject.transform.forward, pathCreator.path.GetDirectionAtDistance(distanceTravelled, endOfPathInstruction)) >= 90.0f)
+                {
+                    distanceTravelled = pathCreator.path.length + (pathCreator.path.length - distanceTravelled);
+                }
             }
+        }
+
+
+        public void EndRailGrind()
+        {
+            pathCreator = null;
+            doRailGrind = false;
+            playerVelocity.currentSpeed = snailSpeed + 5.0f;
+            playerVelocity.Jump(1.0f);
+            distanceTravelled = 0.0f;
+            time = 0.0f;
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path
