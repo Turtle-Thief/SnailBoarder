@@ -53,6 +53,6 @@ public class ScoreManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.instance.SetDifficultToCurrent();
+        //GameManager.instance.SetDifficultToCurrent();
     }
 }

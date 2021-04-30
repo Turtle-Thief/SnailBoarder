@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     private Difficulty[] difficulties = new Difficulty[numOfDifficulties];
 
     private const int numOfDifficulties = 3;
+    [SerializeField]
+    private int selDif;
+    [SerializeField]
     private Difficulty selectedDifficulty;
     private bool testBool, sanic = false;
 
@@ -56,6 +59,18 @@ public class GameManager : MonoBehaviour
         [SerializeField] string name;
         [SerializeField] int scoreNeeded;
         [SerializeField] int timeGiven;
+
+        public Difficulty(string name, int score, int time)
+        {
+            this.name = name;
+            this.scoreNeeded = score;
+            this.timeGiven = time;
+        }
+
+        //public static implicit operator Difficulty(string name, int score, int time)
+        //{
+        //    return new Difficulty(name, score, time);
+        //s}
 
         public int getScore() { return scoreNeeded; }
         public int getTime() { return timeGiven; }
@@ -200,13 +215,21 @@ public class GameManager : MonoBehaviour
         UM.UpdateScoreDifficulty(selectedDifficulty);
     }
 
+    public Difficulty GetDifficulty()
+    {
+        Debug.Log("Testing the retrieve: " + difficulties[selDif].getScore());
+        return difficulties[selDif];
+    }
+
     public void SetDifficulty(int difficultyChoice)
     {
+        //selDif = difficultyChoice;
+        //Debug.Log("Dif choice = " + difficultyChoice + "; SelDif = " + selDif);
         selectedDifficulty = difficulties[difficultyChoice];
         neededPoints = selectedDifficulty.getScore();
 
         UIManager.instance.UpdateScoreDifficulty(selectedDifficulty);
-        Debug.Log(selectedDifficulty.getScore() + "I was called by the select");
+        //Debug.Log(difficulties[difficultyChoice].getScore() + "I was called by the select");
     }
 
     public void GetScoreDifference()

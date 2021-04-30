@@ -4562,8 +4562,6 @@ MonoBehaviour:
   publicTest: []
   nextScene: DialogueTestScene
   maps: {fileID: 3064420547807877114}
-  levelLength: 15
-  scoreNeeded: 0
   snail: {fileID: 3064420547807876994}
 --- !u!4 &195376183
 Transform:
@@ -17142,6 +17140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 58687319035228720, guid: 618513df1e791484d96af73a306e60b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 58687319035228722, guid: 618513df1e791484d96af73a306e60b3,
         type: 3}
@@ -34739,8 +34742,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1351695639}
-  - {fileID: 49256100}
   - {fileID: 2071046004}
+  - {fileID: 49256100}
   - {fileID: 240986051}
   - {fileID: 680657759}
   - {fileID: 1736188515}
@@ -39360,7 +39363,7 @@ Transform:
   - {fileID: 1861129038}
   - {fileID: 619844481}
   m_Father: {fileID: 1795473854}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2073861472
 GameObject:
