@@ -39,8 +39,12 @@ public class PlayerRotation : MonoBehaviour
     public bool airCheck;
     public bool airRecovered;
     public Vector3 preAirPosition;
+    public Quaternion preAirRotation;
+    public Vector3 preAirVelocity;
+    public float addTimeForSavedVelocity = 0.0f;
 
     public float refreshTime;
+    bool isReadyToSave = true;
 
 
 
@@ -56,6 +60,8 @@ public class PlayerRotation : MonoBehaviour
 
 
         refreshTime -= Time.deltaTime;
+
+        //Debug.Log(gameObject.GetComponent<Rigidbody>().velocity);
     }
 
 
@@ -105,9 +111,22 @@ public class PlayerRotation : MonoBehaviour
         Vector3 destination;
         if (airCheck && refreshTime < 0)
         {
-
+            //Debug.Log("Saved");
             airRecovered = true;
-            preAirPosition = transform.position;
+
+            if (isReadyToSave)
+            {
+                preAirPosition = transform.position;
+                preAirPosition.y += 0.5f;
+                preAirRotation = transform.rotation;
+                preAirVelocity = gameObject.GetComponent<Rigidbody>().velocity;
+                preAirVelocity.y = 0;
+                preAirVelocity *= 0.8f;
+                Debug.Log(preAirVelocity);
+                isReadyToSave = false;
+                StartCoroutine(GetReadyToSaveInTime(1f));
+            }
+
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
             destination = groundRotation;
             GetComponent<TricksController>().AskForHeelflip();
@@ -118,20 +137,25 @@ public class PlayerRotation : MonoBehaviour
         {
             if (airRecovered)
             {
+                //Debug.Log("Recovered");
                 refreshTime = 4f;
                 airRecovered = false;
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-                transform.position = preAirPosition;
+                //transform.position = preAirPosition;
+                transform.rotation = preAirRotation;
+                StartCoroutine(AddSpeedAfterTrickInTime(1.0f, preAirVelocity));
+                
 
-                if (Mathf.Abs(yRot % 360) > 180)
-                {
-                    yRot -= 180f;
-                }
-                else
-                {
-                    yRot -= 90f;
-                }
+                yRot -= 180f;
+                //if (Mathf.Abs(yRot % 360) > 180)
+                //{
+                //    yRot -= 180f;
+                //}
+                //else
+                //{
+                //    //yRot -= 90f;
+                //}
                 snailBody.transform.localEulerAngles = new Vector3(-snailBody.transform.localEulerAngles.x, 0, -snailBody.transform.localEulerAngles.z);
             }
 
@@ -204,9 +228,19 @@ public class PlayerRotation : MonoBehaviour
         return hit.point;
     }
 
+    IEnumerator GetReadyToSaveInTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        isReadyToSave = true;
+    }
 
-
-
+    IEnumerator AddSpeedAfterTrickInTime(float time, Vector3 oldSpeed)
+    {
+        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(addTimeForSavedVelocity);
+        //Debug.Log(oldSpeed);
+        gameObject.GetComponent<Rigidbody>().velocity = oldSpeed;
+    }
 
 
 }

@@ -11,6 +11,8 @@ public class AnimationController : MonoBehaviour
     GameObject rootSkate;
     bool isNotRelativeRotation = false;
 
+    IEnumerator savedCoroutine;
+
     Vector3 initialGravity;
 
     void Start()
@@ -80,18 +82,25 @@ public class AnimationController : MonoBehaviour
     }
     public void StartHeelflipSkateAnim()
     {
+        GetComponent<PlayerRotation>().addTimeForSavedVelocity = 0.0f;
+        skateAnimator.SetBool("ShouldGoToStandard", true);
         skateAnimator.Play("A_180HeelFlipBoard");
     }
     public void StartVarialMcTwistSkateAnim()
     {
-        isNotRelativeRotation = false;
-        skateAnimator.Play("A_SingleFrameBoard");
-        skateAnimator.Play("AT_VarialMcTwistBoard");
+        isNotRelativeRotation = true;
+        //skateAnimator.Play("A_SingleFrameBoard");
+        //skateAnimator.Play("AT_VarialMcTwistBoard");
+        skateAnimator.CrossFadeInFixedTime("AT_VarialMcTwistBoard", 0.4f);
+
     }
     public void StartAirKickflipSkateAnim()
     {
-        skateAnimator.Play("A_SingleFrameBoard");
-        skateAnimator.Play("A_Kickflip720Board");
+        GetComponent<PlayerRotation>().addTimeForSavedVelocity = 1.0f;
+        skateAnimator.SetBool("ShouldGoToStandard", false);
+        //skateAnimator.Play("A_SingleFrameBoard");
+        //skateAnimator.Play("A_Kickflip720Board");
+        skateAnimator.CrossFadeInFixedTime("A_Kickflip720Board", 0.4f);
     }
 
     /*---------------SNAIL-ANIMATIONS---------------*/
@@ -138,21 +147,28 @@ public class AnimationController : MonoBehaviour
     }
     public void StartHeelflipSnailAnim()
     {
-        snailAnimator.Play("A_180HeelFlip_Snail");
+        snailAnimator.SetBool("ShouldGoToStandard", true);
         isNotRelativeRotation = true;
-        StartCoroutine(ReturnRotaion(1.625f));
+        snailAnimator.Play("A_180HeelFlip_Snail");
+        savedCoroutine = ReturnRotaion(1.625f);
+        StartCoroutine(savedCoroutine);
     }
     public void StartVarialMcTwistSnailAnim()
     {
-        isNotRelativeRotation = false;
-        snailAnimator.Play("A_SingleFrameStill_Snail");
-        snailAnimator.Play("AT_VarialMcTwist_Snail");
+        isNotRelativeRotation = true;
+        //snailAnimator.Play("A_SingleFrameStill_Snail");
+        snailAnimator.CrossFadeInFixedTime("AT_VarialMcTwist_Snail", 0.4f);
+        //snailAnimator.Play("AT_VarialMcTwist_Snail");
     }
     public void StartAirKickflipSnailAnim()
     {
-        snailAnimator.Play("A_SingleFrameStill_Snail");
-        snailAnimator.Play("A_Kickflip720_Snail");
+        if(savedCoroutine != null)
+            StopCoroutine(savedCoroutine);
+        snailAnimator.SetBool("ShouldGoToStandard", false);
         isNotRelativeRotation = true;
+        //snailAnimator.Play("A_SingleFrameStill_Snail");
+        snailAnimator.CrossFadeInFixedTime("A_Kickflip720_Snail", 0.4f);
+        //snailAnimator.Play("A_Kickflip720_Snail");
         StartCoroutine(ReturnRotaion(2f));
     }
 
