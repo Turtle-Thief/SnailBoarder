@@ -124,6 +124,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "HappyEmote",
+                    "type": "Button",
+                    "id": "9287bcbc-2d36-4fca-b6ef-bad9ef7e2f82",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SadEmote",
+                    "type": "Button",
+                    "id": "b2200ac5-9787-4114-aed9-98d05a682454",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -564,6 +580,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "TutorialEnter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b4bb0e2-508a-470a-82b7-c88425377b1a",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SadEmote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61e080d4-724a-4e7c-9668-6c0f38ecbbfb",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HappyEmote",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
