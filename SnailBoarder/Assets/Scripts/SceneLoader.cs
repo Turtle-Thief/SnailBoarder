@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
 
     // Serialzied int values to change scenes in title editor
     [SerializeField]
-    private int title = 0, hat = 1, instruct = 2, nextLevel = 3, dialog = 4, victory = 5, defeat = 6;
+    private int title = 0, hat = 1, instruct = 2, nextLevel = 3, dialog = 4, victory = 5, defeat = 6, tutorial = 7;
 
     public int currentScene = 0;
 
@@ -18,24 +18,26 @@ public class SceneLoader : MonoBehaviour
         switch (sceneName)
         {
             case "title":
-                SceneManager.LoadScene(title);
                 GameManager.instance.onPausableScene = false;
-                GameManager.instance.ResumeGame();
                 currentScene = title;
+                UIManager.instance.DisplayNewStyles();
+                SceneManager.LoadScene(title);
+                GameManager.instance.ResumeGame();
                 break;
             case "hat":
-                SceneManager.LoadScene(hat);
                 UIManager.instance.CloseAllPanels();
                 currentScene = hat;
+                SceneManager.LoadScene(hat);
                 break;
             case "instruct":
-                SceneManager.LoadScene(instruct);
                 currentScene = instruct;
+                UIManager.instance.ClickCurrentSelectedButton();
+                SceneManager.LoadScene(instruct);
                 break;
             case "nextLevel":
                 // Load the next scene
-                SceneManager.LoadScene(nextLevel);
                 currentScene = nextLevel;
+                SceneManager.LoadScene(nextLevel);
 
                 // Signal that we're starting the next level (may need to add loading test here)
                 GameManager.instance.OnNextLevel();
@@ -43,16 +45,21 @@ public class SceneLoader : MonoBehaviour
             case "dialog":
                 //Signal that we've finished the previous level (may need to add loading test here)
                 GameManager.instance.OnFinishedLevel();
-                SceneManager.LoadScene(dialog);
                 currentScene = dialog;
+                SceneManager.LoadScene(dialog);
                 break;
             case "victory":
-                SceneManager.LoadScene(victory);
                 currentScene = victory;
+                SceneManager.LoadScene(victory);
                 break;
             case "defeat":
-                SceneManager.LoadScene(defeat);
                 currentScene = defeat;
+                SceneManager.LoadScene(defeat);
+                break;
+            case "tutorial":
+                currentScene = tutorial;
+                GameManager.instance.onPausableScene = true;
+                SceneManager.LoadScene(tutorial);
                 break;
             default:
                 Debug.Log("Error: sceneName does not exist");
@@ -65,24 +72,26 @@ public class SceneLoader : MonoBehaviour
         switch (sceneName)
         {
             case 0:
-                SceneManager.LoadScene(title);
                 GameManager.instance.onPausableScene = false;
-                GameManager.instance.ResumeGame();
                 currentScene = title;
+                UIManager.instance.DisplayNewStyles();
+                SceneManager.LoadScene(title);
+                GameManager.instance.ResumeGame();
                 break;
             case 1:
-                SceneManager.LoadScene(hat);
                 UIManager.instance.CloseAllPanels();
                 currentScene = hat;
+                SceneManager.LoadScene(hat);
                 break;
             case 2:
-                SceneManager.LoadScene(instruct);
                 currentScene = instruct;
+                UIManager.instance.ClickCurrentSelectedButton(); // I am genuinely so shocked that this works with a prefab instance of gamemanager...
+                SceneManager.LoadScene(instruct);
                 break;
             case 3:
                 // Load the next scene
-                SceneManager.LoadScene(nextLevel);
                 currentScene = nextLevel;
+                SceneManager.LoadScene(nextLevel);
 
                 // Signal that we're starting the next level (may need to add loading test here)
                 GameManager.instance.OnNextLevel();
@@ -90,16 +99,21 @@ public class SceneLoader : MonoBehaviour
             case 4:
                 //Signal that we've finished the previous level (may need to add loading test here)
                 GameManager.instance.OnFinishedLevel();
-                SceneManager.LoadScene(dialog);
                 currentScene = dialog;
+                SceneManager.LoadScene(dialog);
                 break;
             case 5:
-                SceneManager.LoadScene(victory);
                 currentScene = victory;
+                SceneManager.LoadScene(victory);
                 break;
             case 6:
-                SceneManager.LoadScene(defeat);
                 currentScene = defeat;
+                SceneManager.LoadScene(defeat);
+                break;
+            case 7:
+                currentScene = tutorial;
+                GameManager.instance.onPausableScene = true;
+                SceneManager.LoadScene(tutorial);
                 break;
             default:
                 Debug.Log("Error: sceneName does not exist");
@@ -111,7 +125,14 @@ public class SceneLoader : MonoBehaviour
     public void LoadNextSceneInBuild()
     {
         currentScene++;
-        Debug.Log("I loaded this scene: " + currentScene);
+
+        // skip beginning dialogue after we've seen it once
+        //if(currentScene == instruct && GameManager.instance.seenDialogue)
+        //{
+        //    currentScene++;
+        //} 
+
+        //Debug.Log("I loaded this scene: " + currentScene);
         LoadScene(currentScene);
     }
 

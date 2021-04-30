@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using System.Linq;
@@ -10,10 +9,38 @@ using System.Linq;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    // should be accessible to any class, using a static instance is also a potential way to implement this
-    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false, sanic = false;
 
+    public InputActionAsset playerInputs, secondaryInputs;
+
+    #region Hidden From Inspector Public Variables
+    [HideInInspector]
+    // should be accessible to any class, using a static instance is also a potential way to implement this
+    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false;
+    //[HideInInspector]
     public int score, neededPoints, hatIndex;
+    [HideInInspector]
+    public ZoneStyle[] judgesPreferences = new ZoneStyle[3];
+    [HideInInspector]
+    public ZoneStyle currentStyle;
+    #endregion
+    #region Private Variables
+    [SerializeField]
+    private Difficulty[] difficulties = new Difficulty[numOfDifficulties];
+
+    private const int numOfDifficulties = 3;
+    [SerializeField]
+    private int selDif;
+    [SerializeField]
+    private Difficulty selectedDifficulty;
+    private bool testBool, sanic = false;
+
+    private UIManager UM;
+
+    private GameObject debugPanel, UICanvas;
+    private TextMeshProUGUI scoreText;
+
+    private InputActionMap cheats;
+    #endregion
 
     public enum ZoneStyle // your custom enumeration
     {
@@ -25,19 +52,29 @@ public class GameManager : MonoBehaviour
         Classic,
         None
     };
-    
-    public ZoneStyle[] judgesPreferences = new ZoneStyle[3];
 
-    public ZoneStyle currentStyle;
+    [Serializable]
+    public struct Difficulty
+    {
+        [SerializeField] string name;
+        [SerializeField] int scoreNeeded;
+        [SerializeField] int timeGiven;
 
-    public InputActionAsset playerInputs, secondaryInputs;
+        public Difficulty(string name, int score, int time)
+        {
+            this.name = name;
+            this.scoreNeeded = score;
+            this.timeGiven = time;
+        }
 
-    private UIManager UM;
+        //public static implicit operator Difficulty(string name, int score, int time)
+        //{
+        //    return new Difficulty(name, score, time);
+        //s}
 
-    private GameObject debugPanel, UICanvas;
-    private TextMeshProUGUI scoreText;
-
-    private InputActionMap cheats;
+        public int getScore() { return scoreNeeded; }
+        public int getTime() { return timeGiven; }
+    }
 
     #region Cheats
     /*** TESTING PURPOSES ONLY, SHOULD BE DELETED / DISABLED PERMANENTLY FOR ALPHA/BETA ***/
@@ -63,9 +100,11 @@ public class GameManager : MonoBehaviour
     //  Press 'J' to activate this function during runtime
     private void OnTest()
     {
+        testBool = !testBool;
+        Debug.Log("Testbool in function = " + testBool);
         //Debug.Log("pre coroutine");
 
-        scoreText.CrossFadeAlpha(0, 2f, false);
+        //scoreText.CrossFadeAlpha(0, 2f, false);
         //StartCoroutine(TestCoroutine());
         //Debug.Log("past coroutine");
     }
@@ -144,7 +183,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool IsMultipliedByJudjes()
+    public bool IsMultipliedByJudges()
     {
         if (currentStyle == judgesPreferences[0] || currentStyle == judgesPreferences[1] || currentStyle == judgesPreferences[2])
         {
@@ -156,7 +195,7 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    private void RandomizePreferences()
+    public void RandomizePreferences()
     {
         List<ZoneStyle> chooseList = Enum.GetValues(typeof(ZoneStyle)).Cast<ZoneStyle>().ToList();
         chooseList.RemoveAt(chooseList.Count-1); // Remove "none", judges will always have a preference
@@ -169,6 +208,28 @@ public class GameManager : MonoBehaviour
             chooseList.RemoveAt(index);
         }
         chooseList.Clear();
+    }
+
+    public void SetDifficultToCurrent()
+    {
+        UM.UpdateScoreDifficulty(selectedDifficulty);
+    }
+
+    public Difficulty GetDifficulty()
+    {
+        Debug.Log("Testing the retrieve: " + difficulties[selDif].getScore());
+        return difficulties[selDif];
+    }
+
+    public void SetDifficulty(int difficultyChoice)
+    {
+        //selDif = difficultyChoice;
+        //Debug.Log("Dif choice = " + difficultyChoice + "; SelDif = " + selDif);
+        selectedDifficulty = difficulties[difficultyChoice];
+        neededPoints = selectedDifficulty.getScore();
+
+        UIManager.instance.UpdateScoreDifficulty(selectedDifficulty);
+        //Debug.Log(difficulties[difficultyChoice].getScore() + "I was called by the select");
     }
 
     public void GetScoreDifference()
@@ -190,8 +251,8 @@ public class GameManager : MonoBehaviour
         onPausableScene = true;
         // reset score
         UIManager.instance.OpenPanel(UIManager.instance.HUDPanel);
-        // Move this line to Park Manager, call Park Manager function here
-        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer();
+        UIManager.instance.UpdateScoreDifficulty(selectedDifficulty);
+        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(selectedDifficulty.getTime());
     }
 
     public void OnFinishedLevel()
@@ -259,6 +320,7 @@ public class GameManager : MonoBehaviour
 
         playerInputs.FindActionMap("Player").Enable();
     }
+    
     private void Awake()
     {
         // Older way to setup singletons
@@ -278,23 +340,24 @@ public class GameManager : MonoBehaviour
         //}
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
-        FindAndSetInputs(); // This just enables cheats right now
-        RandomizePreferences();
+        //SetDifficulty(0); // Default to easiest difficult
 
+        FindAndSetInputs(); // This just enables cheats right now
+        
         onPausableScene = false; // starts on title
 
-        UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
+        //UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
         UM = UIManager.instance;
+        UICanvas = UM.gameObject;
 
-        if(UICanvas)
-        {
-            debugPanel = UICanvas.transform.GetChild(0).gameObject; // Gets the debug panel
-            scoreText = debugPanel.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>(); // this is terrible please don't replicate this
-        }
+        //if(UICanvas)
+        //{
+        //    debugPanel = UICanvas.transform.GetChild(0).gameObject; // Gets the debug panel
+        //    scoreText = debugPanel.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>(); // this is terrible please don't replicate this
+        //}
     }
     
     // Update is called once per frame
@@ -309,5 +372,11 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 100;
             }
         }
+
+        if(testBool)
+        {
+            Debug.Log("Testbool is active, calling function");
+        }
+
     }
 }

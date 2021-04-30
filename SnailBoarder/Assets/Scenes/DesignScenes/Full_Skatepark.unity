@@ -36217,6 +36217,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_rampEndLeftMod (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e54c5f26003d14c429400fe88ca7cb65,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e54c5f26003d14c429400fe88ca7cb65, type: 3}
 --- !u!1 &1453257247 stripped
@@ -36236,9 +36241,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -1608528762241893312, guid: e54c5f26003d14c429400fe88ca7cb65, type: 3}
+  m_Mesh: {fileID: -4578573443211257462, guid: e54c5f26003d14c429400fe88ca7cb65, type: 3}
 --- !u!1001 &1453301905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44105,6 +44110,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_rampEndRightMod (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7168934e3a12c1a4ea2a2eedfc628683,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7168934e3a12c1a4ea2a2eedfc628683, type: 3}
 --- !u!1 &1785617253 stripped
@@ -44124,9 +44134,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 230691451194642702, guid: 7168934e3a12c1a4ea2a2eedfc628683, type: 3}
+  m_Mesh: {fileID: 6597147499675980020, guid: 7168934e3a12c1a4ea2a2eedfc628683, type: 3}
 --- !u!1001 &1785836106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54287,7 +54297,7 @@ PrefabInstance:
     - target: {fileID: 8063871135341833097, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: rotSpeed
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8063871135341833097, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
@@ -54342,7 +54352,7 @@ PrefabInstance:
     - target: {fileID: 8754566896945545125, guid: 65c3519550e211f40a76ec6c399bf6a1,
         type: 3}
       propertyPath: maxForwardSpeed
-      value: 80
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c3519550e211f40a76ec6c399bf6a1, type: 3}

@@ -17,7 +17,8 @@ public class TitleScreen : MonoBehaviour
     public void OnHelp()
     {
         UIManager.instance.lastSelected = EventSystem.current.currentSelectedGameObject;
-        UM.OpenPanel(UM.helpPanel);
+        //UM.OpenPanel(UM.helpPanel);
+        SceneLoader.instance.LoadScene("tutorial"); // Should be index 7
     }
 
     public void OnSettings()

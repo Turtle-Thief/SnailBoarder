@@ -30,6 +30,8 @@ public class PlayerVelocity : MonoBehaviour
 
     public GameObject frontWheels, backWheels;
 
+    private bool testBool, testBool2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,7 @@ public class PlayerVelocity : MonoBehaviour
     {
         if (!GameManager.instance.gameIsPaused)
         {
-
+            
         }
     }
 
@@ -60,6 +62,18 @@ public class PlayerVelocity : MonoBehaviour
             rigidbody.velocity = UpdateVelocityDirection();
             rigidbody.velocity += Vector3.down * gravity;
             Friction();
+        }
+        if (testBool)
+        {
+            currentSpeed += acceleration;
+            currentSpeed = Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
+            Debug.Log("moving");
+        }
+        if (testBool2)
+        {
+            currentSpeed -= braking;
+            currentSpeed = Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
+            Debug.Log("stop moving");
         }
     }
     
@@ -99,8 +113,15 @@ public class PlayerVelocity : MonoBehaviour
     // player is accelerating
     void OnMoveForward()
     {
-        currentSpeed += acceleration;
-        currentSpeed = Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
+        // COMMENT THIS TO REVERT
+        testBool = !testBool;
+
+
+        // UNCOMMENT THIS TO REVERT
+        //    currentSpeed += acceleration;
+        //    currentSpeed = Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
+
+
         //needs to add force
         //Vector3 Direction = transform.forward.normalized * currentSpeed;
         //rigidbody.AddForce(Direction, ForceMode.VelocityChange);
@@ -109,8 +130,14 @@ public class PlayerVelocity : MonoBehaviour
     // player is braking
     void OnBrake()
     {
-        currentSpeed -= braking;
-        currentSpeed = Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
+        testBool2 = !testBool2;
+
+        //if(testBool2)
+        //{
+        //    currentSpeed -= braking;
+        //    currentSpeed = Mathf.Clamp(currentSpeed, -maxReverseSpeed, maxForwardSpeed);
+
+        //}
         //needs to add force
         //Vector3 Direction = InputRotation * transform.forward.normalized * currentSpeed;
         //rigidbody.AddForce(-Direction, ForceMode.VelocityChange);

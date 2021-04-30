@@ -139,7 +139,7 @@
                     "id": "e403efaa-145f-425a-b310-7dbc67910141",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(pressPoint=1,behavior=2)"
                 },
                 {
                     "name": "SpeedUpTime",
@@ -163,6 +163,17 @@
                     "name": "",
                     "id": "809ab667-ad4e-4421-90ad-9b8260a30173",
                     "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Test",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "232bd636-cea8-4e67-bd6f-4cc7fd5f8175",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

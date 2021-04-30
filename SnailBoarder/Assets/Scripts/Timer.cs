@@ -21,7 +21,8 @@ public class Timer : MonoBehaviour
     public void SetAndStartTimer(int timerLength)
     {
         timerIsRunning = true;
-        timeRemaining = timerLength;
+        timeForLevel = timerLength;
+        timeRemaining = timeForLevel;
     }
 
     private void StopAndResetTimer()

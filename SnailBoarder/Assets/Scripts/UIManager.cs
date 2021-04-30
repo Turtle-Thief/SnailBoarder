@@ -9,39 +9,44 @@ using UnityEngine.EventSystems;
 public class UIManager : MonoBehaviour
 {
     [Space]
-    // ***** Still debating whether to make a singleton or not
     public static UIManager instance = null;
     // Panel attributes
-    public GameObject 
+    public GameObject
+        timer,
         HUDPanel,
         pausePanel,
         helpPanel,
         settingsPanel,
         confirmPanel,
         currentPanel;
-    [Space]
-    public GameObject timer, lastSelected, firstSelected;
-    public bool previousExists = false;
-    private GameObject previousPanel; // Reference object
+
+    public List<TextMeshProUGUI> styles;
 
     // HUD attributes
     public TextMeshProUGUI 
         trickNameText,
         scoreText;
-    public Image scoreImage; // This might be deleted, depends on final layout of HUD
-    public List<Image> buttonInputImages;
-    public List<TextMeshProUGUI> trickLog;
 
-    private bool 
-        //comboinit = false, 
-        trickFinished = false, 
-        fading = false;
-
+    #region HII Public Variables
+    [HideInInspector]
     public ScoreManager SM;
 
+    [HideInInspector]
+    public bool previousExists = false;
+
+    [HideInInspector]
+    public GameObject lastSelected, firstSelected;
+
+    #endregion
+    #region Private Variables
+    private GameObject previousPanel; // Reference object
+
+    private bool 
+        trickFinished = false, 
+        fading = false;
+    #endregion
     #region Video Attributes
 
-    public TextMeshProUGUI resText;
     private const string RESOLUTION_PREF_KEY = "Resolution";
     private const string WINDOWED_PREF_KEY = "Windowed";
     private List<Resolution> resolutions;
@@ -117,7 +122,7 @@ public class UIManager : MonoBehaviour
         previousPanel = null;
         previousExists = false;
         
-        if(lastSelected)
+        if(lastSelected && givenPanel != HUDPanel)
             lastSelected.GetComponent<Selectable>().Select();
     }
 
@@ -173,7 +178,7 @@ public class UIManager : MonoBehaviour
     // Changes the text to the given resolution
     void SetResolutionText(Resolution resolution)
     {
-        resText.text = resolution.width + "x" + resolution.height;
+        //resText.text = resolution.width + "x" + resolution.height;
     }
 
     // Apply resolution changes
@@ -207,6 +212,28 @@ public class UIManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    #endregion
+    // I made this for fun, I'm sorry
+    #region Button Access
+
+    // This won't work if it's not a button... be careful with this
+    public void ClickButton(GameObject button)
+    {
+        button.GetComponent<Button>().onClick.Invoke();
+    }
+
+    public void ClickButton(Button button)
+    {
+        button.onClick.Invoke();
+    }
+
+    public void ClickCurrentSelectedButton()
+    {
+        // I have broken the game
+        // This is 1000000000% cheating
+        EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
     }
 
     #endregion
@@ -256,6 +283,12 @@ public class UIManager : MonoBehaviour
     #endregion
     #region HUD Methods
 
+    public void UpdateScoreDifficulty(GameManager.Difficulty diff)
+    {
+        SM.parkScore = diff.getScore();
+        Debug.Log("parkscore = " + SM.parkScore);
+    }
+
     // Given a trick and score, we change the HUD text
 
     // It doesn't make a lot of sense that we have to input the scoreValue like this,
@@ -285,10 +318,10 @@ public class UIManager : MonoBehaviour
             trickNameText.CrossFadeAlpha(0, 2, false);
             
             // fade out buttons image alpha over 2 seconds; this might not work
-            foreach(Image button in buttonInputImages)
-            {
-                button.CrossFadeAlpha(0, 2, false);
-            }
+            //foreach(Image button in buttonInputImages)
+            //{
+            //    button.CrossFadeAlpha(0, 2, false);
+            //}
         }
     }
 
@@ -316,7 +349,7 @@ public class UIManager : MonoBehaviour
     public void ResetButtonListHUD()
     {
         // for each button, remove image and set alpha to 0
-    }
+    } //empty function
 
     public void TrickStartedHUD()
     {
@@ -331,7 +364,7 @@ public class UIManager : MonoBehaviour
             // change trick func
         }
         // start coroutine for fade
-    }
+    } //empty function
 
     public void TrickFinishedHUD(TricksController.Trick trick, bool shouldMultiply)
     {
@@ -355,15 +388,6 @@ public class UIManager : MonoBehaviour
             scoreText.text = "Total Score:\n" + totalScore.ToString() + " / " + SM.parkScore;
             trickNameText.text = trick.mName + "\n" + trick.mPoints.ToString(); // This is bad formatting lol
         }
-
-        
-        
-        // change trick and score func
-        
-        // Old HUD:
-
-        // add to log
-        //trickFinished = true;
     }
 
     // Clear our button images and our score image and text
@@ -375,6 +399,18 @@ public class UIManager : MonoBehaviour
         // clear score
         // immediate-fade trick name
     }
+
+    public void DisplayNewStyles()
+    {
+        GameManager.instance.RandomizePreferences();
+
+        for(int i = 0; i < styles.Count; i++)
+        {
+            styles[i].text = GameManager.instance.judgesPreferences[i].ToString();
+        }
+    }
+
+
     #endregion
     #region Tools
 
@@ -415,20 +451,18 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DisplayNewStyles();
+
         DontDestroyOnLoad(this.gameObject); // Don't destroy our main UI Menu
         SM = HUDPanel.GetComponent<ScoreManager>();
         #region Video Initializations
 
-        if (resText)
-        {
-            resText.text = "Auto";
-            resolutions = new List<Resolution>();
-            resolutions.AddRange(Screen.resolutions);
-            resolutions = resolutions.Distinct().ToList();
-            currentResIndex = PlayerPrefs.GetInt(RESOLUTION_PREF_KEY, 0);
-            isWindowed = PlayerPrefs.GetInt(WINDOWED_PREF_KEY) != 0;
-        }
-
+        resolutions = new List<Resolution>();
+        resolutions.AddRange(Screen.resolutions);
+        resolutions = resolutions.Distinct().ToList();
+        currentResIndex = PlayerPrefs.GetInt(RESOLUTION_PREF_KEY, 0);
+        isWindowed = PlayerPrefs.GetInt(WINDOWED_PREF_KEY) != 0;
+        
 
         #endregion
 

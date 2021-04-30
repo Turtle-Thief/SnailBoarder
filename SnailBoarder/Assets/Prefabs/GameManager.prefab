@@ -129,16 +129,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1e915f8661a0246bc5a87657a452b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulties:
+  - name: Easy
+    scoreNeeded: 400
+    timeGiven: 90
+  - name: Medium
+    scoreNeeded: 1000
+    timeGiven: 120
+  - name: Hard
+    scoreNeeded: 2000
+    timeGiven: 150
   gameIsPaused: 0
   onPausableScene: 0
   completedLastLevel: 0
   hatted: 0
   sanic: 0
+  seenDialogue: 0
   score: 0
   neededPoints: 0
   hatIndex: 0
-  titleDefaultSelect: {fileID: 0}
-  gameDefaultSelect: {fileID: 0}
   judgesPreferences: 000000000000000000000000
   currentStyle: 0
   playerInputs: {fileID: -944628639613478452, guid: db8ee52492b77dc458d8c720d4993c1a,

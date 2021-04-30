@@ -24,11 +24,11 @@ public class ParkMaster : MonoBehaviour
 
 
     //Determines the Amount of Time per Level
-    public float levelLength;
+    //public float levelLength;
 
 
     //Determines the Score Needed for Victory
-    public float scoreNeeded;
+    //public float scoreNeeded;
 
 
 
