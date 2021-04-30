@@ -50,4 +50,9 @@ public class ScoreManager : MonoBehaviour
         trickScore = value;
         currentScore += (value * multiplier);
     }
+
+    private void OnEnable()
+    {
+        GameManager.instance.SetDifficultToCurrent();
+    }
 }

@@ -31,6 +31,7 @@ public class SceneLoader : MonoBehaviour
                 break;
             case "instruct":
                 currentScene = instruct;
+                UIManager.instance.ClickCurrentSelectedButton();
                 SceneManager.LoadScene(instruct);
                 break;
             case "nextLevel":
@@ -84,6 +85,7 @@ public class SceneLoader : MonoBehaviour
                 break;
             case 2:
                 currentScene = instruct;
+                UIManager.instance.ClickCurrentSelectedButton(); // I am genuinely so shocked that this works with a prefab instance of gamemanager...
                 SceneManager.LoadScene(instruct);
                 break;
             case 3:

@@ -263,7 +263,7 @@ public class TricksController : MonoBehaviour
         Trick tmpTrick = Tricks[(int)currentTrick.mName];
         currentTrick = Tricks[(int)TrickName.NullTrick];
 
-        bool shouldMultiply = (GameManager.instance.IsMultipliedByJudjes() && wasOnRamp);
+        bool shouldMultiply = (GameManager.instance.IsMultipliedByJudges() && wasOnRamp);
         //Debug.Log(wasOnRamp);
         //Debug.Log(GameManager.instance.IsMultipliedByJudjes());
         UIManager.instance.TrickFinishedHUD(tmpTrick, shouldMultiply);

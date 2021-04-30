@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using System.Linq;
@@ -10,12 +9,35 @@ using System.Linq;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+
+    public InputActionAsset playerInputs, secondaryInputs;
+
+    #region Hidden From Inspector Public Variables
+    [HideInInspector]
     // should be accessible to any class, using a static instance is also a potential way to implement this
-    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false, sanic = false, seenDialogue = false;
-
+    public bool gameIsPaused = false, onPausableScene = false, completedLastLevel = false, hatted = false;
+    //[HideInInspector]
     public int score, neededPoints, hatIndex;
+    [HideInInspector]
+    public ZoneStyle[] judgesPreferences = new ZoneStyle[3];
+    [HideInInspector]
+    public ZoneStyle currentStyle;
+    #endregion
+    #region Private Variables
+    [SerializeField]
+    private Difficulty[] difficulties = new Difficulty[numOfDifficulties];
 
-    private bool testBool;
+    private const int numOfDifficulties = 3;
+    private Difficulty selectedDifficulty;
+    private bool testBool, sanic = false;
+
+    private UIManager UM;
+
+    private GameObject debugPanel, UICanvas;
+    private TextMeshProUGUI scoreText;
+
+    private InputActionMap cheats;
+    #endregion
 
     public enum ZoneStyle // your custom enumeration
     {
@@ -27,19 +49,17 @@ public class GameManager : MonoBehaviour
         Classic,
         None
     };
-    
-    public ZoneStyle[] judgesPreferences = new ZoneStyle[3];
 
-    public ZoneStyle currentStyle;
+    [Serializable]
+    public struct Difficulty
+    {
+        [SerializeField] string name;
+        [SerializeField] int scoreNeeded;
+        [SerializeField] int timeGiven;
 
-    public InputActionAsset playerInputs, secondaryInputs;
-
-    private UIManager UM;
-
-    private GameObject debugPanel, UICanvas;
-    private TextMeshProUGUI scoreText;
-
-    private InputActionMap cheats;
+        public int getScore() { return scoreNeeded; }
+        public int getTime() { return timeGiven; }
+    }
 
     #region Cheats
     /*** TESTING PURPOSES ONLY, SHOULD BE DELETED / DISABLED PERMANENTLY FOR ALPHA/BETA ***/
@@ -148,7 +168,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool IsMultipliedByJudjes()
+    public bool IsMultipliedByJudges()
     {
         if (currentStyle == judgesPreferences[0] || currentStyle == judgesPreferences[1] || currentStyle == judgesPreferences[2])
         {
@@ -175,6 +195,20 @@ public class GameManager : MonoBehaviour
         chooseList.Clear();
     }
 
+    public void SetDifficultToCurrent()
+    {
+        UM.UpdateScoreDifficulty(selectedDifficulty);
+    }
+
+    public void SetDifficulty(int difficultyChoice)
+    {
+        selectedDifficulty = difficulties[difficultyChoice];
+        neededPoints = selectedDifficulty.getScore();
+
+        UIManager.instance.UpdateScoreDifficulty(selectedDifficulty);
+        Debug.Log(selectedDifficulty.getScore() + "I was called by the select");
+    }
+
     public void GetScoreDifference()
     {
         neededPoints = UIManager.instance.SM.ScoreDifference();
@@ -194,8 +228,8 @@ public class GameManager : MonoBehaviour
         onPausableScene = true;
         // reset score
         UIManager.instance.OpenPanel(UIManager.instance.HUDPanel);
-        // Move this line to Park Manager, call Park Manager function here
-        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer();
+        UIManager.instance.UpdateScoreDifficulty(selectedDifficulty);
+        UIManager.instance.timer.GetComponent<Timer>().SetAndStartTimer(selectedDifficulty.getTime());
     }
 
     public void OnFinishedLevel()
@@ -263,6 +297,7 @@ public class GameManager : MonoBehaviour
 
         playerInputs.FindActionMap("Player").Enable();
     }
+    
     private void Awake()
     {
         // Older way to setup singletons
@@ -282,10 +317,11 @@ public class GameManager : MonoBehaviour
         //}
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
+        //SetDifficulty(0); // Default to easiest difficult
+
         FindAndSetInputs(); // This just enables cheats right now
         
         onPausableScene = false; // starts on title
@@ -318,5 +354,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Testbool is active, calling function");
         }
+
     }
 }
