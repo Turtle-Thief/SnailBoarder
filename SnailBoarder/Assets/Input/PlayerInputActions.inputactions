@@ -116,6 +116,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "HappyEmote",
+                    "type": "Button",
+                    "id": "71f631b0-0594-43ad-992c-c2e1b2943816",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SadEmote",
+                    "type": "Button",
+                    "id": "77ccc054-9a39-48aa-b828-99c259629b03",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -569,6 +585,28 @@
                     "action": "RailGrind",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "66241248-4002-447b-90bf-5d53f7ff2bb8",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HappyEmote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82e43369-e658-4da1-bd92-4963c011cace",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SadEmote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

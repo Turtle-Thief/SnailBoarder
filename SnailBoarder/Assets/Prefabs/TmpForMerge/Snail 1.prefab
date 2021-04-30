@@ -691,6 +691,9 @@ MonoBehaviour:
   airCheck: 0
   airRecovered: 0
   preAirPosition: {x: 0, y: 0, z: 0}
+  preAirRotation: {x: 0, y: 0, z: 0, w: 0}
+  preAirVelocity: {x: 0, y: 0, z: 0}
+  addTimeForSavedVelocity: 0
   refreshTime: 0
 --- !u!114 &6153311556629707763
 MonoBehaviour:
@@ -722,6 +725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e292f759c79d0fb42955636ade3fa8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  happySnailEmotePrefab: {fileID: 7639911469347685333, guid: 5cb5232f936b35c47a081d82ba291669,
+    type: 3}
+  sadSnailEmotePrefab: {fileID: 5235813705310215007, guid: bca9ab6eda681734d852884e38727543,
+    type: 3}
 --- !u!114 &5376368812921028385
 MonoBehaviour:
   m_ObjectHideFlags: 0
