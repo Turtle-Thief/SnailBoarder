@@ -57,6 +57,8 @@ public class TricksController : MonoBehaviour
     float timeSinceLastTrickStart = 0;
     public float buttonComboDelayMax = 0.3f;
 
+    IEnumerator currentPauseForTrickCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,7 +109,8 @@ public class TricksController : MonoBehaviour
         else if (timeSinceLastTrickStart < buttonComboDelayMax && currentTrick.mTier < trickType.mTier && currentTrick.mIsGroundTrick == trickType.mIsGroundTrick) // If another trick is already in progress
         {
             Debug.Log("Here2 " + trickType.mName.ToString());
-            StopAllCoroutines();
+            //StopAllCoroutines();
+            StopCoroutine(currentPauseForTrickCoroutine);
             //playerRigidbody.constraints = RigidbodyConstraints.None;
 
             StartTrick(trickType);
@@ -117,7 +120,8 @@ public class TricksController : MonoBehaviour
     public void StartTrick(Trick trickType)
     {
         wasOnRamp = groundCheck.isOnRamp;
-        StartCoroutine(PauseForTrick(trickType.mDuration));
+        currentPauseForTrickCoroutine = PauseForTrick(trickType.mDuration);
+        StartCoroutine(currentPauseForTrickCoroutine);
 
         switch (trickType.mName)
         {
@@ -191,7 +195,7 @@ public class TricksController : MonoBehaviour
         }
 
         if (trickType.mName == TrickName.Heelflip)
-            timeSinceLastTrickStart = -0.5f;
+            timeSinceLastTrickStart = -0.4f;
         else
             timeSinceLastTrickStart = 0;
 
@@ -230,7 +234,7 @@ public class TricksController : MonoBehaviour
 
     public void OnHeelflip()
     {
-        Debug.Log("Input Heelflip");
+        //Debug.Log("Input Heelflip");
         TrickInputCall(Tricks[(int)TrickName.Heelflip]);
     }
 
@@ -245,13 +249,13 @@ public class TricksController : MonoBehaviour
 
     public void OnMcTwist()
     {
-        Debug.Log("Input McTwist");
+        //Debug.Log("Input McTwist");
         TrickInputCall(Tricks[(int)TrickName.McTwist]);
     }
 
     public void OnAirKickflip()
     {
-        Debug.Log("Input AirKickflip");
+        //Debug.Log("Input AirKickflip");
         TrickInputCall(Tricks[(int)TrickName.AirKickflip]);
     }
 
