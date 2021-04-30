@@ -134,7 +134,8 @@ public class UIManager : MonoBehaviour
         settingsPanel.SetActive(false);
         confirmPanel.SetActive(false);
 
-        //lastSelected.GetComponent<Selectable>().Select();
+        if(lastSelected)
+            lastSelected.GetComponent<Selectable>().Select();
     }
 
     private void ConfirmChoice()
