@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class Player : MonoBehaviour
 {
     GameObject sadHat;
+    public GameObject happySnailEmotePrefab;
+    public GameObject sadSnailEmotePrefab;
+
     public void GiveHat(int hatIndex)
     {
         CosmeticMenu cm = GetComponent<CosmeticMenu>();
@@ -33,5 +38,22 @@ public class Player : MonoBehaviour
             // Put everything in here!!!
             //Debug.Log("Words that are identifiable: " + sadHat);
         }
+    }
+
+    public void OnOllie()
+    {
+        Debug.Log("Input Ollie Test");
+    }
+
+    public void OnHappyEmote()
+    {
+        Instantiate(happySnailEmotePrefab, gameObject.transform);
+        Debug.Log("Happy!");
+    }
+
+    public void OnSadEmote()
+    {
+        Instantiate(sadSnailEmotePrefab, gameObject.transform);
+        Debug.Log("Sad:(");
     }
 }
