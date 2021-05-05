@@ -64,7 +64,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -96,5 +96,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.194821, y: 10.47458, z: 49.967983}
-  m_Center: {x: 0.29476595, y: 2.5527349, z: -1.6190901}
+  m_Size: {x: 13.437418, y: 10.47458, z: 55.353954}
+  m_Center: {x: 0, y: 2.5527349, z: 0}

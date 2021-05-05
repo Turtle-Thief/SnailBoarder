@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private bool testBool, sanic = false;
 
     private UIManager UM;
+    private AudioManager AM;
 
     private GameObject debugPanel, UICanvas;
     private TextMeshProUGUI scoreText;
@@ -352,6 +353,8 @@ public class GameManager : MonoBehaviour
         //UICanvas = GameObject.Find("UI_Main"); // Might be more efficient to search for object on UI layer
         UM = UIManager.instance;
         UICanvas = UM.gameObject;
+
+        AM = AudioManager.instance;
 
         //if(UICanvas)
         //{

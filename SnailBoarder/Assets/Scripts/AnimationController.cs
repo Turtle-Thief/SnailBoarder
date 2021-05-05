@@ -35,8 +35,8 @@ public class AnimationController : MonoBehaviour
             snailByItself.transform.parent = rootSkate.transform;
         }
 
-        snailAnimator.SetBool("IsDoingRailgrind", gameObject.GetComponent<TricksController>().doRailGrind);
-        skateAnimator.SetBool("IsDoingRailgrind", gameObject.GetComponent<TricksController>().doRailGrind);
+        //snailAnimator.SetBool("IsDoingRailgrind", gameObject.GetComponent<TricksController>().doRailGrind);
+        //skateAnimator.SetBool("IsDoingRailgrind", gameObject.GetComponent<TricksController>().doRailGrind);
     }
 
     /*---------------SKATEBOARD-ANIMATIONS---------------*/

@@ -59,15 +59,17 @@ namespace PathCreation.Examples
             {
                 speed = playerVelocity.currentSpeed;
                 snailSpeed = speed;
-                speed = Mathf.Clamp(speed, 10.0f, 25.0f);
+                speed = Mathf.Clamp(speed, 10.0f, 30.0f);
                 doRailGrind = true;
+                playerVelocity.rigidbody.velocity = Vector3.zero;
 
                 // check snails forward vector
                 //pathCreator.path.GetClosestPointOnPath(gameObject.transform.position);
-                
+
 
                 // lerp snail to closest point on path
                 //gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, pathCreator.path.GetClosestPointOnPath(gameObject.transform.position), speed * Time.deltaTime);
+                //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
 
                 // set distanceTravelled and time to the closest point distance
                 time = pathCreator.path.GetClosestTimeOnPath(gameObject.transform.position);
@@ -83,12 +85,15 @@ namespace PathCreation.Examples
 
         public void EndRailGrind()
         {
+            distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position);
+            playerVelocity.rigidbody.velocity = pathCreator.path.GetDirectionAtDistance(distanceTravelled).normalized * speed;
             pathCreator = null;
             doRailGrind = false;
             playerVelocity.currentSpeed = snailSpeed + 5.0f;
             playerVelocity.Jump(1.0f);
             distanceTravelled = 0.0f;
             time = 0.0f;
+            
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path
