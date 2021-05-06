@@ -12,6 +12,9 @@ namespace PathCreation.Examples
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
         public PlayerVelocity playerVelocity;
+        public PlayerRotation playerRotation;
+        public float minSpeed = 7f;
+        public float maxSpeed = 30f;
         public float speed = 5;
         public float snailSpeed = 0.0f;
         float distanceTravelled, time;
@@ -29,6 +32,7 @@ namespace PathCreation.Examples
         void Start()
         {
             playerVelocity = gameObject.GetComponent<PlayerVelocity>();
+            playerRotation = gameObject.GetComponent<PlayerRotation>();
             doRailGrind = false;
             if (pathCreator != null)
             {
@@ -59,9 +63,10 @@ namespace PathCreation.Examples
             {
                 speed = playerVelocity.currentSpeed;
                 snailSpeed = speed;
-                speed = Mathf.Clamp(speed, 10.0f, 30.0f);
+                speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
                 doRailGrind = true;
                 playerVelocity.rigidbody.velocity = Vector3.zero;
+                playerRotation.enabled = false;
 
                 // check snails forward vector
                 //pathCreator.path.GetClosestPointOnPath(gameObject.transform.position);
@@ -85,9 +90,10 @@ namespace PathCreation.Examples
 
         public void EndRailGrind()
         {
+            playerRotation.enabled = true;
             distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position);
             playerVelocity.rigidbody.velocity = pathCreator.path.GetDirectionAtDistance(distanceTravelled).normalized * speed;
-            pathCreator = null;
+            //pathCreator = null;
             doRailGrind = false;
             playerVelocity.currentSpeed = snailSpeed + 5.0f;
             playerVelocity.Jump(1.0f);
