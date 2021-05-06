@@ -95,6 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58687319035228722}
   - component: {fileID: 58687319035228721}
+  - component: {fileID: 3706284922696765154}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -129,6 +130,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1e915f8661a0246bc5a87657a452b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInputs: {fileID: -944628639613478452, guid: db8ee52492b77dc458d8c720d4993c1a,
+    type: 3}
+  secondaryInputs: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
+    type: 3}
+  gameIsPaused: 0
+  onPausableScene: 0
+  completedLastLevel: 0
+  hatted: 0
+  score: 0
+  neededPoints: 0
+  hatIndex: 0
+  judgesPreferences: 000000000000000000000000
+  currentStyle: 0
   difficulties:
   - name: Easy
     scoreNeeded: 400
@@ -139,18 +153,104 @@ MonoBehaviour:
   - name: Hard
     scoreNeeded: 2000
     timeGiven: 150
-  gameIsPaused: 0
-  onPausableScene: 0
-  completedLastLevel: 0
-  hatted: 0
-  sanic: 0
-  seenDialogue: 0
-  score: 0
-  neededPoints: 0
-  hatIndex: 0
-  judgesPreferences: 000000000000000000000000
-  currentStyle: 0
-  playerInputs: {fileID: -944628639613478452, guid: db8ee52492b77dc458d8c720d4993c1a,
-    type: 3}
-  secondaryInputs: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
-    type: 3}
+  selDif: 0
+  selectedDifficulty:
+    name: 
+    scoreNeeded: 0
+    timeGiven: 0
+--- !u!82 &3706284922696765154
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58687319035228720}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d5a91b1126c850b478d454dab84059a5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
