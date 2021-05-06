@@ -38,7 +38,7 @@ public class TitleScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UM = GameObject.Find("UI_Main").GetComponent<UIManager>();
+        UM = GameObject.Find("UI_Main_v2").GetComponent<UIManager>();
     }
 
     // Update is called once per frame

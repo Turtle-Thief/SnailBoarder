@@ -14604,7 +14604,7 @@ PrefabInstance:
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_Orbits.Array.data[0].m_Radius
-      value: 50
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
@@ -14624,7 +14624,7 @@ PrefabInstance:
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}
       propertyPath: m_Orbits.Array.data[2].m_Radius
-      value: 50
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 3573379380665259045, guid: 4f666cefaa8c8884babf9be74e09479e,
         type: 3}

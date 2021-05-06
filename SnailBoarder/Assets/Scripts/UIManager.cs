@@ -512,7 +512,7 @@ public class UIManager : MonoBehaviour
 
         #endregion
 
-        Debug.Log(EventSystem.current.name);
+        //Debug.Log(EventSystem.current.name);
 
     }
 
