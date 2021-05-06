@@ -643,10 +643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4eea5f9e06c70d4b99054881838a769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 40
+  acceleration: 35
   braking: 10
   friction: 0.5
-  maxForwardSpeed: 100
+  maxForwardSpeed: 85
   maxReverseSpeed: -30
   maxAirSpeed: 0
   gravity: 1
@@ -683,7 +683,7 @@ MonoBehaviour:
   visualPointLeft: {fileID: 570293647176405307}
   visualPointRight: {fileID: 6625244813571771906}
   snailBody: {fileID: 6836485063227696702}
-  rotSpeed: 4
+  rotSpeed: 5
   yRot: 180
   mask:
     serializedVersion: 2
@@ -818,8 +818,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 0}
-  endOfPathInstruction: 2
-  playerVelocity: {fileID: 0}
+  endOfPathInstruction: 1
+  playerVelocity: {fileID: 8754566896945545125}
+  playerRotation: {fileID: 0}
+  minSpeed: 7
+  maxSpeed: 30
   speed: 5
   snailSpeed: 0
   doRailGrind: 0
@@ -999,6 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53afd1f5c9a649a41b6bf170c1e4f962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  receivedInput: 0
 --- !u!1 &5376368811982520795
 GameObject:
   m_ObjectHideFlags: 0
