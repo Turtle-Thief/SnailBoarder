@@ -39,6 +39,7 @@ public class SceneLoader : MonoBehaviour
                 currentScene = nextLevel;
                 SceneManager.LoadScene(nextLevel);
 
+                UIManager.instance.SelectUIObject(UIManager.instance.pauseMenuSelect);
                 // Signal that we're starting the next level (may need to add loading test here)
                 GameManager.instance.OnNextLevel();
                 break;

@@ -3745,6 +3745,7 @@ GameObject:
   - component: {fileID: 1730280474}
   - component: {fileID: 1730280473}
   - component: {fileID: 1730280472}
+  - component: {fileID: 1730280475}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3819,6 +3820,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1730280475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730280471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348df82db88ff9d46b4590c28f384aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1847708733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,10 +3906,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1335159279, guid: 618513df1e791484d96af73a306e60b3, type: 3}
-      propertyPath: m_FirstSelected
-      value: 
-      objectReference: {fileID: 1968884993}
     - target: {fileID: 58687319035228720, guid: 618513df1e791484d96af73a306e60b3,
         type: 3}
       propertyPath: m_Name
@@ -4467,6 +4476,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2318110625693695468, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110625870551154, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 171.74902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110625870551154, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -108.09668
+      objectReference: {fileID: 0}
     - target: {fileID: 2318110626315581120, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
         type: 3}
       propertyPath: parkScore
@@ -4476,6 +4500,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110626654522195, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110626725161889, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110626748885991, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110627293128667, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -195.40039
       objectReference: {fileID: 0}
     - target: {fileID: 2318110627389625432, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
         type: 3}
@@ -4586,6 +4630,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI_Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110627389625447, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: titleMenuSelect
+      value: 
+      objectReference: {fileID: 1968884993}
+    - target: {fileID: 2318110627417460823, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110627561633613, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318110627641500991, guid: 4cb02f2ab6503c04ba6f298e47145e4d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cb02f2ab6503c04ba6f298e47145e4d, type: 3}

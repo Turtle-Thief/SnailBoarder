@@ -20,6 +20,11 @@ public class UIManager : MonoBehaviour
         confirmPanel,
         currentPanel;
 
+    public GameObject
+        pauseMenuSelect,
+        settingsPanelSelect;
+        //titleMenuSelect;
+
     public List<TextMeshProUGUI> styles;
 
     // HUD attributes
@@ -78,6 +83,26 @@ public class UIManager : MonoBehaviour
         nextPanel.SetActive(true);
         currentPanel = nextPanel;
         previousExists = false;
+
+        if(currentPanel = pausePanel)
+        {
+            SelectUIObject(pauseMenuSelect);
+            //Debug.Log("Selected: " + EventSystem.current.currentSelectedGameObject.name);
+            //Debug.Log("Pause test is working");
+            //if(EventSystem.current)
+            //{
+                //Debug.Log("Current ES is " + EventSystem.current.name);
+                //if(EventSystem.current.currentSelectedGameObject)
+                //{
+                    //Debug.Log("Selected = " + EventSystem.current.currentSelectedGameObject.gameObject.name);
+                    //EventSystem.current.SetSelectedGameObject(null);
+                //}
+            //}
+            //else
+            //{
+            //    Debug.Log("No EventSystem selected");
+            //}
+        }
     }
 
     /// <summary>
@@ -128,14 +153,28 @@ public class UIManager : MonoBehaviour
 
     public void CloseAllPanels()
     {
+        if(lastSelected)
+            lastSelected.GetComponent<Selectable>().Select();
+
         // Disable all panels
         pausePanel.SetActive(false);
         helpPanel.SetActive(false);
         settingsPanel.SetActive(false);
         confirmPanel.SetActive(false);
 
-        if(lastSelected)
+    }
+
+    public void CloseAllPanelsAndHUD()
+    {
+        if (lastSelected)
             lastSelected.GetComponent<Selectable>().Select();
+
+        // Disable all panels
+        pausePanel.SetActive(false);
+        helpPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        confirmPanel.SetActive(false);
+        HUDPanel.SetActive(false);
     }
 
     private void ConfirmChoice()
@@ -273,13 +312,19 @@ public class UIManager : MonoBehaviour
     // Quit to Title;
     public void PauseToTitle()
     {
-        // Close our panels
-        CloseAllPanels();
         // Load our title scene
         SceneLoader.instance.LoadScene("title");
+        // Close our panels
+        CloseAllPanelsAndHUD();
     }
 
     #endregion
+
+    public void SelectUIObject(GameObject UIObject)
+    {
+
+        EventSystem.current.SetSelectedGameObject(UIObject);
+    }
 
     #endregion
     #region HUD Methods
@@ -287,7 +332,7 @@ public class UIManager : MonoBehaviour
     public void UpdateScoreDifficulty(GameManager.Difficulty diff)
     {
         SM.parkScore = diff.getScore();
-        Debug.Log("parkscore = " + SM.parkScore);
+        //Debug.Log("parkscore = " + SM.parkScore);
     }
 
     // Given a trick and score, we change the HUD text
@@ -463,9 +508,11 @@ public class UIManager : MonoBehaviour
         resolutions = resolutions.Distinct().ToList();
         currentResIndex = PlayerPrefs.GetInt(RESOLUTION_PREF_KEY, 0);
         isWindowed = PlayerPrefs.GetInt(WINDOWED_PREF_KEY) != 0;
-        
+
 
         #endregion
+
+        Debug.Log(EventSystem.current.name);
 
     }
 

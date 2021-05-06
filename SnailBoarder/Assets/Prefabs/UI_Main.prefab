@@ -2859,10 +2859,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5938057, g: 0.9056604, b: 0.63126945, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.50230443, g: 0.6603774, b: 0.32084376, a: 1}
+    m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3583,7 +3583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2318110626315581121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5301,10 +5301,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5938057, g: 0.9056604, b: 0.63126945, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.50230443, g: 0.6603774, b: 0.32084376, a: 1}
+    m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -7334,10 +7334,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5938057, g: 0.9056604, b: 0.63126945, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.50230443, g: 0.6603774, b: 0.32084376, a: 1}
+    m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -8254,24 +8254,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b56fdd117ac5e488f6fc594159be36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 2318110626996615359}
   HUDPanel: {fileID: 2318110626315581122}
   pausePanel: {fileID: 2318110626748885991}
   helpPanel: {fileID: 2318110626166684656}
   settingsPanel: {fileID: 2318110625693695468}
   confirmPanel: {fileID: 2318110625724331160}
   currentPanel: {fileID: 0}
-  timer: {fileID: 2318110626996615359}
-  lastSelected: {fileID: 0}
-  firstSelected: {fileID: 0}
-  previousExists: 0
-  trickNameText: {fileID: 2318110625891175281}
-  scoreText: {fileID: 2318110627308889178}
+  pauseMenuSelect: {fileID: 2318110627417460823}
+  settingsPanelSelect: {fileID: 2318110627646604280}
   styles:
   - {fileID: 451931607}
   - {fileID: 966488323}
   - {fileID: 843245472}
+  trickNameText: {fileID: 2318110625891175281}
+  scoreText: {fileID: 2318110627308889178}
   SM: {fileID: 0}
-  resText: {fileID: 0}
+  previousExists: 0
+  lastSelected: {fileID: 0}
+  firstSelected: {fileID: 0}
 --- !u!1 &2318110627408041651
 GameObject:
   m_ObjectHideFlags: 0
@@ -8592,10 +8593,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.5938057, g: 0.9056604, b: 0.63126945, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.50230443, g: 0.6603774, b: 0.32084376, a: 1}
+    m_NormalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

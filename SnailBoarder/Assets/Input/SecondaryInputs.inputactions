@@ -74,17 +74,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0bd3eb20-4eeb-4c61-a70f-f30b0ca2b1ec",
-                    "path": "<SwitchProControllerHID>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Previous",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "918c74b2-c4b7-4062-902e-65e1985cd530",
                     "path": "*/{Cancel}",
                     "interactions": "",

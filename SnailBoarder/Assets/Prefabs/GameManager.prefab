@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1335159279}
   - component: {fileID: 1335159278}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: GMEventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,6 +129,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1e915f8661a0246bc5a87657a452b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInputs: {fileID: -944628639613478452, guid: db8ee52492b77dc458d8c720d4993c1a,
+    type: 3}
+  secondaryInputs: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
+    type: 3}
+  gameIsPaused: 0
+  onPausableScene: 0
+  completedLastLevel: 0
+  hatted: 0
+  score: 0
+  neededPoints: 0
+  hatIndex: 0
+  judgesPreferences: 000000000000000000000000
+  currentStyle: 0
   difficulties:
   - name: Easy
     scoreNeeded: 400
@@ -139,18 +152,8 @@ MonoBehaviour:
   - name: Hard
     scoreNeeded: 2000
     timeGiven: 150
-  gameIsPaused: 0
-  onPausableScene: 0
-  completedLastLevel: 0
-  hatted: 0
-  sanic: 0
-  seenDialogue: 0
-  score: 0
-  neededPoints: 0
-  hatIndex: 0
-  judgesPreferences: 000000000000000000000000
-  currentStyle: 0
-  playerInputs: {fileID: -944628639613478452, guid: db8ee52492b77dc458d8c720d4993c1a,
-    type: 3}
-  secondaryInputs: {fileID: -944628639613478452, guid: d3d9e9a068294a344b4a662fdbd68e40,
-    type: 3}
+  selDif: 0
+  selectedDifficulty:
+    name: 
+    scoreNeeded: 0
+    timeGiven: 0
