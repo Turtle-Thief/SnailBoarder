@@ -81,7 +81,7 @@ public class TricksController : MonoBehaviour
         Tricks[(int)TrickName.Heelflip] = new Trick(TrickName.Heelflip, 3, 75, 2f, false);
         Tricks[(int)TrickName.McTwist] = new Trick(TrickName.McTwist, 4, 75, 2f, false);
         Tricks[(int)TrickName.AirKickflip] = new Trick(TrickName.AirKickflip, 4, 75, 2f, false);
-        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 3, 35, 4f, true);
+        Tricks[(int)TrickName.Railgrind] = new Trick(TrickName.Railgrind, 3, 35, 2f, true);
 
         currentTrick = Tricks[(int)TrickName.NullTrick];
         timeSinceLastTrickStart = 0;
