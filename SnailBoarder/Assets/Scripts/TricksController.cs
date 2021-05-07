@@ -10,6 +10,8 @@ public class TricksController : MonoBehaviour
     PlayerVelocity playerMovement;
     AnimationController animator;
     PathCreation.Examples.SnailPathFollower pathFollower;
+    public GameObject audioSource;
+    public SFXManager sfxManager;
 
     public enum TrickName
     {
@@ -69,6 +71,8 @@ public class TricksController : MonoBehaviour
         groundCheck = this.GetComponent<GroundCheck>();
         animator = this.GetComponent<AnimationController>();
         pathFollower = this.GetComponent<PathCreation.Examples.SnailPathFollower>();
+        if(audioSource)
+            sfxManager = audioSource.GetComponent<SFXManager>();
 
         // Adding all tricks
         // IDEA: ?Make them editable in Unity inspector?
@@ -94,7 +98,7 @@ public class TricksController : MonoBehaviour
         if (!GameManager.instance.gameIsPaused)
         {
             // Put everything in here!!!
-
+            playerMovement.doRailGrind = doRailGrind;
             timeSinceLastTrickStart += Time.deltaTime;
         }
     }
@@ -108,6 +112,8 @@ public class TricksController : MonoBehaviour
             if((trickType.mIsGroundTrick && groundCheck.isGrounded) ||
                 (!trickType.mIsGroundTrick && !groundCheck.isGrounded))
                 StartTrick(trickType);
+            if (sfxManager && trickType.mIsGroundTrick && groundCheck.isGrounded)
+                sfxManager.PlayJumpDelayed(0.5f);
         }
         else if (timeSinceLastTrickStart < buttonComboDelayMax && currentTrick.mTier < trickType.mTier && currentTrick.mIsGroundTrick == trickType.mIsGroundTrick) // If another trick is already in progress
         {
@@ -123,6 +129,9 @@ public class TricksController : MonoBehaviour
     public void StartTrick(Trick trickType)
     {
         wasOnRamp = groundCheck.isOnRamp;
+        if (sfxManager)
+            sfxManager.PlayLandDelayed(trickType.mDuration);
+
         currentPauseForTrickCoroutine = PauseForTrick(trickType.mDuration);
         StartCoroutine(currentPauseForTrickCoroutine);
 
@@ -166,6 +175,8 @@ public class TricksController : MonoBehaviour
             case TrickName.HospitalFlip:  // A+X+B (A+Square+O)
                 //StartCoroutine(HospitalFlipAnim()); //tmp
                 //playerMovement.Jump(1.0f);
+                if (sfxManager)
+                    sfxManager.PlayJump();
                 animator.StartHospitalFlipSkateAnim();
                 animator.StartHospitalFlipSnailAnim();
                 //Debug.Log("!OnHospitalFlip!");
@@ -289,7 +300,6 @@ public class TricksController : MonoBehaviour
 
         Trick tmpTrick = Tricks[(int)currentTrick.mName];
         currentTrick = Tricks[(int)TrickName.NullTrick];
-
         bool shouldMultiply = (GameManager.instance.IsMultipliedByJudges() && wasOnRamp);
         //Debug.Log(wasOnRamp);
         //Debug.Log(GameManager.instance.IsMultipliedByJudjes());
@@ -319,7 +329,8 @@ public class TricksController : MonoBehaviour
 
             StartCoroutine(RemoveConstraintsInTime(0.8f));
 
-            
+            if (sfxManager)
+                sfxManager.PlayJump();
             playerMovement.Jump(1.5f);
         }
         else

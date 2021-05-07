@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance = null;
     public AudioSource backgroundTrack;
+    public AudioSource backgroundTrackTournament;
+    public AudioSource time;
     //public AudioSource gameTrack;
 
     private void Awake()
@@ -38,7 +40,30 @@ public class AudioManager : MonoBehaviour
 
     public void StartLevelAudio()
     {
-        if (backgroundTrack)
+        if (backgroundTrack && backgroundTrackTournament)
+        {
+            backgroundTrack.Stop();
+            backgroundTrackTournament.Play();
+        }
+        else if (backgroundTrack)
+        {
+            backgroundTrack.Stop();
             backgroundTrack.Play();
+        }
+    }
+
+    public void EndLevelAudio()
+    {
+        time.Play();
+        if (backgroundTrack && backgroundTrackTournament)
+        {
+            backgroundTrackTournament.Stop();
+            backgroundTrack.Play();
+        }
+        else if (backgroundTrack)
+        {
+            backgroundTrack.Stop();
+            backgroundTrack.Play();
+        }
     }
 }

@@ -260,7 +260,7 @@ public class GameManager : MonoBehaviour
     {
         UIManager.instance.ClearAfterTrickHUD(); // reset
         score = neededPoints = 0; // reset
-
+        AudioManager.instance.StartLevelAudio();
         //if(hatted)
         //{
         //    GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -282,6 +282,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
 
+        AudioManager.instance.EndLevelAudio();
 
         onPausableScene = false;
         gameIsPaused = false; // this may be redundant

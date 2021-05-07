@@ -654,7 +654,10 @@ MonoBehaviour:
   jumpForce: 0
   currentSpeed: 0
   groundCheck: {fileID: 6153311556629707763}
-  rigidbody: {fileID: 0}
+  snailRigidbody: {fileID: 0}
+  sfxManager: {fileID: 0}
+  audioSource: {fileID: 0}
+  doRailGrind: 0
   rotation: {x: 0, y: 0}
   PhysicsRotation: {x: 0, y: 0, z: 0, w: 0}
   VelocityRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -714,6 +717,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2304
   distToGround: 3
+  audioSource: {fileID: 0}
+  sfxManager: {fileID: 0}
 --- !u!114 &5376368812921026780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7417d84481cf546bec039945721cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxManager: {fileID: 0}
   Tricks:
   - mName: 0
     mTier: 0
@@ -821,10 +827,12 @@ MonoBehaviour:
   endOfPathInstruction: 1
   playerVelocity: {fileID: 8754566896945545125}
   playerRotation: {fileID: 0}
+  sfxManager: {fileID: 0}
   minSpeed: 7
   maxSpeed: 30
   speed: 5
   snailSpeed: 0
+  direction: {x: 0, y: 0, z: 0}
   doRailGrind: 0
 --- !u!114 &5376368812921028384
 MonoBehaviour:
@@ -1525,6 +1533,7 @@ GameObject:
   - component: {fileID: 5376368814065291570}
   - component: {fileID: 5376368814065291568}
   - component: {fileID: 5376368814065291569}
+  - component: {fileID: 2077101489}
   m_Layer: 0
   m_Name: AirEnterTriggerChecker
   m_TagString: Untagged
@@ -1569,6 +1578,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 836450f683e9bc44997e72e2ddc03884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2077101489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376368814065291571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d3d937bd301c74d8883262cc08c2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5455153584343009263
@@ -2007,6 +2028,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb626501a2f95b547b8be85f7b08cd52, type: 3}
+--- !u!4 &3163577016099122187 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2198888584636164399, guid: eb626501a2f95b547b8be85f7b08cd52,
+    type: 3}
+  m_PrefabInstance: {fileID: 5376368813735688922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5554639895232339249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb626501a2f95b547b8be85f7b08cd52,
@@ -2016,12 +2043,6 @@ Transform:
 --- !u!1 &5070449696849856395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eb626501a2f95b547b8be85f7b08cd52,
-    type: 3}
-  m_PrefabInstance: {fileID: 5376368813735688922}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3163577016099122187 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2198888584636164399, guid: eb626501a2f95b547b8be85f7b08cd52,
     type: 3}
   m_PrefabInstance: {fileID: 5376368813735688922}
   m_PrefabAsset: {fileID: 0}

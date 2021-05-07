@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject happySnailEmotePrefab;
     public GameObject sadSnailEmotePrefab;
 
+
     public void GiveHat(int hatIndex)
     {
         CosmeticMenu cm = GetComponent<CosmeticMenu>();
@@ -33,11 +34,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         // If the game is NOT paused...
-        if (!GameManager.instance.gameIsPaused)
+        /*if (!GameManager.instance.gameIsPaused)
         {
             // Put everything in here!!!
             //Debug.Log("Words that are identifiable: " + sadHat);
-        }
+        }*/
     }
 
     public void OnOllie()

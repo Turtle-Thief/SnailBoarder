@@ -12,14 +12,15 @@ public class GroundCheck : MonoBehaviour
     public LayerMask IgnoreGroundCheckLayer;
     public float distToGround = 3f;
     float slopeAngle;
-
-
+    public GameObject audioSource;
+    public SFXManager sfxManager;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (audioSource)
+            sfxManager = audioSource.GetComponent<SFXManager>();
     }
 
     // Update is called once per frame
@@ -60,6 +61,8 @@ public class GroundCheck : MonoBehaviour
                 //Debug.Log("Grounded on " + hit.transform.name);
                 isOnRamp = false;
             }
+            if (!isGrounded && sfxManager)
+                sfxManager.PlayLand();
             isGrounded = true;
         }
         else

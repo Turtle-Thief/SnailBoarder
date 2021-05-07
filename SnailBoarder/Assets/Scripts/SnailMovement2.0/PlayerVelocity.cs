@@ -19,7 +19,12 @@ public class PlayerVelocity : MonoBehaviour
     [HideInInspector]
     public GroundCheck groundCheck;
     [HideInInspector]
-    public Rigidbody rigidbody;
+    public Rigidbody snailRigidbody;
+
+    public SFXManager sfxManager;
+    public GameObject audioSource;
+
+    public bool doRailGrind;
 
     public Vector2 rotation;
 
@@ -36,7 +41,9 @@ public class PlayerVelocity : MonoBehaviour
     void Start()
     {
         groundCheck = gameObject.GetComponent<GroundCheck>();
-        rigidbody = gameObject.GetComponent<Rigidbody>();
+        snailRigidbody = gameObject.GetComponent<Rigidbody>();
+        if (audioSource)
+            sfxManager = audioSource.GetComponent<SFXManager>();
         currentSpeed = 0;
     }
 
@@ -53,15 +60,23 @@ public class PlayerVelocity : MonoBehaviour
         if (!GameManager.instance.gameIsPaused)
         {
             //CheckPhysics();
-            //rigidbody.velocity = transform.forward.normalized * currentSpeed;
+            //snailRigidbody.velocity = transform.forward.normalized * currentSpeed;
             //SkaterMove(rotation);
             //Debug.DrawRay(transform.position, transform.up, Color.cyan);
 
 
-            rigidbody.velocity += transform.forward * currentSpeed * Time.deltaTime;
-            rigidbody.velocity = UpdateVelocityDirection();
-            rigidbody.velocity += Vector3.down * gravity;
+            snailRigidbody.velocity += transform.forward * currentSpeed * Time.deltaTime;
+            snailRigidbody.velocity = UpdateVelocityDirection();
+            snailRigidbody.velocity += Vector3.down * gravity;
             Friction();
+            if (snailRigidbody.velocity.magnitude > 2f && groundCheck.isGrounded && !doRailGrind)
+            {
+                sfxManager.PlaySkateboard(snailRigidbody.velocity.magnitude / maxForwardSpeed);
+            }
+            else
+            {
+                sfxManager.PauseSkateboard();
+            }
         }
         if (testBool)
         {
@@ -80,17 +95,17 @@ public class PlayerVelocity : MonoBehaviour
     // calculate velocity
     Vector3 UpdateVelocityDirection()
     {
-        Vector3 updatedVel = rigidbody.velocity;
+        Vector3 updatedVel = snailRigidbody.velocity;
         if (GetComponent<PlayerRotation>().airCheck)
         {
             if (currentSpeed >= 0)
             {
-                updatedVel = transform.forward.normalized * rigidbody.velocity.magnitude;
+                updatedVel = transform.forward.normalized * snailRigidbody.velocity.magnitude;
                 updatedVel = Vector3.ClampMagnitude(updatedVel, maxAirSpeed);
             }
             else
             {
-                updatedVel = transform.forward.normalized * -1 * rigidbody.velocity.magnitude;
+                updatedVel = transform.forward.normalized * -1 * snailRigidbody.velocity.magnitude;
                 updatedVel = Vector3.ClampMagnitude(updatedVel, maxAirSpeed);
             }
         }
@@ -98,16 +113,16 @@ public class PlayerVelocity : MonoBehaviour
         {
             if (currentSpeed >= 0)
             {
-                updatedVel = transform.forward.normalized * rigidbody.velocity.magnitude;
+                updatedVel = transform.forward.normalized * snailRigidbody.velocity.magnitude;
                 updatedVel = Vector3.ClampMagnitude(updatedVel, maxForwardSpeed);
             }
             else
             {
-                updatedVel = transform.forward.normalized * -1 * rigidbody.velocity.magnitude;
+                updatedVel = transform.forward.normalized * -1 * snailRigidbody.velocity.magnitude;
                 updatedVel = Vector3.ClampMagnitude(updatedVel, maxReverseSpeed);
             }
         }
-        return new Vector3(updatedVel.x, rigidbody.velocity.y, updatedVel.z);
+        return new Vector3(updatedVel.x, snailRigidbody.velocity.y, updatedVel.z);
     }
 
     // player is accelerating
@@ -124,7 +139,7 @@ public class PlayerVelocity : MonoBehaviour
 
         //needs to add force
         //Vector3 Direction = transform.forward.normalized * currentSpeed;
-        //rigidbody.AddForce(Direction, ForceMode.VelocityChange);
+        //snailRigidbody.AddForce(Direction, ForceMode.VelocityChange);
     }
 
     // player is braking
@@ -140,8 +155,8 @@ public class PlayerVelocity : MonoBehaviour
         //}
         //needs to add force
         //Vector3 Direction = InputRotation * transform.forward.normalized * currentSpeed;
-        //rigidbody.AddForce(-Direction, ForceMode.VelocityChange);
-        //rigidbody.velocity += Direction * Time.deltaTime;
+        //snailRigidbody.AddForce(-Direction, ForceMode.VelocityChange);
+        //snailRigidbody.velocity += Direction * Time.deltaTime;
     }
 
     // player friction
@@ -164,7 +179,8 @@ public class PlayerVelocity : MonoBehaviour
     public void Jump(float forceMultiplier)
     {
         GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpForce * forceMultiplier, 0), ForceMode.Acceleration);
-
+        //if (sfxManager)
+            //sfxManager.PlayJump();
     }
 
 

@@ -13,10 +13,13 @@ namespace PathCreation.Examples
         public EndOfPathInstruction endOfPathInstruction;
         public PlayerVelocity playerVelocity;
         public PlayerRotation playerRotation;
+        public GameObject audioSource;
+        public SFXManager sfxManager;
         public float minSpeed = 7f;
         public float maxSpeed = 30f;
         public float speed = 5;
         public float snailSpeed = 0.0f;
+        public Vector3 direction;
         float distanceTravelled, time;
         public bool doRailGrind;
 
@@ -33,6 +36,8 @@ namespace PathCreation.Examples
         {
             playerVelocity = gameObject.GetComponent<PlayerVelocity>();
             playerRotation = gameObject.GetComponent<PlayerRotation>();
+            if (audioSource)
+                sfxManager = audioSource.GetComponent<SFXManager>();
             doRailGrind = false;
             if (pathCreator != null)
             {
@@ -48,6 +53,7 @@ namespace PathCreation.Examples
                 distanceTravelled += speed * Time.deltaTime;
                 time = distanceTravelled / pathCreator.path.length;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+                direction = pathCreator.path.GetDirectionAtDistance(distanceTravelled, endOfPathInstruction);
                 //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
                 if (time >= 1.0f)
                 {
@@ -61,12 +67,15 @@ namespace PathCreation.Examples
         {
             if (pathCreator != null)
             {
+                if (sfxManager)
+                    sfxManager.PlayRailgrind();
                 speed = playerVelocity.currentSpeed;
                 snailSpeed = speed;
                 speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
                 doRailGrind = true;
-                playerVelocity.rigidbody.velocity = Vector3.zero;
+                playerVelocity.snailRigidbody.velocity = Vector3.zero;
                 playerRotation.enabled = false;
+                
 
                 // check snails forward vector
                 //pathCreator.path.GetClosestPointOnPath(gameObject.transform.position);
@@ -83,6 +92,7 @@ namespace PathCreation.Examples
                 if (Vector3.Angle(gameObject.transform.forward, pathCreator.path.GetDirectionAtDistance(distanceTravelled, endOfPathInstruction)) >= 90.0f)
                 {
                     distanceTravelled = pathCreator.path.length + (pathCreator.path.length - distanceTravelled);
+                    direction = pathCreator.path.GetDirectionAtDistance(distanceTravelled, endOfPathInstruction);
                 }
             }
         }
@@ -92,8 +102,13 @@ namespace PathCreation.Examples
         {
             playerRotation.enabled = true;
             if (pathCreator)
+            {
                 distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position);
-            playerVelocity.rigidbody.velocity = pathCreator.path.GetDirectionAtDistance(distanceTravelled).normalized * speed;
+                direction = pathCreator.path.GetDirectionAtDistance(distanceTravelled);
+            }
+            if (sfxManager)
+                sfxManager.StopRailgrind();
+            playerVelocity.snailRigidbody.velocity = direction.normalized * speed;
             //pathCreator = null;
             doRailGrind = false;
             playerVelocity.currentSpeed = snailSpeed + 5.0f;
