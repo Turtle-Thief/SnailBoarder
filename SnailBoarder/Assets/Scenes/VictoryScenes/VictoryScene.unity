@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -459,7 +459,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 61535654}
+  m_TargetGraphic: {fileID: 1657054169}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -4262,6 +4262,7 @@ GameObject:
   - component: {fileID: 937314015}
   - component: {fileID: 937314014}
   - component: {fileID: 937314013}
+  - component: {fileID: 937314016}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4336,6 +4337,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937314016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937314012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348df82db88ff9d46b4590c28f384aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &945034858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8150,7 +8163,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1657054169}
+  m_TargetGraphic: {fileID: 61535654}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -10959,6 +10972,7 @@ MonoBehaviour:
   airTrickTriggerLayer:
     serializedVersion: 2
     m_Bits: 0
+  doRailGrind: 0
   currentTrick:
     mName: 0
     mTier: 0
@@ -11188,6 +11202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e292f759c79d0fb42955636ade3fa8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  happySnailEmotePrefab: {fileID: 0}
+  sadSnailEmotePrefab: {fileID: 0}
 --- !u!1 &2923235390454404198
 GameObject:
   m_ObjectHideFlags: 0

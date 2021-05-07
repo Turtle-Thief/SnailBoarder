@@ -12,7 +12,7 @@ public class CosmeticsSceneScript : MonoBehaviour, ISelectHandler
 
         foreach(Transform child in transform.parent)
         {
-            Debug.Log("Parent: " + transform.parent);
+            //Debug.Log("Parent: " + transform.parent);
             
             if(child.gameObject == this.gameObject)
             {

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5927,6 +5927,7 @@ MonoBehaviour:
   airTrickTriggerLayer:
     serializedVersion: 2
     m_Bits: 0
+  doRailGrind: 0
   currentTrick:
     mName: 0
     mTier: 0
@@ -6106,6 +6107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e292f759c79d0fb42955636ade3fa8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  happySnailEmotePrefab: {fileID: 0}
+  sadSnailEmotePrefab: {fileID: 0}
 --- !u!23 &550234821
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6333,6 +6336,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b940b0e6ababb5b4ab87edea98b259c2, type: 2}
+    - target: {fileID: 4838374755646807619, guid: f0a1debb68194d34f8a88956162f258d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.11000061
+      objectReference: {fileID: 0}
     - target: {fileID: 5931622383410197148, guid: f0a1debb68194d34f8a88956162f258d,
         type: 3}
       propertyPath: m_Name
@@ -6762,10 +6770,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.5378137, g: 0.5471698, b: 0.4723211, a: 1}
+    m_NormalColor: {r: 0.5372549, g: 0.54901963, b: 0.47058824, a: 1}
+    m_HighlightedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -10916,6 +10924,7 @@ MonoBehaviour:
   airTrickTriggerLayer:
     serializedVersion: 2
     m_Bits: 0
+  doRailGrind: 0
   currentTrick:
     mName: 0
     mTier: 0
@@ -11095,6 +11104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e292f759c79d0fb42955636ade3fa8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  happySnailEmotePrefab: {fileID: 0}
+  sadSnailEmotePrefab: {fileID: 0}
 --- !u!23 &1071250063
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20050,6 +20061,7 @@ GameObject:
   - component: {fileID: 1959979216}
   - component: {fileID: 1959979215}
   - component: {fileID: 1959979214}
+  - component: {fileID: 1959979217}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -20124,6 +20136,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959979217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959979213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348df82db88ff9d46b4590c28f384aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1969224423
 PrefabInstance:
   m_ObjectHideFlags: 0

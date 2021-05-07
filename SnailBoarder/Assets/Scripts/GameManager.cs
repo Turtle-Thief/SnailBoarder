@@ -143,15 +143,33 @@ public class GameManager : MonoBehaviour
     {
         // Go to previous UI menus / close menus
         //  may be used for other functionality later
-        if (UM.previousExists)
+        if(!onPausableScene) // If we're on Title Screen or anywhere but game
         {
-            UM.ClosePanel(UM.currentPanel, true);
-        }
-        else
-        {
-            if (!onPausableScene)
+            if (UM.previousExists) // And there's a previous panel
             {
-                UM.CloseAllPanels(); // Can be changed to ClosePanel()
+                UM.ClosePanel(UM.currentPanel, true); // Close that panel and return to the original panel
+            }
+            else // If there is no previous panel
+            {
+                UM.CloseAllPanels();
+            }
+        }
+        else // We're in the game, and can pause
+        {
+            if(gameIsPaused && UM.currentPanel != UM.pausePanel)
+            {
+                if (UM.previousExists) // And there's a previous panel
+                {
+                    UM.ClosePanel(UM.currentPanel, true); // Close that panel and return to the original panel
+                }
+                else // If there is no previous panel
+                {
+                    UM.CloseAllPanels();
+                }
+            }
+            else
+            {
+
             }
         }
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   snailName: Squish
   dialogueLines:
   - To the annual Snailboarding competition!
-  - Were snails from all over the world come to try and earn fame by perfoming wild
+  - Where snails from all over the world come to try and earn fame by perfoming wild
     skateboarding tricks!
   japaneseDialogueLines: []
   textSpeed: 0.01
