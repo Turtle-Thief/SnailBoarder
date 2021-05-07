@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
 
     // Serialzied int values to change scenes in title editor
     [SerializeField]
-    private int title = 0, hat = 1, instruct = 2, nextLevel = 3, dialog = 4, victory = 5, defeat = 6, tutorial = 7;
+    private int title = 0, hat = 1, instruct = 2, nextLevel = 3, dialog = 4, victory = 5, defeat = 6, tutorial = 7, credits = 8;
 
     public int currentScene = 0;
 
@@ -61,6 +61,11 @@ public class SceneLoader : MonoBehaviour
                 currentScene = tutorial;
                 GameManager.instance.onPausableScene = true;
                 SceneManager.LoadScene(tutorial);
+                break;
+            case "credits":
+                currentScene = credits;
+                GameManager.instance.onPausableScene = false;
+                SceneManager.LoadScene(credits);
                 break;
             default:
                 Debug.Log("Error: sceneName does not exist");
@@ -115,6 +120,11 @@ public class SceneLoader : MonoBehaviour
                 currentScene = tutorial;
                 GameManager.instance.onPausableScene = true;
                 SceneManager.LoadScene(tutorial);
+                break;
+            case 8:
+                currentScene = credits;
+                GameManager.instance.onPausableScene = false;
+                SceneManager.LoadScene(credits);
                 break;
             default:
                 Debug.Log("Error: sceneName does not exist");
@@ -171,6 +181,7 @@ public class SceneLoader : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
+
     private void Update()
     {
         // If the game is NOT paused...
