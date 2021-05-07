@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3477654754247718655}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CurvedRamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,9 +29,38 @@ Transform:
   m_Children:
   - {fileID: 5718609772104810704}
   - {fileID: 8306425680744670619}
+  - {fileID: 2891576578106696013}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &4059943375558885885
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906467175634754154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6869037961880763048, guid: 8732d76e5f7ed9f499867f88cad407b9, type: 3}
+--- !u!64 &1710392947534994119
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650722781056974625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4991000973697506479, guid: 42ced0e23b9b05247b7fa3f36c088697, type: 3}
 --- !u!1001 &5248431032459323195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,13 +133,99 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_lilCurvedRampMod
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8732d76e5f7ed9f499867f88cad407b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8732d76e5f7ed9f499867f88cad407b9, type: 3}
+--- !u!1 &4906467175634754154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8732d76e5f7ed9f499867f88cad407b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5248431032459323195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5718609772104810704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8732d76e5f7ed9f499867f88cad407b9,
     type: 3}
   m_PrefabInstance: {fileID: 5248431032459323195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5354649446333217222
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3477654754247718655}
+    m_Modifications:
+    - target: {fileID: 5806462411954379672, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_Name
+      value: AirTrickTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.32804236
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.94466305
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 218.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec9ae498b3b8daa4aba3ba3e26784458, type: 3}
+--- !u!4 &2891576578106696013 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+    type: 3}
+  m_PrefabInstance: {fileID: 5354649446333217222}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8416351774155899504
 PrefabInstance:
@@ -184,8 +299,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_bigCurvedRampMod
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 42ced0e23b9b05247b7fa3f36c088697,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42ced0e23b9b05247b7fa3f36c088697, type: 3}
+--- !u!1 &8650722781056974625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 42ced0e23b9b05247b7fa3f36c088697,
+    type: 3}
+  m_PrefabInstance: {fileID: 8416351774155899504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8306425680744670619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 42ced0e23b9b05247b7fa3f36c088697,

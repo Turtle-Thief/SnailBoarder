@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &1292606086619240084
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35808756419974570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7965209157090116841, guid: 44dd96dd9ce6ec24ba7e963fda1f8645, type: 3}
 --- !u!1 &4846157038332155737
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +23,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513565984807646558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,9 +43,24 @@ Transform:
   m_Children:
   - {fileID: 9115008014004792713}
   - {fileID: 807524715738599184}
+  - {fileID: 9128140672265911494}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &8616504480697359961
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445608101551830835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4682045768591600833, guid: 50b5eb771fa448547a1d142b0b07c7e2, type: 3}
 --- !u!1001 &918274788962593019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,13 +133,109 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_lilRampMod
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44dd96dd9ce6ec24ba7e963fda1f8645,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dd96dd9ce6ec24ba7e963fda1f8645, type: 3}
+--- !u!1 &35808756419974570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 44dd96dd9ce6ec24ba7e963fda1f8645,
+    type: 3}
+  m_PrefabInstance: {fileID: 918274788962593019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &807524715738599184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44dd96dd9ce6ec24ba7e963fda1f8645,
     type: 3}
   m_PrefabInstance: {fileID: 918274788962593019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2072451097313223757
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1513565984807646558}
+    m_Modifications:
+    - target: {fileID: 1214795019530524367, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 23.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214795019530524367, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806462411954379672, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_Name
+      value: AirTrickTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec9ae498b3b8daa4aba3ba3e26784458, type: 3}
+--- !u!4 &9128140672265911494 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7093020837230237835, guid: ec9ae498b3b8daa4aba3ba3e26784458,
+    type: 3}
+  m_PrefabInstance: {fileID: 2072451097313223757}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8788134772903070306
 PrefabInstance:
@@ -184,8 +309,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_bigRampMod
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 50b5eb771fa448547a1d142b0b07c7e2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b5eb771fa448547a1d142b0b07c7e2, type: 3}
+--- !u!1 &8445608101551830835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50b5eb771fa448547a1d142b0b07c7e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8788134772903070306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9115008014004792713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50b5eb771fa448547a1d142b0b07c7e2,
