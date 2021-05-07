@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance = null;
     public AudioSource backgroundTrack;
+    //public AudioSource gameTrack;
 
     private void Awake()
     {
@@ -25,13 +26,19 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (backgroundTrack != null)
+        if (backgroundTrack)
             backgroundTrack.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void StartLevelAudio()
+    {
+        if (backgroundTrack)
+            backgroundTrack.Play();
     }
 }

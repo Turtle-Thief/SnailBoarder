@@ -91,7 +91,8 @@ namespace PathCreation.Examples
         public void EndRailGrind()
         {
             playerRotation.enabled = true;
-            distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position);
+            if (pathCreator)
+                distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(gameObject.transform.position);
             playerVelocity.rigidbody.velocity = pathCreator.path.GetDirectionAtDistance(distanceTravelled).normalized * speed;
             //pathCreator = null;
             doRailGrind = false;
