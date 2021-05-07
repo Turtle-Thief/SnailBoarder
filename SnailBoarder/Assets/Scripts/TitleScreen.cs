@@ -27,6 +27,12 @@ public class TitleScreen : MonoBehaviour
         UM.OpenPanel(UM.settingsPanel);
     }
 
+    public void OnCredits()
+    {
+        UIManager.instance.lastSelected = EventSystem.current.currentSelectedGameObject;
+        SceneLoader.instance.LoadScene("credits");
+    }
+
     public void OnQuit()
     {
         UIManager.instance.lastSelected = EventSystem.current.currentSelectedGameObject;
